@@ -1,0 +1,5 @@
+.error { border:1px solid #FF0000; background-color:#FFE1E1}
+.validation-advice{color:#FF0000;background:url(../images/note_msg_icon.gif)no-repeat;padding-left:20px; float:left;; width:100%}
+.error-message , .success-message{ margin-top:10px;clear:both;min-height:23px !important;margin-bottom:1em !important;border-style:solid !important;border-width:1px !important;background-repeat:no-repeat !important;background-position:10px 10px !important;padding:8px 8px 8px 32px !important;font-size:.95em !important;font-weight:bold !important;}
+.error-message{border-color:#f16048;color:#df280a;background-color:#faebe7;background-image:url(../images/error_msg_icon.gif);}
+.success-message{border-color:#446423;color:#3d6611;background-color:#eff5ea;background-image:url(../images/success_msg_icon.gif);}

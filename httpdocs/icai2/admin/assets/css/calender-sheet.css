@@ -1,0 +1,61 @@
+body {
+	margin:0px;
+	padding:10px;
+	font:12px Arial, Helvetica, sans-serif;
+	line-height:18px;
+	color:#000;
+}
+* {
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	outline:none;
+}
+img {
+	border: none;
+}
+table#top{margin-bottom:20px;}
+table#top td{border-bottom:1px solid #999; border-top:1px solid #999; padding:8px 0 8px 0;}
+h1{font-size:18px;
+color:#666;
+font-weight:normal;
+}
+h2{font-size:18px;
+color:#333;
+font-weight:normal;
+}
+table#rental-chart td {
+	border-bottom:1px solid #CCC;
+	border-left:1px solid #CCC;
+	border-top:1px solid #CCC;
+	width:20px;
+	height:13px;
+}
+table#rental-chart td.right-bor {
+	border-right:1px solid #ccc;
+	border-left:none;
+}
+table#rental-chart td.right-end {
+	border-right:1px solid #ccc;
+
+}
+table#rental-chart td.none {
+	border:none;
+}
+table#rental-chart td.red {
+	background:#F00;
+}
+table#rental-chart td.mid {
+	height:13px;
+	background:url(../images/mid.jpg) left top repeat-x;
+	overflow:hidden;
+	width:auto;
+	text-align:center;
+	border-left:none;
+}
+table#rental-chart td.right-bor-none {
+	border-right:none;
+}
+table#rental-chart td.left-bor-none {
+	border-left:none;
+}

@@ -1,0 +1,52 @@
+/* -------------------- Logo -------------------- */
+/*height: 100px; */
+#header-main #logo { 
+	background: url(../images/blue/adminlogo.png) no-repeat left ;
+	width: 100%; 
+	
+	}
+
+
+
+	
+/* -------------------- Header background -------------------- */
+/*
+	background: #005195 url(../images/blue/header-bg.jpg) repeat-x top left; 
+
+*/	
+#header-main { 
+	}
+
+
+
+
+/* -------------------- Tabs -------------------- */
+
+ul#nav li {
+	background:transparent url(../images/blue/tab-left.gif) no-repeat scroll left top;
+	float:left;
+	margin:0 0 0 0;
+	padding:0 0 0 9px;
+	}
+
+ul#nav li a, ul#nav li a:visited {
+	background:transparent url(../images/blue/tab-right.gif) no-repeat scroll right top;
+	color:#FFFFFF;
+	display:block;
+	float:left;
+	padding:7px 15px 6px 6px;
+	text-decoration:none;
+	}
+	
+ul#nav li a:hover {
+	padding:8px 15px 5px 6px;
+	}
+
+ul#nav li#current { /* give the id="current" to the currently selected tab */
+	background:transparent url(../images/blue/tab-active-left.gif) no-repeat scroll left top;
+	}
+
+ul#nav li#current a {
+	background:transparent url(../images/blue/tab-active-right.gif) no-repeat scroll right top;
+	color:#444444;
+	}
