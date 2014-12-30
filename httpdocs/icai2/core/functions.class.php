@@ -1211,21 +1211,25 @@ function setdate(){
 	
 	
 	
-	function writeLog(){
-		
-	//	$this->pr($_SERVER,true);
-	$iplogfile = '../iplog/iplog-'.date("Y-m-d").'.txt';
-$ipaddress = $_SERVER['REMOTE_ADDR'];
-$webpage = $_SERVER['SCRIPT_NAME'];
-$timestamp = date('m/d/Y h:i:s');
-$browser = $_SERVER['REQUEST_URI']." ";
+	function writeLog()
+	{
+		/* Check if iplog folder exists, if not create it. */
+		if (!file_exists('../iplog'))
+			mkdir('../iplog', 0777, false);
 
-if(!empty($_SESSION['User']))
-$browser .= implode(',',$_SESSION['User']);
-$fp = fopen($iplogfile, 'a+');
-chmod($iplogfile, 0777);
-fwrite($fp, '['.$timestamp.']: '.$ipaddress.' '.$webpage.' '.$browser. "\r\n");
-fclose($fp);
+		$iplogfile 	= 	'../iplog/iplog-'.date("Y-m-d").'.txt';
+		$ipaddress 	= 	$_SERVER['REMOTE_ADDR'];
+		$webpage 	= 	$_SERVER['SCRIPT_NAME'];
+		$timestamp 	= 	date('m/d/Y h:i:s');
+		$browser 	= 	$_SERVER['REQUEST_URI']." ";
+		
+		if(!empty($_SESSION['User']))
+			$browser .= implode(',',$_SESSION['User']);
+		
+		$fp = fopen($iplogfile, 'a+');
+		chmod($iplogfile, 0777);
+		fwrite($fp, '['.$timestamp.']: '.$ipaddress.' '.$webpage.' '.$browser. "\r\n");
+		fclose($fp);
 	}
 	
 	function GetPages()
