@@ -192,14 +192,4 @@ function get_input_file($file, $date)
 			return $price_file;
 	}
 }
-
-/* Returns the headers and footers offset in the file */
-function input_file_data_offset($file)
-{
-	$currency_factor_data_start = 21;
-	$currency_factor_data_end = 4;
-	
-	if ("CURRENCY_FACTOR" == $file)
-		return array($currency_factor_data_start, $currency_factor_data_end);
-}
 ?>
