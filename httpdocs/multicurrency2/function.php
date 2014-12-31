@@ -154,4 +154,52 @@ function webopen($url)
 	</script>";
 	echo $link;
 }
+
+function get_time()
+{
+	$time = explode(' ', microtime());
+	$curr_time = $time[1] + $time[0];
+	return $curr_time;
+}
+
+/*
+ * Paths where input files fetched from Bloomberg:
+ * a) Corporate actions
+ * b) Cash Index
+ * c) LIBOR rate
+ * d) Currency factor
+ * e) Price file
+ * f) Adjusted benchmark index
+ */
+function get_input_file($file, $date)
+{
+	$currency_factor = "../files/ca-input/curr1.csv.".date("Ymd", strtotime($date));
+	$libor_rate = "../files/ca-input/libr.csv.".date("Ymd", strtotime($date));
+	$cash_index = "../files/ca-input/cashindex.csv.".date("Ymd", strtotime($date));
+	$price_file = "../files/ca-input/multicurr.csv.".date("Ymd", strtotime($date));
+	
+	//echo "Request for input file: " . $file . "[" . $file . "]" . PHP_EOL;
+	
+	switch ($file)
+	{
+		case "CURRENCY_FACTOR":
+			return $currency_factor;
+		case "LIBOR_RATE":
+			return $libor_rate;
+		case "CASH_INDEX":
+			return $cash_index;			
+		case "PRICE_FILE":
+			return $price_file;
+	}
+}
+
+/* Returns the headers and footers offset in the file */
+function input_file_data_offset($file)
+{
+	$currency_factor_data_start = 21;
+	$currency_factor_data_end = 4;
+	
+	if ("CURRENCY_FACTOR" == $file)
+		return array($currency_factor_data_start, $currency_factor_data_end);
+}
 ?>
