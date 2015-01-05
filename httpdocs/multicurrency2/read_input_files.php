@@ -9,7 +9,7 @@ include("convert_security_price.php");
 include("convert_hedged_security_price.php");
 
 date_default_timezone_set("Asia/Kolkata");
-//$start_time = get_time();
+$start_time = get_time();
 
 /* Execution time for the script. Must be defined based on performance and load. */
 ini_set('max_execution_time', 60 * 60);
@@ -36,10 +36,12 @@ define("price_file", get_input_file("PRICE_FILE", date));
 
 /* TODO: NA values cases in various fields will be handled during manipulations */
 
+/* TODO: Optimize hedging files */
+
 read_currencyfactor();
 
-//$end_time = get_time();
-//$total_time = round(($end_time - $start_time), 4);
+$end_time = get_time();
+$total_time = round(($end_time - $start_time), 4);
 //log_info("Closing file generation process completed in " . $total_time . " seconds.");
 
 //clean environment variables, if any

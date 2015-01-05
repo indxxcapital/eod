@@ -58,9 +58,9 @@ function convert_security_to_indxx_curr()
 {
 	$start = get_time();
 
-	//TODO: Take onl relevant fields here
-	$index_query =	mysql_query("SELECT * FROM `tbl_indxx` WHERE `status` = '1' AND `usersignoff` = '1'
-													AND `dbusersignoff` = '1' AND `submitted` = '1' ");
+	//TODO: Take only relevant fields here - id, currency_hedged, curr
+	$index_query =	mysql_query("SELECT id, currency_hedged, curr FROM `tbl_indxx` WHERE `status` = '1' 
+									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1' ");
 
 	if (!($err_code = mysql_errno()))
 	{
@@ -84,6 +84,12 @@ function convert_security_to_indxx_curr()
 				{
 					if(!mysql_num_rows($res))
 						$convert_flag = true;
+				}
+				else
+				{
+					log_error("MYSQL query failed. Exiting closing process.");
+					//TODO: Send email
+					exit();
 				}
 				mysql_free_result($res);
 			}
@@ -131,7 +137,7 @@ function convert_security_to_indxx_curr()
 						$currencyPrice = 1;
 						$final_price_array[$index_id][$row]['price'] = $priceRow['localprice'];
 												
-						if($index['curr'] != $priceRow['local_currency'])
+						if($index['curr'] && ($index['curr'] != $priceRow['local_currency']))
 						{
 							$cfactor_code = $index['curr'].$priceRow['local_currency'];
 
@@ -154,9 +160,6 @@ function convert_security_to_indxx_curr()
 				/* Free the security table for this index */
 				mysql_free_result($res);
 			}
-
-			/* TODO: Free the table for this index */
-			//mysql_free_result($index);
 		}
 		
 		/* Remove duplicates from the array */
@@ -207,6 +210,7 @@ function convert_security_to_indxx_curr()
 				}
 				unset($final_price_array[$indxx_id]);
 			}
+			unset($final_price_aray);
 		}
 	}
 	else
@@ -216,13 +220,13 @@ function convert_security_to_indxx_curr()
 		mail(email_errors, "Unable to read live indexes.", "MYSQL error code " . $err_code . ".");
 		exit();
 	}
-
+	mysql_free_result($index_query);
+	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
 	log_info("Price conversion for live normal indexes done in " . $total_time . " seconds.");
 	
 	convert_security_to_indxx_curr_upcomingindex();
-	//convert_headged_security_to_indxx_curr();
 	//saveProcess(2);
 	//mysql_close();	
 }
@@ -255,6 +259,12 @@ function convert_security_to_indxx_curr_upcomingindex()
 				{
 					if(!mysql_num_rows($res))
 						$convert_flag = true;
+				}
+				else
+				{
+					log_error("MYSQL query failed. Exiting closing process.");
+					//TODO: Send email
+					exit();
 				}
 				mysql_free_result($res);
 			}
@@ -299,35 +309,32 @@ function convert_security_to_indxx_curr_upcomingindex()
 						$indexarray[$index_id] = $priceRow['ticker'];
 						break;
 					}
-						
-					if($index['curr'])
-					{
-						if($index['curr'] != $priceRow['local_currency'])
-						{
-							$cfactor = getPriceforCurrency($index['curr'].$priceRow['local_currency'], date);
-							$currencyPrice = $cfactor;
-							$final_price_array[$index_id][$row]['price']=$priceRow['localprice']/$cfactor;
-
-							if(strcmp($index['curr'].$priceRow['local_currency'],strtoupper($index['curr'].$priceRow['local_currency'])))
-								$final_price_array[$index_id][$row]['price'] /= 100;
-						}
-						else
-						{
-							$currencyPrice = 1;
-							$final_price_array[$index_id][$row]['price'] = $priceRow['localprice'];
-						}
-					}
 					else
 					{
 						$currencyPrice = 1;
 						$final_price_array[$index_id][$row]['price'] = $priceRow['localprice'];
-					}
 
-					$final_price_array[$index_id][$row]['isin'] = $priceRow['isin'];
-					$final_price_array[$index_id][$row]['localprice'] = $priceRow['localprice'];
-					$final_price_array[$index_id][$row]['currencyfactor'] = $currencyPrice;
+						if($index['curr'] && ($index['curr'] != $priceRow['local_currency']))
+						{
+							$cfactor_code = $index['curr'].$priceRow['local_currency'];
+
+							$cfactor = getPriceforCurrency($cfactor_code, date);
+							$currencyPrice = $cfactor;
+
+							$final_price_array[$index_id][$row]['price']= $priceRow['localprice']/$cfactor;
+							
+							if(strcmp($cfactor_code,strtoupper($cfactor_code)))
+								$final_price_array[$index_id][$row]['price'] /= 100;
+						}
+					
+						$final_price_array[$index_id][$row]['isin'] = $priceRow['isin'];
+						$final_price_array[$index_id][$row]['localprice'] = $priceRow['localprice'];
+						$final_price_array[$index_id][$row]['currencyfactor'] = $currencyPrice;
+					}
 					$row++;
 				}
+				/* Free the security table for this index */
+				mysql_free_result($res);
 			}
 		}
 
@@ -379,6 +386,7 @@ function convert_security_to_indxx_curr_upcomingindex()
 				}
 				unset($final_price_array[$indxx_id]);
 			}
+			unset($final_price_array);
 		}
 	}
 	else
@@ -388,11 +396,12 @@ function convert_security_to_indxx_curr_upcomingindex()
 		mail(email_errors, "Unable to read upcoming indexes.", "MYSQL error code " . $err_code . ".");
 		exit();
 	}	
-
+	mysql_free_result($index_query);
+	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
 	log_info("Price conversion for normal upcoming indexes done in " . $total_time . " seconds.");
-
+	
 	convert_headged_security_to_indxx_curr();
 	//webopen("convert_currency_hedged_temp.php");
 	//saveProcess(2);

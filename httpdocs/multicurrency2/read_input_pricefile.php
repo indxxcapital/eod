@@ -37,24 +37,30 @@ function read_pricefile()
 	{
 		log_info("Price file read. Rows inserted = " . $rows . ".");
 	}
-	//mysql_free_result($res);
-	
-	/* TODO: THIS LOOKS LIKE SOME PATCH, NEEDS TO BE DISCUSSED - MAY BE THE CASE WITH RE-PROCESSING OF DATA 
+
+	/* TODO: QUERY - NEEDS TO BE DISCUSSED - MAY BE THE CASE WITH RE-PROCESSING OF DATA 
 	 * 	in case of delisting etc errors
-	$data['ticker']="'".$security[0]."'";
-	$data['isin']="'".$security[6]."'";
-	$data['price']="'".round($security[3],2)."'";
-	$data['curr']="'".$security[4]."'";
-	$data['date']="'".$date."'";
-			
-	if(is_numeric($security[3]))
-	{
-		$price=selectrow(array('id'),'tbl_prices_local_curr',array('isin'=>$security[6],'date'=>$date));
-		if(empty($price))
-			qry_insert('tbl_prices_local_curr',$data);			
-	}
+		$data['ticker']="'".$security[0]."'";
+		$data['isin']="'".$security[6]."'";
+		$data['price']="'".round($security[3],2)."'";
+		$data['curr']="'".$security[4]."'";
+		$data['date']="'".$date."'";
+				
+		if(is_numeric($security[3]))
+		{
+			$price=selectrow(array('id'),'tbl_prices_local_curr',array('isin'=>$security[6],'date'=>$date));
+			if(empty($price))
+				qry_insert('tbl_prices_local_curr',$data);			
+		}
 	*/
-		
+
+	/*
+	 * TODO:
+	 * a) See how to free memory used by the above query
+	 * b) Send an email incase of more than 5% fluctuation today
+	 * c) Add a check for non-numeric values. Send an email in that case and use previous day value for calculation
+	 */
+			
 	/* 
 	 * TODO: Send an email incase -
 	 * a) Security price is same for 3 consecutive days.

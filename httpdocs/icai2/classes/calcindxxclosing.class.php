@@ -15,9 +15,9 @@ class Calcindxxclosing extends Application
 		
 		$this->log_info(log_file, "Closing file generation process started.");
 		
-		$this->_title = $this->siteconfig->site_title;
-		$this->_meta_description = $this->siteconfig->default_meta_description;
-		$this->_meta_keywords = $this->siteconfig->default_meta_keyword;
+		$this->_title 				= $this->siteconfig->site_title;
+		$this->_meta_description 	= $this->siteconfig->default_meta_description;
+		$this->_meta_keywords 		= $this->siteconfig->default_meta_keyword;
 		
 		$datevalue = date("Y-m-d", strtotime($this->_date) - 86400);
 		//TODO: FOR TESTING
@@ -25,6 +25,7 @@ class Calcindxxclosing extends Application
 		
 		$final_array = array();
 
+		//TODO: Error handling
 		$indxxs = mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and 
 															dbusersignoff = '1' and submitted = '1'");
 
@@ -68,7 +69,7 @@ class Calcindxxclosing extends Application
 				//mysql_free_result($client);
 				//mysql_free_result($indxx_value);
 				
-				$query = "SELECT it.id, it.name, it.isin, it.ticker, curr, sedol, cusip, countryname, fp.price as calcprice, 
+				$query = "SELECT it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.price as calcprice, 
 						fp.localprice as localprice, fp.currencyfactor as currencyfactor, sh.share as calcshare  
 						FROM tbl_indxx_ticker it, tbl_final_price fp, tbl_share sh where 
 						it.indxx_id='".$row_id."' and sh.isin=it.isin  and sh.indxx_id='".$row_id."' and 
@@ -102,7 +103,7 @@ class Calcindxxclosing extends Application
 					}
 				}
 			
-				$final_array[$row_id]['values']=$indxxprices;				
+				$final_array[$row_id]['values'] = $indxxprices;				
 			}		
 		}
 		//TODO: FREE MEMORY FOR queries
@@ -219,7 +220,7 @@ class Calcindxxclosing extends Application
 										("1", "'.$closeIndxx['id'].'", "'.mysql_real_escape_string($entry1.$entry2.$entry3.$entry4).'")';
 						$this->db->query($insertlogQuery);
 	   					fclose($open);
-						echo "file written for ".$closeIndxx['code']."({$closeIndxx['client']})<br>";
+						$this->log_info(log_file, "Closing file written for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 					}
 				}  		
 			}

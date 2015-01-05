@@ -36,9 +36,13 @@ function read_liborrate()
 	{
 		log_info("Libor rate file read. Rows inserted = " . $rows . ".");
 	}
-	//mysql_free_result($res);
-	
-	/* TODO: Send an email incase of more than 5% fluctuation today */
+
+	/*
+	 * TODO:
+	 * a) See how to free memory used by the above query
+	 * b) Send an email incase of more than 5% fluctuation today
+	 * c) Add a check for non-numeric values. Send an email in that case and use previous day value for calculation
+	 */
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);

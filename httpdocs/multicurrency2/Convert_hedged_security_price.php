@@ -7,7 +7,10 @@ function convert_headged_security_to_indxx_curr()
 
 	$final_price_array	=	array();
 
-	/* TODO: Don't we need to check for active and signed indexes here and look for currenfcy mismatches? ? */
+	/* 
+	 * TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? 
+	 * Convert this to direct mysql query
+	 */
 	$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx', array("currency_hedged" => 1));
 	//$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_heged = '1'");
 	
