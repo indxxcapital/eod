@@ -40,7 +40,7 @@ function selectrow($fieldsarray, $table, $datafields = array())
 	}
    
     //performs the query
-	//echo "SELECT $fields FROM $table $whereQuery";
+	//echo "SELECT $fields FROM $table $whereQuery" . "\n";
 	//exit;
 	
     $result = mysql_query("SELECT $fields FROM $table $whereQuery");
@@ -113,30 +113,28 @@ function getCurrencyNew($date)
 	}
 }
 
-function getPriceforCurrency($ticker,$date)
+function getPriceforCurrency($ticker, $date)
 {
-	$query = "SELECT price  FROM `tbl_curr_prices` WHERE `currencyticker` LIKE '".strtoupper($ticker)."%' AND `date` = '$date'";
+	$query = "SELECT price  FROM `tbl_curr_prices` WHERE 
+			`currencyticker` LIKE '".strtoupper($ticker)."%' AND `date` = '$date'";
 	$res = mysql_query($query);
+	$err_code = mysql_errno();
+	
+	if ($err_code)
+		goto error;
 
-	if(mysql_num_rows($res) > 0)
+	if(false != ($row = mysql_fetch_assoc($res)))
 	{
-		$row = mysql_fetch_assoc($res);
-
 		if($row['price'])
-		{
 			return $row['price'];
-		}
-		else
-		{
-			echo "Price Not Available for Currency Ticker ".$ticker." of date.".$date."<br>" ;
-			exit;
-		}
 	}
-	else
-	{
-		echo "Price Not Available for Currency Ticker ".$ticker." of date.".$date."<br>" ;
-		exit;
-	}
+
+error:
+	log_error("Unable to currency factor for ticker = " . $ticker .
+				". MYSQL error code = " . $err_code . ". Exiting closing file processing.");
+	mail(email_errors, "Unable to currency factor for ticker = " . $ticker . ".",
+			"MYSQL error code " . $err_code . ".");
+	exit();
 }
 
 function saveProcess($type = 0)
@@ -173,10 +171,10 @@ function get_time()
  */
 function get_input_file($file, $date)
 {
-	$currency_factor = "../files/ca-input/curr1.csv.".date("Ymd", strtotime($date));
-	$libor_rate = "../files/ca-input/libr.csv.".date("Ymd", strtotime($date));
-	$cash_index = "../files/ca-input/cashindex.csv.".date("Ymd", strtotime($date));
-	$price_file = "../files/ca-input/multicurr.csv.".date("Ymd", strtotime($date));
+	$currency_factor = "../files/input/curr1.csv.".date("Ymd", strtotime($date));
+	$libor_rate = "../files/input/libr.csv.".date("Ymd", strtotime($date));
+	$cash_index = "../files/input/cashindex.csv.".date("Ymd", strtotime($date));
+	$price_file = "../files/input/multicurr.csv.".date("Ymd", strtotime($date));
 	
 	//echo "Request for input file: " . $file . "[" . $file . "]" . PHP_EOL;
 	
@@ -191,5 +189,33 @@ function get_input_file($file, $date)
 		case "PRICE_FILE":
 			return $price_file;
 	}
+}
+
+/* Logging mechanisms */
+function prepare_logfile()
+{
+	$logs_folder = "../files/logs/";
+	
+	/* Check if log folder exists, if not create it. */
+	if (!file_exists($logs_folder))
+		mkdir($logs_folder, 0777, false);
+
+	$log_file = $logs_folder . "logs_" . date('Y-m-d_H-i-s', $_SERVER['REQUEST_TIME']) . ".txt";
+	return $log_file;
+}
+
+function log_error($text)
+{
+	file_put_contents(log_file, "ERROR: " . $text . "\n", FILE_APPEND);
+}
+
+function log_warning($text)
+{
+	file_put_contents(log_file, "WARNING: " . $text . "\n", FILE_APPEND);
+}
+
+function log_info($text)
+{
+	file_put_contents(log_file, "INFO: " . $text . "\n", FILE_APPEND);
 }
 ?>

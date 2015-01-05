@@ -1,5 +1,6 @@
 <?php 
 include("includes/dbconfig.php");
+
 function qry_insert($table, $data)
     {
         $qry = array();

@@ -4,41 +4,48 @@ function read_currencyfactor()
 {
 	$start = get_time();
 
-	/*
-	$query = "LOAD DATA INFILE 'C:/wamp/www/eod/httpdocs/files/ca-input/curr1.csv.20140827'
-				INTO TABLE tbl_curr_prices
-				FIELDS TERMINATED BY '|'
-				LINES TERMINATED BY '\n'
-				(currencyticker, @x, @y, price, currency, @z)
-				SET date = '" . date . "'";
-	echo $query . PHP_EOL;
-	*/
+	if (!file_exists(currencyfactor_file))
+	{
+		log_error("Currency factor file not available. Exiting closing file process.");
+		mail(email_errors, "Currency factor file not available.", currencyfactor_file . " not available.");
+		exit();
+	}
+	
 	$query = "LOAD DATA INFILE '" . str_replace("\\", "/", realpath(currencyfactor_file)) .
 				"' INTO TABLE tbl_curr_prices
 				FIELDS TERMINATED BY '|'
 				LINES TERMINATED BY '\n'
 				(currencyticker, @x, @y, price, currency, @z)
 				SET date = '" . date . "'";
-	
-	if (false == mysql_query($query))
+	$res = mysql_query($query);
+
+	if (($err_code = mysql_errno()))
 	{
-		echo "Failed to read currency factor file" . PHP_EOL;
+		log_error("Unable to read currency factor file. MYSQL error code " . $err_code . 
+					". Exiting closing file process.");
+		mail(email_errors, "Unable to read currency factor file.", "MYSQL error code " . $err_code . ".");
+		exit();
+	}
+	else if (!($rows = mysql_affected_rows()))
+	{
+		log_error("No data in currency factor file. Exiting closing file process.");
+		mail(email_errors, "No data in currency factor file.", "No data in currency factor file.");
 		exit();
 	}
 	else
 	{
-		echo "Currency factor file read[Rows inserted: " . mysql_affected_rows() . "]" . PHP_EOL;
+		log_info("Currency factor file read. Rows inserted = " . $rows . ".");
 	}
-
-	read_liborrate();
-
-	//saveProcess(2);
-	//mysql_close();
-	//webopen("read_libor.php");
-	/* echo '<script>document.location.href="read_libor.php";</script>'; */
-
+	//mysql_free_result($res);
+	
+	/* TODO: Send an email incase of more than 5% fluctuation today */
+	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	echo 'Page generated in '.$total_time.' seconds. ' . PHP_EOL;
+	log_info("Currency factor file read in " . $total_time . " seconds.");
+		
+	read_liborrate();
+	//saveProcess(2);
+	//mysql_close();
 }
 ?>

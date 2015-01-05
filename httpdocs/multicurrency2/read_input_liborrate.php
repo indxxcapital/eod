@@ -3,33 +3,49 @@
 function read_liborrate()
 {
 	$start = get_time();
-
+	
+	if (!file_exists(liborrate_file))
+	{
+		log_error("Libor rate file not available. Exiting closing file process.");
+		mail(email_errors, "Libor rate file not available.", liborrate_file . " not available.");
+		exit();
+	}
+	
 	$query = "LOAD DATA INFILE '" . str_replace("\\", "/", realpath(liborrate_file)) .
-	"' INTO TABLE tbl_libor_prices 
+			"' INTO TABLE tbl_libor_prices 
 				FIELDS TERMINATED BY '|'
 				LINES TERMINATED BY '\n'
 				(ticker, @x, @y, price, @z)
 				SET date = '" . date . "'";
+	$res = mysql_query($query);
 	
-	if (false == mysql_query($query))
+	if (($err_code = mysql_errno()))
 	{
-		echo "Failed to read libor rate file" . PHP_EOL;
+		log_error("Unable to read libor rate file. MYSQL error code " . $err_code .
+			". Exiting closing file process.");
+		mail(email_errors, "Unable to read libor rate file.", "MYSQL error code " . $err_code . ".");
+		exit();
+	}
+	else if (!($rows = mysql_affected_rows()))
+	{
+		log_error("No data in libor rate file. Exiting closing file process.");
+		mail(email_errors, "No data in libor rate file.", "No data in libor rate file.");
 		exit();
 	}
 	else
 	{
-		echo "Libor rate file read[Rows inserted: " . mysql_affected_rows() . "]" . PHP_EOL;
+		log_info("Libor rate file read. Rows inserted = " . $rows . ".");
 	}
-
-	read_cashindex();
-
-	//saveProcess(2);
-	//mysql_close();
-	//webopen("read_cashindex.php");
-	/*echo '<script>document.location.href="read_cashindex.php";</script>'; */
-
+	//mysql_free_result($res);
+	
+	/* TODO: Send an email incase of more than 5% fluctuation today */
+	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	echo 'Page generated in '.$total_time.' seconds. ' . PHP_EOL;
+	log_info("Libor rate file read in " . $total_time . " seconds.");
+		
+	read_cashindex();
+	//saveProcess(2);
+	//mysql_close();
 }
 ?>

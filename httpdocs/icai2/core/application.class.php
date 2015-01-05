@@ -17,9 +17,7 @@ class Application extends Functions{
 	var $gridItemDiabled=array("add"=>true,"edit"=>true,"view"=>true,"update"=>true,"delete"=>true,"status"=>true);
 	var $siteconfig;
 	var $gridButtons=array();
-	
-	
-	
+
 	var $URI=array("0"=>"module",
 							 "1"=>"event",
 							 "2"=>"id",
@@ -56,8 +54,7 @@ class Application extends Functions{
 			$this->smarty->assign("siteconfig",$this->siteconfig);
 		   
 		} 
-		
-		
+				
 		public function startApp()
 		{
 			

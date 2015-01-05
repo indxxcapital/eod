@@ -10,7 +10,7 @@ ini_set('allow_call_time_pass_reference',true);
 // Do not allow php_sess_id to be passed in the querystring and it's use for google search
 ini_set('session.use_only_cookies', 1);
 //Set the memory limit 
-ini_set("memory_limit", "256M");
+ini_set("memory_limit", "512M");
 setlocale(LC_ALL,'en_IN');
 putenv("TZ=Asia/Calcutta");
 //date_default_timezone_set("Asia/Kolkata"); 
