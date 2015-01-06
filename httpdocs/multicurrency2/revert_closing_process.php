@@ -43,5 +43,14 @@ if ($err = mysql_errno())
 else
 	echo "Price table cleaned" . PHP_EOL;
 
+$query = "DELETE FROM `tbl_final_price` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "MYSQL query failed [error=" .$err. "] - Final price table clean" . PHP_EOL;
+else
+	echo "Final price table cleaned" . PHP_EOL;
+
+
+
 
 ?>

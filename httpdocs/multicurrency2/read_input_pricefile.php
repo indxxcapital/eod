@@ -17,7 +17,7 @@ function read_pricefile()
 				LINES TERMINATED BY '\n'
 				(ticker, @x, @y, @price, curr, @a, isin, @c)
 				SET date = '" . date . "',
-					price = '" . round(@price, 2) . "'";
+					price = round(@price, 2)";
 	$res = mysql_query($query);
 	
 	if (($err_code = mysql_errno()))

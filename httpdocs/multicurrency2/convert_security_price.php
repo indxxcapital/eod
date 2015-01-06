@@ -4,6 +4,9 @@ function send_index_deactivation_mail($keyindex, $valueindex, $index_type)
 {	
 	$index_table = "tbl_indxx";
 	
+	$emailsids			=	'';
+	$dbuseremailsids	=	'';
+	
 	if ($index_type != "LIVE")
 		$index_table = "tbl_indxx_temp";
 
@@ -60,20 +63,18 @@ function convert_security_to_indxx_curr()
 
 	//TODO: Take only relevant fields here - id, currency_hedged, curr
 	$index_query =	mysql_query("SELECT id, currency_hedged, curr FROM `tbl_indxx` WHERE `status` = '1' 
-									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1' ");
+									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1'");
 
 	if (!($err_code = mysql_errno()))
-	{
+	{	
 		$final_price_array	=	array();
 		$indexarray			=	array();
-		$emailsids			=	'';
-		$dbuseremailsids	=	'';
 
 		while(false != ($index = mysql_fetch_assoc($index_query)))
 		{
 			$index_id = $index['id'];
-			//print_r($index);
-
+			log_info("Processing index=" .$index['id']);
+				
 			/* Check if given index is local currency hedged index or not. */
 			$convert_flag = false;			
 			if($index['currency_hedged'] == 1)
@@ -104,7 +105,9 @@ function convert_security_to_indxx_curr()
 				$res = mysql_query("SELECT it.isin, it.ticker, pf.price as localprice, pf.curr as local_currency, 
 									it.curr as ticker_currency FROM `tbl_indxx_ticker` it, `tbl_prices_local_curr` pf 
 									where it.indxx_id = '" . $index_id . "' and pf.isin = it.isin  and pf.date = '" . date . "'");
-								
+
+				log_info("Securities in index = " .mysql_num_rows($res));
+
 				if (($err_code = mysql_errno()))
 				{
 					log_error("Unable to read securities for live index = " . $index_id . 
@@ -119,12 +122,16 @@ function convert_security_to_indxx_curr()
 				{
 					$currencyPrice = 0;
 
+					log_info("	Processing security isin=" .$priceRow['isin']);
+						
 					/*
 					 * Check if got the right currency for the security from Bloomberg.
 					 * If not, raise alert and disable this index.
 					 */					
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
+						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
+						
 						log_error("Currency mismatch for: ". $priceRow['ticker'] . ". Disabling index = " . $index_id);
 						mail(email_errors, "Currency mismatch. Disabling index = " . $index_id, 
 								"Currency mismatch for: ". $priceRow['ticker'] . ".");
@@ -139,6 +146,7 @@ function convert_security_to_indxx_curr()
 												
 						if($index['curr'] && ($index['curr'] != $priceRow['local_currency']))
 						{
+							log_info("		Conversion Required for ".$index['curr'].$priceRow['local_currency']);
 							$cfactor_code = $index['curr'].$priceRow['local_currency'];
 
 							$cfactor = getPriceforCurrency($cfactor_code, date);
@@ -225,7 +233,7 @@ function convert_security_to_indxx_curr()
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
 	log_info("Price conversion for live normal indexes done in " . $total_time . " seconds.");
-	
+
 	convert_security_to_indxx_curr_upcomingindex();
 	//saveProcess(2);
 	//mysql_close();	
@@ -237,8 +245,6 @@ function convert_security_to_indxx_curr_upcomingindex()
 
 	$final_price_array	=	array();
 	$indexarray			=	array();
-	$emailsids			=	'';
-	$dbuseremailsids	=	'';
 	
 	$index_query =	mysql_query("SELECT id, name, code, curr, currency_hedged FROM `tbl_indxx_temp`");
 
