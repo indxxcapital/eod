@@ -61,7 +61,6 @@ function convert_security_to_indxx_curr()
 {
 	$start = get_time();
 
-	//TODO: Take only relevant fields here - id, currency_hedged, curr
 	$index_query =	mysql_query("SELECT id, currency_hedged, curr FROM `tbl_indxx` WHERE `status` = '1' 
 									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1'");
 
@@ -102,10 +101,10 @@ function convert_security_to_indxx_curr()
 			/* Start processing the securities for this index */
 			if($convert_flag)
 			{
-				$res = mysql_query("SELECT it.isin, it.ticker, pf.price as localprice, pf.curr as local_currency, 
-									it.curr as ticker_currency FROM `tbl_indxx_ticker` it, `tbl_prices_local_curr` pf 
-									where it.indxx_id = '" . $index_id . "' and pf.isin = it.isin  and pf.date = '" . date . "'");
-
+				$res = mysql_query("SELECT it.isin, it.ticker, pf.price as localprice , pf.curr as local_currency, 
+									it.curr as ticker_currency 
+									FROM tbl_indxx_ticker it left join tbl_prices_local_curr pf on pf.isin=it.isin 
+									where it.indxx_id='".$index_id."' and pf.date='".date."'");
 				log_info("Securities in index = " .mysql_num_rows($res));
 
 				if (($err_code = mysql_errno()))
@@ -281,12 +280,10 @@ function convert_security_to_indxx_curr_upcomingindex()
 			
 			if($convert_flag)
 			{
-				$query = "SELECT it.isin, it.ticker, pf.price as localprice, pf.curr as local_currency,
-						it.curr as ticker_currency
-						FROM tbl_indxx_ticker_temp it, tbl_prices_local_curr pf
-						where it.indxx_id ='" . $index_id . "' and it.status = '1' and
-						pf.isin = it.isin and pf.date = '" . date . "'";
-				$res = mysql_query($query);
+				$res = mysql_query("SELECT it.isin, it.ticker, pf.price as localprice , pf.curr as local_currency,
+									it.curr as ticker_currency
+									FROM tbl_indxx_ticker_temp it left join tbl_prices_local_curr pf on pf.isin=it.isin
+									where it.indxx_id='".$index_id."' and pf.date='".date."'");
 
 				if (($err_code = mysql_errno()))
 				{

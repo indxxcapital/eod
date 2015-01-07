@@ -68,13 +68,17 @@ class Calcindxxclosing extends Application
 				//TODO: FREE MEMORY FOR queries
 				//mysql_free_result($client);
 				//mysql_free_result($indxx_value);
-				
+				/*
 				$query = "SELECT it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.price as calcprice, 
 						fp.localprice as localprice, fp.currencyfactor as currencyfactor, sh.share as calcshare  
 						FROM tbl_indxx_ticker it, tbl_final_price fp, tbl_share sh where 
 						it.indxx_id='".$row_id."' and sh.isin=it.isin  and sh.indxx_id='".$row_id."' and 
 						fp.isin=it.isin  and fp.date='".$datevalue."' and fp.indxx_id='".$row_id."'";
-
+				*/
+				$query="SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.localprice, fp.currencyfactor, 
+						fp.price as calcprice, sh.share as calcshare FROM `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin 
+						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id."'
+						 and sh.indxx_id='".$row_id."' and fp.date='".$datevalue."'";
 				$indxxprices = $this->db->getResult($query, true);	
 				
 				if(!empty($indxxprices))
