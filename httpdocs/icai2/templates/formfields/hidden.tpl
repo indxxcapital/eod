@@ -1,1 +1,0 @@
-<input type="hidden" name="{$formParams.feild_code}" id="{$formParams.feild_code}" value="{$formParams.value}" class="{$formParams.class}" />

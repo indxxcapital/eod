@@ -1,1 +1,0 @@
-<input type="text" name="{$formParams.feild_code}" placeholder="{$formParams.feild_label}" id="{$formParams.feild_code}" value="{$formParams.value}" class="span3" {$formParams.feildValues}/>
