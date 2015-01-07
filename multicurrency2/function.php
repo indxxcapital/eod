@@ -1,5 +1,7 @@
 <?php 
 include("dbconfig.php");
+//include("input_files.php");
+
 function qry_insert($table, $data)
     {
         $qry = array();
@@ -162,4 +164,12 @@ window.open('".$url."');
 </script>";
 echo $link;
 }
+
+function get_time()
+{
+	$time = explode(' ', microtime());
+	$curr_time = $time[1] + $time[0];
+	return $curr_time;
+}
+
 ?>

@@ -5,8 +5,10 @@ $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $start = $time;
 include("function.php");
-$date=date("Y-m-d");
-//$date='2014-12-17';
+//$date=date("Y-m-d");
+$date='2014-08-27';
+
+
 $final_price_array=array();
 $indexarray=array();
 $emailsids='';

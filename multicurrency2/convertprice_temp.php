@@ -8,23 +8,22 @@ $start = $time;
 
 include("function.php");
 
-$date=date("Y-m-d");
-//$date='2014-12-19';
+//$date=date("Y-m-d");
+$date='2014-08-27';
 
 //$currency=getCurrencyNew($date);
 //print_r($currency);
 //exit;
 
+if($_GET['id'])
+{
+	$page=$_GET['id'];	
+}
+else
+{
+	$page=0;	
+}
 
-
-		if($_GET['id'])
-		{
-			$page=$_GET['id'];	
-		}
-		else
-		{
-			$page=0;	
-		}
 $final_price_array=array();
 $indexarray=array();
 $emailsids='';
@@ -36,7 +35,7 @@ $totalindexes= count($indxxs);
 
 // status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' 
 
-$Query=mysql_query("Select  * from tbl_indxx_temp  where 1=1 limit $page,1 ");
+$Query=mysql_query("Select  * from tbl_indxx_temp  where 1=1 ");
 if(mysql_num_rows($Query)>0)
 {
 while($index=mysql_fetch_assoc($Query))
@@ -245,13 +244,16 @@ mysql_query($fpquery);
 
 }
 
+/* AMIT MAHAJAN - We dont need to get into multiple pages, can be done on a single page and go forward */
+webopen("convert_currency_hedged_temp.php");
+
+/*
 if($totalindexes<=$page)
 		{
 		//	echo "Redirect Next";	
 			
 			saveProcess(2);
-/*echo '<script>document.location.href="convertprice_temp.php";</script>';
-	*/
+		//echo '<script>document.location.href="convertprice_temp.php";</script>';
 	webopen("convert_currency_hedged_temp.php");
 		}
 		else
@@ -259,9 +261,9 @@ if($totalindexes<=$page)
 			//echo "In Current Page";
 			saveProcess(2);
 			webopen("convertprice_temp.php?id=".($page+1)."");
-			/*echo '<script>document.location.href="convertprice'.rand(1,2).'.php?id='.($page+2).'";</script>';
-		*/}
-		
+			//echo '<script>document.location.href="convertprice'.rand(1,2).'.php?id='.($page+2).'";</script>';
+}
+*/	
 
 //print_r($final_price_array);
 //exit;

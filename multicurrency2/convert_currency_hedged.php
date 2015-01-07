@@ -5,8 +5,10 @@ $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $start = $time;
 include("function.php");
-$date=date("Y-m-d");
-//$date='2014-12-17';
+
+//$date=date("Y-m-d");
+$date='2014-08-27';
+
 $final_price_array=array();
 $indexarray=array();
 $emailsids='';
@@ -75,11 +77,7 @@ mysql_query($fpquery);
 
 		}
 		}
-		
-	
 	}
-	
-
 }
 }
 
@@ -92,7 +90,10 @@ $total_time = round(($finish - $start), 4);
 echo 'Page generated in '.$total_time.' seconds. ';
 saveProcess(2);
 mysql_close();
-webopen("http://174.36.193.130/icai2/index.php?module=calcindxxclosing");
+
+//-==============================
+webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing");
+//webopen("http://174.36.193.130/icai2/index.php?module=calcindxxclosing");
 /*echo '<script>document.location.href="http://http://174.36.193.130//icai2/index.php?module=calcindxxclosing";</script>';
 */
 
