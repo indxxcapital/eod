@@ -1,0 +1,50 @@
+[12/20/2014 05:03:21]: 174.36.193.130 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=1 
+[12/20/2014 05:03:27]: 174.36.193.130 /icai2/index1.php /icai2/index1.php?module=calcindxxclosing&event=index&id=2 
+[12/20/2014 12:00:22]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/20/2014 12:01:50]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/20/2014 10:32:58]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=1 
+[12/20/2014 10:33:05]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=2 
+[12/20/2014 03:44:09]: 182.64.215.42 /icai2/index.php /icai2/ 
+[12/20/2014 03:44:21]: 182.64.215.42 /icai2/index.php /icai2/ 
+[12/20/2014 03:44:21]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=home 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:44:29]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=clients 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:44:37]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=clients&event=addNew 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:44:57]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=clients&event=addNew 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:44:58]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=clients 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:45:05]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=caupcomingindex 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:45:21]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=clients 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:47:09]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 02:18:21]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 02:18:27]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 03:50:13]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 02:21:24]: 182.64.215.42 /icai2/index1.php /icai2/index1.php?module=calcindxxclosing&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 02:21:31]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:14:04]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:14:57]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:15:33]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/20/2014 05:18:24]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/20/2014 05:21:40]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:24:43]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:27:45]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:30:47]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:33:50]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:33:53]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:33:56]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 04:09:13]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 04:10:21]: 182.64.215.42 /icai2/index1.php /icai2/index1.php?module=calcindxxclosing&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 04:10:27]: 182.64.215.42 /icai2/index2.php /icai2/index2.php?module=calcindxxclosing&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:42:47]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:42:49]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:42:51]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:43:39]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:43:40]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:43:43]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:47:31]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:47:37]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:47:42]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:48:13]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:48:15]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:48:16]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:49:37]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:49:41]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=1 11,sunny goyal,sgoyal@indxx.com,1,02:44
+[12/20/2014 05:49:44]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose&event=index&id=2 11,sunny goyal,sgoyal@indxx.com,1,02:44

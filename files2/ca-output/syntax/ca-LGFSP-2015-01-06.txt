@@ -1,0 +1,9 @@
+Index Name;Locus Global Financial Products & Services PR;
+Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
+BLND LN Equity;British Land Co PLC/The;GB0001367019;Cash Dividend;2015-01-08;Gross Amt.=6.92;GBp;;;
+WPG US Equity;Washington Prime Group Inc; ;Cash Dividend;2015-01-12;Gross Amt.=.28;USD;;;
+BBD US Equity;Banco Bradesco SA; ;Cash Dividend;2015-01-05;Gross Amt.=.007799;USD;;;
+LNC US Equity;Lincoln National Corp; ;Cash Dividend;2015-01-08;Gross Amt.=.20;USD;;;
+ACM US Equity;AECOM Technology Corp; ;Name Change;2015-01-07;;; OLD NAME-AECOM Technology Corp NEW NAME-AECOM;;
+UDR US Equity;UDR Inc; ;Cash Dividend;2015-01-08;Gross Amt.=.26;USD;;;
+AXP US Equity;American Express Co; ;Cash Dividend;2015-01-07;Gross Amt.=.26;USD;;;

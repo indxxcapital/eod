@@ -1,0 +1,123 @@
+	/**
+ * FancyUpload Showcase
+ *
+ * @license		MIT License
+ * @author		Harald Kirschner <mail [at] digitarald [dot] de>
+ * @copyright	Authors
+ */
+
+/* CSS vs. Adblock tabs */
+.swiff-uploader-box a {
+	display: none !important;
+}
+
+/* .hover simulates the flash interactions */
+a:hover, a.hover {
+	color: red;
+}
+
+#image-status {
+	padding: 10px 15px;
+	width: 260px;
+	border: 1px solid #eee;
+}
+
+#image-status .progress {
+	background: url(progress-bar/progress.gif) no-repeat;
+	background-position: +50% 0;
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+
+#image-status .progress-text {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+#upload-list {
+	list-style: none;
+	margin: 0;
+}
+
+#upload-list li.validation-error {
+	padding-left: 44px;
+	display: block;
+	clear: left;
+	line-height: 40px;
+	color: #8a1f11;
+	cursor: pointer;
+	border-bottom: 1px solid #fbc2c4;
+	background: #fbe3e4 url(failed.png) no-repeat 4px 4px;
+}
+
+#upload-list li.file {
+	border-bottom: 1px solid #eee;
+	background: url(file.png) no-repeat 4px 4px;
+	overflow: auto;
+}
+#upload-list li.file.file-uploading {
+	background-image: url(uploading.png);
+	background-color: #D9DDE9;
+}
+#upload-list li.file.file-success {
+	background-image: url(success.png);
+}
+#upload-list li.file.file-failed {
+	background-image: url(failed.png);
+}
+
+#upload-list li.file .file-name {
+	font-size: 1.2em;
+	margin-left: 44px;
+	display: block;
+	clear: left;
+	line-height: 40px;
+	height: 40px;
+	font-weight: bold;
+}
+#upload-list li.file .file-size {
+	font-size: 0.9em;
+	line-height: 18px;
+	float: right;
+	margin-top: 2px;
+	margin-right: 6px;
+}
+#upload-list li.file .file-info {
+	display: block;
+	margin-left: 44px;
+	font-size: 0.9em;
+	line-height: 20px;
+	clear
+}
+#upload-list li.file .file-remove {
+	clear: right;
+	float: right;
+	line-height: 18px;
+	margin-right: 6px;
+}
+
+#browse_link {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:#F1F1F1 none repeat scroll 0 0;
+border:1px solid #CCCCCC;
+color:#000000;
+font-weight:bold;
+line-height:25px;
+margin-bottom:10px;
+padding-left:5px;
+}
+
+#browse_link a
+{
+   color:#005B9A; text-decoration:none;
+ 
+}
+
+#browse_link a:hover
+{
+   color:#656565; text-decoration:underline;
+}
+ 
+

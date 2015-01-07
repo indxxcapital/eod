@@ -1,0 +1,2 @@
+<input type="password" name="{$Form_Params.name}" id="{$Form_Params.name}" value="{$Form_Params.value}" class="{$Form_Params.class}" />
+<span id="error_{$Form_Params.name}" {$Form_Params.errorClass}>{$Form_Params.errorMessage}</span>

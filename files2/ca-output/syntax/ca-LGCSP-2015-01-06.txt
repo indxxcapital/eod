@@ -1,0 +1,6 @@
+Index Name;Locus Global Consumer Products & Services PR;
+Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
+GNTX US Equity;Gentex Corp/MI; ;Cash Dividend;2015-01-05;Gross Amt.=.08;USD;;;
+GPS US Equity;Gap Inc/The; ;Cash Dividend;2015-01-05;Gross Amt.=.22;USD;;;
+GMCR US Equity;Keurig Green Mountain Inc; ;Cash Dividend;2015-01-09;Gross Amt.=.2875;USD;;;
+MAS US Equity;Masco Corp; ;Cash Dividend;2015-01-07;Gross Amt.=.09;USD;;;

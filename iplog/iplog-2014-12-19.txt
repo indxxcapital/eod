@@ -1,0 +1,369 @@
+[12/19/2014 10:13:11]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/19/2014 10:13:11]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosingtemp 
+[12/19/2014 10:13:19]: 174.36.193.130 /icai2/index1.php /icai2/index1.php?module=calcindxxclosingtemp&event=index&id=1 
+[12/19/2014 10:14:54]: 174.36.193.130 /icai2/index1.php /icai2/index1.php?module=calcindxxclosingtemp&event=index&id=2 
+[12/19/2014 10:14:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=compositclose 
+[12/19/2014 10:14:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccash 
+[12/19/2014 10:14:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccashtemp 
+[12/19/2014 10:14:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calclsc 
+[12/19/2014 10:14:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccsi 
+[12/19/2014 10:14:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcsl 
+[12/19/2014 10:18:10]: 174.36.193.130 /icai2/index1.php /icai2/index1.php?module=calcindxxclosingtemp&event=index&id=1 
+[12/19/2014 10:19:45]: 174.36.193.130 /icai2/index1.php /icai2/index1.php?module=calcindxxclosingtemp&event=index&id=2 
+[12/19/2014 12:26:00]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 12:26:19]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 12:26:20]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 11,sunny goyal,sgoyal@indxx.com,1,23:26
+[12/19/2014 12:26:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 11,sunny goyal,sgoyal@indxx.com,1,23:26
+[12/19/2014 12:27:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=login&event=logout 11,sunny goyal,sgoyal@indxx.com,1,23:26
+[12/19/2014 12:27:08]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 12:27:16]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 12:27:35]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 12:27:35]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:27:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=deleteindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:04]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=csi 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=csi&event=deleteindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=csi 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=csi 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:30]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=csi 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:35]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashIndex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashIndextemp 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:40]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashIndex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashindex&event=delete&id=2 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:48]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=lsc 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashIndextemp 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cashIndex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:28:56]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:29:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx&event=deleteindex 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:29:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:29:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:29:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:30:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=commodityindxx 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:30:41]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=sl 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:31:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdelisttemp 
+[12/19/2014 12:31:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcreplacetemp 
+[12/19/2014 12:31:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdelist 
+[12/19/2014 12:31:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcreplace 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccapub 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=checkcavalue 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcspinstockadd 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcspinstockaddtemp 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccadp 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccadptemp 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcrebalance 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdp 
+[12/19/2014 12:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=replaceindex 
+[12/19/2014 12:31:35]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=replacecash 
+[12/19/2014 12:31:35]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpca 
+[12/19/2014 12:36:45]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=replaceindex 
+[12/19/2014 12:47:07]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopeningtemp 
+[12/19/2014 12:47:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosingtemp 
+[12/19/2014 12:47:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/19/2014 12:50:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=login&event=logout 11,sunny goyal,sgoyal@indxx.com,1,23:27
+[12/19/2014 12:50:02]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 12:50:29]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=view&id=109 
+[12/19/2014 12:50:30]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 04:07:45]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 04:07:53]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 04:07:53]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 12,Devika Singhal,dsinghal@indxx.com,2,03:07
+[12/19/2014 04:07:59]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 12,Devika Singhal,dsinghal@indxx.com,2,03:07
+[12/19/2014 04:08:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=login&event=logout 12,Devika Singhal,dsinghal@indxx.com,2,03:07
+[12/19/2014 04:08:07]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 05:30:00]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 05:30:10]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening 
+[12/19/2014 05:30:28]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 05:30:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 11,sunny goyal,sgoyal@indxx.com,1,04:30
+[12/19/2014 05:30:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex 11,sunny goyal,sgoyal@indxx.com,1,04:30
+[12/19/2014 05:31:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=1 
+[12/19/2014 05:31:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=2 
+[12/19/2014 05:31:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopeningtemp 
+[12/19/2014 05:31:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=notifyforca 
+[12/19/2014 05:31:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen 
+[12/19/2014 05:49:23]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 05:49:33]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/19/2014 05:49:34]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 10,Rishu Tandon,rtandon@indxx.com,2,04:49
+[12/19/2014 05:50:02]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:49
+[12/19/2014 05:57:17]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 
+[12/19/2014 05:57:17]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 05:57:27]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 05:57:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:57:36]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:58:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:58:29]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:58:40]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:58:59]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:11]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=117 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:19]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex&event=editfornext&id=117 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:24]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=117 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=117 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 05:59:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:25]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:47]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:49]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:00:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=118 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=118 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:11]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:53]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:01:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:04]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:47]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=119 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:02:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:05]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:10]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=119 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:10]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:46]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:46]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=120 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=120 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:03:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:27]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:29]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=121 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=121 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:04:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex&event=editfornext&id=121 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:05:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:05:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:05:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:05:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:05:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:11]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex&event=editfornext&id=122 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:15]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:18]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=122 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:32]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=122 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:32]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:06:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:07:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:07:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:07:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:07:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:07:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=123 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=123 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:08:56]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:11]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=124 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=124 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:09:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:20]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:34]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:36]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=125 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=125 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:10:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:27]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1226 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:48]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:48]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:11:54]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=126 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:00]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=126 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:42]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:56]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:12:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=1000 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=127 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=127 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:22]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:54]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:13:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=900 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:17]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:22]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=128 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=128 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:14:34]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:20]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:22]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=800 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:23]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:25]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:15:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=129 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:04]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:27]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=700 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:30]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=129 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:36]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:16:42]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=130 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:09]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=130 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:15]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:17]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=600 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:41]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:17:41]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:16]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=131 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:19]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:35]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=500 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:39]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:43]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:49]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=132 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:59]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=132 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:18:59]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:32]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=600 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:48]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:49]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:19:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:14]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:18]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=133 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:22]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:49]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:20:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=400 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:21:02]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=133 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:21:02]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:22:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:22:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:22:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=134 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:22:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=134 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:22:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:32]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:53]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=300 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:23:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:04]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=135 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:30]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:30]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:36]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=135 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:44]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:24:56]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=200 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:02]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:09]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=136 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:19]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:50]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:25:56]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=uploadSecuritiesforRunning 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:09]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=casecurities&event=addNewNextrunning&id=200 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id= 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:18]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=viewupcoming&id=137 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:24]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caindex&event=subindextemp&id=137 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:24]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=login&event=logout 10,Rishu Tandon,rtandon@indxx.com,2,04:57
+[12/19/2014 06:26:32]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 06:26:37]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/19/2014 06:26:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 06:26:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 06:27:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex&event=deleteindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 06:27:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=caupcomingindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:18:23]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=cacalendar 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:19:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=upcomingca 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:19:19]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindextemp 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:19:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:19:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindextemp 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:19:55]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindextemp 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:20:05]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:20:10]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex&event=viewca&id=118 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:20:19]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex&event=viewca&id=118 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:20:28]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex&event=viewca&id=118 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:20:38]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=upcomingca 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:31:22]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myindex 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:31:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=upcomingca 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:38:45]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87112 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:38:58]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87385 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:01]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87189 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87241 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:29]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87202 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:31]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87240 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:33]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87271 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:39:36]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87239 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 07:53:06]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=myca&event=view&id=87398 11,sunny goyal,sgoyal@indxx.com,1,05:26
+[12/19/2014 06:32:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/19/2014 06:33:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosingtemp 
+[12/19/2014 06:33:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=compositclose 
+[12/19/2014 06:33:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccash 
+[12/19/2014 06:33:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccashtemp 
+[12/19/2014 06:33:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calclsc 
+[12/19/2014 06:33:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccsi 
+[12/19/2014 06:33:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcsl 

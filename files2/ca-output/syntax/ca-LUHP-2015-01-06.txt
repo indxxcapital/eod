@@ -1,0 +1,4 @@
+Index Name;Locus US Healthcare Products & Services Index (PR);
+Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
+DGX US Equity;Quest Diagnostics Inc; ;Cash Dividend;2015-01-09;Gross Amt.=.33;USD;;;
+PDCO US Equity;Patterson Cos Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.20;USD;;;

@@ -1,0 +1,5 @@
+[12/21/2014 11:23:22]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 
+[12/21/2014 11:26:47]: 182.64.215.42 /icai2/index.php /icai2/index.php?module=calcftpclose 
+[12/21/2014 11:40:07]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=calcftpclose 
+[12/21/2014 11:45:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=calcftpclose 
+[12/21/2014 11:47:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=calcftpclose 

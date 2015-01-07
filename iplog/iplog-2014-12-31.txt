@@ -1,0 +1,175 @@
+[12/31/2014 12:32:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdelisttemp 
+[12/31/2014 12:32:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcreplacetemp 
+[12/31/2014 12:32:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdelist 
+[12/31/2014 12:32:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcreplace 
+[12/31/2014 12:32:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccapub 
+[12/31/2014 12:32:58]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=checkcavalue 
+[12/31/2014 12:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcspinstockadd 
+[12/31/2014 12:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcspinstockaddtemp 
+[12/31/2014 12:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccadp 
+[12/31/2014 12:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccadptemp 
+[12/31/2014 12:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcrebalance 
+[12/31/2014 12:33:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcdp 
+[12/31/2014 12:33:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=replaceindex 
+[12/31/2014 12:33:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=replacecash 
+[12/31/2014 12:33:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpca 
+[12/31/2014 02:36:41]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/31/2014 02:36:45]: 119.82.66.242 /icai2/index.php /icai2/ 
+[12/31/2014 02:36:46]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 12,Devika Singhal,dsinghal@indxx.com,2,01:36
+[12/31/2014 02:37:04]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=login&event=logout 12,Devika Singhal,dsinghal@indxx.com,2,01:36
+[12/31/2014 02:37:04]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/31/2014 02:37:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=dblogin 
+[12/31/2014 02:37:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=dblogin 
+[12/31/2014 02:37:13]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 02:37:29]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 02:46:54]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquesecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 02:47:12]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquesecurities&event=exportExcel 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:13:26]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquesecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:13:37]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquesecurities&event=exportExcel 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:15:48]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquecurrencies 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:15:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquecurrencies&event=exportExcel 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:18:24]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/31/2014 03:18:46]: 119.82.66.242 /icai2/index.php /icai2/index.php 
+[12/31/2014 03:19:42]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=dblogin 
+[12/31/2014 03:19:54]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=dblogin 
+[12/31/2014 03:20:15]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=home 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:20:21]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquecurrencies 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:20:42]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=replacerunningsecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:20:51]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=replacerunningsecurities&event=deleteindex 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:20:52]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=replacerunningsecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:20:57]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=delistrunningsecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:02]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=delistrunningsecurities&event=deleteindex 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:03]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=delistrunningsecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:05]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=delisttempupcoming 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:05]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=error 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:08]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=delistrunningsecurities 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 03:21:53]: 119.82.66.242 /icai2/index.php /icai2/index.php?module=uniquecurrencies 3,Devika,dsinghal@indxx.com,3,19:00
+[12/31/2014 05:30:22]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening 
+[12/31/2014 05:30:31]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=1 
+[12/31/2014 05:30:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=2 
+[12/31/2014 05:30:40]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=3 
+[12/31/2014 05:30:49]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=4 
+[12/31/2014 05:30:57]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=5 
+[12/31/2014 05:31:05]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=6 
+[12/31/2014 05:31:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=7 
+[12/31/2014 05:31:19]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=8 
+[12/31/2014 05:31:26]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=9 
+[12/31/2014 05:31:30]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=10 
+[12/31/2014 05:31:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=11 
+[12/31/2014 05:31:40]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=12 
+[12/31/2014 05:31:48]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=13 
+[12/31/2014 05:31:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=14 
+[12/31/2014 05:31:57]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=15 
+[12/31/2014 05:31:59]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=16 
+[12/31/2014 05:32:07]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=17 
+[12/31/2014 05:32:12]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=18 
+[12/31/2014 05:32:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=19 
+[12/31/2014 05:32:23]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=20 
+[12/31/2014 05:32:25]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=21 
+[12/31/2014 05:32:25]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=22 
+[12/31/2014 05:32:25]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=23 
+[12/31/2014 05:32:26]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=24 
+[12/31/2014 05:32:26]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=25 
+[12/31/2014 05:32:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=26 
+[12/31/2014 05:32:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=27 
+[12/31/2014 05:32:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=28 
+[12/31/2014 05:32:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=29 
+[12/31/2014 05:32:28]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=30 
+[12/31/2014 05:32:29]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=31 
+[12/31/2014 05:32:29]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=32 
+[12/31/2014 05:32:29]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=33 
+[12/31/2014 05:32:30]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=34 
+[12/31/2014 05:32:30]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=35 
+[12/31/2014 05:32:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=36 
+[12/31/2014 05:32:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=37 
+[12/31/2014 05:32:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=38 
+[12/31/2014 05:32:33]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopening&event=index&id=39 
+[12/31/2014 05:32:33]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxopeningtemp 
+[12/31/2014 05:32:33]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=notifyforca 
+[12/31/2014 05:32:33]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen 
+[12/31/2014 05:32:39]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=1 
+[12/31/2014 05:32:43]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=2 
+[12/31/2014 05:32:46]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=3 
+[12/31/2014 05:32:50]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=4 
+[12/31/2014 05:32:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=5 
+[12/31/2014 05:32:58]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=6 
+[12/31/2014 05:33:02]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=7 
+[12/31/2014 05:33:05]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=8 
+[12/31/2014 05:33:09]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=9 
+[12/31/2014 05:33:12]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=10 
+[12/31/2014 05:33:16]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=11 
+[12/31/2014 05:33:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=12 
+[12/31/2014 05:33:23]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=13 
+[12/31/2014 05:33:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=14 
+[12/31/2014 05:33:31]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=15 
+[12/31/2014 05:33:34]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=16 
+[12/31/2014 05:33:38]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=17 
+[12/31/2014 05:33:42]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=18 
+[12/31/2014 05:33:46]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=19 
+[12/31/2014 05:33:49]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=20 
+[12/31/2014 05:33:52]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=21 
+[12/31/2014 05:33:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=22 
+[12/31/2014 05:33:58]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=23 
+[12/31/2014 05:34:01]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=24 
+[12/31/2014 05:34:04]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=25 
+[12/31/2014 05:34:06]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=26 
+[12/31/2014 05:34:09]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=27 
+[12/31/2014 05:34:12]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=28 
+[12/31/2014 05:34:15]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=29 
+[12/31/2014 05:34:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=30 
+[12/31/2014 05:34:21]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=31 
+[12/31/2014 05:34:24]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=32 
+[12/31/2014 05:34:26]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=33 
+[12/31/2014 05:34:29]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=34 
+[12/31/2014 05:34:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=35 
+[12/31/2014 05:34:35]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=36 
+[12/31/2014 05:34:38]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=37 
+[12/31/2014 05:34:41]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=38 
+[12/31/2014 05:34:44]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcftpopen&event=index&id=39 
+[12/31/2014 06:32:56]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing 
+[12/31/2014 06:33:04]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=1 
+[12/31/2014 06:33:05]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=2 
+[12/31/2014 06:33:13]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=3 
+[12/31/2014 06:33:20]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=4 
+[12/31/2014 06:33:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=5 
+[12/31/2014 06:33:33]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=6 
+[12/31/2014 06:33:40]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=7 
+[12/31/2014 06:33:45]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=8 
+[12/31/2014 06:33:49]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=9 
+[12/31/2014 06:33:52]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=10 
+[12/31/2014 06:33:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=11 
+[12/31/2014 06:34:01]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=12 
+[12/31/2014 06:34:08]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=13 
+[12/31/2014 06:34:14]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=14 
+[12/31/2014 06:34:18]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=15 
+[12/31/2014 06:34:21]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=16 
+[12/31/2014 06:34:27]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=17 
+[12/31/2014 06:34:32]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=18 
+[12/31/2014 06:34:39]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=19 
+[12/31/2014 06:34:42]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=20 
+[12/31/2014 06:34:42]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=21 
+[12/31/2014 06:34:43]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=22 
+[12/31/2014 06:34:43]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=23 
+[12/31/2014 06:34:44]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=24 
+[12/31/2014 06:34:44]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=25 
+[12/31/2014 06:34:45]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=26 
+[12/31/2014 06:34:46]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=27 
+[12/31/2014 06:34:48]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=28 
+[12/31/2014 06:34:49]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=29 
+[12/31/2014 06:34:49]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=30 
+[12/31/2014 06:34:50]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=31 
+[12/31/2014 06:34:50]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=32 
+[12/31/2014 06:34:51]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=33 
+[12/31/2014 06:34:52]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=34 
+[12/31/2014 06:34:53]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=35 
+[12/31/2014 06:34:54]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=36 
+[12/31/2014 06:34:55]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=37 
+[12/31/2014 06:34:56]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=38 
+[12/31/2014 06:34:56]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosing&event=index&id=39 
+[12/31/2014 06:34:56]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcindxxclosingtemp 
+[12/31/2014 06:34:56]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=compositclose 
+[12/31/2014 06:34:59]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccash 
+[12/31/2014 06:34:59]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccashtemp 
+[12/31/2014 06:34:59]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calclsc 
+[12/31/2014 06:35:00]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calccsi 
+[12/31/2014 06:35:00]: 174.36.193.130 /icai2/index.php /icai2/index.php?module=calcsl 

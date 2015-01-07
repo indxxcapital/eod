@@ -1,0 +1,7 @@
+Date,2014-12-18,
+Name,Code,Market Value,Index value,
+Spin Off Index,spo,,,
+Japan Founders TR Index,JFIT,,,
+Global Spin-off Index,GSPO,,,
+Horizon International SPO Index,ISPO,,,
+Japan Founders PR Index,JFIP,,,

@@ -1,0 +1,3129 @@
+indexdetails|id|178
+indexdetails|name|Locus Global Information Tools TR
+indexdetails|code|LGITT
+indexdetails|investmentammount|100000
+indexdetails|divpvalue|
+indexdetails|indexvalue|id|7944
+indexdetails|indexvalue|dateAdded|2015-01-02 16:33:56
+indexdetails|indexvalue|indxx_id|178
+indexdetails|indexvalue|code|LGITT
+indexdetails|indexvalue|market_value|99653.379036
+indexdetails|indexvalue|indxx_value|996.53
+indexdetails|indexvalue|date|2015-01-02
+indexdetails|indexvalue|olddivisor|100
+indexdetails|indexvalue|newdivisor|100
+indexdetails|divisor|0
+indexdetails|type|1
+indexdetails|cash_adjust|1
+indexdetails|curr|USD
+indexdetails|status|1
+indexdetails|dateAdded|2015-01-01 03:10:13
+indexdetails|lastupdated|2015-01-02 10:34:40
+indexdetails|dateStart|2015-01-05
+indexdetails|usersignoff|1
+indexdetails|dbusersignoff|1
+indexdetails|submitted|1
+indexdetails|finalsignoff|1
+indexdetails|runindex|1
+indexdetails|addtype|1
+indexdetails|zone|2
+indexdetails|calcdate|0000-00-00
+indexdetails|rebalance|0
+indexdetails|client_id|4
+indexdetails|display_currency|1
+indexdetails|ireturn|0
+indexdetails|ica|0
+indexdetails|recalc|0
+indexdetails|div_type|1
+indexdetails|currency_hedged|0
+indexdetails|priority|0
+indexdetails|tickers|0|id|37314
+indexdetails|tickers|0|name|Silicon Laboratories Inc.
+indexdetails|tickers|0|isin|US8269191024
+indexdetails|tickers|0|ticker|SLAB US Equity
+indexdetails|tickers|0|weight|0
+indexdetails|tickers|0|curr|USD
+indexdetails|tickers|0|divcurr|USD
+indexdetails|tickers|0|sedol|2568131
+indexdetails|tickers|0|cusip|
+indexdetails|tickers|0|countryname|United States
+indexdetails|tickers|0|indxx_id|178
+indexdetails|tickers|0|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|0|status|1
+indexdetails|tickers|1|id|37315
+indexdetails|tickers|1|name|SPDR BARCLAYS 1-3 MONTH T-BILL
+indexdetails|tickers|1|isin|US78464A6800
+indexdetails|tickers|1|ticker|BIL US Equity
+indexdetails|tickers|1|weight|0
+indexdetails|tickers|1|curr|USD
+indexdetails|tickers|1|divcurr|USD
+indexdetails|tickers|1|sedol|B1Y9HW0
+indexdetails|tickers|1|cusip|
+indexdetails|tickers|1|countryname|United States
+indexdetails|tickers|1|indxx_id|178
+indexdetails|tickers|1|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|1|status|1
+indexdetails|tickers|2|id|37316
+indexdetails|tickers|2|name|MediaTek Inc
+indexdetails|tickers|2|isin|TW0002454006
+indexdetails|tickers|2|ticker|2454 TT Equity
+indexdetails|tickers|2|weight|0
+indexdetails|tickers|2|curr|TWD
+indexdetails|tickers|2|divcurr|TWD
+indexdetails|tickers|2|sedol|6372480
+indexdetails|tickers|2|cusip|
+indexdetails|tickers|2|countryname|Taiwan
+indexdetails|tickers|2|indxx_id|178
+indexdetails|tickers|2|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|2|status|1
+indexdetails|tickers|3|id|37317
+indexdetails|tickers|3|name|Avago Technologies Limited
+indexdetails|tickers|3|isin|SG9999006241
+indexdetails|tickers|3|ticker|AVGO US Equity
+indexdetails|tickers|3|weight|0
+indexdetails|tickers|3|curr|USD
+indexdetails|tickers|3|divcurr|USD
+indexdetails|tickers|3|sedol|B3WS2X9
+indexdetails|tickers|3|cusip|
+indexdetails|tickers|3|countryname|Singapore
+indexdetails|tickers|3|indxx_id|178
+indexdetails|tickers|3|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|3|status|1
+indexdetails|tickers|4|id|37318
+indexdetails|tickers|4|name|Broadcom Corporation Class A
+indexdetails|tickers|4|isin|US1113201073
+indexdetails|tickers|4|ticker|BRCM US Equity
+indexdetails|tickers|4|weight|0
+indexdetails|tickers|4|curr|USD
+indexdetails|tickers|4|divcurr|USD
+indexdetails|tickers|4|sedol|2235822
+indexdetails|tickers|4|cusip|
+indexdetails|tickers|4|countryname|United States
+indexdetails|tickers|4|indxx_id|178
+indexdetails|tickers|4|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|4|status|1
+indexdetails|tickers|5|id|37319
+indexdetails|tickers|5|name|Lexmark International, Inc. Class A
+indexdetails|tickers|5|isin|US5297711070
+indexdetails|tickers|5|ticker|LXK US Equity
+indexdetails|tickers|5|weight|0
+indexdetails|tickers|5|curr|USD
+indexdetails|tickers|5|divcurr|USD
+indexdetails|tickers|5|sedol|2511908
+indexdetails|tickers|5|cusip|
+indexdetails|tickers|5|countryname|United States
+indexdetails|tickers|5|indxx_id|178
+indexdetails|tickers|5|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|5|status|1
+indexdetails|tickers|6|id|37320
+indexdetails|tickers|6|name|Pitney Bowes Inc.
+indexdetails|tickers|6|isin|US7244791007
+indexdetails|tickers|6|ticker|PBI US Equity
+indexdetails|tickers|6|weight|0
+indexdetails|tickers|6|curr|USD
+indexdetails|tickers|6|divcurr|USD
+indexdetails|tickers|6|sedol|2690506
+indexdetails|tickers|6|cusip|
+indexdetails|tickers|6|countryname|United States
+indexdetails|tickers|6|indxx_id|178
+indexdetails|tickers|6|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|6|status|1
+indexdetails|tickers|7|id|37321
+indexdetails|tickers|7|name|Nikon Corp.
+indexdetails|tickers|7|isin|JP3657400002
+indexdetails|tickers|7|ticker|7731 JP Equity
+indexdetails|tickers|7|weight|0
+indexdetails|tickers|7|curr|JPY
+indexdetails|tickers|7|divcurr|JPY
+indexdetails|tickers|7|sedol|6642321
+indexdetails|tickers|7|cusip|
+indexdetails|tickers|7|countryname|Japan
+indexdetails|tickers|7|indxx_id|178
+indexdetails|tickers|7|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|7|status|1
+indexdetails|tickers|8|id|37322
+indexdetails|tickers|8|name|Konica Minolta, Inc.
+indexdetails|tickers|8|isin|JP3300600008
+indexdetails|tickers|8|ticker|4902 JP Equity
+indexdetails|tickers|8|weight|0
+indexdetails|tickers|8|curr|JPY
+indexdetails|tickers|8|divcurr|JPY
+indexdetails|tickers|8|sedol|6496700
+indexdetails|tickers|8|cusip|
+indexdetails|tickers|8|countryname|Japan
+indexdetails|tickers|8|indxx_id|178
+indexdetails|tickers|8|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|8|status|1
+indexdetails|tickers|9|id|37323
+indexdetails|tickers|9|name|Ricoh Company, Ltd.
+indexdetails|tickers|9|isin|JP3973400009
+indexdetails|tickers|9|ticker|7752 JP Equity
+indexdetails|tickers|9|weight|0
+indexdetails|tickers|9|curr|JPY
+indexdetails|tickers|9|divcurr|JPY
+indexdetails|tickers|9|sedol|6738220
+indexdetails|tickers|9|cusip|
+indexdetails|tickers|9|countryname|Japan
+indexdetails|tickers|9|indxx_id|178
+indexdetails|tickers|9|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|9|status|1
+indexdetails|tickers|10|id|37324
+indexdetails|tickers|10|name|Fujifilm Holdings Corporation
+indexdetails|tickers|10|isin|JP3814000000
+indexdetails|tickers|10|ticker|4901 JP Equity
+indexdetails|tickers|10|weight|0
+indexdetails|tickers|10|curr|JPY
+indexdetails|tickers|10|divcurr|JPY
+indexdetails|tickers|10|sedol|6356525
+indexdetails|tickers|10|cusip|
+indexdetails|tickers|10|countryname|Japan
+indexdetails|tickers|10|indxx_id|178
+indexdetails|tickers|10|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|10|status|1
+indexdetails|tickers|11|id|37325
+indexdetails|tickers|11|name|Xerox Corporation
+indexdetails|tickers|11|isin|US9841211033
+indexdetails|tickers|11|ticker|XRX US Equity
+indexdetails|tickers|11|weight|0
+indexdetails|tickers|11|curr|USD
+indexdetails|tickers|11|divcurr|USD
+indexdetails|tickers|11|sedol|2985202
+indexdetails|tickers|11|cusip|
+indexdetails|tickers|11|countryname|United States
+indexdetails|tickers|11|indxx_id|178
+indexdetails|tickers|11|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|11|status|1
+indexdetails|tickers|12|id|37326
+indexdetails|tickers|12|name|Canon Inc.
+indexdetails|tickers|12|isin|JP3242800005
+indexdetails|tickers|12|ticker|7751 JP Equity
+indexdetails|tickers|12|weight|0
+indexdetails|tickers|12|curr|JPY
+indexdetails|tickers|12|divcurr|JPY
+indexdetails|tickers|12|sedol|6172323
+indexdetails|tickers|12|cusip|
+indexdetails|tickers|12|countryname|Japan
+indexdetails|tickers|12|indxx_id|178
+indexdetails|tickers|12|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|12|status|1
+indexdetails|tickers|13|id|37327
+indexdetails|tickers|13|name|Cree, Inc.
+indexdetails|tickers|13|isin|US2254471012
+indexdetails|tickers|13|ticker|CREE US Equity
+indexdetails|tickers|13|weight|0
+indexdetails|tickers|13|curr|USD
+indexdetails|tickers|13|divcurr|USD
+indexdetails|tickers|13|sedol|2232351
+indexdetails|tickers|13|cusip|
+indexdetails|tickers|13|countryname|United States
+indexdetails|tickers|13|indxx_id|178
+indexdetails|tickers|13|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|13|status|1
+indexdetails|tickers|14|id|37328
+indexdetails|tickers|14|name|Rohm Co., Ltd.
+indexdetails|tickers|14|isin|JP3982800009
+indexdetails|tickers|14|ticker|6963 JP Equity
+indexdetails|tickers|14|weight|0
+indexdetails|tickers|14|curr|JPY
+indexdetails|tickers|14|divcurr|JPY
+indexdetails|tickers|14|sedol|6747204
+indexdetails|tickers|14|cusip|
+indexdetails|tickers|14|countryname|Japan
+indexdetails|tickers|14|indxx_id|178
+indexdetails|tickers|14|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|14|status|1
+indexdetails|tickers|15|id|37329
+indexdetails|tickers|15|name|Linear Technology Corporation
+indexdetails|tickers|15|isin|US5356781063
+indexdetails|tickers|15|ticker|LLTC US Equity
+indexdetails|tickers|15|weight|0
+indexdetails|tickers|15|curr|USD
+indexdetails|tickers|15|divcurr|USD
+indexdetails|tickers|15|sedol|2516839
+indexdetails|tickers|15|cusip|
+indexdetails|tickers|15|countryname|United States
+indexdetails|tickers|15|indxx_id|178
+indexdetails|tickers|15|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|15|status|1
+indexdetails|tickers|16|id|37330
+indexdetails|tickers|16|name|Altera Corporation
+indexdetails|tickers|16|isin|US0214411003
+indexdetails|tickers|16|ticker|ALTR US Equity
+indexdetails|tickers|16|weight|0
+indexdetails|tickers|16|curr|USD
+indexdetails|tickers|16|divcurr|USD
+indexdetails|tickers|16|sedol|2021690
+indexdetails|tickers|16|cusip|
+indexdetails|tickers|16|countryname|United States
+indexdetails|tickers|16|indxx_id|178
+indexdetails|tickers|16|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|16|status|1
+indexdetails|tickers|17|id|37331
+indexdetails|tickers|17|name|Xilinx, Inc.
+indexdetails|tickers|17|isin|US9839191015
+indexdetails|tickers|17|ticker|XLNX US Equity
+indexdetails|tickers|17|weight|0
+indexdetails|tickers|17|curr|USD
+indexdetails|tickers|17|divcurr|USD
+indexdetails|tickers|17|sedol|2985677
+indexdetails|tickers|17|cusip|
+indexdetails|tickers|17|countryname|United States
+indexdetails|tickers|17|indxx_id|178
+indexdetails|tickers|17|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|17|status|1
+indexdetails|tickers|18|id|37332
+indexdetails|tickers|18|name|Skyworks Solutions, Inc.
+indexdetails|tickers|18|isin|US83088M1027
+indexdetails|tickers|18|ticker|SWKS US Equity
+indexdetails|tickers|18|weight|0
+indexdetails|tickers|18|curr|USD
+indexdetails|tickers|18|divcurr|USD
+indexdetails|tickers|18|sedol|2961053
+indexdetails|tickers|18|cusip|
+indexdetails|tickers|18|countryname|United States
+indexdetails|tickers|18|indxx_id|178
+indexdetails|tickers|18|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|18|status|1
+indexdetails|tickers|19|id|37333
+indexdetails|tickers|19|name|Analog Devices, Inc.
+indexdetails|tickers|19|isin|US0326541051
+indexdetails|tickers|19|ticker|ADI US Equity
+indexdetails|tickers|19|weight|0
+indexdetails|tickers|19|curr|USD
+indexdetails|tickers|19|divcurr|USD
+indexdetails|tickers|19|sedol|2032067
+indexdetails|tickers|19|cusip|
+indexdetails|tickers|19|countryname|United States
+indexdetails|tickers|19|indxx_id|178
+indexdetails|tickers|19|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|19|status|1
+indexdetails|tickers|20|id|37334
+indexdetails|tickers|20|name|Knowles Corp.
+indexdetails|tickers|20|isin|US49926D1090
+indexdetails|tickers|20|ticker|KN US Equity
+indexdetails|tickers|20|weight|0
+indexdetails|tickers|20|curr|USD
+indexdetails|tickers|20|divcurr|USD
+indexdetails|tickers|20|sedol|BJTD9L6
+indexdetails|tickers|20|cusip|
+indexdetails|tickers|20|countryname|United States
+indexdetails|tickers|20|indxx_id|178
+indexdetails|tickers|20|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|20|status|1
+indexdetails|tickers|21|id|37335
+indexdetails|tickers|21|name|Advanced Micro Devices, Inc.
+indexdetails|tickers|21|isin|US0079031078
+indexdetails|tickers|21|ticker|AMD US Equity
+indexdetails|tickers|21|weight|0
+indexdetails|tickers|21|curr|USD
+indexdetails|tickers|21|divcurr|USD
+indexdetails|tickers|21|sedol|2007849
+indexdetails|tickers|21|cusip|
+indexdetails|tickers|21|countryname|United States
+indexdetails|tickers|21|indxx_id|178
+indexdetails|tickers|21|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|21|status|1
+indexdetails|tickers|22|id|37336
+indexdetails|tickers|22|name|InterDigital, Inc.
+indexdetails|tickers|22|isin|US45867G1013
+indexdetails|tickers|22|ticker|IDCC US Equity
+indexdetails|tickers|22|weight|0
+indexdetails|tickers|22|curr|USD
+indexdetails|tickers|22|divcurr|USD
+indexdetails|tickers|22|sedol|2465737
+indexdetails|tickers|22|cusip|
+indexdetails|tickers|22|countryname|United States
+indexdetails|tickers|22|indxx_id|178
+indexdetails|tickers|22|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|22|status|1
+indexdetails|tickers|23|id|37337
+indexdetails|tickers|23|name|Cypress Semiconductor Corporation
+indexdetails|tickers|23|isin|US2328061096
+indexdetails|tickers|23|ticker|CY US Equity
+indexdetails|tickers|23|weight|0
+indexdetails|tickers|23|curr|USD
+indexdetails|tickers|23|divcurr|USD
+indexdetails|tickers|23|sedol|2244549
+indexdetails|tickers|23|cusip|
+indexdetails|tickers|23|countryname|United States
+indexdetails|tickers|23|indxx_id|178
+indexdetails|tickers|23|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|23|status|1
+indexdetails|tickers|24|id|37338
+indexdetails|tickers|24|name|Integrated Device Technology, Inc.
+indexdetails|tickers|24|isin|US4581181066
+indexdetails|tickers|24|ticker|IDTI US Equity
+indexdetails|tickers|24|weight|0
+indexdetails|tickers|24|curr|USD
+indexdetails|tickers|24|divcurr|USD
+indexdetails|tickers|24|sedol|2462437
+indexdetails|tickers|24|cusip|
+indexdetails|tickers|24|countryname|United States
+indexdetails|tickers|24|indxx_id|178
+indexdetails|tickers|24|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|24|status|1
+indexdetails|tickers|25|id|37339
+indexdetails|tickers|25|name|Atmel Corporation
+indexdetails|tickers|25|isin|US0495131049
+indexdetails|tickers|25|ticker|ATML US Equity
+indexdetails|tickers|25|weight|0
+indexdetails|tickers|25|curr|USD
+indexdetails|tickers|25|divcurr|USD
+indexdetails|tickers|25|sedol|2062310
+indexdetails|tickers|25|cusip|
+indexdetails|tickers|25|countryname|United States
+indexdetails|tickers|25|indxx_id|178
+indexdetails|tickers|25|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|25|status|1
+indexdetails|tickers|26|id|37340
+indexdetails|tickers|26|name|Teradyne, Inc.
+indexdetails|tickers|26|isin|US8807701029
+indexdetails|tickers|26|ticker|TER US Equity
+indexdetails|tickers|26|weight|0
+indexdetails|tickers|26|curr|USD
+indexdetails|tickers|26|divcurr|USD
+indexdetails|tickers|26|sedol|2884183
+indexdetails|tickers|26|cusip|
+indexdetails|tickers|26|countryname|United States
+indexdetails|tickers|26|indxx_id|178
+indexdetails|tickers|26|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|26|status|1
+indexdetails|tickers|27|id|37341
+indexdetails|tickers|27|name|STMicroelectronics NV
+indexdetails|tickers|27|isin|NL0000226223
+indexdetails|tickers|27|ticker|STM IM Equity
+indexdetails|tickers|27|weight|0
+indexdetails|tickers|27|curr|EUR
+indexdetails|tickers|27|divcurr|USD
+indexdetails|tickers|27|sedol|5962343
+indexdetails|tickers|27|cusip|
+indexdetails|tickers|27|countryname|Switzerland
+indexdetails|tickers|27|indxx_id|178
+indexdetails|tickers|27|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|27|status|1
+indexdetails|tickers|28|id|37342
+indexdetails|tickers|28|name|Gemalto N.V.
+indexdetails|tickers|28|isin|NL0000400653
+indexdetails|tickers|28|ticker|GTO NA Equity
+indexdetails|tickers|28|weight|0
+indexdetails|tickers|28|curr|EUR
+indexdetails|tickers|28|divcurr|EUR
+indexdetails|tickers|28|sedol|B9MS8P5
+indexdetails|tickers|28|cusip|
+indexdetails|tickers|28|countryname|Netherlands
+indexdetails|tickers|28|indxx_id|178
+indexdetails|tickers|28|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|28|status|1
+indexdetails|tickers|29|id|37343
+indexdetails|tickers|29|name|Microchip Technology Incorporated
+indexdetails|tickers|29|isin|US5950171042
+indexdetails|tickers|29|ticker|MCHP US Equity
+indexdetails|tickers|29|weight|0
+indexdetails|tickers|29|curr|USD
+indexdetails|tickers|29|divcurr|USD
+indexdetails|tickers|29|sedol|2592174
+indexdetails|tickers|29|cusip|
+indexdetails|tickers|29|countryname|United States
+indexdetails|tickers|29|indxx_id|178
+indexdetails|tickers|29|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|29|status|1
+indexdetails|tickers|30|id|37344
+indexdetails|tickers|30|name|NVIDIA Corporation
+indexdetails|tickers|30|isin|US67066G1040
+indexdetails|tickers|30|ticker|NVDA US Equity
+indexdetails|tickers|30|weight|0
+indexdetails|tickers|30|curr|USD
+indexdetails|tickers|30|divcurr|USD
+indexdetails|tickers|30|sedol|2379504
+indexdetails|tickers|30|cusip|
+indexdetails|tickers|30|countryname|United States
+indexdetails|tickers|30|indxx_id|178
+indexdetails|tickers|30|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|30|status|1
+indexdetails|tickers|31|id|37345
+indexdetails|tickers|31|name|KLA-Tencor Corporation
+indexdetails|tickers|31|isin|US4824801009
+indexdetails|tickers|31|ticker|KLAC US Equity
+indexdetails|tickers|31|weight|0
+indexdetails|tickers|31|curr|USD
+indexdetails|tickers|31|divcurr|USD
+indexdetails|tickers|31|sedol|2480138
+indexdetails|tickers|31|cusip|
+indexdetails|tickers|31|countryname|United States
+indexdetails|tickers|31|indxx_id|178
+indexdetails|tickers|31|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|31|status|1
+indexdetails|tickers|32|id|37346
+indexdetails|tickers|32|name|Infineon Technologies AG
+indexdetails|tickers|32|isin|DE0006231004
+indexdetails|tickers|32|ticker|IFX GR Equity
+indexdetails|tickers|32|weight|0
+indexdetails|tickers|32|curr|EUR
+indexdetails|tickers|32|divcurr|EUR
+indexdetails|tickers|32|sedol|5889505
+indexdetails|tickers|32|cusip|
+indexdetails|tickers|32|countryname|Germany
+indexdetails|tickers|32|indxx_id|178
+indexdetails|tickers|32|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|32|status|1
+indexdetails|tickers|33|id|37347
+indexdetails|tickers|33|name|Legrand SA
+indexdetails|tickers|33|isin|FR0010307819
+indexdetails|tickers|33|ticker|LR FP Equity
+indexdetails|tickers|33|weight|0
+indexdetails|tickers|33|curr|EUR
+indexdetails|tickers|33|divcurr|EUR
+indexdetails|tickers|33|sedol|B11ZRK9
+indexdetails|tickers|33|cusip|
+indexdetails|tickers|33|countryname|France
+indexdetails|tickers|33|indxx_id|178
+indexdetails|tickers|33|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|33|status|1
+indexdetails|tickers|34|id|37348
+indexdetails|tickers|34|name|ARM Holdings plc
+indexdetails|tickers|34|isin|GB0000595859
+indexdetails|tickers|34|ticker|ARM LN Equity
+indexdetails|tickers|34|weight|0
+indexdetails|tickers|34|curr|GBp
+indexdetails|tickers|34|divcurr|GBp
+indexdetails|tickers|34|sedol|0059585
+indexdetails|tickers|34|cusip|
+indexdetails|tickers|34|countryname|United Kingdom
+indexdetails|tickers|34|indxx_id|178
+indexdetails|tickers|34|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|34|status|1
+indexdetails|tickers|35|id|37349
+indexdetails|tickers|35|name|Texas Instruments Incorporated
+indexdetails|tickers|35|isin|US8825081040
+indexdetails|tickers|35|ticker|TXN US Equity
+indexdetails|tickers|35|weight|0
+indexdetails|tickers|35|curr|USD
+indexdetails|tickers|35|divcurr|USD
+indexdetails|tickers|35|sedol|2885409
+indexdetails|tickers|35|cusip|
+indexdetails|tickers|35|countryname|United States
+indexdetails|tickers|35|indxx_id|178
+indexdetails|tickers|35|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|35|status|1
+indexdetails|tickers|36|id|37350
+indexdetails|tickers|36|name|QUALCOMM Incorporated
+indexdetails|tickers|36|isin|US7475251036
+indexdetails|tickers|36|ticker|QCOM US Equity
+indexdetails|tickers|36|weight|0
+indexdetails|tickers|36|curr|USD
+indexdetails|tickers|36|divcurr|USD
+indexdetails|tickers|36|sedol|2714923
+indexdetails|tickers|36|cusip|
+indexdetails|tickers|36|countryname|United States
+indexdetails|tickers|36|indxx_id|178
+indexdetails|tickers|36|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|36|status|1
+indexdetails|tickers|37|id|37351
+indexdetails|tickers|37|name|Intel Corporation
+indexdetails|tickers|37|isin|US4581401001
+indexdetails|tickers|37|ticker|INTC US Equity
+indexdetails|tickers|37|weight|0
+indexdetails|tickers|37|curr|USD
+indexdetails|tickers|37|divcurr|USD
+indexdetails|tickers|37|sedol|2463247
+indexdetails|tickers|37|cusip|
+indexdetails|tickers|37|countryname|United States
+indexdetails|tickers|37|indxx_id|178
+indexdetails|tickers|37|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|37|status|1
+indexdetails|tickers|38|id|37352
+indexdetails|tickers|38|name|Advent Software, Inc.
+indexdetails|tickers|38|isin|US0079741080
+indexdetails|tickers|38|ticker|ADVS US Equity
+indexdetails|tickers|38|weight|0
+indexdetails|tickers|38|curr|USD
+indexdetails|tickers|38|divcurr|USD
+indexdetails|tickers|38|sedol|2049153
+indexdetails|tickers|38|cusip|
+indexdetails|tickers|38|countryname|United States
+indexdetails|tickers|38|indxx_id|178
+indexdetails|tickers|38|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|38|status|1
+indexdetails|tickers|39|id|37353
+indexdetails|tickers|39|name|Allscripts Healthcare Solutions, Inc.
+indexdetails|tickers|39|isin|US01988P1084
+indexdetails|tickers|39|ticker|MDRX US Equity
+indexdetails|tickers|39|weight|0
+indexdetails|tickers|39|curr|USD
+indexdetails|tickers|39|divcurr|USD
+indexdetails|tickers|39|sedol|2710039
+indexdetails|tickers|39|cusip|
+indexdetails|tickers|39|countryname|United States
+indexdetails|tickers|39|indxx_id|178
+indexdetails|tickers|39|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|39|status|1
+indexdetails|tickers|40|id|37354
+indexdetails|tickers|40|name|ACI Worldwide, Inc.
+indexdetails|tickers|40|isin|US0044981019
+indexdetails|tickers|40|ticker|ACIW US Equity
+indexdetails|tickers|40|weight|0
+indexdetails|tickers|40|curr|USD
+indexdetails|tickers|40|divcurr|USD
+indexdetails|tickers|40|sedol|2889155
+indexdetails|tickers|40|cusip|
+indexdetails|tickers|40|countryname|United States
+indexdetails|tickers|40|indxx_id|178
+indexdetails|tickers|40|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|40|status|1
+indexdetails|tickers|41|id|37355
+indexdetails|tickers|41|name|CommVault Systems, Inc.
+indexdetails|tickers|41|isin|US2041661024
+indexdetails|tickers|41|ticker|CVLT US Equity
+indexdetails|tickers|41|weight|0
+indexdetails|tickers|41|curr|USD
+indexdetails|tickers|41|divcurr|USD
+indexdetails|tickers|41|sedol|B142B38
+indexdetails|tickers|41|cusip|
+indexdetails|tickers|41|countryname|United States
+indexdetails|tickers|41|indxx_id|178
+indexdetails|tickers|41|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|41|status|1
+indexdetails|tickers|42|id|37356
+indexdetails|tickers|42|name|Tyler Technologies, Inc.
+indexdetails|tickers|42|isin|US9022521051
+indexdetails|tickers|42|ticker|TYL US Equity
+indexdetails|tickers|42|weight|0
+indexdetails|tickers|42|curr|USD
+indexdetails|tickers|42|divcurr|USD
+indexdetails|tickers|42|sedol|2909644
+indexdetails|tickers|42|cusip|
+indexdetails|tickers|42|countryname|United States
+indexdetails|tickers|42|indxx_id|178
+indexdetails|tickers|42|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|42|status|1
+indexdetails|tickers|43|id|37357
+indexdetails|tickers|43|name|SolarWinds, Inc.
+indexdetails|tickers|43|isin|US83416B1098
+indexdetails|tickers|43|ticker|SWI US Equity
+indexdetails|tickers|43|weight|0
+indexdetails|tickers|43|curr|USD
+indexdetails|tickers|43|divcurr|USD
+indexdetails|tickers|43|sedol|B4MTR12
+indexdetails|tickers|43|cusip|
+indexdetails|tickers|43|countryname|United States
+indexdetails|tickers|43|indxx_id|178
+indexdetails|tickers|43|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|43|status|1
+indexdetails|tickers|44|id|37358
+indexdetails|tickers|44|name|Informatica Corporation
+indexdetails|tickers|44|isin|US45666Q1022
+indexdetails|tickers|44|ticker|INFA US Equity
+indexdetails|tickers|44|weight|0
+indexdetails|tickers|44|curr|USD
+indexdetails|tickers|44|divcurr|USD
+indexdetails|tickers|44|sedol|2412067
+indexdetails|tickers|44|cusip|
+indexdetails|tickers|44|countryname|United States
+indexdetails|tickers|44|indxx_id|178
+indexdetails|tickers|44|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|44|status|1
+indexdetails|tickers|45|id|37359
+indexdetails|tickers|45|name|Teradata Corporation
+indexdetails|tickers|45|isin|US88076W1036
+indexdetails|tickers|45|ticker|TDC US Equity
+indexdetails|tickers|45|weight|0
+indexdetails|tickers|45|curr|USD
+indexdetails|tickers|45|divcurr|USD
+indexdetails|tickers|45|sedol|B247H10
+indexdetails|tickers|45|cusip|
+indexdetails|tickers|45|countryname|United States
+indexdetails|tickers|45|indxx_id|178
+indexdetails|tickers|45|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|45|status|1
+indexdetails|tickers|46|id|37360
+indexdetails|tickers|46|name|Sage Group plc
+indexdetails|tickers|46|isin|GB00B8C3BL03
+indexdetails|tickers|46|ticker|SGE LN Equity
+indexdetails|tickers|46|weight|0
+indexdetails|tickers|46|curr|GBp
+indexdetails|tickers|46|divcurr|GBp
+indexdetails|tickers|46|sedol|B8C3BL0
+indexdetails|tickers|46|cusip|
+indexdetails|tickers|46|countryname|United Kingdom
+indexdetails|tickers|46|indxx_id|178
+indexdetails|tickers|46|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|46|status|1
+indexdetails|tickers|47|id|37361
+indexdetails|tickers|47|name|Amadeus IT Holding SA Class A
+indexdetails|tickers|47|isin|ES0109067019
+indexdetails|tickers|47|ticker|AMS SM Equity
+indexdetails|tickers|47|weight|0
+indexdetails|tickers|47|curr|EUR
+indexdetails|tickers|47|divcurr|EUR
+indexdetails|tickers|47|sedol|B3MSM28
+indexdetails|tickers|47|cusip|
+indexdetails|tickers|47|countryname|Spain
+indexdetails|tickers|47|indxx_id|178
+indexdetails|tickers|47|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|47|status|1
+indexdetails|tickers|48|id|37362
+indexdetails|tickers|48|name|Cerner Corporation
+indexdetails|tickers|48|isin|US1567821046
+indexdetails|tickers|48|ticker|CERN US Equity
+indexdetails|tickers|48|weight|0
+indexdetails|tickers|48|curr|USD
+indexdetails|tickers|48|divcurr|USD
+indexdetails|tickers|48|sedol|2185284
+indexdetails|tickers|48|cusip|
+indexdetails|tickers|48|countryname|United States
+indexdetails|tickers|48|indxx_id|178
+indexdetails|tickers|48|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|48|status|1
+indexdetails|tickers|49|id|37363
+indexdetails|tickers|49|name|salesforce.com, inc.
+indexdetails|tickers|49|isin|US79466L3024
+indexdetails|tickers|49|ticker|CRM US Equity
+indexdetails|tickers|49|weight|0
+indexdetails|tickers|49|curr|USD
+indexdetails|tickers|49|divcurr|USD
+indexdetails|tickers|49|sedol|2310525
+indexdetails|tickers|49|cusip|
+indexdetails|tickers|49|countryname|United States
+indexdetails|tickers|49|indxx_id|178
+indexdetails|tickers|49|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|49|status|1
+indexdetails|tickers|50|id|37364
+indexdetails|tickers|50|name|Oracle Corporation
+indexdetails|tickers|50|isin|US68389X1054
+indexdetails|tickers|50|ticker|ORCL US Equity
+indexdetails|tickers|50|weight|0
+indexdetails|tickers|50|curr|USD
+indexdetails|tickers|50|divcurr|USD
+indexdetails|tickers|50|sedol|2661568
+indexdetails|tickers|50|cusip|
+indexdetails|tickers|50|countryname|United States
+indexdetails|tickers|50|indxx_id|178
+indexdetails|tickers|50|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|50|status|1
+indexdetails|tickers|51|id|37365
+indexdetails|tickers|51|name|Sharp Corporation
+indexdetails|tickers|51|isin|JP3359600008
+indexdetails|tickers|51|ticker|6753 JP Equity
+indexdetails|tickers|51|weight|0
+indexdetails|tickers|51|curr|JPY
+indexdetails|tickers|51|divcurr|JPY
+indexdetails|tickers|51|sedol|6800602
+indexdetails|tickers|51|cusip|
+indexdetails|tickers|51|countryname|Japan
+indexdetails|tickers|51|indxx_id|178
+indexdetails|tickers|51|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|51|status|1
+indexdetails|tickers|52|id|37366
+indexdetails|tickers|52|name|NEC Corp.
+indexdetails|tickers|52|isin|JP3733000008
+indexdetails|tickers|52|ticker|6701 JP Equity
+indexdetails|tickers|52|weight|0
+indexdetails|tickers|52|curr|JPY
+indexdetails|tickers|52|divcurr|JPY
+indexdetails|tickers|52|sedol|6640400
+indexdetails|tickers|52|cusip|
+indexdetails|tickers|52|countryname|Japan
+indexdetails|tickers|52|indxx_id|178
+indexdetails|tickers|52|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|52|status|1
+indexdetails|tickers|53|id|37367
+indexdetails|tickers|53|name|Toshiba Corporation
+indexdetails|tickers|53|isin|JP3592200004
+indexdetails|tickers|53|ticker|6502 JP Equity
+indexdetails|tickers|53|weight|0
+indexdetails|tickers|53|curr|JPY
+indexdetails|tickers|53|divcurr|JPY
+indexdetails|tickers|53|sedol|6897217
+indexdetails|tickers|53|cusip|
+indexdetails|tickers|53|countryname|Japan
+indexdetails|tickers|53|indxx_id|178
+indexdetails|tickers|53|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|53|status|1
+indexdetails|tickers|54|id|37368
+indexdetails|tickers|54|name|Sony Corporation
+indexdetails|tickers|54|isin|JP3435000009
+indexdetails|tickers|54|ticker|6758 JP Equity
+indexdetails|tickers|54|weight|0
+indexdetails|tickers|54|curr|JPY
+indexdetails|tickers|54|divcurr|JPY
+indexdetails|tickers|54|sedol|6821506
+indexdetails|tickers|54|cusip|
+indexdetails|tickers|54|countryname|Japan
+indexdetails|tickers|54|indxx_id|178
+indexdetails|tickers|54|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|54|status|1
+indexdetails|tickers|55|id|37369
+indexdetails|tickers|55|name|Panasonic Corporation
+indexdetails|tickers|55|isin|JP3866800000
+indexdetails|tickers|55|ticker|6752 JP Equity
+indexdetails|tickers|55|weight|0
+indexdetails|tickers|55|curr|JPY
+indexdetails|tickers|55|divcurr|JPY
+indexdetails|tickers|55|sedol|6572707
+indexdetails|tickers|55|cusip|
+indexdetails|tickers|55|countryname|Japan
+indexdetails|tickers|55|indxx_id|178
+indexdetails|tickers|55|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|55|status|1
+indexdetails|tickers|56|id|37370
+indexdetails|tickers|56|name|Samsung Electronics Co., Ltd.
+indexdetails|tickers|56|isin|KR7005930003
+indexdetails|tickers|56|ticker|005930 KS Equity
+indexdetails|tickers|56|weight|0
+indexdetails|tickers|56|curr|KRW
+indexdetails|tickers|56|divcurr|KRW
+indexdetails|tickers|56|sedol|6771720
+indexdetails|tickers|56|cusip|
+indexdetails|tickers|56|countryname|South Korea
+indexdetails|tickers|56|indxx_id|178
+indexdetails|tickers|56|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|56|status|1
+indexdetails|tickers|57|id|37371
+indexdetails|tickers|57|name|Semtech Corporation
+indexdetails|tickers|57|isin|US8168501018
+indexdetails|tickers|57|ticker|SMTC US Equity
+indexdetails|tickers|57|weight|0
+indexdetails|tickers|57|curr|USD
+indexdetails|tickers|57|divcurr|USD
+indexdetails|tickers|57|sedol|2795542
+indexdetails|tickers|57|cusip|
+indexdetails|tickers|57|countryname|United States
+indexdetails|tickers|57|indxx_id|178
+indexdetails|tickers|57|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|57|status|1
+indexdetails|tickers|58|id|37372
+indexdetails|tickers|58|name|Intersil Corporation Class A
+indexdetails|tickers|58|isin|US46069S1096
+indexdetails|tickers|58|ticker|ISIL US Equity
+indexdetails|tickers|58|weight|0
+indexdetails|tickers|58|curr|USD
+indexdetails|tickers|58|divcurr|USD
+indexdetails|tickers|58|sedol|2551959
+indexdetails|tickers|58|cusip|
+indexdetails|tickers|58|countryname|United States
+indexdetails|tickers|58|indxx_id|178
+indexdetails|tickers|58|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|58|status|1
+indexdetails|tickers|59|id|37373
+indexdetails|tickers|59|name|Fairchild Semiconductor International, Inc.
+indexdetails|tickers|59|isin|US3037261035
+indexdetails|tickers|59|ticker|FCS US Equity
+indexdetails|tickers|59|weight|0
+indexdetails|tickers|59|curr|USD
+indexdetails|tickers|59|divcurr|USD
+indexdetails|tickers|59|sedol|2444479
+indexdetails|tickers|59|cusip|
+indexdetails|tickers|59|countryname|United States
+indexdetails|tickers|59|indxx_id|178
+indexdetails|tickers|59|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|59|status|1
+indexdetails|tickers|60|id|37374
+indexdetails|tickers|60|name|Vishay Intertechnology, Inc.
+indexdetails|tickers|60|isin|US9282981086
+indexdetails|tickers|60|ticker|VSH US Equity
+indexdetails|tickers|60|weight|0
+indexdetails|tickers|60|curr|USD
+indexdetails|tickers|60|divcurr|USD
+indexdetails|tickers|60|sedol|2930149
+indexdetails|tickers|60|cusip|
+indexdetails|tickers|60|countryname|United States
+indexdetails|tickers|60|indxx_id|178
+indexdetails|tickers|60|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|60|status|1
+indexdetails|tickers|61|id|37375
+indexdetails|tickers|61|name|International Rectifier Corporation
+indexdetails|tickers|61|isin|US4602541058
+indexdetails|tickers|61|ticker|IRF US Equity
+indexdetails|tickers|61|weight|0
+indexdetails|tickers|61|curr|USD
+indexdetails|tickers|61|divcurr|USD
+indexdetails|tickers|61|sedol|2465384
+indexdetails|tickers|61|cusip|
+indexdetails|tickers|61|countryname|United States
+indexdetails|tickers|61|indxx_id|178
+indexdetails|tickers|61|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|61|status|1
+indexdetails|tickers|62|id|37376
+indexdetails|tickers|62|name|Rovi Corporation
+indexdetails|tickers|62|isin|US7793761021
+indexdetails|tickers|62|ticker|ROVI US Equity
+indexdetails|tickers|62|weight|0
+indexdetails|tickers|62|curr|USD
+indexdetails|tickers|62|divcurr|USD
+indexdetails|tickers|62|sedol|B2R9T17
+indexdetails|tickers|62|cusip|
+indexdetails|tickers|62|countryname|United States
+indexdetails|tickers|62|indxx_id|178
+indexdetails|tickers|62|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|62|status|1
+indexdetails|tickers|63|id|37377
+indexdetails|tickers|63|name|Mentor Graphics Corporation
+indexdetails|tickers|63|isin|US5872001061
+indexdetails|tickers|63|ticker|MENT US Equity
+indexdetails|tickers|63|weight|0
+indexdetails|tickers|63|curr|USD
+indexdetails|tickers|63|divcurr|USD
+indexdetails|tickers|63|sedol|2578033
+indexdetails|tickers|63|cusip|
+indexdetails|tickers|63|countryname|United States
+indexdetails|tickers|63|indxx_id|178
+indexdetails|tickers|63|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|63|status|1
+indexdetails|tickers|64|id|37378
+indexdetails|tickers|64|name|National Instruments Corporation
+indexdetails|tickers|64|isin|US6365181022
+indexdetails|tickers|64|ticker|NATI US Equity
+indexdetails|tickers|64|weight|0
+indexdetails|tickers|64|curr|USD
+indexdetails|tickers|64|divcurr|USD
+indexdetails|tickers|64|sedol|2645078
+indexdetails|tickers|64|cusip|
+indexdetails|tickers|64|countryname|United States
+indexdetails|tickers|64|indxx_id|178
+indexdetails|tickers|64|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|64|status|1
+indexdetails|tickers|65|id|37379
+indexdetails|tickers|65|name|PTC Inc.
+indexdetails|tickers|65|isin|US69370C1009
+indexdetails|tickers|65|ticker|PTC US Equity
+indexdetails|tickers|65|weight|0
+indexdetails|tickers|65|curr|USD
+indexdetails|tickers|65|divcurr|USD
+indexdetails|tickers|65|sedol|B95N910
+indexdetails|tickers|65|cusip|
+indexdetails|tickers|65|countryname|United States
+indexdetails|tickers|65|indxx_id|178
+indexdetails|tickers|65|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|65|status|1
+indexdetails|tickers|66|id|37380
+indexdetails|tickers|66|name|BlackBerry Limited
+indexdetails|tickers|66|isin|CA09228F1036
+indexdetails|tickers|66|ticker|BB CN Equity
+indexdetails|tickers|66|weight|0
+indexdetails|tickers|66|curr|CAD
+indexdetails|tickers|66|divcurr|CAD
+indexdetails|tickers|66|sedol|BCBHZ31
+indexdetails|tickers|66|cusip|
+indexdetails|tickers|66|countryname|Canada
+indexdetails|tickers|66|indxx_id|178
+indexdetails|tickers|66|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|66|status|1
+indexdetails|tickers|67|id|37381
+indexdetails|tickers|67|name|Cadence Design Systems, Inc.
+indexdetails|tickers|67|isin|US1273871087
+indexdetails|tickers|67|ticker|CDNS US Equity
+indexdetails|tickers|67|weight|0
+indexdetails|tickers|67|curr|USD
+indexdetails|tickers|67|divcurr|USD
+indexdetails|tickers|67|sedol|2302232
+indexdetails|tickers|67|cusip|
+indexdetails|tickers|67|countryname|United States
+indexdetails|tickers|67|indxx_id|178
+indexdetails|tickers|67|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|67|status|1
+indexdetails|tickers|68|id|37382
+indexdetails|tickers|68|name|Synopsys, Inc.
+indexdetails|tickers|68|isin|US8716071076
+indexdetails|tickers|68|ticker|SNPS US Equity
+indexdetails|tickers|68|weight|0
+indexdetails|tickers|68|curr|USD
+indexdetails|tickers|68|divcurr|USD
+indexdetails|tickers|68|sedol|2867719
+indexdetails|tickers|68|cusip|
+indexdetails|tickers|68|countryname|United States
+indexdetails|tickers|68|indxx_id|178
+indexdetails|tickers|68|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|68|status|1
+indexdetails|tickers|69|id|37383
+indexdetails|tickers|69|name|Trimble Navigation Limited
+indexdetails|tickers|69|isin|US8962391004
+indexdetails|tickers|69|ticker|TRMB US Equity
+indexdetails|tickers|69|weight|0
+indexdetails|tickers|69|curr|USD
+indexdetails|tickers|69|divcurr|USD
+indexdetails|tickers|69|sedol|2903958
+indexdetails|tickers|69|cusip|
+indexdetails|tickers|69|countryname|United States
+indexdetails|tickers|69|indxx_id|178
+indexdetails|tickers|69|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|69|status|1
+indexdetails|tickers|70|id|37384
+indexdetails|tickers|70|name|ANSYS, Inc.
+indexdetails|tickers|70|isin|US03662Q1058
+indexdetails|tickers|70|ticker|ANSS US Equity
+indexdetails|tickers|70|weight|0
+indexdetails|tickers|70|curr|USD
+indexdetails|tickers|70|divcurr|USD
+indexdetails|tickers|70|sedol|2045623
+indexdetails|tickers|70|cusip|
+indexdetails|tickers|70|countryname|United States
+indexdetails|tickers|70|indxx_id|178
+indexdetails|tickers|70|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|70|status|1
+indexdetails|tickers|71|id|37385
+indexdetails|tickers|71|name|Garmin Ltd.
+indexdetails|tickers|71|isin|CH0114405324
+indexdetails|tickers|71|ticker|GRMN US Equity
+indexdetails|tickers|71|weight|0
+indexdetails|tickers|71|curr|USD
+indexdetails|tickers|71|divcurr|USD
+indexdetails|tickers|71|sedol|B3Z5T14
+indexdetails|tickers|71|cusip|
+indexdetails|tickers|71|countryname|Switzerland
+indexdetails|tickers|71|indxx_id|178
+indexdetails|tickers|71|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|71|status|1
+indexdetails|tickers|72|id|37386
+indexdetails|tickers|72|name|Hexagon AB Class B
+indexdetails|tickers|72|isin|SE0000103699
+indexdetails|tickers|72|ticker|HEXAB SS Equity
+indexdetails|tickers|72|weight|0
+indexdetails|tickers|72|curr|SEK
+indexdetails|tickers|72|divcurr|EUR
+indexdetails|tickers|72|sedol|B1XFTL2
+indexdetails|tickers|72|cusip|
+indexdetails|tickers|72|countryname|Sweden
+indexdetails|tickers|72|indxx_id|178
+indexdetails|tickers|72|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|72|status|1
+indexdetails|tickers|73|id|37387
+indexdetails|tickers|73|name|Autodesk, Inc.
+indexdetails|tickers|73|isin|US0527691069
+indexdetails|tickers|73|ticker|ADSK US Equity
+indexdetails|tickers|73|weight|0
+indexdetails|tickers|73|curr|USD
+indexdetails|tickers|73|divcurr|USD
+indexdetails|tickers|73|sedol|2065159
+indexdetails|tickers|73|cusip|
+indexdetails|tickers|73|countryname|United States
+indexdetails|tickers|73|indxx_id|178
+indexdetails|tickers|73|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|73|status|1
+indexdetails|tickers|74|id|37388
+indexdetails|tickers|74|name|Dassault Systemes SA
+indexdetails|tickers|74|isin|FR0000130650
+indexdetails|tickers|74|ticker|DSY FP Equity
+indexdetails|tickers|74|weight|0
+indexdetails|tickers|74|curr|EUR
+indexdetails|tickers|74|divcurr|EUR
+indexdetails|tickers|74|sedol|5330047
+indexdetails|tickers|74|cusip|
+indexdetails|tickers|74|countryname|France
+indexdetails|tickers|74|indxx_id|178
+indexdetails|tickers|74|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|74|status|1
+indexdetails|tickers|75|id|37389
+indexdetails|tickers|75|name|Motorola Solutions, Inc.
+indexdetails|tickers|75|isin|US6200763075
+indexdetails|tickers|75|ticker|MSI US Equity
+indexdetails|tickers|75|weight|0
+indexdetails|tickers|75|curr|USD
+indexdetails|tickers|75|divcurr|USD
+indexdetails|tickers|75|sedol|B5BKPQ4
+indexdetails|tickers|75|cusip|
+indexdetails|tickers|75|countryname|United States
+indexdetails|tickers|75|indxx_id|178
+indexdetails|tickers|75|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|75|status|1
+indexdetails|tickers|76|id|37390
+indexdetails|tickers|76|name|Nokia Oyj
+indexdetails|tickers|76|isin|FI0009000681
+indexdetails|tickers|76|ticker|NOK1V FH Equity
+indexdetails|tickers|76|weight|0
+indexdetails|tickers|76|curr|EUR
+indexdetails|tickers|76|divcurr|EUR
+indexdetails|tickers|76|sedol|5902941
+indexdetails|tickers|76|cusip|
+indexdetails|tickers|76|countryname|Finland
+indexdetails|tickers|76|indxx_id|178
+indexdetails|tickers|76|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|76|status|1
+indexdetails|tickers|77|id|37391
+indexdetails|tickers|77|name|Lam Research Corporation
+indexdetails|tickers|77|isin|US5128071082
+indexdetails|tickers|77|ticker|LRCX US Equity
+indexdetails|tickers|77|weight|0
+indexdetails|tickers|77|curr|USD
+indexdetails|tickers|77|divcurr|USD
+indexdetails|tickers|77|sedol|2502247
+indexdetails|tickers|77|cusip|
+indexdetails|tickers|77|countryname|United States
+indexdetails|tickers|77|indxx_id|178
+indexdetails|tickers|77|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|77|status|1
+indexdetails|tickers|78|id|37392
+indexdetails|tickers|78|name|Tokyo Electron Ltd.
+indexdetails|tickers|78|isin|JP3571400005
+indexdetails|tickers|78|ticker|8035 JP Equity
+indexdetails|tickers|78|weight|0
+indexdetails|tickers|78|curr|JPY
+indexdetails|tickers|78|divcurr|JPY
+indexdetails|tickers|78|sedol|6895675
+indexdetails|tickers|78|cusip|
+indexdetails|tickers|78|countryname|Japan
+indexdetails|tickers|78|indxx_id|178
+indexdetails|tickers|78|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|78|status|1
+indexdetails|tickers|79|id|37393
+indexdetails|tickers|79|name|Applied Materials, Inc.
+indexdetails|tickers|79|isin|US0382221051
+indexdetails|tickers|79|ticker|AMAT US Equity
+indexdetails|tickers|79|weight|0
+indexdetails|tickers|79|curr|USD
+indexdetails|tickers|79|divcurr|USD
+indexdetails|tickers|79|sedol|2046552
+indexdetails|tickers|79|cusip|
+indexdetails|tickers|79|countryname|United States
+indexdetails|tickers|79|indxx_id|178
+indexdetails|tickers|79|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|79|status|1
+indexdetails|tickers|80|id|37394
+indexdetails|tickers|80|name|ASML Holding NV
+indexdetails|tickers|80|isin|NL0010273215
+indexdetails|tickers|80|ticker|ASML NA Equity
+indexdetails|tickers|80|weight|0
+indexdetails|tickers|80|curr|EUR
+indexdetails|tickers|80|divcurr|EUR
+indexdetails|tickers|80|sedol|B929F46
+indexdetails|tickers|80|cusip|
+indexdetails|tickers|80|countryname|Netherlands
+indexdetails|tickers|80|indxx_id|178
+indexdetails|tickers|80|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|80|status|1
+indexdetails|tickers|81|id|37395
+indexdetails|tickers|81|name|Ciena Corporation
+indexdetails|tickers|81|isin|US1717793095
+indexdetails|tickers|81|ticker|CIEN US Equity
+indexdetails|tickers|81|weight|0
+indexdetails|tickers|81|curr|USD
+indexdetails|tickers|81|divcurr|USD
+indexdetails|tickers|81|sedol|B1FLZ21
+indexdetails|tickers|81|cusip|
+indexdetails|tickers|81|countryname|United States
+indexdetails|tickers|81|indxx_id|178
+indexdetails|tickers|81|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|81|status|1
+indexdetails|tickers|82|id|37396
+indexdetails|tickers|82|name|JDS Uniphase Corporation
+indexdetails|tickers|82|isin|US46612J5074
+indexdetails|tickers|82|ticker|JDSU US Equity
+indexdetails|tickers|82|weight|0
+indexdetails|tickers|82|curr|USD
+indexdetails|tickers|82|divcurr|USD
+indexdetails|tickers|82|sedol|B1G2LX6
+indexdetails|tickers|82|cusip|
+indexdetails|tickers|82|countryname|United States
+indexdetails|tickers|82|indxx_id|178
+indexdetails|tickers|82|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|82|status|1
+indexdetails|tickers|83|id|37397
+indexdetails|tickers|83|name|ARRIS Group, Inc.
+indexdetails|tickers|83|isin|US04270V1061
+indexdetails|tickers|83|ticker|ARRS US Equity
+indexdetails|tickers|83|weight|0
+indexdetails|tickers|83|curr|USD
+indexdetails|tickers|83|divcurr|USD
+indexdetails|tickers|83|sedol|B9SMM04
+indexdetails|tickers|83|cusip|
+indexdetails|tickers|83|countryname|United States
+indexdetails|tickers|83|indxx_id|178
+indexdetails|tickers|83|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|83|status|1
+indexdetails|tickers|84|id|37398
+indexdetails|tickers|84|name|Fortinet, Inc.
+indexdetails|tickers|84|isin|US34959E1091
+indexdetails|tickers|84|ticker|FTNT US Equity
+indexdetails|tickers|84|weight|0
+indexdetails|tickers|84|curr|USD
+indexdetails|tickers|84|divcurr|USD
+indexdetails|tickers|84|sedol|B5B2106
+indexdetails|tickers|84|cusip|
+indexdetails|tickers|84|countryname|United States
+indexdetails|tickers|84|indxx_id|178
+indexdetails|tickers|84|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|84|status|1
+indexdetails|tickers|85|id|37399
+indexdetails|tickers|85|name|Juniper Networks, Inc.
+indexdetails|tickers|85|isin|US48203R1041
+indexdetails|tickers|85|ticker|JNPR US Equity
+indexdetails|tickers|85|weight|0
+indexdetails|tickers|85|curr|USD
+indexdetails|tickers|85|divcurr|USD
+indexdetails|tickers|85|sedol|2431846
+indexdetails|tickers|85|cusip|
+indexdetails|tickers|85|countryname|United States
+indexdetails|tickers|85|indxx_id|178
+indexdetails|tickers|85|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|85|status|1
+indexdetails|tickers|86|id|37400
+indexdetails|tickers|86|name|Alcatel-Lucent SA
+indexdetails|tickers|86|isin|FR0000130007
+indexdetails|tickers|86|ticker|ALU FP Equity
+indexdetails|tickers|86|weight|0
+indexdetails|tickers|86|curr|EUR
+indexdetails|tickers|86|divcurr|EUR
+indexdetails|tickers|86|sedol|5975006
+indexdetails|tickers|86|cusip|
+indexdetails|tickers|86|countryname|France
+indexdetails|tickers|86|indxx_id|178
+indexdetails|tickers|86|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|86|status|1
+indexdetails|tickers|87|id|37401
+indexdetails|tickers|87|name|NetApp, Inc.
+indexdetails|tickers|87|isin|US64110D1046
+indexdetails|tickers|87|ticker|NTAP US Equity
+indexdetails|tickers|87|weight|0
+indexdetails|tickers|87|curr|USD
+indexdetails|tickers|87|divcurr|USD
+indexdetails|tickers|87|sedol|2630643
+indexdetails|tickers|87|cusip|
+indexdetails|tickers|87|countryname|United States
+indexdetails|tickers|87|indxx_id|178
+indexdetails|tickers|87|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|87|status|1
+indexdetails|tickers|88|id|37402
+indexdetails|tickers|88|name|Seagate Technology PLC
+indexdetails|tickers|88|isin|IE00B58JVZ52
+indexdetails|tickers|88|ticker|STX US Equity
+indexdetails|tickers|88|weight|0
+indexdetails|tickers|88|curr|USD
+indexdetails|tickers|88|divcurr|USD
+indexdetails|tickers|88|sedol|B58JVZ5
+indexdetails|tickers|88|cusip|
+indexdetails|tickers|88|countryname|United States
+indexdetails|tickers|88|indxx_id|178
+indexdetails|tickers|88|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|88|status|1
+indexdetails|tickers|89|id|37403
+indexdetails|tickers|89|name|Western Digital Corporation
+indexdetails|tickers|89|isin|US9581021055
+indexdetails|tickers|89|ticker|WDC US Equity
+indexdetails|tickers|89|weight|0
+indexdetails|tickers|89|curr|USD
+indexdetails|tickers|89|divcurr|USD
+indexdetails|tickers|89|sedol|2954699
+indexdetails|tickers|89|cusip|
+indexdetails|tickers|89|countryname|United States
+indexdetails|tickers|89|indxx_id|178
+indexdetails|tickers|89|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|89|status|1
+indexdetails|tickers|90|id|37404
+indexdetails|tickers|90|name|LM Ericsson Telefon AB Class B
+indexdetails|tickers|90|isin|SE0000108656
+indexdetails|tickers|90|ticker|ERICB SS Equity
+indexdetails|tickers|90|weight|0
+indexdetails|tickers|90|curr|SEK
+indexdetails|tickers|90|divcurr|SEK
+indexdetails|tickers|90|sedol|5959378
+indexdetails|tickers|90|cusip|
+indexdetails|tickers|90|countryname|Sweden
+indexdetails|tickers|90|indxx_id|178
+indexdetails|tickers|90|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|90|status|1
+indexdetails|tickers|91|id|37405
+indexdetails|tickers|91|name|EMC Corporation
+indexdetails|tickers|91|isin|US2686481027
+indexdetails|tickers|91|ticker|EMC US Equity
+indexdetails|tickers|91|weight|0
+indexdetails|tickers|91|curr|USD
+indexdetails|tickers|91|divcurr|USD
+indexdetails|tickers|91|sedol|2295172
+indexdetails|tickers|91|cusip|
+indexdetails|tickers|91|countryname|United States
+indexdetails|tickers|91|indxx_id|178
+indexdetails|tickers|91|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|91|status|1
+indexdetails|tickers|92|id|37406
+indexdetails|tickers|92|name|Cisco Systems, Inc.
+indexdetails|tickers|92|isin|US17275R1023
+indexdetails|tickers|92|ticker|CSCO US Equity
+indexdetails|tickers|92|weight|0
+indexdetails|tickers|92|curr|USD
+indexdetails|tickers|92|divcurr|USD
+indexdetails|tickers|92|sedol|2198163
+indexdetails|tickers|92|cusip|
+indexdetails|tickers|92|countryname|United States
+indexdetails|tickers|92|indxx_id|178
+indexdetails|tickers|92|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|92|status|1
+indexdetails|tickers|93|id|37407
+indexdetails|tickers|93|name|SanDisk Corporation
+indexdetails|tickers|93|isin|US80004C1018
+indexdetails|tickers|93|ticker|SNDK US Equity
+indexdetails|tickers|93|weight|0
+indexdetails|tickers|93|curr|USD
+indexdetails|tickers|93|divcurr|USD
+indexdetails|tickers|93|sedol|2765802
+indexdetails|tickers|93|cusip|
+indexdetails|tickers|93|countryname|United States
+indexdetails|tickers|93|indxx_id|178
+indexdetails|tickers|93|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|93|status|1
+indexdetails|tickers|94|id|37408
+indexdetails|tickers|94|name|SK Hynix Inc.
+indexdetails|tickers|94|isin|KR7000660001
+indexdetails|tickers|94|ticker|000660 KS Equity
+indexdetails|tickers|94|weight|0
+indexdetails|tickers|94|curr|KRW
+indexdetails|tickers|94|divcurr|KRW
+indexdetails|tickers|94|sedol|6450267
+indexdetails|tickers|94|cusip|
+indexdetails|tickers|94|countryname|South Korea
+indexdetails|tickers|94|indxx_id|178
+indexdetails|tickers|94|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|94|status|1
+indexdetails|tickers|95|id|37409
+indexdetails|tickers|95|name|Micron Technology, Inc.
+indexdetails|tickers|95|isin|US5951121038
+indexdetails|tickers|95|ticker|MU US Equity
+indexdetails|tickers|95|weight|0
+indexdetails|tickers|95|curr|USD
+indexdetails|tickers|95|divcurr|USD
+indexdetails|tickers|95|sedol|2588184
+indexdetails|tickers|95|cusip|
+indexdetails|tickers|95|countryname|United States
+indexdetails|tickers|95|indxx_id|178
+indexdetails|tickers|95|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|95|status|1
+indexdetails|tickers|96|id|37410
+indexdetails|tickers|96|name|Polycom, Inc.
+indexdetails|tickers|96|isin|US73172K1043
+indexdetails|tickers|96|ticker|PLCM US Equity
+indexdetails|tickers|96|weight|0
+indexdetails|tickers|96|curr|USD
+indexdetails|tickers|96|divcurr|USD
+indexdetails|tickers|96|sedol|2693420
+indexdetails|tickers|96|cusip|
+indexdetails|tickers|96|countryname|United States
+indexdetails|tickers|96|indxx_id|178
+indexdetails|tickers|96|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|96|status|1
+indexdetails|tickers|97|id|37411
+indexdetails|tickers|97|name|Plantronics, Inc.
+indexdetails|tickers|97|isin|US7274931085
+indexdetails|tickers|97|ticker|PLT US Equity
+indexdetails|tickers|97|weight|0
+indexdetails|tickers|97|curr|USD
+indexdetails|tickers|97|divcurr|USD
+indexdetails|tickers|97|sedol|2692030
+indexdetails|tickers|97|cusip|
+indexdetails|tickers|97|countryname|United States
+indexdetails|tickers|97|indxx_id|178
+indexdetails|tickers|97|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|97|status|1
+indexdetails|tickers|98|id|37412
+indexdetails|tickers|98|name|Riverbed Technology, Inc.
+indexdetails|tickers|98|isin|US7685731074
+indexdetails|tickers|98|ticker|RVBD US Equity
+indexdetails|tickers|98|weight|0
+indexdetails|tickers|98|curr|USD
+indexdetails|tickers|98|divcurr|USD
+indexdetails|tickers|98|sedol|B1FH886
+indexdetails|tickers|98|cusip|
+indexdetails|tickers|98|countryname|United States
+indexdetails|tickers|98|indxx_id|178
+indexdetails|tickers|98|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|98|status|1
+indexdetails|tickers|99|id|37413
+indexdetails|tickers|99|name|Jabil Circuit, Inc.
+indexdetails|tickers|99|isin|US4663131039
+indexdetails|tickers|99|ticker|JBL US Equity
+indexdetails|tickers|99|weight|0
+indexdetails|tickers|99|curr|USD
+indexdetails|tickers|99|divcurr|USD
+indexdetails|tickers|99|sedol|2471789
+indexdetails|tickers|99|cusip|
+indexdetails|tickers|99|countryname|United States
+indexdetails|tickers|99|indxx_id|178
+indexdetails|tickers|99|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|99|status|1
+indexdetails|tickers|100|id|37414
+indexdetails|tickers|100|name|F5 Networks, Inc.
+indexdetails|tickers|100|isin|US3156161024
+indexdetails|tickers|100|ticker|FFIV US Equity
+indexdetails|tickers|100|weight|0
+indexdetails|tickers|100|curr|USD
+indexdetails|tickers|100|divcurr|USD
+indexdetails|tickers|100|sedol|2427599
+indexdetails|tickers|100|cusip|
+indexdetails|tickers|100|countryname|United States
+indexdetails|tickers|100|indxx_id|178
+indexdetails|tickers|100|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|100|status|1
+indexdetails|tickers|101|id|37415
+indexdetails|tickers|101|name|Citrix Systems, Inc.
+indexdetails|tickers|101|isin|US1773761002
+indexdetails|tickers|101|ticker|CTXS US Equity
+indexdetails|tickers|101|weight|0
+indexdetails|tickers|101|curr|USD
+indexdetails|tickers|101|divcurr|USD
+indexdetails|tickers|101|sedol|2182553
+indexdetails|tickers|101|cusip|
+indexdetails|tickers|101|countryname|United States
+indexdetails|tickers|101|indxx_id|178
+indexdetails|tickers|101|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|101|status|1
+indexdetails|tickers|102|id|37416
+indexdetails|tickers|102|name|Red Hat, Inc.
+indexdetails|tickers|102|isin|US7565771026
+indexdetails|tickers|102|ticker|RHT US Equity
+indexdetails|tickers|102|weight|0
+indexdetails|tickers|102|curr|USD
+indexdetails|tickers|102|divcurr|USD
+indexdetails|tickers|102|sedol|2447218
+indexdetails|tickers|102|cusip|
+indexdetails|tickers|102|countryname|United States
+indexdetails|tickers|102|indxx_id|178
+indexdetails|tickers|102|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|102|status|1
+indexdetails|tickers|103|id|37417
+indexdetails|tickers|103|name|CA, Inc.
+indexdetails|tickers|103|isin|US12673P1057
+indexdetails|tickers|103|ticker|CA US Equity
+indexdetails|tickers|103|weight|0
+indexdetails|tickers|103|curr|USD
+indexdetails|tickers|103|divcurr|USD
+indexdetails|tickers|103|sedol|2214832
+indexdetails|tickers|103|cusip|
+indexdetails|tickers|103|countryname|United States
+indexdetails|tickers|103|indxx_id|178
+indexdetails|tickers|103|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|103|status|1
+indexdetails|tickers|104|id|37418
+indexdetails|tickers|104|name|Nintendo Co., Ltd.
+indexdetails|tickers|104|isin|JP3756600007
+indexdetails|tickers|104|ticker|7974 JP Equity
+indexdetails|tickers|104|weight|0
+indexdetails|tickers|104|curr|JPY
+indexdetails|tickers|104|divcurr|JPY
+indexdetails|tickers|104|sedol|6639550
+indexdetails|tickers|104|cusip|
+indexdetails|tickers|104|countryname|Japan
+indexdetails|tickers|104|indxx_id|178
+indexdetails|tickers|104|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|104|status|1
+indexdetails|tickers|105|id|37419
+indexdetails|tickers|105|name|Symantec Corporation
+indexdetails|tickers|105|isin|US8715031089
+indexdetails|tickers|105|ticker|SYMC US Equity
+indexdetails|tickers|105|weight|0
+indexdetails|tickers|105|curr|USD
+indexdetails|tickers|105|divcurr|USD
+indexdetails|tickers|105|sedol|2861078
+indexdetails|tickers|105|cusip|
+indexdetails|tickers|105|countryname|United States
+indexdetails|tickers|105|indxx_id|178
+indexdetails|tickers|105|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|105|status|1
+indexdetails|tickers|106|id|37420
+indexdetails|tickers|106|name|Hon Hai Precision Industry Co., Ltd.
+indexdetails|tickers|106|isin|TW0002317005
+indexdetails|tickers|106|ticker|2317 TT Equity
+indexdetails|tickers|106|weight|0
+indexdetails|tickers|106|curr|TWD
+indexdetails|tickers|106|divcurr|TWD
+indexdetails|tickers|106|sedol|6438564
+indexdetails|tickers|106|cusip|
+indexdetails|tickers|106|countryname|Taiwan
+indexdetails|tickers|106|indxx_id|178
+indexdetails|tickers|106|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|106|status|1
+indexdetails|tickers|107|id|37421
+indexdetails|tickers|107|name|Hewlett-Packard Company
+indexdetails|tickers|107|isin|US4282361033
+indexdetails|tickers|107|ticker|HPQ US Equity
+indexdetails|tickers|107|weight|0
+indexdetails|tickers|107|curr|USD
+indexdetails|tickers|107|divcurr|USD
+indexdetails|tickers|107|sedol|2424006
+indexdetails|tickers|107|cusip|
+indexdetails|tickers|107|countryname|United States
+indexdetails|tickers|107|indxx_id|178
+indexdetails|tickers|107|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|107|status|1
+indexdetails|tickers|108|id|37422
+indexdetails|tickers|108|name|SAP SE
+indexdetails|tickers|108|isin|DE0007164600
+indexdetails|tickers|108|ticker|SAP GR Equity
+indexdetails|tickers|108|weight|0
+indexdetails|tickers|108|curr|EUR
+indexdetails|tickers|108|divcurr|EUR
+indexdetails|tickers|108|sedol|4846288
+indexdetails|tickers|108|cusip|
+indexdetails|tickers|108|countryname|Germany
+indexdetails|tickers|108|indxx_id|178
+indexdetails|tickers|108|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|108|status|1
+indexdetails|tickers|109|id|37423
+indexdetails|tickers|109|name|Apple Inc.
+indexdetails|tickers|109|isin|US0378331005
+indexdetails|tickers|109|ticker|AAPL US Equity
+indexdetails|tickers|109|weight|0
+indexdetails|tickers|109|curr|USD
+indexdetails|tickers|109|divcurr|USD
+indexdetails|tickers|109|sedol|2046251
+indexdetails|tickers|109|cusip|
+indexdetails|tickers|109|countryname|United States
+indexdetails|tickers|109|indxx_id|178
+indexdetails|tickers|109|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|109|status|1
+indexdetails|tickers|110|id|37424
+indexdetails|tickers|110|name|Intuit Inc.
+indexdetails|tickers|110|isin|US4612021034
+indexdetails|tickers|110|ticker|INTU US Equity
+indexdetails|tickers|110|weight|0
+indexdetails|tickers|110|curr|USD
+indexdetails|tickers|110|divcurr|USD
+indexdetails|tickers|110|sedol|2459020
+indexdetails|tickers|110|cusip|
+indexdetails|tickers|110|countryname|United States
+indexdetails|tickers|110|indxx_id|178
+indexdetails|tickers|110|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|110|status|1
+indexdetails|tickers|111|id|37425
+indexdetails|tickers|111|name|Adobe Systems Incorporated
+indexdetails|tickers|111|isin|US00724F1012
+indexdetails|tickers|111|ticker|ADBE US Equity
+indexdetails|tickers|111|weight|0
+indexdetails|tickers|111|curr|USD
+indexdetails|tickers|111|divcurr|USD
+indexdetails|tickers|111|sedol|2008154
+indexdetails|tickers|111|cusip|
+indexdetails|tickers|111|countryname|United States
+indexdetails|tickers|111|indxx_id|178
+indexdetails|tickers|111|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|111|status|1
+indexdetails|tickers|112|id|37426
+indexdetails|tickers|112|name|Taiwan Semiconductor Manufacturing Co., Ltd.
+indexdetails|tickers|112|isin|TW0002330008
+indexdetails|tickers|112|ticker|2330 TT Equity
+indexdetails|tickers|112|weight|0
+indexdetails|tickers|112|curr|TWD
+indexdetails|tickers|112|divcurr|TWD
+indexdetails|tickers|112|sedol|6889106
+indexdetails|tickers|112|cusip|
+indexdetails|tickers|112|countryname|Taiwan
+indexdetails|tickers|112|indxx_id|178
+indexdetails|tickers|112|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|112|status|1
+indexdetails|tickers|113|id|37427
+indexdetails|tickers|113|name|Microsoft Corporation
+indexdetails|tickers|113|isin|US5949181045
+indexdetails|tickers|113|ticker|MSFT US Equity
+indexdetails|tickers|113|weight|0
+indexdetails|tickers|113|curr|USD
+indexdetails|tickers|113|divcurr|USD
+indexdetails|tickers|113|sedol|2588173
+indexdetails|tickers|113|cusip|
+indexdetails|tickers|113|countryname|United States
+indexdetails|tickers|113|indxx_id|178
+indexdetails|tickers|113|dateAdded|2015-01-01 03:10:27
+indexdetails|tickers|113|status|1
+indexdetails|price|0|id|523722
+indexdetails|price|0|dateAdded|2015-01-02 16:32:07
+indexdetails|price|0|indxx_id|178
+indexdetails|price|0|isin|US5297711070
+indexdetails|price|0|date|2015-01-02
+indexdetails|price|0|price|40.81
+indexdetails|price|0|currencyfactor|1
+indexdetails|price|0|localprice|40.81
+indexdetails|price|1|id|523724
+indexdetails|price|1|dateAdded|2015-01-02 16:32:07
+indexdetails|price|1|indxx_id|178
+indexdetails|price|1|isin|US7685731074
+indexdetails|price|1|date|2015-01-02
+indexdetails|price|1|price|20.39
+indexdetails|price|1|currencyfactor|1
+indexdetails|price|1|localprice|20.39
+indexdetails|price|2|id|523726
+indexdetails|price|2|dateAdded|2015-01-02 16:32:07
+indexdetails|price|2|indxx_id|178
+indexdetails|price|2|isin|US8962391004
+indexdetails|price|2|date|2015-01-02
+indexdetails|price|2|price|26.91
+indexdetails|price|2|currencyfactor|1
+indexdetails|price|2|localprice|26.91
+indexdetails|price|3|id|523728
+indexdetails|price|3|dateAdded|2015-01-02 16:32:07
+indexdetails|price|3|indxx_id|178
+indexdetails|price|3|isin|US4663131039
+indexdetails|price|3|date|2015-01-02
+indexdetails|price|3|price|21.62
+indexdetails|price|3|currencyfactor|1
+indexdetails|price|3|localprice|21.62
+indexdetails|price|4|id|523730
+indexdetails|price|4|dateAdded|2015-01-02 16:32:07
+indexdetails|price|4|indxx_id|178
+indexdetails|price|4|isin|US8807701029
+indexdetails|price|4|date|2015-01-02
+indexdetails|price|4|price|19.7
+indexdetails|price|4|currencyfactor|1
+indexdetails|price|4|localprice|19.7
+indexdetails|price|5|id|523732
+indexdetails|price|5|dateAdded|2015-01-02 16:32:07
+indexdetails|price|5|indxx_id|178
+indexdetails|price|5|isin|US73172K1043
+indexdetails|price|5|date|2015-01-02
+indexdetails|price|5|price|13.35
+indexdetails|price|5|currencyfactor|1
+indexdetails|price|5|localprice|13.35
+indexdetails|price|6|id|523734
+indexdetails|price|6|dateAdded|2015-01-02 16:32:07
+indexdetails|price|6|indxx_id|178
+indexdetails|price|6|isin|US7274931085
+indexdetails|price|6|date|2015-01-02
+indexdetails|price|6|price|52.5
+indexdetails|price|6|currencyfactor|1
+indexdetails|price|6|localprice|52.5
+indexdetails|price|7|id|523736
+indexdetails|price|7|dateAdded|2015-01-02 16:32:07
+indexdetails|price|7|indxx_id|178
+indexdetails|price|7|isin|US0079031078
+indexdetails|price|7|date|2015-01-02
+indexdetails|price|7|price|2.69
+indexdetails|price|7|currencyfactor|1
+indexdetails|price|7|localprice|2.69
+indexdetails|price|8|id|523738
+indexdetails|price|8|dateAdded|2015-01-02 16:32:07
+indexdetails|price|8|indxx_id|178
+indexdetails|price|8|isin|US0495131049
+indexdetails|price|8|date|2015-01-02
+indexdetails|price|8|price|8.39
+indexdetails|price|8|currencyfactor|1
+indexdetails|price|8|localprice|8.39
+indexdetails|price|9|id|523740
+indexdetails|price|9|dateAdded|2015-01-02 16:32:07
+indexdetails|price|9|indxx_id|178
+indexdetails|price|9|isin|US7793761021
+indexdetails|price|9|date|2015-01-02
+indexdetails|price|9|price|22.56
+indexdetails|price|9|currencyfactor|1
+indexdetails|price|9|localprice|22.56
+indexdetails|price|10|id|523742
+indexdetails|price|10|dateAdded|2015-01-02 16:32:07
+indexdetails|price|10|indxx_id|178
+indexdetails|price|10|isin|US5872001061
+indexdetails|price|10|date|2015-01-02
+indexdetails|price|10|price|21.77
+indexdetails|price|10|currencyfactor|1
+indexdetails|price|10|localprice|21.77
+indexdetails|price|11|id|523744
+indexdetails|price|11|dateAdded|2015-01-02 16:32:07
+indexdetails|price|11|indxx_id|178
+indexdetails|price|11|isin|US6365181022
+indexdetails|price|11|date|2015-01-02
+indexdetails|price|11|price|31.16
+indexdetails|price|11|currencyfactor|1
+indexdetails|price|11|localprice|31.16
+indexdetails|price|12|id|523746
+indexdetails|price|12|dateAdded|2015-01-02 16:32:07
+indexdetails|price|12|indxx_id|178
+indexdetails|price|12|isin|US69370C1009
+indexdetails|price|12|date|2015-01-02
+indexdetails|price|12|price|36.35
+indexdetails|price|12|currencyfactor|1
+indexdetails|price|12|localprice|36.35
+indexdetails|price|13|id|523748
+indexdetails|price|13|dateAdded|2015-01-02 16:32:07
+indexdetails|price|13|indxx_id|178
+indexdetails|price|13|isin|US1273871087
+indexdetails|price|13|date|2015-01-02
+indexdetails|price|13|price|18.83
+indexdetails|price|13|currencyfactor|1
+indexdetails|price|13|localprice|18.83
+indexdetails|price|14|id|523750
+indexdetails|price|14|dateAdded|2015-01-02 16:32:07
+indexdetails|price|14|indxx_id|178
+indexdetails|price|14|isin|US8716071076
+indexdetails|price|14|date|2015-01-02
+indexdetails|price|14|price|43.1
+indexdetails|price|14|currencyfactor|1
+indexdetails|price|14|localprice|43.1
+indexdetails|price|15|id|523752
+indexdetails|price|15|dateAdded|2015-01-02 16:32:07
+indexdetails|price|15|indxx_id|178
+indexdetails|price|15|isin|US03662Q1058
+indexdetails|price|15|date|2015-01-02
+indexdetails|price|15|price|81.64
+indexdetails|price|15|currencyfactor|1
+indexdetails|price|15|localprice|81.64
+indexdetails|price|16|id|523754
+indexdetails|price|16|dateAdded|2015-01-02 16:32:07
+indexdetails|price|16|indxx_id|178
+indexdetails|price|16|isin|US1717793095
+indexdetails|price|16|date|2015-01-02
+indexdetails|price|16|price|19.54
+indexdetails|price|16|currencyfactor|1
+indexdetails|price|16|localprice|19.54
+indexdetails|price|17|id|523756
+indexdetails|price|17|dateAdded|2015-01-02 16:32:07
+indexdetails|price|17|indxx_id|178
+indexdetails|price|17|isin|US46612J5074
+indexdetails|price|17|date|2015-01-02
+indexdetails|price|17|price|13.7
+indexdetails|price|17|currencyfactor|1
+indexdetails|price|17|localprice|13.7
+indexdetails|price|18|id|523758
+indexdetails|price|18|dateAdded|2015-01-02 16:32:07
+indexdetails|price|18|indxx_id|178
+indexdetails|price|18|isin|US04270V1061
+indexdetails|price|18|date|2015-01-02
+indexdetails|price|18|price|30.25
+indexdetails|price|18|currencyfactor|1
+indexdetails|price|18|localprice|30.25
+indexdetails|price|19|id|523760
+indexdetails|price|19|dateAdded|2015-01-02 16:32:07
+indexdetails|price|19|indxx_id|178
+indexdetails|price|19|isin|US34959E1091
+indexdetails|price|19|date|2015-01-02
+indexdetails|price|19|price|30.79
+indexdetails|price|19|currencyfactor|1
+indexdetails|price|19|localprice|30.79
+indexdetails|price|20|id|523762
+indexdetails|price|20|dateAdded|2015-01-02 16:32:07
+indexdetails|price|20|indxx_id|178
+indexdetails|price|20|isin|US8269191024
+indexdetails|price|20|date|2015-01-02
+indexdetails|price|20|price|47.51
+indexdetails|price|20|currencyfactor|1
+indexdetails|price|20|localprice|47.51
+indexdetails|price|21|id|523764
+indexdetails|price|21|dateAdded|2015-01-02 16:32:07
+indexdetails|price|21|indxx_id|178
+indexdetails|price|21|isin|US45867G1013
+indexdetails|price|21|date|2015-01-02
+indexdetails|price|21|price|52.39
+indexdetails|price|21|currencyfactor|1
+indexdetails|price|21|localprice|52.39
+indexdetails|price|22|id|523766
+indexdetails|price|22|dateAdded|2015-01-02 16:32:07
+indexdetails|price|22|indxx_id|178
+indexdetails|price|22|isin|US78464A6800
+indexdetails|price|22|date|2015-01-02
+indexdetails|price|22|price|45.73
+indexdetails|price|22|currencyfactor|1
+indexdetails|price|22|localprice|45.73
+indexdetails|price|23|id|523768
+indexdetails|price|23|dateAdded|2015-01-02 16:32:07
+indexdetails|price|23|indxx_id|178
+indexdetails|price|23|isin|US0079741080
+indexdetails|price|23|date|2015-01-02
+indexdetails|price|23|price|30.15
+indexdetails|price|23|currencyfactor|1
+indexdetails|price|23|localprice|30.15
+indexdetails|price|24|id|523770
+indexdetails|price|24|dateAdded|2015-01-02 16:32:07
+indexdetails|price|24|indxx_id|178
+indexdetails|price|24|isin|US01988P1084
+indexdetails|price|24|date|2015-01-02
+indexdetails|price|24|price|12.85
+indexdetails|price|24|currencyfactor|1
+indexdetails|price|24|localprice|12.85
+indexdetails|price|25|id|523772
+indexdetails|price|25|dateAdded|2015-01-02 16:32:07
+indexdetails|price|25|indxx_id|178
+indexdetails|price|25|isin|US0044981019
+indexdetails|price|25|date|2015-01-02
+indexdetails|price|25|price|19.71
+indexdetails|price|25|currencyfactor|1
+indexdetails|price|25|localprice|19.71
+indexdetails|price|26|id|523774
+indexdetails|price|26|dateAdded|2015-01-02 16:32:07
+indexdetails|price|26|indxx_id|178
+indexdetails|price|26|isin|US2041661024
+indexdetails|price|26|date|2015-01-02
+indexdetails|price|26|price|51.55
+indexdetails|price|26|currencyfactor|1
+indexdetails|price|26|localprice|51.55
+indexdetails|price|27|id|523776
+indexdetails|price|27|dateAdded|2015-01-02 16:32:07
+indexdetails|price|27|indxx_id|178
+indexdetails|price|27|isin|US9022521051
+indexdetails|price|27|date|2015-01-02
+indexdetails|price|27|price|107.85
+indexdetails|price|27|currencyfactor|1
+indexdetails|price|27|localprice|107.85
+indexdetails|price|28|id|523778
+indexdetails|price|28|dateAdded|2015-01-02 16:32:07
+indexdetails|price|28|indxx_id|178
+indexdetails|price|28|isin|US83416B1098
+indexdetails|price|28|date|2015-01-02
+indexdetails|price|28|price|50.01
+indexdetails|price|28|currencyfactor|1
+indexdetails|price|28|localprice|50.01
+indexdetails|price|29|id|523780
+indexdetails|price|29|dateAdded|2015-01-02 16:32:07
+indexdetails|price|29|indxx_id|178
+indexdetails|price|29|isin|US45666Q1022
+indexdetails|price|29|date|2015-01-02
+indexdetails|price|29|price|37.86
+indexdetails|price|29|currencyfactor|1
+indexdetails|price|29|localprice|37.86
+indexdetails|price|30|id|523782
+indexdetails|price|30|dateAdded|2015-01-02 16:32:07
+indexdetails|price|30|indxx_id|178
+indexdetails|price|30|isin|US49926D1090
+indexdetails|price|30|date|2015-01-02
+indexdetails|price|30|price|23
+indexdetails|price|30|currencyfactor|1
+indexdetails|price|30|localprice|23
+indexdetails|price|31|id|523784
+indexdetails|price|31|dateAdded|2015-01-02 16:32:07
+indexdetails|price|31|indxx_id|178
+indexdetails|price|31|isin|US8168501018
+indexdetails|price|31|date|2015-01-02
+indexdetails|price|31|price|28.06
+indexdetails|price|31|currencyfactor|1
+indexdetails|price|31|localprice|28.06
+indexdetails|price|32|id|523786
+indexdetails|price|32|dateAdded|2015-01-02 16:32:07
+indexdetails|price|32|indxx_id|178
+indexdetails|price|32|isin|US46069S1096
+indexdetails|price|32|date|2015-01-02
+indexdetails|price|32|price|14.72
+indexdetails|price|32|currencyfactor|1
+indexdetails|price|32|localprice|14.72
+indexdetails|price|33|id|523788
+indexdetails|price|33|dateAdded|2015-01-02 16:32:07
+indexdetails|price|33|indxx_id|178
+indexdetails|price|33|isin|US3037261035
+indexdetails|price|33|date|2015-01-02
+indexdetails|price|33|price|16.84
+indexdetails|price|33|currencyfactor|1
+indexdetails|price|33|localprice|16.84
+indexdetails|price|34|id|523790
+indexdetails|price|34|dateAdded|2015-01-02 16:32:07
+indexdetails|price|34|indxx_id|178
+indexdetails|price|34|isin|US9282981086
+indexdetails|price|34|date|2015-01-02
+indexdetails|price|34|price|14.09
+indexdetails|price|34|currencyfactor|1
+indexdetails|price|34|localprice|14.09
+indexdetails|price|35|id|523792
+indexdetails|price|35|dateAdded|2015-01-02 16:32:07
+indexdetails|price|35|indxx_id|178
+indexdetails|price|35|isin|US2328061096
+indexdetails|price|35|date|2015-01-02
+indexdetails|price|35|price|14.46
+indexdetails|price|35|currencyfactor|1
+indexdetails|price|35|localprice|14.46
+indexdetails|price|36|id|523794
+indexdetails|price|36|dateAdded|2015-01-02 16:32:07
+indexdetails|price|36|indxx_id|178
+indexdetails|price|36|isin|US4602541058
+indexdetails|price|36|date|2015-01-02
+indexdetails|price|36|price|39.94
+indexdetails|price|36|currencyfactor|1
+indexdetails|price|36|localprice|39.94
+indexdetails|price|37|id|523796
+indexdetails|price|37|dateAdded|2015-01-02 16:32:07
+indexdetails|price|37|indxx_id|178
+indexdetails|price|37|isin|US4581181066
+indexdetails|price|37|date|2015-01-02
+indexdetails|price|37|price|19.6
+indexdetails|price|37|currencyfactor|1
+indexdetails|price|37|localprice|19.6
+indexdetails|price|38|id|523798
+indexdetails|price|38|dateAdded|2015-01-02 16:32:07
+indexdetails|price|38|indxx_id|178
+indexdetails|price|38|isin|US2254471012
+indexdetails|price|38|date|2015-01-02
+indexdetails|price|38|price|32.07
+indexdetails|price|38|currencyfactor|1
+indexdetails|price|38|localprice|32.07
+indexdetails|price|39|id|523800
+indexdetails|price|39|dateAdded|2015-01-02 16:32:07
+indexdetails|price|39|indxx_id|178
+indexdetails|price|39|isin|US83088M1027
+indexdetails|price|39|date|2015-01-02
+indexdetails|price|39|price|73.32
+indexdetails|price|39|currencyfactor|1
+indexdetails|price|39|localprice|73.32
+indexdetails|price|40|id|523802
+indexdetails|price|40|dateAdded|2015-01-02 16:32:07
+indexdetails|price|40|indxx_id|178
+indexdetails|price|40|isin|US67066G1040
+indexdetails|price|40|date|2015-01-02
+indexdetails|price|40|price|20.13
+indexdetails|price|40|currencyfactor|1
+indexdetails|price|40|localprice|20.13
+indexdetails|price|41|id|523804
+indexdetails|price|41|dateAdded|2015-01-02 16:32:07
+indexdetails|price|41|indxx_id|178
+indexdetails|price|41|isin|US4581401001
+indexdetails|price|41|date|2015-01-02
+indexdetails|price|41|price|36.36
+indexdetails|price|41|currencyfactor|1
+indexdetails|price|41|localprice|36.36
+indexdetails|price|42|id|523806
+indexdetails|price|42|dateAdded|2015-01-02 16:32:07
+indexdetails|price|42|indxx_id|178
+indexdetails|price|42|isin|US64110D1046
+indexdetails|price|42|date|2015-01-02
+indexdetails|price|42|price|41.46
+indexdetails|price|42|currencyfactor|1
+indexdetails|price|42|localprice|41.46
+indexdetails|price|43|id|523808
+indexdetails|price|43|dateAdded|2015-01-02 16:32:07
+indexdetails|price|43|indxx_id|178
+indexdetails|price|43|isin|IE00B58JVZ52
+indexdetails|price|43|date|2015-01-02
+indexdetails|price|43|price|66.02
+indexdetails|price|43|currencyfactor|1
+indexdetails|price|43|localprice|66.02
+indexdetails|price|44|id|523810
+indexdetails|price|44|dateAdded|2015-01-02 16:32:07
+indexdetails|price|44|indxx_id|178
+indexdetails|price|44|isin|US9581021055
+indexdetails|price|44|date|2015-01-02
+indexdetails|price|44|price|110.43
+indexdetails|price|44|currencyfactor|1
+indexdetails|price|44|localprice|110.43
+indexdetails|price|45|id|523812
+indexdetails|price|45|dateAdded|2015-01-02 16:32:07
+indexdetails|price|45|indxx_id|178
+indexdetails|price|45|isin|US2686481027
+indexdetails|price|45|date|2015-01-02
+indexdetails|price|45|price|29.83
+indexdetails|price|45|currencyfactor|1
+indexdetails|price|45|localprice|29.83
+indexdetails|price|46|id|523814
+indexdetails|price|46|dateAdded|2015-01-02 16:32:07
+indexdetails|price|46|indxx_id|178
+indexdetails|price|46|isin|SG9999006241
+indexdetails|price|46|date|2015-01-02
+indexdetails|price|46|price|100.09
+indexdetails|price|46|currencyfactor|1
+indexdetails|price|46|localprice|100.09
+indexdetails|price|47|id|523816
+indexdetails|price|47|dateAdded|2015-01-02 16:32:07
+indexdetails|price|47|indxx_id|178
+indexdetails|price|47|isin|US1113201073
+indexdetails|price|47|date|2015-01-02
+indexdetails|price|47|price|43.08
+indexdetails|price|47|currencyfactor|1
+indexdetails|price|47|localprice|43.08
+indexdetails|price|48|id|523818
+indexdetails|price|48|dateAdded|2015-01-02 16:32:07
+indexdetails|price|48|indxx_id|178
+indexdetails|price|48|isin|US7475251036
+indexdetails|price|48|date|2015-01-02
+indexdetails|price|48|price|74.28
+indexdetails|price|48|currencyfactor|1
+indexdetails|price|48|localprice|74.28
+indexdetails|price|49|id|523820
+indexdetails|price|49|dateAdded|2015-01-02 16:32:07
+indexdetails|price|49|indxx_id|178
+indexdetails|price|49|isin|US5950171042
+indexdetails|price|49|date|2015-01-02
+indexdetails|price|49|price|44.87
+indexdetails|price|49|currencyfactor|1
+indexdetails|price|49|localprice|44.87
+indexdetails|price|50|id|523822
+indexdetails|price|50|dateAdded|2015-01-02 16:32:07
+indexdetails|price|50|indxx_id|178
+indexdetails|price|50|isin|US80004C1018
+indexdetails|price|50|date|2015-01-02
+indexdetails|price|50|price|97.88
+indexdetails|price|50|currencyfactor|1
+indexdetails|price|50|localprice|97.88
+indexdetails|price|51|id|523824
+indexdetails|price|51|dateAdded|2015-01-02 16:32:07
+indexdetails|price|51|indxx_id|178
+indexdetails|price|51|isin|US5951121038
+indexdetails|price|51|date|2015-01-02
+indexdetails|price|51|price|34.75
+indexdetails|price|51|currencyfactor|1
+indexdetails|price|51|localprice|34.75
+indexdetails|price|52|id|523826
+indexdetails|price|52|dateAdded|2015-01-02 16:32:07
+indexdetails|price|52|indxx_id|178
+indexdetails|price|52|isin|US88076W1036
+indexdetails|price|52|date|2015-01-02
+indexdetails|price|52|price|44
+indexdetails|price|52|currencyfactor|1
+indexdetails|price|52|localprice|44
+indexdetails|price|53|id|523828
+indexdetails|price|53|dateAdded|2015-01-02 16:32:07
+indexdetails|price|53|indxx_id|178
+indexdetails|price|53|isin|US1773761002
+indexdetails|price|53|date|2015-01-02
+indexdetails|price|53|price|63.48
+indexdetails|price|53|currencyfactor|1
+indexdetails|price|53|localprice|63.48
+indexdetails|price|54|id|523830
+indexdetails|price|54|dateAdded|2015-01-02 16:32:07
+indexdetails|price|54|indxx_id|178
+indexdetails|price|54|isin|US7565771026
+indexdetails|price|54|date|2015-01-02
+indexdetails|price|54|price|68.99
+indexdetails|price|54|currencyfactor|1
+indexdetails|price|54|localprice|68.99
+indexdetails|price|55|id|523832
+indexdetails|price|55|dateAdded|2015-01-02 16:32:07
+indexdetails|price|55|indxx_id|178
+indexdetails|price|55|isin|US12673P1057
+indexdetails|price|55|date|2015-01-02
+indexdetails|price|55|price|30.69
+indexdetails|price|55|currencyfactor|1
+indexdetails|price|55|localprice|30.69
+indexdetails|price|56|id|523834
+indexdetails|price|56|dateAdded|2015-01-02 16:32:07
+indexdetails|price|56|indxx_id|178
+indexdetails|price|56|isin|US8715031089
+indexdetails|price|56|date|2015-01-02
+indexdetails|price|56|price|25.59
+indexdetails|price|56|currencyfactor|1
+indexdetails|price|56|localprice|25.59
+indexdetails|price|57|id|523836
+indexdetails|price|57|dateAdded|2015-01-02 16:32:07
+indexdetails|price|57|indxx_id|178
+indexdetails|price|57|isin|US1567821046
+indexdetails|price|57|date|2015-01-02
+indexdetails|price|57|price|65.03
+indexdetails|price|57|currencyfactor|1
+indexdetails|price|57|localprice|65.03
+indexdetails|price|58|id|523838
+indexdetails|price|58|dateAdded|2015-01-02 16:32:07
+indexdetails|price|58|indxx_id|178
+indexdetails|price|58|isin|US79466L3024
+indexdetails|price|58|date|2015-01-02
+indexdetails|price|58|price|59.24
+indexdetails|price|58|currencyfactor|1
+indexdetails|price|58|localprice|59.24
+indexdetails|price|59|id|523840
+indexdetails|price|59|dateAdded|2015-01-02 16:32:07
+indexdetails|price|59|indxx_id|178
+indexdetails|price|59|isin|US68389X1054
+indexdetails|price|59|date|2015-01-02
+indexdetails|price|59|price|44.33
+indexdetails|price|59|currencyfactor|1
+indexdetails|price|59|localprice|44.33
+indexdetails|price|60|id|523842
+indexdetails|price|60|dateAdded|2015-01-02 16:32:07
+indexdetails|price|60|indxx_id|178
+indexdetails|price|60|isin|US5356781063
+indexdetails|price|60|date|2015-01-02
+indexdetails|price|60|price|46
+indexdetails|price|60|currencyfactor|1
+indexdetails|price|60|localprice|46
+indexdetails|price|61|id|523844
+indexdetails|price|61|dateAdded|2015-01-02 16:32:07
+indexdetails|price|61|indxx_id|178
+indexdetails|price|61|isin|US0214411003
+indexdetails|price|61|date|2015-01-02
+indexdetails|price|61|price|37.1
+indexdetails|price|61|currencyfactor|1
+indexdetails|price|61|localprice|37.1
+indexdetails|price|62|id|523846
+indexdetails|price|62|dateAdded|2015-01-02 16:32:07
+indexdetails|price|62|indxx_id|178
+indexdetails|price|62|isin|US9839191015
+indexdetails|price|62|date|2015-01-02
+indexdetails|price|62|price|43.6
+indexdetails|price|62|currencyfactor|1
+indexdetails|price|62|localprice|43.6
+indexdetails|price|63|id|523848
+indexdetails|price|63|dateAdded|2015-01-02 16:32:07
+indexdetails|price|63|indxx_id|178
+indexdetails|price|63|isin|US0326541051
+indexdetails|price|63|date|2015-01-02
+indexdetails|price|63|price|55.54
+indexdetails|price|63|currencyfactor|1
+indexdetails|price|63|localprice|55.54
+indexdetails|price|64|id|523850
+indexdetails|price|64|dateAdded|2015-01-02 16:32:07
+indexdetails|price|64|indxx_id|178
+indexdetails|price|64|isin|US8825081040
+indexdetails|price|64|date|2015-01-02
+indexdetails|price|64|price|53.48
+indexdetails|price|64|currencyfactor|1
+indexdetails|price|64|localprice|53.48
+indexdetails|price|65|id|523852
+indexdetails|price|65|dateAdded|2015-01-02 16:32:07
+indexdetails|price|65|indxx_id|178
+indexdetails|price|65|isin|US7244791007
+indexdetails|price|65|date|2015-01-02
+indexdetails|price|65|price|24.37
+indexdetails|price|65|currencyfactor|1
+indexdetails|price|65|localprice|24.37
+indexdetails|price|66|id|523854
+indexdetails|price|66|dateAdded|2015-01-02 16:32:07
+indexdetails|price|66|indxx_id|178
+indexdetails|price|66|isin|CH0114405324
+indexdetails|price|66|date|2015-01-02
+indexdetails|price|66|price|52.58
+indexdetails|price|66|currencyfactor|1
+indexdetails|price|66|localprice|52.58
+indexdetails|price|67|id|523856
+indexdetails|price|67|dateAdded|2015-01-02 16:32:07
+indexdetails|price|67|indxx_id|178
+indexdetails|price|67|isin|US6200763075
+indexdetails|price|67|date|2015-01-02
+indexdetails|price|67|price|66.51
+indexdetails|price|67|currencyfactor|1
+indexdetails|price|67|localprice|66.51
+indexdetails|price|68|id|523858
+indexdetails|price|68|dateAdded|2015-01-02 16:32:07
+indexdetails|price|68|indxx_id|178
+indexdetails|price|68|isin|US9841211033
+indexdetails|price|68|date|2015-01-02
+indexdetails|price|68|price|13.75
+indexdetails|price|68|currencyfactor|1
+indexdetails|price|68|localprice|13.75
+indexdetails|price|69|id|523860
+indexdetails|price|69|dateAdded|2015-01-02 16:32:07
+indexdetails|price|69|indxx_id|178
+indexdetails|price|69|isin|US4612021034
+indexdetails|price|69|date|2015-01-02
+indexdetails|price|69|price|91.21
+indexdetails|price|69|currencyfactor|1
+indexdetails|price|69|localprice|91.21
+indexdetails|price|70|id|523862
+indexdetails|price|70|dateAdded|2015-01-02 16:32:07
+indexdetails|price|70|indxx_id|178
+indexdetails|price|70|isin|US00724F1012
+indexdetails|price|70|date|2015-01-02
+indexdetails|price|70|price|72.34
+indexdetails|price|70|currencyfactor|1
+indexdetails|price|70|localprice|72.34
+indexdetails|price|71|id|523864
+indexdetails|price|71|dateAdded|2015-01-02 16:32:07
+indexdetails|price|71|indxx_id|178
+indexdetails|price|71|isin|US4282361033
+indexdetails|price|71|date|2015-01-02
+indexdetails|price|71|price|40.24
+indexdetails|price|71|currencyfactor|1
+indexdetails|price|71|localprice|40.24
+indexdetails|price|72|id|523866
+indexdetails|price|72|dateAdded|2015-01-02 16:32:07
+indexdetails|price|72|indxx_id|178
+indexdetails|price|72|isin|US5949181045
+indexdetails|price|72|date|2015-01-02
+indexdetails|price|72|price|46.76
+indexdetails|price|72|currencyfactor|1
+indexdetails|price|72|localprice|46.76
+indexdetails|price|73|id|523868
+indexdetails|price|73|dateAdded|2015-01-02 16:32:07
+indexdetails|price|73|indxx_id|178
+indexdetails|price|73|isin|US0378331005
+indexdetails|price|73|date|2015-01-02
+indexdetails|price|73|price|109.33
+indexdetails|price|73|currencyfactor|1
+indexdetails|price|73|localprice|109.33
+indexdetails|price|74|id|523870
+indexdetails|price|74|dateAdded|2015-01-02 16:32:07
+indexdetails|price|74|indxx_id|178
+indexdetails|price|74|isin|US4824801009
+indexdetails|price|74|date|2015-01-02
+indexdetails|price|74|price|70.29
+indexdetails|price|74|currencyfactor|1
+indexdetails|price|74|localprice|70.29
+indexdetails|price|75|id|523872
+indexdetails|price|75|dateAdded|2015-01-02 16:32:07
+indexdetails|price|75|indxx_id|178
+indexdetails|price|75|isin|US5128071082
+indexdetails|price|75|date|2015-01-02
+indexdetails|price|75|price|79.45
+indexdetails|price|75|currencyfactor|1
+indexdetails|price|75|localprice|79.45
+indexdetails|price|76|id|523874
+indexdetails|price|76|dateAdded|2015-01-02 16:32:07
+indexdetails|price|76|indxx_id|178
+indexdetails|price|76|isin|US0382221051
+indexdetails|price|76|date|2015-01-02
+indexdetails|price|76|price|24.96
+indexdetails|price|76|currencyfactor|1
+indexdetails|price|76|localprice|24.96
+indexdetails|price|77|id|523876
+indexdetails|price|77|dateAdded|2015-01-02 16:32:07
+indexdetails|price|77|indxx_id|178
+indexdetails|price|77|isin|US48203R1041
+indexdetails|price|77|date|2015-01-02
+indexdetails|price|77|price|22.45
+indexdetails|price|77|currencyfactor|1
+indexdetails|price|77|localprice|22.45
+indexdetails|price|78|id|523878
+indexdetails|price|78|dateAdded|2015-01-02 16:32:07
+indexdetails|price|78|indxx_id|178
+indexdetails|price|78|isin|US3156161024
+indexdetails|price|78|date|2015-01-02
+indexdetails|price|78|price|130.33
+indexdetails|price|78|currencyfactor|1
+indexdetails|price|78|localprice|130.33
+indexdetails|price|79|id|523880
+indexdetails|price|79|dateAdded|2015-01-02 16:32:07
+indexdetails|price|79|indxx_id|178
+indexdetails|price|79|isin|US17275R1023
+indexdetails|price|79|date|2015-01-02
+indexdetails|price|79|price|27.61
+indexdetails|price|79|currencyfactor|1
+indexdetails|price|79|localprice|27.61
+indexdetails|price|80|id|523882
+indexdetails|price|80|dateAdded|2015-01-02 16:32:07
+indexdetails|price|80|indxx_id|178
+indexdetails|price|80|isin|US0527691069
+indexdetails|price|80|date|2015-01-02
+indexdetails|price|80|price|59.53
+indexdetails|price|80|currencyfactor|1
+indexdetails|price|80|localprice|59.53
+indexdetails|price|81|id|523884
+indexdetails|price|81|dateAdded|2015-01-02 16:32:07
+indexdetails|price|81|indxx_id|178
+indexdetails|price|81|isin|JP3657400002
+indexdetails|price|81|date|2015-01-02
+indexdetails|price|81|price|13.3123080754
+indexdetails|price|81|currencyfactor|120.490000
+indexdetails|price|81|localprice|1604
+indexdetails|price|82|id|523886
+indexdetails|price|82|dateAdded|2015-01-02 16:32:07
+indexdetails|price|82|indxx_id|178
+indexdetails|price|82|isin|JP3300600008
+indexdetails|price|82|date|2015-01-02
+indexdetails|price|82|price|10.9967632169
+indexdetails|price|82|currencyfactor|120.490000
+indexdetails|price|82|localprice|1325
+indexdetails|price|83|id|523888
+indexdetails|price|83|dateAdded|2015-01-02 16:32:07
+indexdetails|price|83|indxx_id|178
+indexdetails|price|83|isin|JP3973400009
+indexdetails|price|83|date|2015-01-02
+indexdetails|price|83|price|10.2000165989
+indexdetails|price|83|currencyfactor|120.490000
+indexdetails|price|83|localprice|1229
+indexdetails|price|84|id|523890
+indexdetails|price|84|dateAdded|2015-01-02 16:32:07
+indexdetails|price|84|indxx_id|178
+indexdetails|price|84|isin|JP3814000000
+indexdetails|price|84|date|2015-01-02
+indexdetails|price|84|price|30.7162420118
+indexdetails|price|84|currencyfactor|120.490000
+indexdetails|price|84|localprice|3701
+indexdetails|price|85|id|523892
+indexdetails|price|85|dateAdded|2015-01-02 16:32:07
+indexdetails|price|85|indxx_id|178
+indexdetails|price|85|isin|JP3242800005
+indexdetails|price|85|date|2015-01-02
+indexdetails|price|85|price|31.874014441
+indexdetails|price|85|currencyfactor|120.490000
+indexdetails|price|85|localprice|3840.5
+indexdetails|price|86|id|523894
+indexdetails|price|86|dateAdded|2015-01-02 16:32:07
+indexdetails|price|86|indxx_id|178
+indexdetails|price|86|isin|TW0002454006
+indexdetails|price|86|date|2015-01-02
+indexdetails|price|86|price|14.5406477198
+indexdetails|price|86|currencyfactor|31.773000
+indexdetails|price|86|localprice|462
+indexdetails|price|87|id|523896
+indexdetails|price|87|dateAdded|2015-01-02 16:32:07
+indexdetails|price|87|indxx_id|178
+indexdetails|price|87|isin|JP3359600008
+indexdetails|price|87|date|2015-01-02
+indexdetails|price|87|price|2.22425097518
+indexdetails|price|87|currencyfactor|120.490000
+indexdetails|price|87|localprice|268
+indexdetails|price|88|id|523898
+indexdetails|price|88|dateAdded|2015-01-02 16:32:07
+indexdetails|price|88|indxx_id|178
+indexdetails|price|88|isin|JP3733000008
+indexdetails|price|88|date|2015-01-02
+indexdetails|price|88|price|2.92970370985
+indexdetails|price|88|currencyfactor|120.490000
+indexdetails|price|88|localprice|353
+indexdetails|price|89|id|523900
+indexdetails|price|89|dateAdded|2015-01-02 16:32:07
+indexdetails|price|89|indxx_id|178
+indexdetails|price|89|isin|JP3592200004
+indexdetails|price|89|date|2015-01-02
+indexdetails|price|89|price|4.25263507345
+indexdetails|price|89|currencyfactor|120.490000
+indexdetails|price|89|localprice|512.4
+indexdetails|price|90|id|523902
+indexdetails|price|90|dateAdded|2015-01-02 16:32:07
+indexdetails|price|90|indxx_id|178
+indexdetails|price|90|isin|JP3435000009
+indexdetails|price|90|date|2015-01-02
+indexdetails|price|90|price|20.5203751349
+indexdetails|price|90|currencyfactor|120.490000
+indexdetails|price|90|localprice|2472.5
+indexdetails|price|91|id|523904
+indexdetails|price|91|dateAdded|2015-01-02 16:32:07
+indexdetails|price|91|indxx_id|178
+indexdetails|price|91|isin|JP3866800000
+indexdetails|price|91|date|2015-01-02
+indexdetails|price|91|price|11.8433064985
+indexdetails|price|91|currencyfactor|120.490000
+indexdetails|price|91|localprice|1427
+indexdetails|price|92|id|523906
+indexdetails|price|92|dateAdded|2015-01-02 16:32:07
+indexdetails|price|92|indxx_id|178
+indexdetails|price|92|isin|KR7005930003
+indexdetails|price|92|date|2015-01-02
+indexdetails|price|92|price|1205.32153991
+indexdetails|price|92|currencyfactor|1103.440000
+indexdetails|price|92|localprice|1330000
+indexdetails|price|93|id|523908
+indexdetails|price|93|dateAdded|2015-01-02 16:32:07
+indexdetails|price|93|indxx_id|178
+indexdetails|price|93|isin|FR0010307819
+indexdetails|price|93|date|2015-01-02
+indexdetails|price|93|price|52.1603456553
+indexdetails|price|93|currencyfactor|.833200
+indexdetails|price|93|localprice|43.46
+indexdetails|price|94|id|523910
+indexdetails|price|94|dateAdded|2015-01-02 16:32:07
+indexdetails|price|94|indxx_id|178
+indexdetails|price|94|isin|JP3571400005
+indexdetails|price|94|date|2015-01-02
+indexdetails|price|94|price|76.5291725454
+indexdetails|price|94|currencyfactor|120.490000
+indexdetails|price|94|localprice|9221
+indexdetails|price|95|id|523912
+indexdetails|price|95|dateAdded|2015-01-02 16:32:07
+indexdetails|price|95|indxx_id|178
+indexdetails|price|95|isin|NL0000400653
+indexdetails|price|95|date|2015-01-02
+indexdetails|price|95|price|81.8290926548
+indexdetails|price|95|currencyfactor|.833200
+indexdetails|price|95|localprice|68.18
+indexdetails|price|96|id|523914
+indexdetails|price|96|dateAdded|2015-01-02 16:32:07
+indexdetails|price|96|indxx_id|178
+indexdetails|price|96|isin|NL0010273215
+indexdetails|price|96|date|2015-01-02
+indexdetails|price|96|price|106.973115699
+indexdetails|price|96|currencyfactor|.833200
+indexdetails|price|96|localprice|89.13
+indexdetails|price|97|id|523916
+indexdetails|price|97|dateAdded|2015-01-02 16:32:07
+indexdetails|price|97|indxx_id|178
+indexdetails|price|97|isin|GB0000595859
+indexdetails|price|97|date|2015-01-02
+indexdetails|price|97|price|15.1510504524
+indexdetails|price|97|currencyfactor|.652100
+indexdetails|price|97|localprice|988
+indexdetails|price|98|id|523918
+indexdetails|price|98|dateAdded|2015-01-02 16:32:07
+indexdetails|price|98|indxx_id|178
+indexdetails|price|98|isin|CA09228F1036
+indexdetails|price|98|date|2015-01-02
+indexdetails|price|98|price|10.8287292818
+indexdetails|price|98|currencyfactor|1.176500
+indexdetails|price|98|localprice|12.74
+indexdetails|price|99|id|523920
+indexdetails|price|99|dateAdded|2015-01-02 16:32:07
+indexdetails|price|99|indxx_id|178
+indexdetails|price|99|isin|FI0009000681
+indexdetails|price|99|date|2015-01-02
+indexdetails|price|99|price|7.98127700432
+indexdetails|price|99|currencyfactor|.833200
+indexdetails|price|99|localprice|6.65
+indexdetails|price|100|id|523922
+indexdetails|price|100|dateAdded|2015-01-02 16:32:07
+indexdetails|price|100|indxx_id|178
+indexdetails|price|100|isin|JP3982800009
+indexdetails|price|100|date|2015-01-02
+indexdetails|price|100|price|61.0839073782
+indexdetails|price|100|currencyfactor|120.490000
+indexdetails|price|100|localprice|7360
+indexdetails|price|101|id|523924
+indexdetails|price|101|dateAdded|2015-01-02 16:32:07
+indexdetails|price|101|indxx_id|178
+indexdetails|price|101|isin|KR7000660001
+indexdetails|price|101|date|2015-01-02
+indexdetails|price|101|price|43.2737620532
+indexdetails|price|101|currencyfactor|1103.440000
+indexdetails|price|101|localprice|47750
+indexdetails|price|102|id|523926
+indexdetails|price|102|dateAdded|2015-01-02 16:32:07
+indexdetails|price|102|indxx_id|178
+indexdetails|price|102|isin|JP3756600007
+indexdetails|price|102|date|2015-01-02
+indexdetails|price|102|price|104.614490829
+indexdetails|price|102|currencyfactor|120.490000
+indexdetails|price|102|localprice|12605
+indexdetails|price|103|id|523928
+indexdetails|price|103|dateAdded|2015-01-02 16:32:07
+indexdetails|price|103|indxx_id|178
+indexdetails|price|103|isin|ES0109067019
+indexdetails|price|103|date|2015-01-02
+indexdetails|price|103|price|39.4383101296
+indexdetails|price|103|currencyfactor|.833200
+indexdetails|price|103|localprice|32.86
+indexdetails|price|104|id|523930
+indexdetails|price|104|dateAdded|2015-01-02 16:32:07
+indexdetails|price|104|indxx_id|178
+indexdetails|price|104|isin|GB00B8C3BL03
+indexdetails|price|104|date|2015-01-02
+indexdetails|price|104|price|7.17374635792
+indexdetails|price|104|currencyfactor|.652100
+indexdetails|price|104|localprice|467.8
+indexdetails|price|105|id|523932
+indexdetails|price|105|dateAdded|2015-01-02 16:32:07
+indexdetails|price|105|indxx_id|178
+indexdetails|price|105|isin|DE0007164600
+indexdetails|price|105|date|2015-01-02
+indexdetails|price|105|price|69.9711953913
+indexdetails|price|105|currencyfactor|.833200
+indexdetails|price|105|localprice|58.3
+indexdetails|price|106|id|523934
+indexdetails|price|106|dateAdded|2015-01-02 16:32:07
+indexdetails|price|106|indxx_id|178
+indexdetails|price|106|isin|DE0006231004
+indexdetails|price|106|date|2015-01-02
+indexdetails|price|106|price|10.6096975516
+indexdetails|price|106|currencyfactor|.833200
+indexdetails|price|106|localprice|8.84
+indexdetails|price|107|id|523936
+indexdetails|price|107|dateAdded|2015-01-02 16:32:07
+indexdetails|price|107|indxx_id|178
+indexdetails|price|107|isin|NL0000226223
+indexdetails|price|107|date|2015-01-02
+indexdetails|price|107|price|7.47719635142
+indexdetails|price|107|currencyfactor|.833200
+indexdetails|price|107|localprice|6.23
+indexdetails|price|108|id|523938
+indexdetails|price|108|dateAdded|2015-01-02 16:32:07
+indexdetails|price|108|indxx_id|178
+indexdetails|price|108|isin|FR0000130007
+indexdetails|price|108|date|2015-01-02
+indexdetails|price|108|price|3.55256841095
+indexdetails|price|108|currencyfactor|.833200
+indexdetails|price|108|localprice|2.96
+indexdetails|price|109|id|523940
+indexdetails|price|109|dateAdded|2015-01-02 16:32:07
+indexdetails|price|109|indxx_id|178
+indexdetails|price|109|isin|SE0000108656
+indexdetails|price|109|date|2015-01-02
+indexdetails|price|109|price|11.9175299358
+indexdetails|price|109|currencyfactor|7.925300
+indexdetails|price|109|localprice|94.45
+indexdetails|price|110|id|523942
+indexdetails|price|110|dateAdded|2015-01-02 16:32:07
+indexdetails|price|110|indxx_id|178
+indexdetails|price|110|isin|FR0000130650
+indexdetails|price|110|date|2015-01-02
+indexdetails|price|110|price|61.173787806
+indexdetails|price|110|currencyfactor|.833200
+indexdetails|price|110|localprice|50.97
+indexdetails|price|111|id|523944
+indexdetails|price|111|dateAdded|2015-01-02 16:32:07
+indexdetails|price|111|indxx_id|178
+indexdetails|price|111|isin|SE0000103699
+indexdetails|price|111|date|2015-01-02
+indexdetails|price|111|price|30.5351216989
+indexdetails|price|111|currencyfactor|7.925300
+indexdetails|price|111|localprice|242
+indexdetails|price|112|id|523946
+indexdetails|price|112|dateAdded|2015-01-02 16:32:07
+indexdetails|price|112|indxx_id|178
+indexdetails|price|112|isin|TW0002317005
+indexdetails|price|112|date|2015-01-02
+indexdetails|price|112|price|2.76649985837
+indexdetails|price|112|currencyfactor|31.773000
+indexdetails|price|112|localprice|87.9
+indexdetails|price|113|id|523948
+indexdetails|price|113|dateAdded|2015-01-02 16:32:07
+indexdetails|price|113|indxx_id|178
+indexdetails|price|113|isin|TW0002330008
+indexdetails|price|113|date|2015-01-02
+indexdetails|price|113|price|4.43773014824
+indexdetails|price|113|currencyfactor|31.773000
+indexdetails|price|113|localprice|141
+indexdetails|shares|0|id|39204
+indexdetails|shares|0|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|0|indxx_id|178
+indexdetails|shares|0|isin|US4612021034
+indexdetails|shares|0|date|2015-01-02
+indexdetails|shares|0|share|30.1310096298707000
+indexdetails|shares|1|id|39205
+indexdetails|shares|1|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|1|indxx_id|178
+indexdetails|shares|1|isin|US00724F1012
+indexdetails|shares|1|date|2015-01-02
+indexdetails|shares|1|share|38.2087727342198000
+indexdetails|shares|2|id|39206
+indexdetails|shares|2|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|2|indxx_id|178
+indexdetails|shares|2|isin|TW0002330008
+indexdetails|shares|2|date|2015-01-02
+indexdetails|shares|2|share|623.2269503553080000
+indexdetails|shares|3|id|39207
+indexdetails|shares|3|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|3|indxx_id|178
+indexdetails|shares|3|isin|US5949181045
+indexdetails|shares|3|date|2015-01-02
+indexdetails|shares|3|share|59.8014591556035000
+indexdetails|shares|4|id|39208
+indexdetails|shares|4|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|4|indxx_id|178
+indexdetails|shares|4|isin|US73172K1043
+indexdetails|shares|4|date|2015-01-02
+indexdetails|shares|4|share|102.8806584362140000
+indexdetails|shares|5|id|39209
+indexdetails|shares|5|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|5|indxx_id|178
+indexdetails|shares|5|isin|US7274931085
+indexdetails|shares|5|date|2015-01-02
+indexdetails|shares|5|share|26.1955656146528000
+indexdetails|shares|6|id|39210
+indexdetails|shares|6|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|6|indxx_id|178
+indexdetails|shares|6|isin|US7685731074
+indexdetails|shares|6|date|2015-01-02
+indexdetails|shares|6|share|68.0494311067561000
+indexdetails|shares|7|id|39211
+indexdetails|shares|7|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|7|indxx_id|178
+indexdetails|shares|7|isin|US4663131039
+indexdetails|shares|7|date|2015-01-02
+indexdetails|shares|7|share|63.6229449788773000
+indexdetails|shares|8|id|39212
+indexdetails|shares|8|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|8|indxx_id|178
+indexdetails|shares|8|isin|US3156161024
+indexdetails|shares|8|date|2015-01-02
+indexdetails|shares|8|share|10.6452739241886000
+indexdetails|shares|9|id|39213
+indexdetails|shares|9|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|9|indxx_id|178
+indexdetails|shares|9|isin|US1773761002
+indexdetails|shares|9|date|2015-01-02
+indexdetails|shares|9|share|21.7694183211425000
+indexdetails|shares|10|id|39214
+indexdetails|shares|10|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|10|indxx_id|178
+indexdetails|shares|10|isin|US7565771026
+indexdetails|shares|10|date|2015-01-02
+indexdetails|shares|10|share|20.0880660817022000
+indexdetails|shares|11|id|39215
+indexdetails|shares|11|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|11|indxx_id|178
+indexdetails|shares|11|isin|US12673P1057
+indexdetails|shares|11|date|2015-01-02
+indexdetails|shares|11|share|45.6121145776319000
+indexdetails|shares|12|id|39216
+indexdetails|shares|12|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|12|indxx_id|178
+indexdetails|shares|12|isin|JP3756600007
+indexdetails|shares|12|date|2015-01-02
+indexdetails|shares|12|share|13.1980254748656000
+indexdetails|shares|13|id|39217
+indexdetails|shares|13|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|13|indxx_id|178
+indexdetails|shares|13|isin|US8715031089
+indexdetails|shares|13|date|2015-01-02
+indexdetails|shares|13|share|54.1266129730667000
+indexdetails|shares|14|id|39218
+indexdetails|shares|14|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|14|indxx_id|178
+indexdetails|shares|14|isin|TW0002317005
+indexdetails|shares|14|date|2015-01-02
+indexdetails|shares|14|share|499.8577929458000000
+indexdetails|shares|15|id|39219
+indexdetails|shares|15|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|15|indxx_id|178
+indexdetails|shares|15|isin|US4282361033
+indexdetails|shares|15|date|2015-01-02
+indexdetails|shares|15|share|34.6097405653848000
+indexdetails|shares|16|id|39220
+indexdetails|shares|16|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|16|indxx_id|178
+indexdetails|shares|16|isin|DE0007164600
+indexdetails|shares|16|date|2015-01-02
+indexdetails|shares|16|share|19.6961894953569000
+indexdetails|shares|17|id|39221
+indexdetails|shares|17|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|17|indxx_id|178
+indexdetails|shares|17|isin|US0378331005
+indexdetails|shares|17|date|2015-01-02
+indexdetails|shares|17|share|12.5827947897164000
+indexdetails|shares|18|id|39222
+indexdetails|shares|18|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|18|indxx_id|178
+indexdetails|shares|18|isin|US80004C1018
+indexdetails|shares|18|date|2015-01-02
+indexdetails|shares|18|share|12.6002031152742000
+indexdetails|shares|19|id|39223
+indexdetails|shares|19|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|19|indxx_id|178
+indexdetails|shares|19|isin|KR7000660001
+indexdetails|shares|19|date|2015-01-02
+indexdetails|shares|19|share|28.2838859802341000
+indexdetails|shares|20|id|39224
+indexdetails|shares|20|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|20|indxx_id|178
+indexdetails|shares|20|isin|US5951121038
+indexdetails|shares|20|date|2015-01-02
+indexdetails|shares|20|share|35.2632933800220000
+indexdetails|shares|21|id|39225
+indexdetails|shares|21|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|21|indxx_id|178
+indexdetails|shares|21|isin|US1717793095
+indexdetails|shares|21|date|2015-01-02
+indexdetails|shares|21|share|53.6664949338830000
+indexdetails|shares|22|id|39226
+indexdetails|shares|22|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|22|indxx_id|178
+indexdetails|shares|22|isin|US46612J5074
+indexdetails|shares|22|date|2015-01-02
+indexdetails|shares|22|share|75.9232264334306000
+indexdetails|shares|23|id|39227
+indexdetails|shares|23|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|23|indxx_id|178
+indexdetails|shares|23|isin|US04270V1061
+indexdetails|shares|23|date|2015-01-02
+indexdetails|shares|23|share|34.5036987965110000
+indexdetails|shares|24|id|39228
+indexdetails|shares|24|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|24|indxx_id|178
+indexdetails|shares|24|isin|US34959E1091
+indexdetails|shares|24|date|2015-01-02
+indexdetails|shares|24|share|33.9747771254621000
+indexdetails|shares|25|id|39229
+indexdetails|shares|25|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|25|indxx_id|178
+indexdetails|shares|25|isin|US48203R1041
+indexdetails|shares|25|date|2015-01-02
+indexdetails|shares|25|share|46.6696535244923000
+indexdetails|shares|26|id|39230
+indexdetails|shares|26|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|26|indxx_id|178
+indexdetails|shares|26|isin|FR0000130007
+indexdetails|shares|26|date|2015-01-02
+indexdetails|shares|26|share|289.7727272727330000
+indexdetails|shares|27|id|39231
+indexdetails|shares|27|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|27|indxx_id|178
+indexdetails|shares|27|isin|US64110D1046
+indexdetails|shares|27|date|2015-01-02
+indexdetails|shares|27|share|25.1306795335746000
+indexdetails|shares|28|id|39232
+indexdetails|shares|28|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|28|indxx_id|178
+indexdetails|shares|28|isin|IE00B58JVZ52
+indexdetails|shares|28|date|2015-01-02
+indexdetails|shares|28|share|15.6641604010025000
+indexdetails|shares|29|id|39233
+indexdetails|shares|29|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|29|indxx_id|178
+indexdetails|shares|29|isin|US9581021055
+indexdetails|shares|29|date|2015-01-02
+indexdetails|shares|29|share|9.4098163203854400
+indexdetails|shares|30|id|39234
+indexdetails|shares|30|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|30|indxx_id|178
+indexdetails|shares|30|isin|SE0000108656
+indexdetails|shares|30|date|2015-01-02
+indexdetails|shares|30|share|86.1685214629698000
+indexdetails|shares|31|id|39235
+indexdetails|shares|31|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|31|indxx_id|178
+indexdetails|shares|31|isin|US2686481027
+indexdetails|shares|31|date|2015-01-02
+indexdetails|shares|31|share|35.0257789733244000
+indexdetails|shares|32|id|39236
+indexdetails|shares|32|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|32|indxx_id|178
+indexdetails|shares|32|isin|US17275R1023
+indexdetails|shares|32|date|2015-01-02
+indexdetails|shares|32|share|37.7005670165
+indexdetails|shares|33|id|39237
+indexdetails|shares|33|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|33|indxx_id|178
+indexdetails|shares|33|isin|US5128071082
+indexdetails|shares|33|date|2015-01-02
+indexdetails|shares|33|share|11.6703544986883000
+indexdetails|shares|34|id|39238
+indexdetails|shares|34|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|34|indxx_id|178
+indexdetails|shares|34|isin|JP3571400005
+indexdetails|shares|34|date|2015-01-02
+indexdetails|shares|34|share|12.0276984499963000
+indexdetails|shares|35|id|39239
+indexdetails|shares|35|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|35|indxx_id|178
+indexdetails|shares|35|isin|US0382221051
+indexdetails|shares|35|date|2015-01-02
+indexdetails|shares|35|share|37.1559360323406000
+indexdetails|shares|36|id|39240
+indexdetails|shares|36|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|36|indxx_id|178
+indexdetails|shares|36|isin|NL0010273215
+indexdetails|shares|36|date|2015-01-02
+indexdetails|shares|36|share|8.5474860335113500
+indexdetails|shares|37|id|39241
+indexdetails|shares|37|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|37|indxx_id|178
+indexdetails|shares|37|isin|US7793761021
+indexdetails|shares|37|date|2015-01-02
+indexdetails|shares|37|share|36.8894791205549000
+indexdetails|shares|38|id|39242
+indexdetails|shares|38|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|38|indxx_id|178
+indexdetails|shares|38|isin|US5872001061
+indexdetails|shares|38|date|2015-01-02
+indexdetails|shares|38|share|38.0170316301704000
+indexdetails|shares|39|id|39243
+indexdetails|shares|39|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|39|indxx_id|178
+indexdetails|shares|39|isin|US6365181022
+indexdetails|shares|39|date|2015-01-02
+indexdetails|shares|39|share|26.8039026482256000
+indexdetails|shares|40|id|39244
+indexdetails|shares|40|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|40|indxx_id|178
+indexdetails|shares|40|isin|US69370C1009
+indexdetails|shares|40|date|2015-01-02
+indexdetails|shares|40|share|22.7376080036381000
+indexdetails|shares|41|id|39245
+indexdetails|shares|41|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|41|indxx_id|178
+indexdetails|shares|41|isin|CA09228F1036
+indexdetails|shares|41|date|2015-01-02
+indexdetails|shares|41|share|75.9615384616847000
+indexdetails|shares|42|id|39246
+indexdetails|shares|42|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|42|indxx_id|178
+indexdetails|shares|42|isin|US1273871087
+indexdetails|shares|42|date|2015-01-02
+indexdetails|shares|42|share|43.9290107186787000
+indexdetails|shares|43|id|39247
+indexdetails|shares|43|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|43|indxx_id|178
+indexdetails|shares|43|isin|US8716071076
+indexdetails|shares|43|date|2015-01-02
+indexdetails|shares|43|share|19.1703090253815000
+indexdetails|shares|44|id|39248
+indexdetails|shares|44|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|44|indxx_id|178
+indexdetails|shares|44|isin|US8962391004
+indexdetails|shares|44|date|2015-01-02
+indexdetails|shares|44|share|31.3991459432304000
+indexdetails|shares|45|id|39249
+indexdetails|shares|45|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|45|indxx_id|178
+indexdetails|shares|45|isin|US03662Q1058
+indexdetails|shares|45|date|2015-01-02
+indexdetails|shares|45|share|10.1626016260163000
+indexdetails|shares|46|id|39250
+indexdetails|shares|46|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|46|indxx_id|178
+indexdetails|shares|46|isin|CH0114405324
+indexdetails|shares|46|date|2015-01-02
+indexdetails|shares|46|share|15.7738658590448000
+indexdetails|shares|47|id|39251
+indexdetails|shares|47|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|47|indxx_id|178
+indexdetails|shares|47|isin|SE0000103699
+indexdetails|shares|47|date|2015-01-02
+indexdetails|shares|47|share|26.8760330578519000
+indexdetails|shares|48|id|39252
+indexdetails|shares|48|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|48|indxx_id|178
+indexdetails|shares|48|isin|US0527691069
+indexdetails|shares|48|date|2015-01-02
+indexdetails|shares|48|share|13.8750138750139000
+indexdetails|shares|49|id|39253
+indexdetails|shares|49|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|49|indxx_id|178
+indexdetails|shares|49|isin|FR0000130650
+indexdetails|shares|49|date|2015-01-02
+indexdetails|shares|49|share|13.6228729719002000
+indexdetails|shares|50|id|39254
+indexdetails|shares|50|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|50|indxx_id|178
+indexdetails|shares|50|isin|US6200763075
+indexdetails|shares|50|date|2015-01-02
+indexdetails|shares|50|share|12.4229775392566000
+indexdetails|shares|51|id|39255
+indexdetails|shares|51|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|51|indxx_id|178
+indexdetails|shares|51|isin|FI0009000681
+indexdetails|shares|51|date|2015-01-02
+indexdetails|shares|51|share|104.9542682926930000
+indexdetails|shares|52|id|39256
+indexdetails|shares|52|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|52|indxx_id|178
+indexdetails|shares|52|isin|US8168501018
+indexdetails|shares|52|date|2015-01-02
+indexdetails|shares|52|share|26.8676365883476000
+indexdetails|shares|53|id|39257
+indexdetails|shares|53|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|53|indxx_id|178
+indexdetails|shares|53|isin|US46069S1096
+indexdetails|shares|53|date|2015-01-02
+indexdetails|shares|53|share|51.1914817374390000
+indexdetails|shares|54|id|39258
+indexdetails|shares|54|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|54|indxx_id|178
+indexdetails|shares|54|isin|US3037261035
+indexdetails|shares|54|date|2015-01-02
+indexdetails|shares|54|share|43.8827453045463000
+indexdetails|shares|55|id|39259
+indexdetails|shares|55|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|55|indxx_id|178
+indexdetails|shares|55|isin|US9282981086
+indexdetails|shares|55|date|2015-01-02
+indexdetails|shares|55|share|52.3491689569429000
+indexdetails|shares|56|id|39260
+indexdetails|shares|56|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|56|indxx_id|178
+indexdetails|shares|56|isin|US4602541058
+indexdetails|shares|56|date|2015-01-02
+indexdetails|shares|56|share|18.5649308456326000
+indexdetails|shares|57|id|39261
+indexdetails|shares|57|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|57|indxx_id|178
+indexdetails|shares|57|isin|JP3359600008
+indexdetails|shares|57|date|2015-01-02
+indexdetails|shares|57|share|310.3752072963530000
+indexdetails|shares|58|id|39262
+indexdetails|shares|58|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|58|indxx_id|178
+indexdetails|shares|58|isin|JP3733000008
+indexdetails|shares|58|date|2015-01-02
+indexdetails|shares|58|share|235.6389675795330000
+indexdetails|shares|59|id|39263
+indexdetails|shares|59|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|59|indxx_id|178
+indexdetails|shares|59|isin|JP3592200004
+indexdetails|shares|59|date|2015-01-02
+indexdetails|shares|59|share|162.3351981957780000
+indexdetails|shares|60|id|39264
+indexdetails|shares|60|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|60|indxx_id|178
+indexdetails|shares|60|isin|JP3435000009
+indexdetails|shares|60|date|2015-01-02
+indexdetails|shares|60|share|33.6422873834606000
+indexdetails|shares|61|id|39265
+indexdetails|shares|61|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|61|indxx_id|178
+indexdetails|shares|61|isin|JP3866800000
+indexdetails|shares|61|date|2015-01-02
+indexdetails|shares|61|share|58.2905084480841000
+indexdetails|shares|62|id|39266
+indexdetails|shares|62|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|62|indxx_id|178
+indexdetails|shares|62|isin|KR7005930003
+indexdetails|shares|62|date|2015-01-02
+indexdetails|shares|62|share|0.5724849284110760
+indexdetails|shares|63|id|39267
+indexdetails|shares|63|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|63|indxx_id|178
+indexdetails|shares|63|isin|US0079741080
+indexdetails|shares|63|date|2015-01-02
+indexdetails|shares|63|share|20.9212023833434000
+indexdetails|shares|64|id|39268
+indexdetails|shares|64|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|64|indxx_id|178
+indexdetails|shares|64|isin|US01988P1084
+indexdetails|shares|64|date|2015-01-02
+indexdetails|shares|64|share|50.1977792502461000
+indexdetails|shares|65|id|39269
+indexdetails|shares|65|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|65|indxx_id|178
+indexdetails|shares|65|isin|US0044981019
+indexdetails|shares|65|date|2015-01-02
+indexdetails|shares|65|share|31.7811423413804000
+indexdetails|shares|66|id|39270
+indexdetails|shares|66|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|66|indxx_id|178
+indexdetails|shares|66|isin|US2041661024
+indexdetails|shares|66|date|2015-01-02
+indexdetails|shares|66|share|12.4013472823688000
+indexdetails|shares|67|id|39271
+indexdetails|shares|67|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|67|indxx_id|178
+indexdetails|shares|67|isin|US9022521051
+indexdetails|shares|67|date|2015-01-02
+indexdetails|shares|67|share|5.8573249362723100
+indexdetails|shares|68|id|39272
+indexdetails|shares|68|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|68|indxx_id|178
+indexdetails|shares|68|isin|US83416B1098
+indexdetails|shares|68|date|2015-01-02
+indexdetails|shares|68|share|12.8642512748473000
+indexdetails|shares|69|id|39273
+indexdetails|shares|69|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|69|indxx_id|178
+indexdetails|shares|69|isin|US45666Q1022
+indexdetails|shares|69|date|2015-01-02
+indexdetails|shares|69|share|16.8071746467132000
+indexdetails|shares|70|id|39274
+indexdetails|shares|70|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|70|indxx_id|178
+indexdetails|shares|70|isin|US88076W1036
+indexdetails|shares|70|date|2015-01-02
+indexdetails|shares|70|share|14.6754954447262000
+indexdetails|shares|71|id|39275
+indexdetails|shares|71|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|71|indxx_id|178
+indexdetails|shares|71|isin|GB00B8C3BL03
+indexdetails|shares|71|date|2015-01-02
+indexdetails|shares|71|share|88.3423354970971000
+indexdetails|shares|72|id|39276
+indexdetails|shares|72|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|72|indxx_id|178
+indexdetails|shares|72|isin|ES0109067019
+indexdetails|shares|72|date|2015-01-02
+indexdetails|shares|72|share|16.0053002301314000
+indexdetails|shares|73|id|39277
+indexdetails|shares|73|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|73|indxx_id|178
+indexdetails|shares|73|isin|US1567821046
+indexdetails|shares|73|date|2015-01-02
+indexdetails|shares|73|share|9.9137896849001200
+indexdetails|shares|74|id|39278
+indexdetails|shares|74|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|74|indxx_id|178
+indexdetails|shares|74|isin|US79466L3024
+indexdetails|shares|74|date|2015-01-02
+indexdetails|shares|74|share|10.8080532966724000
+indexdetails|shares|75|id|39279
+indexdetails|shares|75|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|75|indxx_id|178
+indexdetails|shares|75|isin|US68389X1054
+indexdetails|shares|75|date|2015-01-02
+indexdetails|shares|75|share|14.2545172565186000
+indexdetails|shares|76|id|39280
+indexdetails|shares|76|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|76|indxx_id|178
+indexdetails|shares|76|isin|US49926D1090
+indexdetails|shares|76|date|2015-01-02
+indexdetails|shares|76|share|26.2116327226023000
+indexdetails|shares|77|id|39281
+indexdetails|shares|77|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|77|indxx_id|178
+indexdetails|shares|77|isin|US0079031078
+indexdetails|shares|77|date|2015-01-02
+indexdetails|shares|77|share|231.1924908678970000
+indexdetails|shares|78|id|39282
+indexdetails|shares|78|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|78|indxx_id|178
+indexdetails|shares|78|isin|US45867G1013
+indexdetails|shares|78|date|2015-01-02
+indexdetails|shares|78|share|11.6688837545801000
+indexdetails|shares|79|id|39283
+indexdetails|shares|79|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|79|indxx_id|178
+indexdetails|shares|79|isin|US2328061096
+indexdetails|shares|79|date|2015-01-02
+indexdetails|shares|79|share|43.2271674101740000
+indexdetails|shares|80|id|39284
+indexdetails|shares|80|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|80|indxx_id|178
+indexdetails|shares|80|isin|US4581181066
+indexdetails|shares|80|date|2015-01-02
+indexdetails|shares|80|share|31.4940791131268000
+indexdetails|shares|81|id|39285
+indexdetails|shares|81|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|81|indxx_id|178
+indexdetails|shares|81|isin|US0495131049
+indexdetails|shares|81|date|2015-01-02
+indexdetails|shares|81|share|73.4861845972958000
+indexdetails|shares|82|id|39286
+indexdetails|shares|82|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|82|indxx_id|178
+indexdetails|shares|82|isin|US8807701029
+indexdetails|shares|82|date|2015-01-02
+indexdetails|shares|82|share|31.1917104910200000
+indexdetails|shares|83|id|39287
+indexdetails|shares|83|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|83|indxx_id|178
+indexdetails|shares|83|isin|NL0000226223
+indexdetails|shares|83|date|2015-01-02
+indexdetails|shares|83|share|82.2580645160875000
+indexdetails|shares|84|id|39288
+indexdetails|shares|84|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|84|indxx_id|178
+indexdetails|shares|84|isin|NL0000400653
+indexdetails|shares|84|date|2015-01-02
+indexdetails|shares|84|share|7.5077285440938300
+indexdetails|shares|85|id|39289
+indexdetails|shares|85|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|85|indxx_id|178
+indexdetails|shares|85|isin|US5950171042
+indexdetails|shares|85|date|2015-01-02
+indexdetails|shares|85|share|13.6839714169205000
+indexdetails|shares|86|id|39290
+indexdetails|shares|86|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|86|indxx_id|178
+indexdetails|shares|86|isin|US67066G1040
+indexdetails|shares|86|date|2015-01-02
+indexdetails|shares|86|share|30.7872294572212000
+indexdetails|shares|87|id|39291
+indexdetails|shares|87|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|87|indxx_id|178
+indexdetails|shares|87|isin|US4824801009
+indexdetails|shares|87|date|2015-01-02
+indexdetails|shares|87|share|8.7782131771513800
+indexdetails|shares|88|id|39292
+indexdetails|shares|88|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|88|indxx_id|178
+indexdetails|shares|88|isin|DE0006231004
+indexdetails|shares|88|date|2015-01-02
+indexdetails|shares|88|share|57.6271186442890000
+indexdetails|shares|89|id|39293
+indexdetails|shares|89|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|89|indxx_id|178
+indexdetails|shares|89|isin|FR0010307819
+indexdetails|shares|89|date|2015-01-02
+indexdetails|shares|89|share|11.7106773823117000
+indexdetails|shares|90|id|39294
+indexdetails|shares|90|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|90|indxx_id|178
+indexdetails|shares|90|isin|GB0000595859
+indexdetails|shares|90|date|2015-01-02
+indexdetails|shares|90|share|39.8163657794296000
+indexdetails|shares|91|id|39295
+indexdetails|shares|91|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|91|indxx_id|178
+indexdetails|shares|91|isin|US8825081040
+indexdetails|shares|91|date|2015-01-02
+indexdetails|shares|91|share|11.5444913150792000
+indexdetails|shares|92|id|39296
+indexdetails|shares|92|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|92|indxx_id|178
+indexdetails|shares|92|isin|US7475251036
+indexdetails|shares|92|date|2015-01-02
+indexdetails|shares|92|share|8.3046407993715200
+indexdetails|shares|93|id|39297
+indexdetails|shares|93|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|93|indxx_id|178
+indexdetails|shares|93|isin|US4581401001
+indexdetails|shares|93|date|2015-01-02
+indexdetails|shares|93|share|17.0097533925953000
+indexdetails|shares|94|id|39298
+indexdetails|shares|94|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|94|indxx_id|178
+indexdetails|shares|94|isin|US2254471012
+indexdetails|shares|94|date|2015-01-02
+indexdetails|shares|94|share|16.4214937647588000
+indexdetails|shares|95|id|39299
+indexdetails|shares|95|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|95|indxx_id|178
+indexdetails|shares|95|isin|JP3982800009
+indexdetails|shares|95|date|2015-01-02
+indexdetails|shares|95|share|8.6108235564699100
+indexdetails|shares|96|id|39300
+indexdetails|shares|96|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|96|indxx_id|178
+indexdetails|shares|96|isin|US5356781063
+indexdetails|shares|96|date|2015-01-02
+indexdetails|shares|96|share|11.6030817785204000
+indexdetails|shares|97|id|39301
+indexdetails|shares|97|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|97|indxx_id|178
+indexdetails|shares|97|isin|US0214411003
+indexdetails|shares|97|date|2015-01-02
+indexdetails|shares|97|share|14.3232411775996000
+indexdetails|shares|98|id|39302
+indexdetails|shares|98|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|98|indxx_id|178
+indexdetails|shares|98|isin|US9839191015
+indexdetails|shares|98|date|2015-01-02
+indexdetails|shares|98|share|12.2222344444567000
+indexdetails|shares|99|id|39303
+indexdetails|shares|99|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|99|indxx_id|178
+indexdetails|shares|99|isin|US83088M1027
+indexdetails|shares|99|date|2015-01-02
+indexdetails|shares|99|share|7.2768605295080400
+indexdetails|shares|100|id|39304
+indexdetails|shares|100|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|100|indxx_id|178
+indexdetails|shares|100|isin|US0326541051
+indexdetails|shares|100|date|2015-01-02
+indexdetails|shares|100|share|9.5299086653553700
+indexdetails|shares|101|id|39305
+indexdetails|shares|101|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|101|indxx_id|178
+indexdetails|shares|101|isin|US5297711070
+indexdetails|shares|101|date|2015-01-02
+indexdetails|shares|101|share|12.6201437686778000
+indexdetails|shares|102|id|39306
+indexdetails|shares|102|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|102|indxx_id|178
+indexdetails|shares|102|isin|US7244791007
+indexdetails|shares|102|date|2015-01-02
+indexdetails|shares|102|share|21.3719053481056000
+indexdetails|shares|103|id|39307
+indexdetails|shares|103|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|103|indxx_id|178
+indexdetails|shares|103|isin|JP3657400002
+indexdetails|shares|103|date|2015-01-02
+indexdetails|shares|103|share|38.8936512884202000
+indexdetails|shares|104|id|39308
+indexdetails|shares|104|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|104|indxx_id|178
+indexdetails|shares|104|isin|JP3300600008
+indexdetails|shares|104|date|2015-01-02
+indexdetails|shares|104|share|47.0833333331413000
+indexdetails|shares|105|id|39309
+indexdetails|shares|105|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|105|indxx_id|178
+indexdetails|shares|105|isin|JP3973400009
+indexdetails|shares|105|date|2015-01-02
+indexdetails|shares|105|share|50.7611201516903000
+indexdetails|shares|106|id|39310
+indexdetails|shares|106|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|106|indxx_id|178
+indexdetails|shares|106|isin|JP3814000000
+indexdetails|shares|106|date|2015-01-02
+indexdetails|shares|106|share|16.8563676483764000
+indexdetails|shares|107|id|39311
+indexdetails|shares|107|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|107|indxx_id|178
+indexdetails|shares|107|isin|US9841211033
+indexdetails|shares|107|date|2015-01-02
+indexdetails|shares|107|share|37.5781625781626000
+indexdetails|shares|108|id|39312
+indexdetails|shares|108|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|108|indxx_id|178
+indexdetails|shares|108|isin|JP3242800005
+indexdetails|shares|108|date|2015-01-02
+indexdetails|shares|108|share|16.2440871414087000
+indexdetails|shares|109|id|39313
+indexdetails|shares|109|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|109|indxx_id|178
+indexdetails|shares|109|isin|US8269191024
+indexdetails|shares|109|date|2015-01-02
+indexdetails|shares|109|share|7.7776222253332900
+indexdetails|shares|110|id|39314
+indexdetails|shares|110|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|110|indxx_id|178
+indexdetails|shares|110|isin|US78464A6800
+indexdetails|shares|110|date|2015-01-02
+indexdetails|shares|110|share|8.0972971222206200
+indexdetails|shares|111|id|39315
+indexdetails|shares|111|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|111|indxx_id|178
+indexdetails|shares|111|isin|TW0002454006
+indexdetails|shares|111|date|2015-01-02
+indexdetails|shares|111|share|25.3607503607027000
+indexdetails|shares|112|id|39316
+indexdetails|shares|112|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|112|indxx_id|178
+indexdetails|shares|112|isin|SG9999006241
+indexdetails|shares|112|date|2015-01-02
+indexdetails|shares|112|share|3.6819800215764100
+indexdetails|shares|113|id|39317
+indexdetails|shares|113|dateAdded|2015-01-02 09:35:03
+indexdetails|shares|113|indxx_id|178
+indexdetails|shares|113|isin|US1113201073
+indexdetails|shares|113|date|2015-01-02
+indexdetails|shares|113|share|8.5476660597823900
+indexdetails|users|0|id|321
+indexdetails|users|0|dateAdded|2015-01-01 03:02:20
+indexdetails|users|0|status|1
+indexdetails|users|0|user_id|10
+indexdetails|users|0|indxx_id|178
+indexdetails|users|0|isAdmin|0
+indexdetails|users|1|id|421
+indexdetails|users|1|dateAdded|2015-01-01 03:10:13
+indexdetails|users|1|status|1
+indexdetails|users|1|user_id|13
+indexdetails|users|1|indxx_id|178
+indexdetails|users|1|isAdmin|0

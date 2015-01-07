@@ -1,0 +1,33 @@
+Server Error in Application "INDXX.SECURESERVER.NET"
+Internet Information Services 7.5
+Error Summary
+HTTP Error 500.0 - Internal Server Error
+C:\Program Files (x86)\Parallels\Plesk\Additional\PleskPHP5\php-cgi.exe - The FastCGI process exited unexpectedly
+Detailed Error Information
+Module	FastCgiModule
+Notification	ExecuteRequestHandler
+Handler	PHP5-FastCGI-php
+Error Code	0xc0000005
+Requested URL	http://97.74.65.118:80/icai2/dbbackup.php
+Physical Path	C:\Inetpub\vhosts\indxx.secureserver.net\httpdocs\icai2\dbbackup.php
+Logon Method	Anonymous
+Logon User	Anonymous
+Most likely causes:
+IIS received the request; however, an internal error occurred during the processing of the request. The root cause of this error depends on which module handles the request and what was happening in the worker process when this error occurred.
+IIS was not able to access the web.config file for the Web site or application. This can occur if the NTFS permissions are set incorrectly.
+IIS was not able to process configuration for the Web site or application.
+The authenticated user does not have permission to use this DLL.
+The request is mapped to a managed handler but the .NET Extensibility Feature is not installed.
+Things you can try:
+Ensure that the NTFS permissions for the web.config file are correct and allow access to the Web server's machine account.
+Check the event logs to see if any additional information was logged.
+Verify the permissions for the DLL.
+Install the .NET Extensibility feature if the request is mapped to a managed handler.
+Create a tracing rule to track failed requests for this HTTP status code. For more information about creating a tracing rule for failed requests, click here.
+Links and More Information
+This error means that there was a problem while processing the request. The request was received by the Web server, but during processing a fatal error occurred, causing the 500 error.
+View more information »
+
+Microsoft Knowledge Base Articles:
+
+294807
