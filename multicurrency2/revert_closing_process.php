@@ -95,4 +95,13 @@ if ($err = mysql_errno())
 else
 	echo "Cash index value table cleaned!" . PHP_EOL;
 
+/* Clean upcoming cash index values */
+$query = "DELETE FROM `tbl_cash_indxx_value_temp` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "Cash index[upcoming] value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "Cash index[upcoming] value table cleaned!" . PHP_EOL;
+
+
 ?>

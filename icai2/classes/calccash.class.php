@@ -99,10 +99,18 @@ class Calccash extends Application
 		}
 
 		$this->log_info(log_file, "Cash index file generation process finished.");
-		exit ();
 		
 		//$this->saveProcess ( 2 );
-		$this->Redirect2 ( "index.php?module=calccashtemp", "", "" );
+		if (DEBUG)
+		{
+			$this->Redirect2("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+		}
+		else
+		{
+			//$this->Redirect2("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+			log_error("Unable to locate upcoming cash index module.");
+			exit();
+		}
 	}
 }
 ?>
