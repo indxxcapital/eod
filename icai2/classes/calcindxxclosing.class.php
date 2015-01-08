@@ -234,6 +234,10 @@ class Calcindxxclosing extends Application
 	   					fclose($open);
 						$this->log_info(log_file, "Closing file written for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 					}
+					else
+					{
+						$this->log_error(log_file, "Closing file generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+					}
 				}
 				unset($final_array[$indxxKey]);
 			}

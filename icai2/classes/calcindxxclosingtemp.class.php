@@ -196,6 +196,10 @@ class Calcindxxclosingtemp extends Application
 						fclose($open);
 						$this->log_info(log_file, "Closing file [upcoming index] written for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 					}
+					else
+					{
+						$this->log_error(log_file, "Closing file [upcoming index] generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+					}
 				}
 				unset($final_array[$indxxKey]);					
 			}
@@ -204,7 +208,6 @@ class Calcindxxclosingtemp extends Application
 		
 		$this->log_info(log_file, "Closing file generation process finished for upcoming indexes.");
 		
-		exit();
 		//$this->saveProcess(2);
 		if (DEBUG)
 		{
