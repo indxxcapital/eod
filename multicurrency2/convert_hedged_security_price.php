@@ -7,72 +7,101 @@ function convert_headged_security_to_indxx_curr()
 
 	$final_price_array	=	array();
 
-	/* 
-	 * TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? 
-	 * Convert this to direct mysql query
-	 */
-	$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx', array("currency_hedged" => 1));
-	//$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_heged = '1'");
-	
-	if(!empty($indxx))
+	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? */
+	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx', array("currency_hedged" => 1));
+	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_hedged = '1'");
+
+	if ($err_code = mysql_errno())
 	{
-		foreach($indxx as $key => $index)
+		log_error("Unable to read live hedged indexes. MYSQL error code " . $err_code .
+				". Exiting closing file process.");
+		mail(email_errors, "Unable to read live hedged indexes.", "MYSQL error code " . $err_code . ".");
+		exit();
+	}
+	
+	while(false != ($index = mysql_fetch_assoc($indxx)))
+	{
+		$index_id = $index['id'];
+
+		$res = mysql_query("Select date from tbl_final_price where indxx_id = '" . $index_id . "' order by date desc limit 0, 1");
+		if ($err_code = mysql_errno())
 		{
-			//print_r($index);
-			$res = mysql_query("Select date from tbl_final_price where indxx_id = '" . $index['id'] . "' order by date desc limit 0, 1");
-			if (false != ($resdate = mysql_fetch_assoc($res)))
+			log_error("Unable to read securities for live hedged indexes. MYSQL error code " . $err_code .
+					". Exiting closing file process.");
+			mail(email_errors, "Unable to read securities for live hedged indexes.", "MYSQL error code " . $err_code . ".");
+			exit();
+		}
+			
+		if (false != ($resdate = mysql_fetch_assoc($res)))
+		{
+			$lastConversionDate = $resdate['date'];
+
+			
+			$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice, pf.price as localpricetoday   
+						FROM `tbl_final_price` it left join  tbl_prices_local_curr pf on pf.isin = it.isin  
+						where it.indxx_id = '" . $index['id'] . "' and it.date ='" . $lastConversionDate . "' 
+						and pf.date ='" . date . "'");			
+			/*
+			$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice,
+									(select price from tbl_prices_local_curr pf where pf.isin=it.isin  and pf.date='".date."') as localpricetoday  
+									FROM `tbl_final_price` it where it.indxx_id='".index_id."' and it.date='".$lastConversionDate."'");
+			*/
+			
+			if ($err_code = mysql_errno())
 			{
-				$lastConversionDate = $resdate['date'];
+				log_error("Unable to read price for securities for live hedged indexes. MYSQL error code " . $err_code .
+						". Exiting closing file process.");
+				mail(email_errors, "Unable to read price for securities for live hedged indexes.", "MYSQL error code " . $err_code . ".");
+				exit();
+			}
 
-				/*
-				$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice, pf.price as localpricetoday   
-							FROM `tbl_final_price` it,  tbl_prices_local_curr pf 
-							where it.indxx_id = '" . $index['id'] . "' and it.date ='" . $lastConversionDate . "' and 
-							pf.isin = it.isin  and pf.date ='" . date . "'");
-				*/
-				$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice,
-						(select price from tbl_prices_local_curr pf where pf.isin=it.isin  and pf.date='".date."') as localpricetoday  
-						FROM `tbl_final_price` it where it.indxx_id='".$index['id']."' and it.date='".$lastConversionDate."'");
-				
-
-				while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
+			while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
+			{
+				if($priceRow['localprice'] && $priceRow['localpricetoday'])
 				{
-					//print_r($priceRow);
-					if($priceRow['localprice'] && $priceRow['localpricetoday'])
-					{
-						$change = ($priceRow['localpricetoday'] - $priceRow['localprice'])/$priceRow['localprice'];
-						$final_price_array[$index['id']][$priceRow['isin']]['price'] = $priceRow['price'] * (1 + $change);
-						$final_price_array[$index['id']][$priceRow['isin']]['localprice'] = $priceRow['localpricetoday'];
-					}
-					//echo "currency headged";
+					$change = ($priceRow['localpricetoday'] - $priceRow['localprice']) / $priceRow['localprice'];
+					$final_price_array[$index_id][$priceRow['isin']]['price'] = $priceRow['price'] * (1 + $change);
+					$final_price_array[$index_id][$priceRow['isin']]['localprice'] = $priceRow['localpricetoday'];
 				}
 			}
+			mysql_free_result($pricequery);
 		}
-
-		if(!empty($final_price_array))
-		{	
-			foreach($final_price_array as $index_key => $security)
-			{
-				if(!empty($security))
-				{
-					foreach($security as $security_key => $prices)
-					{
-						$fpquery="INSERT into tbl_final_price (indxx_id, isin, date, price, localprice, currencyfactor) values 
-								('" . $index_key . "','" . $security_key . "','" . date . "','" . $prices['price'] . "', 
-								'" . $prices['localprice'] . "', '0')";
-						mysql_query($fpquery);
-					}
-				}	
-			}
-		}
+		mysql_free_result($res);
 	}
-
+	mysql_free_result($indxx);
+		
+	if(!empty($final_price_array))
+	{	
+		foreach($final_price_array as $index_key => $security)
+		{
+			if(!empty($security))
+			{
+				foreach($security as $security_key => $prices)
+				{
+					$fpquery = "INSERT into tbl_final_price (indxx_id, isin, date, price, localprice, currencyfactor) 
+								values ('".$index_key."', '".$security_key."', '".date."', '".$prices['price']."', '".$prices['localprice']."', '0')";
+					mysql_query($fpquery);
+					if ($err_code = mysql_errno())
+					{
+						log_error("Unable to write prices for live hedged indexes. MYSQL error code " . $err_code .
+									". Exiting closing file process.");
+						mail(email_errors, "Unable to write prices for live hedged indexes.", "MYSQL error code " . $err_code . ".");
+						exit();
+					}
+					unset($security[$security_key]);
+				}
+				unset($security);
+			}
+			unset($final_price_array[$index_key]);
+		}
+		unset($final_price_array[$index_key]);
+	}
+	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Price conversion for live hedged indexes done in " . $total_time . " seconds.");
+	//log_info("Price conversion for live hedged indexes done in " . $total_time . " seconds.");
 	
 	convert_headged_security_to_indxx_curr_upcomingindex();
-	//webopen("http://localhost/eod/httpdocs/icai2/index.php?module=calcindxxclosing");
 	//saveProcess(2);
 	//mysql_close();
 	//webopen("http://97.74.65.118/icai2/index.php?module=calcindxxclosing");
@@ -85,64 +114,110 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 	
 	$final_price_array	=	array();
 	
-	$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx_temp', array("currency_hedged" => 1));
+	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? */
+	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx_temp', array("currency_hedged" => 1));
+	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx_temp where currency_hedged = '1'");
 	
-	if(!empty($indxx))
+	if ($err_code = mysql_errno())
 	{
-		foreach($indxx as $key => $index)
-		{
-			//print_r($index);
-			$res = mysql_query("Select date from tbl_final_price_temp where indxx_id = '" . $index['id'] . "' order by date desc limit 0, 1");
-			if (false != ($resdate = mysql_fetch_assoc($res)))
-			{
-				$lastConversionDate = $resdate['date'];
+		log_error("Unable to read upcoming hedged indexes. MYSQL error code " . $err_code .
+				". Exiting closing file process.");
+		mail(email_errors, "Unable to read upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
+		exit();
+	}
 	
-				$pricequery= mysql_query("SELECT it.isin, it.price, it.localprice,
-							(select price from tbl_prices_local_curr pf where pf.isin=it.isin  and pf.date='".$date."') as localpricetoday  
-							FROM `tbl_final_price_temp` it where it.indxx_id='".$index['id']."' and it.date='".$lastConversionDate."'");
-				/*
-				$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice, pf.price as localpricetoday
-							FROM `tbl_final_price_temp` it,  tbl_prices_local_curr pf
-							where it.indxx_id = '" . $index['id'] . "' and it.date ='" . $lastConversionDate . "' and
-							pf.isin = it.isin  and pf.date ='" . date . "'");
-				*/
-				while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
+	while(false != ($index = mysql_fetch_assoc($indxx)))
+	{
+		$index_id = $index['id'];
+	
+		$res = mysql_query("Select date from tbl_final_price_temp where indxx_id = '" . $index_id . "' order by date desc limit 0, 1");
+		if ($err_code = mysql_errno())
+		{
+			log_error("Unable to read securities for upcoming hedged indexes. MYSQL error code " . $err_code .
+					". Exiting closing file process.");
+			mail(email_errors, "Unable to read securities for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
+			exit();
+		}
+		
+		if (false != ($resdate = mysql_fetch_assoc($res)))
+		{
+			$lastConversionDate = $resdate['date'];
+
+			/*
+			$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice,
+						(select price from tbl_prices_local_curr pf where pf.isin=it.isin  and pf.date='".$date."') as localpricetoday  
+						FROM `tbl_final_price_temp` it where it.indxx_id='".$index['id']."' and it.date='".$lastConversionDate."'");
+			*/
+			$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice, pf.price as localpricetoday
+						FROM `tbl_final_price_temp` it left join  tbl_prices_local_curr pf on pf.isin = it.isin 
+						where it.indxx_id = '" . $index_id . "' and it.date ='" . $lastConversionDate . "' 
+						and pf.date ='" . date . "'");
+
+			if ($err_code = mysql_errno())
+			{
+				log_error("Unable to read price for securities for upcoming hedged indexes. MYSQL error code " . $err_code .
+							". Exiting closing file process.");
+				mail(email_errors, "Unable to read price for securities for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
+				exit();
+			}
+				
+			while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
+			{
+				if($priceRow['localprice'] && $priceRow['localpricetoday'])
 				{
-					//print_r($priceRow);
-					if($priceRow['localprice'] && $priceRow['localpricetoday'])
-					{
-						$change = ($priceRow['localpricetoday'] - $priceRow['localprice'])/$priceRow['localprice'];
-						$final_price_array[$index['id']][$priceRow['isin']]['price'] = $priceRow['price']*(1 + $change);
-						$final_price_array[$index['id']][$priceRow['isin']]['localprice'] = $priceRow['localpricetoday'];
-					}
+					$change = ($priceRow['localpricetoday'] - $priceRow['localprice'])/$priceRow['localprice'];
+					$final_price_array[$index_id][$priceRow['isin']]['price'] = $priceRow['price']*(1 + $change);
+					$final_price_array[$index_id][$priceRow['isin']]['localprice'] = $priceRow['localpricetoday'];
 				}
 			}
-			//echo "currency headged";
+			mysql_free_result($pricequery);
 		}
+		mysql_free_result($res);
+	}
+	mysql_free_result($indxx);
 	
-		if(!empty($final_price_array))
+	if(!empty($final_price_array))
+	{
+		foreach($final_price_array as $index_key => $security)
 		{
-			foreach($final_price_array as $index_key => $security)
+			if(!empty($security))
 			{
-				if(!empty($security))
+				foreach($security as $security_key => $prices)
 				{
-					foreach($security as $security_key => $prices)
+					$fpquery="INSERT into tbl_final_price_temp (indxx_id, isin, date, price, localprice, currencyfactor) 
+							values ('".$index_key."', '".$security_key."', '".date."', '".$prices['price']."', '".$prices['localprice']."', '0')";
+					mysql_query($fpquery);
+					
+					if ($err_code = mysql_errno())
 					{
-						$fpquery="INSERT into tbl_final_price_temp (indxx_id, isin, date, price, localprice, currencyfactor) values
-								('" . $index_key . "','" . $security_key . "','" . date . "','" . $prices['price'] . "',
-								'" . $prices['localprice'] . "', '0')";
-						mysql_query($fpquery);
-					}
+						log_error("Unable to write prices for upcoming hedged indexes. MYSQL error code " . $err_code .
+									". Exiting closing file process.");
+						mail(email_errors, "Unable to write prices for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
+						exit();
+					}			
+					unset($security[$security_key]);
 				}
+				unset($security);
 			}
+			unset($final_price_array[$index_key]);
 		}
+		unset($final_price_array[$index_key]);
 	}
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Price conversion for upcoming hedged indexes done in " . $total_time . " seconds.");
+	//log_info("Price conversion for upcoming hedged indexes done in " . $total_time . " seconds.");
 	
-	webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&date=" .date. "&log_file=" . basename(log_file));
+	if (DEBUG)
+	{
+		webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
+	}
+	else
+	{
+		//webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
+		log_error("Unable to locate closing index module.");
+		exit();
+	}	
 	//saveProcess(2);
 	//mysql_close();
 }

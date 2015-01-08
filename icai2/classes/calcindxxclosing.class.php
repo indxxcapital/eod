@@ -10,6 +10,12 @@ class Calcindxxclosing extends Application
 
 	function index()
 	{
+		if($_GET['DEBUG'])
+		{
+			define("DEBUG", $_GET['DEBUG']);
+			echo "Index calculation in debug mode" .PHP_EOL;
+		}
+		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
