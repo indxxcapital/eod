@@ -77,4 +77,13 @@ if ($err = mysql_errno())
 else
 	echo "Index value table cleaned!" . PHP_EOL;
 
+/* Clean calculated upcoming index values */
+$query = "DELETE FROM `tbl_indxx_value_temp` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "Upcoming index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "Upcoming index value table cleaned!" . PHP_EOL;
+
+/* TODO: Not cleaning the tbl_indxx_log and tbl_indxx_log_temp tables whle closing file generation process */
 ?>

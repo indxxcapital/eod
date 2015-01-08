@@ -31,7 +31,7 @@ class Calcindxxclosing extends Application
 			}
 		}
 				
-		$this->log_info(log_file, "Closing file generation process started.");
+		$this->log_info(log_file, "Closing file generation process started for live indexes.");
 		
 		$this->_title 				= $this->siteconfig->site_title;
 		$this->_meta_description 	= $this->siteconfig->default_meta_description;
@@ -242,7 +242,19 @@ class Calcindxxclosing extends Application
 		
 		file_put_contents('../files/output/postclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
 		$this->log_info(log_file, "Post-CloseData file generated.");
-		$this->log_info(log_file, "Closing file generation process finished.");
+		$this->log_info(log_file, "Closing file generation process finished for live indexes.");
+		
+		//$this->saveProcess(2);
+		if (DEBUG)
+		{
+			$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+		}
+		else
+		{
+			//$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+			log_error("Unable to locate closing upcoming index module.");
+			exit();
+		}
 	}   
 } 
 ?>
