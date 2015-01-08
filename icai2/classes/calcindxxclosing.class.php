@@ -10,42 +10,49 @@ class Calcindxxclosing extends Application
 
 	function index()
 	{
-		if($_GET['DEBUG'])
-		{
-			define("DEBUG", $_GET['DEBUG']);
-			echo "Index calculation in debug mode" .PHP_EOL;
-		}
-		
+		$datevalue = date("Y-m-d", strtotime($this->_date) - 86400);		
+
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
+		if($_GET['DEBUG'])
+		{
+			define("DEBUG", $_GET['DEBUG']);
+			$this->log_info(log_file, "Executing closing file generation process in DEBUG mode");
+
+			if($_GET['date'])
+			{
+				$datevalue = $_GET['date'];
+			}
+			else
+			{
+				$this->log_info(log_file, "No date provided in DEBUG mode");
+				exit();
+			}
+		}
+				
 		$this->log_info(log_file, "Closing file generation process started.");
 		
 		$this->_title 				= $this->siteconfig->site_title;
 		$this->_meta_description 	= $this->siteconfig->default_meta_description;
 		$this->_meta_keywords 		= $this->siteconfig->default_meta_keyword;
 		
-		$datevalue = date("Y-m-d", strtotime($this->_date) - 86400);
-		//TODO: FOR TESTING
-		if($_GET['date'])
-		{
-			$datevalue = $_GET['date'];
-		}
-		else
-		{
-			echo "NO DATE" . PHP_EOL;
-			exit();
-		}
 		$final_array = array();
 
-		//TODO: Error handling
 		$indxxs = mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and 
 															dbusersignoff = '1' and submitted = '1'");
-
+		if ($err_code = mysql_errno())
+		{
+			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
+					". Exiting closing file process.");
+			mail(email_errors, "Unable to read live indexes.", "MYSQL error code " . $err_code . ".");
+			exit();
+		}
+		
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
 		{
-			$this->log_info(log_file, "Processing closing data file for index = " . $row['id']);	
 			$row_id  = $row['id'];
+			$this->log_info(log_file, "Processing closing data file for index = " . $row_id);	
 				
 			if($this->checkHoliday($row['zone'], $datevalue))
 			{
@@ -78,9 +85,6 @@ class Calcindxxclosing extends Application
 								$final_array[$row_id]['index_value']['newdivisor'] = $row['investmentammount']/$row['indexvalue'];
 					}
 				}
-				//TODO: FREE MEMORY FOR queries
-				//mysql_free_result($client);
-				//mysql_free_result($indxx_value);
 				/*
 				$query = "SELECT it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.price as calcprice, 
 						fp.localprice as localprice, fp.currencyfactor as currencyfactor, sh.share as calcshare  
@@ -108,28 +112,18 @@ class Calcindxxclosing extends Application
 								$final_array[$row_id]['divpvalue'] += $dpvalue['share'] * $dpvalue['dividend'];
 							}
 						}
-						//TODO: FREE MEMORY FOR queries
-						//mysql_free_result($indxx_dp_value);
-
-						/*
-						$ca_query = "select identifier, action_id, id, mnemonic, field_id, company_name, ann_date, 
-									eff_date, amd_date, currency from tbl_ca where 
-									eff_date = '".$datevalue."' and identifier = '".$indxxprice['ticker']."' and status = '1'";
-						$cas = $this->db->getResult($ca_query,true);	
-						*/
 					}
-				}
-			
+				}			
 				$final_array[$row_id]['values'] = $indxxprices;				
 			}		
 		}
-		//TODO: FREE MEMORY FOR queries
-		//mysql_free_result($indxxs);
+		mysql_free_result($indxxs);
 			
 		if (!file_exists("../files/output"))
 			mkdir("../files/output", 0777);
+
 		file_put_contents('../files/output/preclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
-		$this->log_info(log_file, "PRE-CLOSEDATA FILE generated");
+		$this->log_info(log_file, "Pre-CloseData file generated.");
 		
 		if(!empty($final_array))
 		{
@@ -165,7 +159,7 @@ class Calcindxxclosing extends Application
 			
 				foreach($closeIndxx['values'] as $closeprices)
 				{
-					echo "for loop for ".$closeIndxx['client']. " index = " .$closeIndxx['code']. "<br>";
+					//echo "for loop for ".$closeIndxx['client']. " index = " .$closeIndxx['code']. "<br>";
 					$shareValue		=	$closeprices['calcshare'];	
 					$securityPrice	=	$closeprices['calcprice'];
 					$localprice		=	(float)$closeprices['localprice'];
@@ -211,8 +205,7 @@ class Calcindxxclosing extends Application
 	 
 				$entry2	=	$newindexvalue.",\n";
 					
-				$insertQuery = 'INSERT into tbl_indxx_value (indxx_id, code, market_value, indxx_value, date, olddivisor, 
-															newdivisor) values 
+				$insertQuery = 'INSERT into tbl_indxx_value (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
 								("'.$closeIndxx['id'].'", "'.$closeIndxx['code'].'", "'.$marketValue.'", "'.$newindexvalue.'", 
 									"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';
 				$this->db->query($insertQuery);	
@@ -241,12 +234,14 @@ class Calcindxxclosing extends Application
 	   					fclose($open);
 						$this->log_info(log_file, "Closing file written for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 					}
-				}  		
+				}
+				unset($final_array[$indxxKey]);
 			}
+			unset($final_array);
 		}
-		$this->log_info(log_file, "POST-CLOSEDATA FILE generated");
 		
 		file_put_contents('../files/output/postclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
+		$this->log_info(log_file, "Post-CloseData file generated.");
 		$this->log_info(log_file, "Closing file generation process finished.");
 	}   
 } 

@@ -68,4 +68,13 @@ if ($err = mysql_errno())
 	echo "Converted price[upcoming] clean query failed [error=" .$err. "]." . PHP_EOL;
 else
 	echo "Converted price[upcoming] table cleaned!" . PHP_EOL;
+
+/* Clean calculated index values */
+$query = "DELETE FROM `tbl_indxx_value` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "Index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "Index value table cleaned!" . PHP_EOL;
+
 ?>
