@@ -86,4 +86,13 @@ else
 	echo "Upcoming index value table cleaned!" . PHP_EOL;
 
 /* TODO: Not cleaning the tbl_indxx_log and tbl_indxx_log_temp tables whle closing file generation process */
+
+/* Clean cash index values */
+$query = "DELETE FROM `tbl_cash_indxx_value` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "Cash index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "Cash index value table cleaned!" . PHP_EOL;
+
 ?>

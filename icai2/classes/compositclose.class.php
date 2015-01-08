@@ -29,7 +29,7 @@ class Compositclose extends Application
 			}
 		}
 		
-		$this->log_info(log_file, "Composite closing file generation process started for indexes.");
+		$this->log_info(log_file, "Composite closing file generation process started.");
 		
 		$clientData = $this->db->getResult("select id, ftpusername from tbl_ca_client where status = '1'" );
 		
@@ -70,11 +70,20 @@ class Compositclose extends Application
 		}
 		//mysql_free_result($clientData);
 		
-		$this->log_info(log_file, "Composite closing file generation process finished for indexes.");
+		$this->log_info(log_file, "Composite closing file generation process finished.");
 
 		//$this->saveProcess(2);		
-		exit();
-		$this->Redirect2("index.php?module=calccash", "", "" );
+		
+		if (DEBUG)
+		{
+			$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
+		}
+		else
+		{
+			//$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
+			log_error("Unable to locate cash index module.");
+			exit();
+		}
 	}
 }
 ?>
