@@ -2,50 +2,70 @@
 <?php
 include("dbconfig.php");
 
-define("date", '2014-08-27');
+if (DEBUG)
+{
+	define("date", '2014-08-27');
+}
+else
+{
+	if ($_GET['date'])
+	{
+		define("date", $_GET['id']);
+	}
+	else	
+	{
+		echo "Please define the revert date." . PHP_EOL;
+		exit();
+	} 
+} 
 
+/* Clean currency factor data */
 $query = "DELETE FROM `tbl_curr_prices` WHERE `date` = '" .date. "'";
 mysql_query($query);
 
 if ($err = mysql_errno())
-	echo "MYSQL query failed [error=" .$err. "] - currency factor clean" . PHP_EOL;
+	echo "Currency factor clean query failed [error=" .$err. "]." . PHP_EOL;
 else
-	echo "Currency factor cleaned" . PHP_EOL;
+	echo "Currency factor cleaned!" . PHP_EOL;
 
-
+/* Clean libor rate data */
 $query = "DELETE FROM `tbl_libor_prices` WHERE `date` = '" .date. "'";
 mysql_query($query);
 
 if ($err = mysql_errno())
-	echo "MYSQL query failed [error=" .$err. "] - libor rate clean" . PHP_EOL;
+	echo "Libor rate clean query failed [error=" .$err. "]." . PHP_EOL;
 else
-	echo "Libor rate cleaned" . PHP_EOL;
+	echo "Libor rate cleaned!" . PHP_EOL;
 
-
+/* Clean cash index data */
 $query = "DELETE FROM `tbl_cash_prices` WHERE `date`  = '" .date. "'";
 mysql_query($query);
 if ($err = mysql_errno())
-	echo "MYSQL query failed [error=" .$err. "] - cash index clean" . PHP_EOL;
+	echo "Cash index clean query failed [error=" .$err. "]." . PHP_EOL;
 else
-	echo "Cash index cleaned" . PHP_EOL;
+	echo "Cash index cleaned!" . PHP_EOL;
 
-
+/* Clean security price data */
 $query = "DELETE FROM `tbl_prices_local_curr` WHERE `date`  = '" .date. "'";
 mysql_query($query);
 if ($err = mysql_errno())
-	echo "MYSQL query failed [error=" .$err. "] - Price table clean" . PHP_EOL;
+	echo "Price clean query failed [error=" .$err. "]." . PHP_EOL;
 else
-	echo "Price table cleaned" . PHP_EOL;
+	echo "Price table cleaned!" . PHP_EOL;
 
-
+/* Clean converted security price data */
 $query = "DELETE FROM `tbl_final_price` WHERE `date`  = '" .date. "'";
 mysql_query($query);
 if ($err = mysql_errno())
-	echo "MYSQL query failed [error=" .$err. "] - Final price table clean" . PHP_EOL;
+	echo "Converted price clean query failed [error=" .$err. "]." . PHP_EOL;
 else
-	echo "Final price table cleaned" . PHP_EOL;
+	echo "Converted price table cleaned!" . PHP_EOL;
 
-
-
-
+/* Clean converted security price data - upcoming */
+$query = "DELETE FROM `tbl_final_price_temp` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "Converted price[upcoming] clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "Converted price[upcoming] table cleaned!" . PHP_EOL;
 ?>

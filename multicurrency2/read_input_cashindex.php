@@ -46,7 +46,7 @@ function read_cashindex()
 		
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Cash index file read in " . $total_time . " seconds.");
+	//log_info("Cash index file read in " . $total_time . " seconds.");
 		
 	read_pricefile();
 	//saveProcess(2);

@@ -65,12 +65,11 @@ function read_pricefile()
 	 * TODO: Send an email incase -
 	 * a) Security price is same for 3 consecutive days.
 	 *    Security might be suspended but Bloomberg has not updated it yet.
-	 * b) If security price has fluctuated by 5% or more
 	 */
 		
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Price file read in " . $total_time . " seconds.");
+	//log_info("Price file read in " . $total_time . " seconds.");
 	
 	convert_security_to_indxx_curr();
 	//saveProcess(2);

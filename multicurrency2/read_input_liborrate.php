@@ -46,7 +46,7 @@ function read_liborrate()
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Libor rate file read in " . $total_time . " seconds.");
+	//log_info("Libor rate file read in " . $total_time . " seconds.");
 		
 	read_cashindex();
 	//saveProcess(2);

@@ -46,7 +46,7 @@ function read_currencyfactor()
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Currency factor file read in " . $total_time . " seconds.");
+	//log_info("Currency factor file read in " . $total_time . " seconds.");
 		
 	read_liborrate();
 	//saveProcess(2);

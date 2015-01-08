@@ -1,6 +1,8 @@
 <?php 
+include('input_files.php');
+
 /* TODO: Disable this in live */
-define("DEBUG", 1);
+//define("DEBUG", 1);
 
 if(DEBUG == 1)
 {

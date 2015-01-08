@@ -72,7 +72,7 @@ function convert_security_to_indxx_curr()
 		while(false != ($index = mysql_fetch_assoc($index_query)))
 		{
 			$index_id = $index['id'];
-			log_info("Processing index=" .$index['id']);
+			log_info("Processing index = " .$index_id);
 				
 			/* Check if given index is local currency hedged index or not. */
 			$convert_flag = false;			
@@ -88,7 +88,8 @@ function convert_security_to_indxx_curr()
 				else
 				{
 					log_error("MYSQL query failed. Exiting closing process.");
-					//TODO: Send email
+					mail(email_errors, "Error executing query for converting security prices.",
+										"Check log file for more details. Not calculating for today.");
 					exit();
 				}
 				mysql_free_result($res);
@@ -105,7 +106,7 @@ function convert_security_to_indxx_curr()
 									it.curr as ticker_currency 
 									FROM tbl_indxx_ticker it left join tbl_prices_local_curr pf on pf.isin=it.isin 
 									where it.indxx_id='".$index_id."' and pf.date='".date."'");
-				log_info("Securities in index = " .mysql_num_rows($res));
+				log_info("	Securities in index = " .mysql_num_rows($res));
 
 				if (($err_code = mysql_errno()))
 				{
@@ -120,8 +121,7 @@ function convert_security_to_indxx_curr()
 				while(false != ($priceRow = mysql_fetch_assoc($res)))
 				{
 					$currencyPrice = 0;
-
-					log_info("	Processing security isin=" .$priceRow['isin']);
+					log_info("	Processing security isin = " .$priceRow['isin']);
 						
 					/*
 					 * Check if got the right currency for the security from Bloomberg.
@@ -129,8 +129,7 @@ function convert_security_to_indxx_curr()
 					 */					
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
-						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
-						
+						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");						
 						log_error("Currency mismatch for: ". $priceRow['ticker'] . ". Disabling index = " . $index_id);
 						mail(email_errors, "Currency mismatch. Disabling index = " . $index_id, 
 								"Currency mismatch for: ". $priceRow['ticker'] . ".");
@@ -145,7 +144,7 @@ function convert_security_to_indxx_curr()
 												
 						if($index['curr'] && ($index['curr'] != $priceRow['local_currency']))
 						{
-							log_info("		Conversion Required for ".$index['curr'].$priceRow['local_currency']);
+							log_info("	Conversion Required for ".$index['curr'].$priceRow['local_currency']);
 							$cfactor_code = $index['curr'].$priceRow['local_currency'];
 
 							$cfactor = getPriceforCurrency($cfactor_code, date);
@@ -179,7 +178,7 @@ function convert_security_to_indxx_curr()
 		
 			/* De-activate this index */
 			unset($final_price_array[$keyindex]);
-			mysql_query("update tbl_indxx set status = '0' where id = '" . $keyindex . "'");
+			$res1 = mysql_query("update tbl_indxx set status = '0' where id = '" . $keyindex . "'");
 
 			if (($err_code = mysql_errno()))
 			{
@@ -188,7 +187,7 @@ function convert_security_to_indxx_curr()
 							". Needs to be done manually. Not calculating for today.");
 				mail(email_errors, "Unable to de-activate index = " . $keyindex . ".",
 						"MYSQL error code " . $err_code . ". De-activate manually. Not calculating for today.");
-			}		
+			}
 		}
 
 		/* Update tbl_final_price table for rest of the indexes */
@@ -231,7 +230,7 @@ function convert_security_to_indxx_curr()
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Price conversion for live normal indexes done in " . $total_time . " seconds.");
+	//log_info("Price conversion for live normal indexes done in " . $total_time . " seconds.");
 
 	convert_security_to_indxx_curr_upcomingindex();
 	//saveProcess(2);
@@ -253,8 +252,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 		while(false != ($index = mysql_fetch_assoc($index_query)))
 		{
 			$index_id = $index['id'];
-			//print_r($index);
-
+			log_info("Processing upcoming index = " .$index_id);
+				
 			/* Check if given index is local currency hedged index or not. */
 			$convert_flag = false;
 			if($index['currency_hedged'] == 1)
@@ -269,7 +268,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 				else
 				{
 					log_error("MYSQL query failed. Exiting closing process.");
-					//TODO: Send email
+					mail(email_errors, "Error executing query for converting security prices.",
+							"Check log file for more details. Not calculating for today.");
 					exit();
 				}
 				mysql_free_result($res);
@@ -285,6 +285,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 									it.curr as ticker_currency
 									FROM tbl_indxx_ticker_temp it left join tbl_prices_local_curr pf on pf.isin=it.isin
 									where it.indxx_id='".$index_id."' and pf.date='".date."'");
+
+				log_info("	Securities in index = " .mysql_num_rows($res));
 				
 				if (($err_code = mysql_errno()))
 				{
@@ -299,13 +301,15 @@ function convert_security_to_indxx_curr_upcomingindex()
 				while(false != ($priceRow = mysql_fetch_assoc($res)))
 				{
 					$currencyPrice = 0;
-
+					log_info("	Processing security isin = " .$priceRow['isin']);
+						
 					/*
 					 * Check if got the right currency for the security from Bloomberg.
 					 * If not, raise alert and disable this index.
 					 */
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
+						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
 						log_error("Currency mismatch for: ". $priceRow['ticker'] . ". Disabling index = " . $index_id);
 						mail(email_errors, "Currency mismatch. Disabling index = " . $index_id,
 								"Currency mismatch for: ". $priceRow['ticker'] . ".");
@@ -404,7 +408,7 @@ function convert_security_to_indxx_curr_upcomingindex()
 	
 	$finish = get_time();
 	$total_time = round(($finish - $start), 4);
-	log_info("Price conversion for normal upcoming indexes done in " . $total_time . " seconds.");
+	//log_info("Price conversion for normal upcoming indexes done in " . $total_time . " seconds.");
 	
 	convert_headged_security_to_indxx_curr();
 	//webopen("convert_currency_hedged_temp.php");
