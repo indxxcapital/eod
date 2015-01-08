@@ -1,121 +1,139 @@
 <?php
 
-class Calccsi extends Application{
-
+class Calccsi extends Application
+{
 	function __construct()
 	{
 		parent::__construct();
 	}
-	
-	
+		
 	function index()
-	{
+	{	
+		$datevalue2=date('Y-m-d',strtotime($this->_date)-86400);
+				
+		if($_GET['log_file'])
+			define("log_file", $_GET['log_file']);
 		
-		//echo "select * from tbl_indxx_cs  where status='1' ";
-		$indxxs=$this->db->getResult("select * from tbl_indxx_cs  where status='1' ",true);	
-		//$this->pr($indxxs);
-		 $datevalue2=date('Y-m-d');
-		 
-		 
-		 $final_array=array();
-		 if(!empty($indxxs))
-		 {
-			 
-			 foreach($indxxs as $row)
-			 {
-				if($this->checkHoliday($row['zone'], $datevalue2)){
-				$final_array[$row['id']]=$row;
-				
-				
-					$client=$this->db->getResult("select tbl_ca_client.ftpusername from tbl_ca_client where id='".$row['client_id']."'",false,1);	
-					$final_array[$row['id']]['client']=$client['ftpusername'];
-			//	echo "select * from tbl_csi_adj_factor  where ca_indxx_id='".$row['id']."' ";
-				$calcfactors=$this->db->getResult("select * from tbl_csi_adj_factor  where cs_indxx_id='".$row['id']."' ",true);	
-				if(!empty($calcfactors))
-				{
-				foreach($calcfactors as $key=> $calcfactor)
-				{
-				//$this->pr($calcfactor);
-				
-				
-				$indxx_name=$this->db->getResult("select name from tbl_indxx  where code='".$calcfactor['code']."' ",false,1);
-			//	echo "select indxx_value from tbl_indxx_value  where code='".$calcfactor['code']."' order by date desc ";
-				$indxx_value=$this->db->getResult("select indxx_value from tbl_indxx_value  where code='".$calcfactor['code']."' and date='".$datevalue2."' order by date desc ",false,1);
-					$calcfactors[$key]['indxx_name']=$indxx_name['name'];
-					$calcfactors[$key]['indxx_value']=$indxx_value['indxx_value'];
-				
-				
-				}
-				}
-				$final_array[$row['id']]['values']=$calcfactors;
-				
-				}
-			
+		if($_GET['DEBUG'])
+		{
+			define("DEBUG", $_GET['DEBUG']);
+			//$this->log_info(log_file, "Executing closing file generation process in DEBUG mode");
+		
+			if($_GET['date'])
+			{
+				$datevalue2 = $_GET['date'];
 			}
-			 
-			 
-		 }
-		 
-		//$this->pr( $final_array,true);
-		
-		if(!empty($final_array))
-		{  file_put_contents('../files2/backup/preCLOSECCSIdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
-		 	foreach($final_array as $key=>$closeIndxx)
-		{
-			if(!$closeIndxx['client'])
-			$file="../files2/ca-output/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
 			else
-			$file="../files2/ca-output/".$closeIndxx['client']."/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
-			
-			$open=fopen($file,"w+");
-			
-			$entry1='Date'.",";
-			$entry1.=date("Y-m-d",strtotime($datevalue2)).",\n";
-			$entry1.='INDEX VALUE'.",";
-			$entry3.='NAME'.",";
-			$entry3.='CODE'.",";
-			$entry3.='FACTOR'.",";
-			$entry3.='INDEX VALUE'.",";
-			
-			
-			$entry4='';
-		$index_value=0;
-		
-			if(!empty($closeIndxx))
-		{
-		foreach($closeIndxx['values'] as $security)
-		{
-		$index_value+=$security['fraction']*$security['indxx_value'];
-		
-		
-            $entry4.= "\n".$security['indxx_name'].",";
-            $entry4.=$security['code'].","; 
-			 $entry4.=$security['fraction'].",";
-            $entry4.=$security['indxx_value'].",";
-		
+			{
+				$this->log_info(log_file, "No date provided in DEBUG mode");
+				exit();
+			}
 		}
 		
-		}
+		$final_array=array();
+		
+		$this->log_info(log_file, "CSI index file generation process started.");
+		$indxxs = $this->db->getResult("select * from tbl_indxx_cs  where status='1' ",true);
+		
+		if(!empty($indxxs))
+		{	 
+			foreach($indxxs as $row)
+			{
+				if($this->checkHoliday($row['zone'], $datevalue2))
+				{
+					$final_array[$row['id']]=$row;
+				
+					$client = $this->db->getResult("select ftpusername from tbl_ca_client where id='".$row['client_id']."'",false,1);	
+					$final_array[$row['id']]['client']=$client['ftpusername'];
 
-	$entry2=number_format($index_value,2,'.','').",\n";
-
- $insertQuery='INSERT into tbl_indxx_cs_value (indxx_id,code,indxx_value,date) values ("'.$closeIndxx['id'].'","'.$closeIndxx['code'].'","'.number_format($index_value,2,'.','').'","'.$datevalue2.'")';
-		$this->db->query($insertQuery);	
+					$calcfactors=$this->db->getResult("select * from tbl_csi_adj_factor  where cs_indxx_id='".$row['id']."' ",true);	
+					if(!empty($calcfactors))
+					{
+						foreach($calcfactors as $key=> $calcfactor)
+						{
+							$indxx_name=$this->db->getResult("select name from tbl_indxx  where code='".$calcfactor['code']."' ",false,1);
+							$calcfactors[$key]['indxx_name']=$indxx_name['name'];
+								
+							$indxx_value=$this->db->getResult("select indxx_value from tbl_indxx_value  where code='".$calcfactor['code']."' and date='".$datevalue2."' order by date desc ",false,1);
+							$calcfactors[$key]['indxx_value']=$indxx_value['indxx_value'];				
+						}
+					}
+					$final_array[$row['id']]['values']=$calcfactors;
+				}
+			}
+		 }
+		 		
+		if(!empty($final_array))
+		{  
+			file_put_contents('../files/output/pre-CloseCSIdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+		 	
+		 	foreach($final_array as $key=>$closeIndxx)
+			{
+				if(!$closeIndxx['client'])
+					$file="../files/output/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
+				else
+					$file="../files/output/".$closeIndxx['client']."/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
+							
+				$entry1='Date'.",";
+				$entry1.=date("Y-m-d",strtotime($datevalue2)).",\n";
+				$entry1.='INDEX VALUE'.",";
+				$entry3.='NAME'.",";
+				$entry3.='CODE'.",";
+				$entry3.='FACTOR'.",";
+				$entry3.='INDEX VALUE'.",";
+							
+				$entry4='';
+			
+				$index_value=0;
+				if(!empty($closeIndxx))
+				{
+					foreach($closeIndxx['values'] as $security)
+					{
+						$index_value+=$security['fraction']*$security['indxx_value'];
 	
-	if($open){   
- if(   fwrite($open,$entry1.$entry2.$entry3.$entry4))
-{
+						$entry4.= "\n".$security['indxx_name'].",";
+	            		$entry4.=$security['code'].","; 
+						$entry4.=$security['fraction'].",";
+	            		$entry4.=$security['indxx_value'].",";
+					}
+				}
+	
+				$entry2=number_format($index_value,2,'.','').",\n";
+	
+				$insertQuery='INSERT into tbl_indxx_cs_value (indxx_id, code, indxx_value, date) values 
+					("'.$closeIndxx['id'].'","'.$closeIndxx['code'].'","'.number_format($index_value,2,'.','').'","'.$datevalue2.'")';
+				$this->db->query($insertQuery);	
+		
+				$open=fopen($file,"w+");
+				if ($open)
+				{
+					if (fwrite($open, $entry1 . $entry2 . $entry3 . $entry4))
+						$this->log_info(log_file, "CSI index file written for client = " .$closeIndxx['code']);
+					else
+						$this->log_error(log_file, "CSI index file write failed for client = " .$closeIndxx['code']);
+				}
+				else
+				{
+					$this->log_error(log_file, "CSI index file open failed for client = " .$closeIndxx['code']);
+				}
+			}
+			
+			file_put_contents('../files/output/post-OpenCSIdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+		}
+		
+		$this->log_info(log_file, "CSI index file generation process finished.");
 
-}}
-		
+		//$this->saveProcess(2);
+		if (DEBUG)
+		{
+			$this->Redirect2("index.php?module=calcsl&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 		}
-		 file_put_contents('../files2/backup/postOPENCSIdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+		else
+		{
+			//$this->Redirect2("index.php?module=calcsl&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+			$this->log_error("Unable to locate CSI index module.");
+			exit();
 		}
-		
-		
-		$this->saveProcess(2);
-		$this->Redirect2("index.php?module=calcsl","","");	
-		//$this->Redirect("index.php?module=calcftpclose","","");		
 	}
-
 }
+?>

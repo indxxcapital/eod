@@ -101,7 +101,6 @@ class Calccashtemp extends Application
 		$this->log_info(log_file, "Cash index[upcoming] file generation process finished.");
 		
 		//$this->saveProcess(2);
-		exit();
 
 		if (DEBUG)
 		{
@@ -110,8 +109,9 @@ class Calccashtemp extends Application
 		else
 		{
 			//$this->Redirect2("index.php?module=calclsc&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate upcoming cash index module.");
+			$this->log_error("Unable to locate upcoming cash index module.");
 			exit();
 		}
 	}
 }
+?>

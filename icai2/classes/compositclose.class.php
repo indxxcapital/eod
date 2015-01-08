@@ -81,7 +81,7 @@ class Compositclose extends Application
 		else
 		{
 			//$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate cash index module.");
+			$this->log_error("Unable to locate cash index module.");
 			exit();
 		}
 	}

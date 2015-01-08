@@ -108,7 +108,7 @@ class Calccash extends Application
 		else
 		{
 			//$this->Redirect2("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate upcoming cash index module.");
+			$this->log_error("Unable to locate upcoming cash index module.");
 			exit();
 		}
 	}

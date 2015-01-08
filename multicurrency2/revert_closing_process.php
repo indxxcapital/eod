@@ -103,5 +103,28 @@ if ($err = mysql_errno())
 else
 	echo "Cash index[upcoming] value table cleaned!" . PHP_EOL;
 
+/* Clean LSC index values */
+$query = "DELETE FROM `tbl_indxx_lsc_value` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "LSC index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "LSC index value table cleaned!" . PHP_EOL;
+
+/* Clean CSI index values */
+$query = "DELETE FROM `tbl_indxx_cs_value` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "CSI index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "CSI index value table cleaned!" . PHP_EOL;
+
+/* Clean CSI index values */
+$query = "DELETE FROM `tbl_indxx_sl_value` WHERE `date`  = '" .date. "'";
+mysql_query($query);
+if ($err = mysql_errno())
+	echo "SL index value clean query failed [error=" .$err. "]." . PHP_EOL;
+else
+	echo "SL index value table cleaned!" . PHP_EOL;
 
 ?>
