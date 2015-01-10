@@ -1,4 +1,0 @@
-Date,2014-12-19,
-Name,Code,Market Value,Index value,
-Testing 4,ITI4TR,102323.047034,1033.97,
-Testing 20,IT20I,,,

@@ -1,8 +1,0 @@
-Index Name;Syntax US Information Products & Services Index (TR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-WDR US Equity;Waddell & Reed Financial Inc; ;Cash Dividend;2015-01-08;Gross Amt.=.43;USD;;;
-MA US Equity;MasterCard Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.16;USD;;;
-CMCSA US Equity;Comcast Corp; ;Cash Dividend;2015-01-05;Gross Amt.=.225;USD;;;
-T US Equity;AT&T Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.47;USD;;;
-NYT US Equity;New York Times Co/The; ;Cash Dividend;2015-01-12;Gross Amt.=.04;USD;;;
-VZ US Equity;Verizon Communications Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.55;USD;;;

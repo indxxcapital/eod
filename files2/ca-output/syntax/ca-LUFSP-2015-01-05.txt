@@ -1,5 +1,0 @@
-Index Name;Locus US Food Products & Services Index (PR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-CPB US Equity;Campbell Soup Co; ;Cash Dividend;2015-01-08;Gross Amt.=.312;USD;;;
-GIS US Equity;General Mills Inc; ;Cash Dividend;2015-01-08;Gross Amt.=.41;USD;;;
-DRI US Equity;Darden Restaurants Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.55;USD;;;

@@ -1,6 +1,0 @@
-[12/16/2014 06:56:35]: 10.1.24.90 /icai2/Index.php /icai2/ 
-[12/16/2014 06:58:13]: 10.1.24.90 /icai2/Index.php /icai2/ 
-[12/16/2014 06:58:13]: 10.1.24.90 /icai2/index.php /icai2/index.php?module=home 12,Devika Singhal,dsinghal@indxx.com,2,07:28
-[12/16/2014 06:58:25]: 10.1.24.90 /icai2/index.php /icai2/index.php?module=caindex&event=addNewRunning 12,Devika Singhal,dsinghal@indxx.com,2,07:28
-[12/16/2014 06:58:39]: 10.1.24.90 /icai2/index.php /icai2/index.php?module=login&event=logout 12,Devika Singhal,dsinghal@indxx.com,2,07:28
-[12/16/2014 06:58:40]: 10.1.24.90 /icai2/index.php /icai2/index.php 

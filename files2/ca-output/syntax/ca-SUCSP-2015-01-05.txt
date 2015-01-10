@@ -1,6 +1,0 @@
-Index Name;Syntax US Consumer Products & Services Index (PR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-MAS US Equity;Masco Corp; ;Cash Dividend;2015-01-07;Gross Amt.=.09;USD;;;
-GNTX US Equity;Gentex Corp/MI; ;Cash Dividend;2015-01-05;Gross Amt.=.08;USD;;;
-GMCR US Equity;Keurig Green Mountain Inc; ;Cash Dividend;2015-01-09;Gross Amt.=.2875;USD;;;
-GPS US Equity;Gap Inc/The; ;Cash Dividend;2015-01-05;Gross Amt.=.22;USD;;;

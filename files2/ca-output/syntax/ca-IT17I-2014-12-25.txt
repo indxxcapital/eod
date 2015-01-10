@@ -1,4 +1,0 @@
-Index Name;Testing 17;
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-BGC US Equity;General Cable Corp; ;Cash Dividend;2014-12-24;Gross Amt.=.18;USD;;;
-LQD US Equity;iShares iBoxx $ Investment Grade Corporate Bond ETF; ;Cash Dividend;2014-12-24;Net Amt.=.322181;USD;;;

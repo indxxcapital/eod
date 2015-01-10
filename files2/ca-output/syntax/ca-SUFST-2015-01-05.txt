@@ -1,6 +1,0 @@
-Index Name;Syntax US Financial Products & Services Index (TR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-WPG US Equity;Washington Prime Group Inc; ;Cash Dividend;2015-01-12;Gross Amt.=.28;USD;;;
-LNC US Equity;Lincoln National Corp; ;Cash Dividend;2015-01-08;Gross Amt.=.20;USD;;;
-UDR US Equity;UDR Inc; ;Cash Dividend;2015-01-08;Gross Amt.=.26;USD;;;
-AXP US Equity;American Express Co; ;Cash Dividend;2015-01-07;Gross Amt.=.26;USD;;;

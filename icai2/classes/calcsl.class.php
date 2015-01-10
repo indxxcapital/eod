@@ -131,10 +131,19 @@ class Calcsl extends Application
 
 		$this->log_info(log_file, "SL index file generation process finished.");
 		
-		exit();
-		$this->saveProcess(2);
+
+		//$this->saveProcess(2);
+		if (DEBUG)
+		{
+			$url ="http://localhost/eod/icai2/publishcsixls.php?DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file;	
+		}
+		else
+		{
+			$this->log_error("Unable to find publishing URL for CSI xls file.");
+			exit();
+			//$url ="http://174.36.193.130/icai2/publishcsixls.php";	
+		}
 		
-		$url="http://174.36.193.130/icai2/publishcsixls.php";	
 		$link="<script type='text/javascript'>
 		window.open('".$url."');  
 		</script>";

@@ -1,2 +1,0 @@
-Index Name;Testing 2;
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;

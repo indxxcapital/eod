@@ -1,2 +1,0 @@
-Date,2014-12-25,
-Name,Code,Market Value,Index value,

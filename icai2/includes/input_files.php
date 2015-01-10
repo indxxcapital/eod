@@ -33,10 +33,17 @@ function error_handler($errno, $errstr, $errfile, $errline)
 	return false;
 }
 
-function prepare_logfile() 
+function get_logs_folder()
 {
 	/* Logging mechanisms */
 	$logs_folder = "../files/logs/";
+	return 	$logs_folder;
+}
+
+function prepare_logfile() 
+{
+	/* Logging mechanisms */
+	$logs_folder = get_logs_folder();
 	$closing_logs = $logs_folder . "closing_process_logs_" . date ( 'Y-m-d_H-i-s', $_SERVER ['REQUEST_TIME'] ) . ".txt";
 	
 	/* Check if log folder exists, if not create it. */

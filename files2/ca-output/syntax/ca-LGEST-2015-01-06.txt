@@ -1,6 +1,0 @@
-Index Name;Locus Global Energy Products & Services TR;
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-GAS SM Equity;Gas Natural SDG SA;ES0116870314;Cash Dividend;2015-01-08;Gross Amt.=.397;EUR;;;
-OGE US Equity;OGE Energy Corp; ;Cash Dividend;2015-01-07;Gross Amt.=.25;USD;;;
-CIG US Equity;Cia Energetica de Minas Gerais; ;Cash Dividend;2015-01-06;Gross Amt.=.068126;USD;;;
-WGL US Equity;WGL Holdings Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.44;USD;;;

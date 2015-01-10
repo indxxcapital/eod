@@ -1,4 +1,0 @@
-Index Name;Syntax US Energy Products & Services Index (PR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-OGE US Equity;OGE Energy Corp; ;Cash Dividend;2015-01-07;Gross Amt.=.25;USD;;;
-WGL US Equity;WGL Holdings Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.44;USD;;;

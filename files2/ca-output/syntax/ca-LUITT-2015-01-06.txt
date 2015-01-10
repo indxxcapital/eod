@@ -1,6 +1,0 @@
-Index Name;Locus US Information Tools Index (TR);
-Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
-IDCC US Equity;InterDigital Inc/PA; ;Cash Dividend;2015-01-12;Gross Amt.=.20;USD;;;
-ORCL US Equity;Oracle Corp; ;Cash Dividend;2015-01-05;Gross Amt.=.12;USD;;;
-NTAP US Equity;NetApp Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.165;USD;;;
-INTU US Equity;Intuit Inc; ;Cash Dividend;2015-01-07;Gross Amt.=.25;USD;;;

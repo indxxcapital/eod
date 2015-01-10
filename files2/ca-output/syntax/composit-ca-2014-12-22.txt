@@ -1,1 +1,0 @@
-Index Name;Security Ticker;Company Ticker;ISIN;Action;Ex Date;Amount;Currency;Further Details;Factor;
