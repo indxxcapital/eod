@@ -10,6 +10,8 @@ class Calcindxxclosing extends Application
 
 	function index()
 	{
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
+		
 		$datevalue = date ( "Y-m-d" );
 		
 		if($_GET['log_file'])
@@ -66,7 +68,6 @@ class Calcindxxclosing extends Application
 				$final_array[$row_id]['client'] = $client['ftpusername'];
 				mysql_free_result($res);
 				
-				/* TODO: Convert this to direct mysql query */
 				$indxx_value = $this->db->getResult("select * from tbl_indxx_value_open where 
 													indxx_id = '" . $row_id . "' order by date desc ", false, 1);
 			
@@ -102,7 +103,6 @@ class Calcindxxclosing extends Application
 						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id."'
 						 and sh.indxx_id='".$row_id."' and fp.date='".$datevalue."'";
 				
-				/* TODO: Convert this to direct mysql query */
 				$indxxprices = $this->db->getResult($query, true);	
 				
 				if(!empty($indxxprices))
@@ -130,14 +130,14 @@ class Calcindxxclosing extends Application
 		$backup_folder = "../files/output/backup/";
 		if (!file_exists($backup_folder))
 			mkdir($backup_folder, 0777, true);
-
-		file_put_contents($backup_folder .'preclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
-		$this->log_info(log_file, "Pre-CloseData file generated.");
 		
 		if(!empty($final_array))
 		{
 			foreach($final_array as $indxxKey=> $closeIndxx)
 			{
+				file_put_contents($backup_folder .'preclosedata'. "_" .$indxxKey. "_" .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
+				$this->log_info(log_file, "Pre-CloseData file generated for index = " .$indxxKey);
+				
 				$entry1		 =	'Date'.",";
 				$entry1		.=	date("Y-m-d", strtotime($datevalue)).",\n";
 				$entry1		.=	'INDEX VALUE'.",";
@@ -206,7 +206,7 @@ class Calcindxxclosing extends Application
 						$entry4	.=	number_format($closeprices['currencyfactor'],6,'.','').",";
 					}
 				
-					/* Weight calculation, this is not getting used anywhere at the moment */
+					/* TODO: Weight calculation, this is not getting used anywhere at the moment */
 					if(false)
 					{	
 						/* Calculate the weight of the security for this index */
@@ -250,8 +250,6 @@ class Calcindxxclosing extends Application
 					}
 				}
 				
-				
-				
 				$insertQuery = 'INSERT into tbl_indxx_value (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
 								("'.$closeIndxx['id'].'", "'.$closeIndxx['code'].'", "'.$marketValue.'", "'.$newindexvalue.'", 
 									"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';
@@ -290,19 +288,19 @@ class Calcindxxclosing extends Application
 						$this->log_error(log_file, "Closing file generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 					}
 				}
+				file_put_contents($backup_folder .'postclosedata'. "_" . $indxxKey . "_"    .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
+				$this->log_info(log_file, "Post-CloseData file generated for index = " .$indxxKey);
+				
 				unset($final_array[$indxxKey]);
 			}
 			unset($final_array);
 		}
 		
-		file_put_contents($backup_folder .'postclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
-		$this->log_info(log_file, "Post-CloseData file generated.");
 		$this->log_info(log_file, "Closing file generation process finished for live indexes.");
 		
 		//$this->saveProcess(2);
 		if (DEBUG)
 		{
-			exit();
 			$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 		}
 		else
