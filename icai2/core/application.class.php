@@ -31,9 +31,6 @@ class Application extends Functions{
 
 		function __construct()
 		{	
-			
-		//  echo "Jhyotiu";
-//exit;
 			$this->siteconfig = new INDXXConfig;
 			
 			$dbData['host']=$this->siteconfig->db_host;

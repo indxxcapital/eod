@@ -1,22 +1,19 @@
 <?php 
 include('input_files.php');
 
-/* TODO: Disable this in live */
-//define("DEBUG", 1);
-
 if(DEBUG == 1)
 {
 	class INDXXConfig {
 		var $base_path='C:/wamp/www/eod/icai2/';
 		var $base_url='http://localhost/eod/icai2/';
-		var $db_host='localhost:3306';
+		var $db_host='localhost';
 		var $db_user='admin_icai2';
 		var $db_password='Reset1105@@';
 		var $db_name='admin_icai2';
-		var $site_title='icai';
-		var $admin_title='icai';
-		var $default_meta_description='icai Admin Panel';
-		var $default_meta_keyword='icai Description';
+		var $site_title='ICAI';
+		var $admin_title='ICAI';
+		var $default_meta_description='ICAI admin panel';
+		var $default_meta_keyword='ICAI description';
 		var $admin_email='amitmahajan86@gmail.com';
 		var $mail_from='amitmahajan.hec@gmail.com';
 		var $from_name='info';

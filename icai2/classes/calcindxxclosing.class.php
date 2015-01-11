@@ -10,15 +10,14 @@ class Calcindxxclosing extends Application
 
 	function index()
 	{
-		$datevalue = date("Y-m-d", strtotime($this->_date) - 86400);		
-
+		$datevalue = date ( "Y-m-d" );
+		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
 		{
 			define("DEBUG", $_GET['DEBUG']);
-			$this->log_info(log_file, "Executing closing file generation process in DEBUG mode");
 
 			if($_GET['date'])
 			{
@@ -27,10 +26,10 @@ class Calcindxxclosing extends Application
 			else
 			{
 				$this->log_info(log_file, "No date provided in DEBUG mode");
-				exit();
+				$this->mail_exit(log_file, __FILE__, __LINE__);		
 			}
 		}
-				
+						
 		$this->log_info(log_file, "Closing file generation process started for live indexes.");
 		
 		$this->_title 				= $this->siteconfig->site_title;
@@ -45,8 +44,7 @@ class Calcindxxclosing extends Application
 		{
 			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-			mail(email_errors, "Unable to read live indexes.", "MYSQL error code " . $err_code . ".");
-			exit();
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 		
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
@@ -58,12 +56,19 @@ class Calcindxxclosing extends Application
 			{
 				$final_array[$row_id] = $row;			
 			
-				$client = $this->db->getResult("select ftpusername from tbl_ca_client where 
-												id = '" . $row['client_id'] . "'", false, 1);
+				$res = mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'");
+				if ($err_code = mysql_errno())
+				{
+					log_error("Mysql query failed, error code " .$err_code. ". Exiting closing file process.");
+					$this->mail_exit(log_file, __FILE__, __LINE__);
+				}
+				$client = mysql_fetch_assoc($res);				
 				$final_array[$row_id]['client'] = $client['ftpusername'];
-			
+				mysql_free_result($res);
+				
+				/* TODO: Convert this to direct mysql query */
 				$indxx_value = $this->db->getResult("select * from tbl_indxx_value_open where 
-													indxx_id = '" . $row_id . "' order by date desc ", false, 1);	
+													indxx_id = '" . $row_id . "' order by date desc ", false, 1);
 			
 				if(!empty($indxx_value))
 				{
@@ -96,12 +101,15 @@ class Calcindxxclosing extends Application
 						fp.price as calcprice, sh.share as calcshare FROM `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin 
 						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id."'
 						 and sh.indxx_id='".$row_id."' and fp.date='".$datevalue."'";
+				
+				/* TODO: Convert this to direct mysql query */
 				$indxxprices = $this->db->getResult($query, true);	
 				
 				if(!empty($indxxprices))
 				{
 					foreach($indxxprices as $key=> $indxxprice)
 					{						
+						/* TODO: Convert this to direct mysql query */
 						$indxx_dp_value = $this->db->getResult("select * from tbl_dividend_ph where indxx_id='".$row_id."' 
 																and ticker_id ='".$indxxprice['id']."' ", false, 1);
 							
@@ -119,10 +127,11 @@ class Calcindxxclosing extends Application
 		}
 		mysql_free_result($indxxs);
 			
-		if (!file_exists("../files/output"))
-			mkdir("../files/output", 0777);
+		$backup_folder = "../files/output/backup/";
+		if (!file_exists($backup_folder))
+			mkdir($backup_folder, 0777, true);
 
-		file_put_contents('../files/output/preclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
+		file_put_contents($backup_folder .'preclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
 		$this->log_info(log_file, "Pre-CloseData file generated.");
 		
 		if(!empty($final_array))
@@ -248,17 +257,21 @@ class Calcindxxclosing extends Application
 									"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';
 				$this->db->query($insertQuery);	
 
+				$output_folder = "../files/output/ca-output/";
+				if (!file_exists($output_folder))
+					mkdir($output_folder, 0777);
+				
 				if(!$closeIndxx['client'])
 				{
-					$file="../files/output/Closing-".$closeIndxx['code']."-".$datevalue.".txt";
+					$file=$output_folder ."Closing-".$closeIndxx['code']."-".$datevalue.".txt";
 				}
 				else
 				{
-					if (!file_exists("../files/output/" . $closeIndxx['client']))
-						mkdir("../files/output/" . $closeIndxx['client'], 0777);
+					if (!file_exists($output_folder . $closeIndxx['client']))
+						mkdir($output_folder . $closeIndxx['client'], 0777);
 						
-					$file="../files/output/".$closeIndxx['client']."/Closing-".$closeIndxx['code']."-".$datevalue.".txt";
-				}
+					$file=$output_folder .$closeIndxx['client']."/Closing-".$closeIndxx['code']."-".$datevalue.".txt";
+				}					
 				
 				$open = fopen($file, "w+");
 				
@@ -282,13 +295,14 @@ class Calcindxxclosing extends Application
 			unset($final_array);
 		}
 		
-		file_put_contents('../files/output/postclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
+		file_put_contents($backup_folder .'postclosedata'.date("Y-m-d-H-i-s").time().'.json', json_encode($final_array));
 		$this->log_info(log_file, "Post-CloseData file generated.");
 		$this->log_info(log_file, "Closing file generation process finished for live indexes.");
 		
 		//$this->saveProcess(2);
 		if (DEBUG)
 		{
+			exit();
 			$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 		}
 		else

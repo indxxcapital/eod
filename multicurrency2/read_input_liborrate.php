@@ -2,13 +2,12 @@
 <?php
 function read_liborrate()
 {
-	$start = get_time();
+	//$start = get_time();
 	
 	if (!file_exists(liborrate_file))
 	{
 		log_error("Libor rate file not available. Exiting closing file process.");
-		mail(email_errors, "Libor rate file not available.", liborrate_file . " not available.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	
 	$query = "LOAD DATA INFILE '" . str_replace("\\", "/", realpath(liborrate_file)) .
@@ -23,30 +22,28 @@ function read_liborrate()
 	{
 		log_error("Unable to read libor rate file. MYSQL error code " . $err_code .
 			". Exiting closing file process.");
-		mail(email_errors, "Unable to read libor rate file.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);	
 	}
 	else if (!($rows = mysql_affected_rows()))
 	{
 		log_error("No data in libor rate file. Exiting closing file process.");
-		mail(email_errors, "No data in libor rate file.", "No data in libor rate file.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	else
 	{
-		log_info("Libor rate file read. Rows inserted = " . $rows . ".");
+		log_info("Libor rate file read. Rows inserted = " . $rows);
 	}
 
-	/*
-	 * TODO:
+	/* 
+	 * TODO: 
 	 * a) See how to free memory used by the above query
-	 * b) Send an email incase of more than 5% fluctuation today
-	 * c) Add a check for non-numeric values. Send an email in that case and use previous day value for calculation
+	 * b) Send an email incase of:
+	 * 		i) More than 5% fluctuation today.
+	 * 		ii) Non-numeric/Blank value is received from BBG.
 	 */
-	
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Libor rate file read in " . $total_time . " seconds.");
+		
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 		
 	read_cashindex();
 	//saveProcess(2);

@@ -17,6 +17,8 @@ if (!DEBUG)
 } 
 printf("Reverting all data till %s (inclusive).\n", date);
 
+//TODO: Revert backedup db?
+
 /* Clean currency factor table */
 mysql_query("DELETE FROM `tbl_curr_prices` WHERE `date` >= '" .date. "'");
 

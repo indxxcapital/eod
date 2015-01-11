@@ -2,13 +2,12 @@
 <?php
 function read_pricefile()
 {
-	$start = get_time();
+	//$start = get_time();
 
 	if (!file_exists(price_file))
 	{
 		log_error("Price file not available. Exiting closing file process.");
-		mail(email_errors, "Price file not available.", price_file . " not available.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	
 	/* HACK - 0.001 is added since mysql rounds 10.135 to 10.13 but we want 10.14 */
@@ -24,21 +23,19 @@ function read_pricefile()
 	{
 		log_error("Unable to read price file. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-		mail(email_errors, "Unable to read price file.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	else if (!($rows = mysql_affected_rows()))
 	{
 		log_error("No data in price file. Exiting closing file process.");
-		mail(email_errors, "No data in price file.", "No data in price file.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	else
 	{
-		log_info("Price file read. Rows inserted = " . $rows . ".");
+		log_info("Price file read. Rows inserted = " . $rows);
 	}
 
-	/* TODO: QUERY - NEEDS TO BE DISCUSSED - MAY BE THE CASE WITH RE-PROCESSING OF DATA 
+	/* TODO: Discuss usecase with Deepak - MAY BE THE CASE WITH RE-PROCESSING OF DATA 
 	 * 	in case of delisting etc errors
 		$data['ticker']="'".$security[0]."'";
 		$data['isin']="'".$security[6]."'";
@@ -51,25 +48,19 @@ function read_pricefile()
 			$price=selectrow(array('id'),'tbl_prices_local_curr',array('isin'=>$security[6],'date'=>$date));
 			if(empty($price))
 				qry_insert('tbl_prices_local_curr',$data);			
-		}
-	*/
+		}	*/
 
 	/*
 	 * TODO:
 	 * a) See how to free memory used by the above query
-	 * b) Send an email incase of more than 5% fluctuation today
-	 * c) Add a check for non-numeric values. Send an email in that case and use previous day value for calculation
-	 */
-			
-	/* 
-	 * TODO: Send an email incase -
-	 * a) Security price is same for 3 consecutive days.
-	 *    Security might be suspended but Bloomberg has not updated it yet.
+	 * b) Send an email incase of:
+	 * 		i) Non-numeric/Blank value is received from BBG.
+	 * 		ii) Security price is same for 3 consecutive days.
+	 *    	 	 Security might be suspended but Bloomberg has not updated it yet.
 	 */
 		
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Price file read in " . $total_time . " seconds.");
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 	
 	convert_security_to_indxx_curr();
 	//saveProcess(2);

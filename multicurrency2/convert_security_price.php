@@ -59,7 +59,7 @@ function send_index_deactivation_mail($keyindex, $valueindex, $index_type)
 
 function convert_security_to_indxx_curr()
 {
-	$start = get_time();
+	//$start = get_time();
 
 	$index_query =	mysql_query("SELECT id, currency_hedged, curr FROM `tbl_indxx` WHERE `status` = '1' 
 									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1'");
@@ -88,9 +88,7 @@ function convert_security_to_indxx_curr()
 				else
 				{
 					log_error("MYSQL query failed. Exiting closing process.");
-					mail(email_errors, "Error executing query for converting security prices.",
-										"Check log file for more details. Not calculating for today.");
-					exit();
+					mail_exit(__FILE__, __LINE__);
 				}
 				mysql_free_result($res);
 			}
@@ -112,9 +110,7 @@ function convert_security_to_indxx_curr()
 				{
 					log_error("Unable to read securities for live index = " . $index_id . 
 								". MYSQL error code = " . $err_code . ". Exiting closing file processing.");
-					mail(email_errors, "Unable to read securities for live index = " . $index_id . ".", 
-										"MYSQL error code " . $err_code . ".");
-					exit();	
+					mail_exit(__FILE__, __LINE__);
 				}
 				
 				$row = 0;				
@@ -129,11 +125,10 @@ function convert_security_to_indxx_curr()
 					 */					
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
-						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");						
-						log_error("Currency mismatch for: ". $priceRow['ticker'] . ". Disabling index = " . $index_id);
-						mail(email_errors, "Currency mismatch. Disabling index = " . $index_id, 
-								"Currency mismatch for: ". $priceRow['ticker'] . ".");
-
+						log_error("	Currency mismatch for index=" .$index_id. "[localcurrency=" 
+									.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");						
+						mail_skip(__FILE__, __LINE__);
+						
 						$indexarray[$index_id] = $priceRow['ticker'];
 						break;
 					}
@@ -174,7 +169,7 @@ function convert_security_to_indxx_curr()
 		/* Send email for faulty indexes and de-activate the same. */
 		foreach($indexarray as $keyindex => $valueindex)
 		{
-			send_index_deactivation_mail($keyindex, $valueindex, "LIVE");
+			//send_index_deactivation_mail($keyindex, $valueindex, "LIVE");
 		
 			/* De-activate this index */
 			unset($final_price_array[$keyindex]);
@@ -185,8 +180,7 @@ function convert_security_to_indxx_curr()
 				log_error("Unable to de-activate index = " . $keyindex .
 							". MYSQL error code = " . $err_code . 
 							". Needs to be done manually. Not calculating for today.");
-				mail(email_errors, "Unable to de-activate index = " . $keyindex . ".",
-						"MYSQL error code " . $err_code . ". De-activate manually. Not calculating for today.");
+				mail_skip(__FILE__, __LINE__);
 			}
 		}
 
@@ -199,27 +193,34 @@ function convert_security_to_indxx_curr()
 				{
 					foreach($ival as $tempKey=>$ivalue)
 					{
-						/*
-						 * Check if the security price has fluctuated more than 5%, if so send email.
-						 */						
-						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. "' order by date desc limit 0,2");
+						/* Check if the security price has fluctuated more than 5%, if so send email. */						
+						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. 
+											"' order by date desc limit 0, 2");
 						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
 						
-						if ($res && count($res))
+						if (($err_code = mysql_errno()))
 						{
-							$row=mysql_fetch_assoc($res);
-							$row=mysql_fetch_assoc($res);
-							//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
-							if (($existing_value = $row['price']))
+							log_error("SQL quer failed for index = " .$index_id. ". MYSQL error code = " . $err_code);
+							mail_skip(__FILE__, __LINE__);
+						}
+						else 
+						{
+							if (count($res))
 							{
-								//echo " existing value=" . $existing_value . "<br>";
-								$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
-								if(($diff >= 5) || ($diff <= - 5))
+								$row=mysql_fetch_assoc($res);
+								$row=mysql_fetch_assoc($res);
+								//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
+								if (($existing_value = $row['price']))
 								{
-									//echo "isin=" . $ivalue['isin'] . "<br>";
-									log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
-													 ", security_isin=" . $ivalue['isin'] . ".");
-									/* TODO: Send email for this */
+									//echo " existing value=" . $existing_value . "<br>";
+									$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
+									if(($diff >= 5) || ($diff <= - 5))
+									{
+										//echo "isin=" . $ivalue['isin'] . "<br>";
+										log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
+														 ", security_isin=" . $ivalue['isin'] . ".");
+										mail_skip(__FILE__, __LINE__);
+									}
 								}
 							}
 						}
@@ -234,8 +235,7 @@ function convert_security_to_indxx_curr()
 						{
 							log_error("Unable to update converted prices for live index = " . $indxx_id .
 											". MYSQL error code = " . $err_code . ". ");
-							mail(email_errors, "Unable to update converted prices for live index = " . $indxx_id . ".",
-										"MYSQL error code " . $err_code . ".");
+							mail_exit(__FILE__, __LINE__);
 						}
 					}
 				}
@@ -243,19 +243,17 @@ function convert_security_to_indxx_curr()
 			}
 			unset($final_price_aray);
 		}
+		mysql_free_result($index_query);
 	}
 	else
 	{
 		log_error("Unable to read live indexes. MYSQL error code " . $err_code .
 				". Exiting closing file process.");
-		mail(email_errors, "Unable to read live indexes.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
-	mysql_free_result($index_query);
 	
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Price conversion for live normal indexes done in " . $total_time . " seconds.");
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 
 	convert_security_to_indxx_curr_upcomingindex();
 	//saveProcess(2);
@@ -264,7 +262,7 @@ function convert_security_to_indxx_curr()
 
 function convert_security_to_indxx_curr_upcomingindex()
 {
-	$start = get_time();
+	//$start = get_time();
 
 	$final_price_array	=	array();
 	$indexarray			=	array();
@@ -293,9 +291,7 @@ function convert_security_to_indxx_curr_upcomingindex()
 				else
 				{
 					log_error("MYSQL query failed. Exiting closing process.");
-					mail(email_errors, "Error executing query for converting security prices.",
-							"Check log file for more details. Not calculating for today.");
-					exit();
+					mail_exit(__FILE__, __LINE__);
 				}
 				mysql_free_result($res);
 			}
@@ -317,9 +313,7 @@ function convert_security_to_indxx_curr_upcomingindex()
 				{
 					log_error("Unable to read securities for upcoming index = " . $index_id .
 						". MYSQL error code = " . $err_code . ". Exiting closing file processing.");
-					mail(email_errors, "Unable to read securities for upcoming index = " . $index_id . ".",
-						"MYSQL error code " . $err_code . ".");
-					exit();
+					mail_exit(__FILE__, __LINE__);
 				}
 				
 				$row = 0;
@@ -334,11 +328,10 @@ function convert_security_to_indxx_curr_upcomingindex()
 					 */
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
-						log_error("	Currency Mismatch[localcurrency=" .$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
-						log_error("Currency mismatch for: ". $priceRow['ticker'] . ". Disabling index = " . $index_id);
-						mail(email_errors, "Currency mismatch. Disabling index = " . $index_id,
-								"Currency mismatch for: ". $priceRow['ticker'] . ".");
-					
+						log_error("	Currency mismatch for index=" .$index_id. "[localcurrency="
+								.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");				
+						mail_skip(__FILE__, __LINE__);
+
 						$indexarray[$index_id] = $priceRow['ticker'];
 						break;
 					}
@@ -377,7 +370,7 @@ function convert_security_to_indxx_curr_upcomingindex()
 		/* Send email for faulty indexes and de-activate the same. */
 		foreach($indexarray as $keyindex => $valueindex)
 		{
-			send_index_deactivation_mail($keyindex, $valueindex, "UPCOMING");
+			//send_index_deactivation_mail($keyindex, $valueindex, "UPCOMING");
 			
 			/* De-activate this index */
 			unset($final_price_array[$keyindex]);
@@ -386,10 +379,9 @@ function convert_security_to_indxx_curr_upcomingindex()
 			if (($err_code = mysql_errno()))
 			{
 				log_error("Unable to de-activate index = " . $keyindex .
-				". MYSQL error code = " . $err_code .
-				". Needs to be done manually. Not calculating for today.");
-				mail(email_errors, "Unable to de-activate index = " . $keyindex . ".",
-				"MYSQL error code " . $err_code . ". De-activate manually. Not calculating for today.");
+							". MYSQL error code = " . $err_code .
+							". Needs to be done manually. Not calculating for today.");
+				mail_skip(__FILE__, __LINE__);
 			}
 		}
 
@@ -407,26 +399,34 @@ function convert_security_to_indxx_curr_upcomingindex()
 						 */
 						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. "' order by date desc limit 0,2");
 						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
-						
-						if ($res && count($res))
+
+						if (($err_code = mysql_errno()))
 						{
-							$row=mysql_fetch_assoc($res);
-							$row=mysql_fetch_assoc($res);
-							//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
-							if (($existing_value = $row['price']))
+							log_error("SQL query failed for index=" .$indxx_id. " err=" .$err_code);
+							mail_exit(__FILE__, __LINE__);
+						}
+						else
+						{								
+							if (count($res))
 							{
-								//echo " existing value=" . $existing_value . "<br>";
-								$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
-								if(($diff >= 5) || ($diff <= - 5))
+								$row=mysql_fetch_assoc($res);
+								$row=mysql_fetch_assoc($res);
+								//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
+								if (($existing_value = $row['price']))
 								{
-									//echo "isin=" . $ivalue['isin'] . "<br>";
-									log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
-									", security_isin=" . $ivalue['isin'] . ".");
-									/* TODO: Send email for this */
+									//echo " existing value=" . $existing_value . "<br>";
+									$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
+									if(($diff >= 5) || ($diff <= - 5))
+									{
+										//echo "isin=" . $ivalue['isin'] . "<br>";
+										log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
+													", security_isin=" . $ivalue['isin'] . ".");
+										mail_skip(__FILE__, __LINE__);
+									}
 								}
 							}
-						}
-						
+						}						
+
 						$fpquery="INSERT into tbl_final_price_temp
 									(indxx_id, isin, date, price, localprice, currencyfactor) values
 									('" . $indxx_id . "','" . $ivalue['isin'] . "','" . date . "',
@@ -436,9 +436,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 						if (($err_code = mysql_errno()))
 						{
 							log_error("Unable to update converted prices for upcoming index = " . $indxx_id .
-							". MYSQL error code = " . $err_code . ". ");
-							mail(email_errors, "Unable to update converted prices for upcoming index = " . $indxx_id . ".",
-							"MYSQL error code " . $err_code . ".");
+										". MYSQL error code = " . $err_code . ". ");
+							mail_exit(__FILE__, __LINE__);
 						}
 					}
 				}
@@ -446,19 +445,17 @@ function convert_security_to_indxx_curr_upcomingindex()
 			}
 			unset($final_price_array);
 		}
+		mysql_free_result($index_query);
 	}
 	else
 	{
 		log_error("Unable to read upcoming indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-		mail(email_errors, "Unable to read upcoming indexes.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}	
-	mysql_free_result($index_query);
 	
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Price conversion for normal upcoming indexes done in " . $total_time . " seconds.");
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 	
 	convert_headged_security_to_indxx_curr();
 	//webopen("convert_currency_hedged_temp.php");

@@ -2,13 +2,12 @@
 <?php
 function read_cashindex()
 {
-	$start = get_time();
+	//$start = get_time();
 
 	if (!file_exists(cashindex_file))
 	{
 		log_error("Cash index file not available. Exiting closing file process.");
-		mail(email_errors, "Cash index file not available.", cashindex_file . " not available.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	
 	$query = "LOAD DATA INFILE '" . str_replace("\\", "/", realpath(cashindex_file)) .
@@ -23,30 +22,28 @@ function read_cashindex()
 	{
 		log_error("Unable to read cash index file. MYSQL error code " . $err_code .
 				". Exiting closing file process.");
-		mail(email_errors, "Unable to read cash index file.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	else if (!($rows = mysql_affected_rows()))
 	{
 		log_error("No data in cash index file. Exiting closing file process.");
-		mail(email_errors, "No data in cash index file.", "No data in cash index file.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	else
 	{
-		log_info("Cash index file read. Rows inserted = " . $rows . ".");
+		log_info("Cash index file read. Rows inserted = " . $rows);
 	}
 	
-	/*
-	 * TODO:
+	/* 
+	 * TODO: 
 	 * a) See how to free memory used by the above query
-	 * b) Send an email incase of more than 5% fluctuation today
-	 * c) Add a check for non-numeric values. Send an email in that case and use previous day value for calculation
+	 * b) Send an email incase of:
+	 * 		i) More than 5% fluctuation today.
+	 * 		ii) Non-numeric/Blank value is received from BBG.
 	 */
-		
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Cash index file read in " . $total_time . " seconds.");
+			
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 		
 	read_pricefile();
 	//saveProcess(2);

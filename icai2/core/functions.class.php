@@ -944,6 +944,22 @@ class Functions extends Models {
 		
 		file_put_contents ( $this->logs_folder . $log_file, "INFO: " . $text . "\n", FILE_APPEND );
 	}
+	
+	function mail_exit($log_file, $file, $line)
+	{
+		$this->log_error($log_file, "Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
+		mail(email_errors, "Closing file generation process existed with error.",
+		"Please check log[" .$log_file. "] file for more info.");
+		exit();
+	}
+	
+	function mail_skip($log_file, $file, $line)
+	{
+		$this->log_warning($log_file, "Sending email for anomoly at file=" .$file. " and line=" .$line);
+		mail(email_errors, "Closing file generation process encountered anomoly.",
+		"Please check log[" .$log_file. "] file for more info.");
+	}
+	
 	function writeLog() {
 		/* Check if iplog folder exists, if not create it. */
 		if (! file_exists ( '../iplog' ))

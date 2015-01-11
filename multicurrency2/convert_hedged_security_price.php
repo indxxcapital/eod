@@ -3,11 +3,11 @@
 
 function convert_headged_security_to_indxx_curr()
 {
-	$start = get_time();
+	//$start = get_time();
 
 	$final_price_array	=	array();
 
-	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? */
+	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? */
 	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx', array("currency_hedged" => 1));
 	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_hedged = '1'");
 
@@ -15,8 +15,7 @@ function convert_headged_security_to_indxx_curr()
 	{
 		log_error("Unable to read live hedged indexes. MYSQL error code " . $err_code .
 				". Exiting closing file process.");
-		mail(email_errors, "Unable to read live hedged indexes.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	
 	while(false != ($index = mysql_fetch_assoc($indxx)))
@@ -28,8 +27,7 @@ function convert_headged_security_to_indxx_curr()
 		{
 			log_error("Unable to read securities for live hedged indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-			mail(email_errors, "Unable to read securities for live hedged indexes.", "MYSQL error code " . $err_code . ".");
-			exit();
+			mail_exit(__FILE__, __LINE__);
 		}
 			
 		if (false != ($resdate = mysql_fetch_assoc($res)))
@@ -51,8 +49,7 @@ function convert_headged_security_to_indxx_curr()
 			{
 				log_error("Unable to read price for securities for live hedged indexes. MYSQL error code " . $err_code .
 						". Exiting closing file process.");
-				mail(email_errors, "Unable to read price for securities for live hedged indexes.", "MYSQL error code " . $err_code . ".");
-				exit();
+				mail_exit(__FILE__, __LINE__);
 			}
 
 			while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
@@ -79,6 +76,7 @@ function convert_headged_security_to_indxx_curr()
 				foreach($security as $security_key => $prices)
 				{
 					//TODO: Do we need to check for 5% fluctuation here?
+					
 					$fpquery = "INSERT into tbl_final_price (indxx_id, isin, date, price, localprice, currencyfactor) 
 								values ('".$index_key."', '".$security_key."', '".date."', '".$prices['price']."', '".$prices['localprice']."', '0')";
 					mysql_query($fpquery);
@@ -86,8 +84,7 @@ function convert_headged_security_to_indxx_curr()
 					{
 						log_error("Unable to write prices for live hedged indexes. MYSQL error code " . $err_code .
 									". Exiting closing file process.");
-						mail(email_errors, "Unable to write prices for live hedged indexes.", "MYSQL error code " . $err_code . ".");
-						exit();
+						mail_exit(__FILE__, __LINE__);
 					}
 					unset($security[$security_key]);
 				}
@@ -98,24 +95,21 @@ function convert_headged_security_to_indxx_curr()
 		unset($final_price_array[$index_key]);
 	}
 	
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Price conversion for live hedged indexes done in " . $total_time . " seconds.");
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 	
 	convert_headged_security_to_indxx_curr_upcomingindex();
 	//saveProcess(2);
 	//mysql_close();
-	//webopen("http://97.74.65.118/icai2/index.php?module=calcindxxclosing");
-	/* echo '<script>document.location.href="http://97.74.65.118/icai2/index.php?module=calcindxxclosing";</script>'; */
 }
 
 function convert_headged_security_to_indxx_curr_upcomingindex()
 {
-	$start = get_time();
+	//$start = get_time();
 	
 	$final_price_array	=	array();
 	
-	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? ? */
+	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? */
 	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx_temp', array("currency_hedged" => 1));
 	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx_temp where currency_hedged = '1'");
 	
@@ -123,8 +117,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 	{
 		log_error("Unable to read upcoming hedged indexes. MYSQL error code " . $err_code .
 				". Exiting closing file process.");
-		mail(email_errors, "Unable to read upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}
 	
 	while(false != ($index = mysql_fetch_assoc($indxx)))
@@ -136,8 +129,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 		{
 			log_error("Unable to read securities for upcoming hedged indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-			mail(email_errors, "Unable to read securities for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
-			exit();
+			mail_exit(__FILE__, __LINE__);
 		}
 		
 		if (false != ($resdate = mysql_fetch_assoc($res)))
@@ -158,8 +150,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 			{
 				log_error("Unable to read price for securities for upcoming hedged indexes. MYSQL error code " . $err_code .
 							". Exiting closing file process.");
-				mail(email_errors, "Unable to read price for securities for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
-				exit();
+				mail_exit(__FILE__, __LINE__);
 			}
 				
 			while(false != ($priceRow = mysql_fetch_assoc($pricequery)))
@@ -195,8 +186,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 					{
 						log_error("Unable to write prices for upcoming hedged indexes. MYSQL error code " . $err_code .
 									". Exiting closing file process.");
-						mail(email_errors, "Unable to write prices for upcoming hedged indexes.", "MYSQL error code " . $err_code . ".");
-						exit();
+						mail_exit(__FILE__, __LINE__);
 					}			
 					unset($security[$security_key]);
 				}
@@ -207,9 +197,8 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 		unset($final_price_array[$index_key]);
 	}
 	
-	$finish = get_time();
-	$total_time = round(($finish - $start), 4);
-	//log_info("Price conversion for upcoming hedged indexes done in " . $total_time . " seconds.");
+	//$finish = get_time();
+	//$total_time = round(($finish - $start), 4);
 	
 	if (DEBUG)
 	{
@@ -219,7 +208,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 	{
 		//webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
 		log_error("Unable to locate closing index module.");
-		exit();
+		mail_exit(__FILE__, __LINE__);
 	}	
 	//saveProcess(2);
 	//mysql_close();
