@@ -9,8 +9,10 @@ class Calcsl extends Application
 		
 	function index()
 	{		
-		$datevalue2=date('Y-m-d',strtotime($this->_date)-86400);
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		
+		$datevalue2 = date ( "Y-m-d" );
+				
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
@@ -26,13 +28,13 @@ class Calcsl extends Application
 			else
 			{
 				$this->log_info(log_file, "No date provided in DEBUG mode");
-				exit();
+				$this->mail_exit(log_file, __FILE__, __LINE__);
 			}
 		}
-
+		$this->log_info(log_file, "SL index file generation process started.");
+		
 		$final_array=array();
 
-		$this->log_info(log_file, "SL index file generation process started.");
 		$indxxs=$this->db->getResult("select * from tbl_indxx_sl  where status='1' ",true);	
 		
 		if(!empty($indxxs))
@@ -72,15 +74,25 @@ class Calcsl extends Application
 		 		
 		if(!empty($final_array))
 		{  
-			file_put_contents('../files/output/pre-CloseSLdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+			file_put_contents('../files/output/backup/preCLOSESLdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
 
 		 	foreach($final_array as $key=>$closeIndxx)
 			{
+				$folder = null;
 				if(!$closeIndxx['client'])
-					$file="../files/output/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
+				{
+					$folder = "../files/output/ca-output/";
+					$file= $folder . "Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
+				}
 				else
-					$file="../files/output/".$closeIndxx['client']."/Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
-				
+				{
+					$folder = "../files/output/ca-output/" . $closeIndxx['client'] . "/";
+					$file= $folder. "Closing-".$closeIndxx['code']."-".$datevalue2.".txt";
+				}
+					
+				if (!file_exists($folder))
+					mkdir($folder, 0777, true);
+								
 				$entry1='Date'.",";
 				$entry1.=date("Y-m-d",strtotime($datevalue2)).",\n";
 				$entry1.='INDEX VALUE'.",";
@@ -117,16 +129,23 @@ class Calcsl extends Application
 				if ($open)
 				{
 					if (fwrite($open, $entry1 . $entry2 . $entry3 . $entry4))
+					{
 						$this->log_info(log_file, "SL index file written for client = " .$closeIndxx['code']);
+					}
 					else
+					{
 						$this->log_error(log_file, "SL index file write failed for client = " .$closeIndxx['code']);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
+					}
 				}
 				else
 				{
 					$this->log_error(log_file, "SL index file open failed for client = " .$closeIndxx['code']);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}
-			file_put_contents('../files/output/post-OpenSLdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+			file_put_contents('../files/output/backup/postOPENSLdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+			unset($final_array);
 		}
 
 		$this->log_info(log_file, "SL index file generation process finished.");
@@ -141,6 +160,7 @@ class Calcsl extends Application
 		{
 			$this->log_error("Unable to find publishing URL for CSI xls file.");
 			//$url ="http://174.36.193.130/icai2/publishcsixls.php";	
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 		//exit();
 		$link="<script type='text/javascript'>

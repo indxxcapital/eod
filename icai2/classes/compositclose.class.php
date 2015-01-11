@@ -8,8 +8,10 @@ class Compositclose extends Application
 
 	function index() 
 	{		
-		$date = date('Y-m-d', strtotime($this->_date) - 86400);
-
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
+		
+		$date = date ( "Y-m-d" );
+		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
@@ -25,10 +27,9 @@ class Compositclose extends Application
 			else
 			{
 				$this->log_info(log_file, "No date provided in DEBUG mode");
-				exit();
+				$this->mail_exit(log_file, __FILE__, __LINE__);		
 			}
 		}
-		
 		$this->log_info(log_file, "Composite closing file generation process started.");
 		
 		$clientData = $this->db->getResult("select id, ftpusername from tbl_ca_client where status = '1'" );
@@ -36,8 +37,12 @@ class Compositclose extends Application
 		if (!empty($clientData)) 
 		{
 			foreach ($clientData as $client) 
-			{
-				$file = "../files/output/" . $client ['ftpusername'] . "/compositclosing-" . $date . ".txt";
+			{	
+				$folder = "../files/output/ca-output/" . $client ['ftpusername'];
+				if (!file_exists($folder))
+					mkdir($folder, 0777, true);
+				
+				$file = $folder . "/compositclosing-" . $date . ".txt";
 
 				$entry1 = "Date" . "," . $date . ",\r\n";
 				$entry1 .= "Name,Code,Market Value,Index value,\r\n";
@@ -58,19 +63,25 @@ class Compositclose extends Application
 				if($open) 
 				{
 					if (fwrite ($open, $entry1)) 
+					{
 						$this->log_info(log_file, "Composite file written for client = " .$client['ftpusername']);
+					}
 					else
+					{
 						$this->log_error(log_file, "Composite file write failed for client = " .$client['ftpusername']);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
+					}
 				}
 				else
 				{
 					$this->log_error(log_file, "Composite file open failed for client = " .$client['ftpusername']);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}
 		}
 		//mysql_free_result($clientData);
 		
-		$this->log_info(log_file, "Composite closing file generation process finished.");
+		$this->log_info(log_file, "Composite closing file generation process finished");
 
 		//$this->saveProcess(2);		
 		
@@ -82,7 +93,7 @@ class Compositclose extends Application
 		{
 			//$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
 			$this->log_error("Unable to locate cash index module.");
-			exit();
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

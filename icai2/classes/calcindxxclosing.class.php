@@ -27,7 +27,7 @@ class Calcindxxclosing extends Application
 			}
 			else
 			{
-				$this->log_info(log_file, "No date provided in DEBUG mode");
+				$this->log_error(log_file, "No date provided in DEBUG mode");
 				$this->mail_exit(log_file, __FILE__, __LINE__);		
 			}
 		}
@@ -62,7 +62,7 @@ class Calcindxxclosing extends Application
 				if ($err_code = mysql_errno())
 				{
 					log_error("Mysql query failed, error code " .$err_code. ". Exiting closing file process.");
-					$this->mail_exit(log_file, __FILE__, __LINE__);
+					$this->mail_skip(log_file, __FILE__, __LINE__);
 				}
 				$client = mysql_fetch_assoc($res);				
 				$final_array[$row_id]['client'] = $client['ftpusername'];
@@ -226,11 +226,7 @@ class Calcindxxclosing extends Application
 				
 				$entry2	=	$newindexvalue.",\n";
 
-				/*
-				 * Check if index value has fluctuated by >=5% from previous day, send an email if so. 
-				 * TODO: This check should be between opening price and current price?
-				 * Current code is for closing to closing variation 
-				 */
+				/* Check if index value has fluctuated by >=5% from previous day, send an email if so. */
 				$liveindexvalue = $this->db->getResult("SELECT indxx_value from tbl_indxx_value 
 								where indxx_id='" . $indxxKey . "'order by date desc limit 0,1", true );
 
@@ -286,7 +282,7 @@ class Calcindxxclosing extends Application
 					else
 					{
 						$this->log_error(log_file, "Closing file generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
-						$this->mail_skip(log_file, __FILE__, __LINE__);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
 				file_put_contents($backup_folder .'postclosedata'. "_" . $indxxKey . "_"    .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));

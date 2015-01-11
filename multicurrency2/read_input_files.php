@@ -64,7 +64,7 @@ else
 }
 
 $res=0;
-//system($command, $res);
+system($command, $res);
 if ($res)
 {
 	log_error("Error[code = " .$res. "] while taking DB backup. Exiting process");

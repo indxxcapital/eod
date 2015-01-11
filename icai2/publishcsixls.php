@@ -2,7 +2,7 @@
 include ("core/function.php");
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
-$date = date ( "Y-m-d", time () - 86400 );
+$date = date ( "Y-m-d" );
 
 if($_GET['log_file'])
 	define("log_file", get_logs_folder() . $_GET['log_file']);
@@ -15,8 +15,8 @@ if(DEBUG)
 	}
 	else
 	{
-		log_info(log_file, "No date provided in DEBUG mode");
-		exit();
+		log_info("No date provided in DEBUG mode");
+		mail_exit(__FILE__, __LINE__);		
 	}
 }
 
@@ -27,32 +27,38 @@ if (($err_code = mysql_errno()))
 {
 	log_error("Excel generation failed. Unable to read tbl_indxx_cs table. MYSQL error code " . $err_code .
 				". Exiting closing file process.");
-	mail(email_errors, "Excel generation failed.", "MYSQL error code " . $err_code . ".");
-	exit();
+		mail_exit(__FILE__, __LINE__);
 }
 
-if(mysql_num_rows($res1) > 0)
+while ($client = mysql_fetch_assoc($res1))
 {
-	while ($client = mysql_fetch_assoc($res1))
+	$res3 = mysql_query("Select ftpusername from tbl_ca_client where id='" . $client ['client_id'] . "'");
+	if (($err_code = mysql_errno()))
 	{
-		$res3 = mysql_query("Select ftpusername from tbl_ca_client where id='" . $client ['client_id'] . "'");
-		$clientname = mysql_fetch_assoc ( $res3 );
-		$array [$client ['client_id']] ['name'] = $clientname ['ftpusername'];
-
-		$array [$client ['client_id']] [$client ['id']] ['code'] = $client ['code'];
-		
-		$res4 = mysql_query ( "select indxx_value from tbl_indxx_cs_value where indxx_id='" . $client ['id'] . "' and code ='" . $client ['code'] . "' and date='" . $date . "'" );
-		//TODO: Check query failure 
-		if (mysql_num_rows ( $res4 ))
-		{
-			$value = mysql_fetch_assoc ( $res4 );
-			if (! empty ( $value ))
-			{
-				$array [$client ['client_id']] [$client ['id']] ['value'] = $value ['indxx_value'];
-			}
-		}
+		log_error("Mysql query failed, error code " . $err_code . ". Exiting closing file process.");
+		mail_exit(__FILE__, __LINE__);
 	}
+	
+	$clientname = mysql_fetch_assoc ( $res3 );
+	$array [$client ['client_id']] ['name'] = $clientname ['ftpusername'];	
+	$array [$client ['client_id']] [$client ['id']] ['code'] = $client ['code'];
+	mysql_free_result($res3);
+	
+	$res4 = mysql_query ( "select indxx_value from tbl_indxx_cs_value where indxx_id='" . $client ['id'] . "' and code ='" . $client ['code'] . "' and date='" . $date . "'" );
+	if (($err_code = mysql_errno()))
+	{
+		log_error("Mysql query failed, error code " . $err_code . ". Exiting closing file process.");
+		mail_exit(__FILE__, __LINE__);
+	}
+		
+	$value = mysql_fetch_assoc ( $res4 );
+	if (!empty($value))
+		$array [$client ['client_id']] [$client ['id']] ['value'] = $value ['indxx_value'];
+
+	mysql_free_result($res4);
 }
+mysql_free_result($res1);
+
 //print_r($array);
 
 if (!empty($array)) 
@@ -79,23 +85,23 @@ if (!empty($array))
 		
 		if ($client ['name'])
 		{
-			$objWriter->save ( "../files/output/" . $client ['name'] . "/" . $client ['name'] . "-values-" . $date . ".xls" );
+			$objWriter->save ( "../files/output/ca-output/" . $client ['name'] . "/" . $client ['name'] . "-values-" . $date . ".xls" );
 		}
 		else 
 		{
-			$objWriter->save ( "../files/output/values-" . $date . "-" . time () . ".xls" );
+			$objWriter->save ( "../files/output/ca-output/values-" . $date . "-" . time () . ".xls" );
 		}
 	}
 }
 else 
 {
-	mail ( "dbajpai@indxx.com", "Softlayer - pja value not available", "pja wdaaa not available" );
+	log_error("No data to generate excel files for clients");
+	mail_exit(__FILE__, __LINE__);		
 }
 
-saveProcess (2);
-//exit();
+//saveProcess (2);
+
 return;
-/* echo '<script>document.location.href="http://10.24.52.130/icai2/index.php?module=calcftpclose";</script>'; */
 
 /*TODO: Bypass FTP for test - This also needs to be discussed with Deepak since there is difference in new setup */
 /* Bypass IVCHANGE, already done in closing file calcultion */

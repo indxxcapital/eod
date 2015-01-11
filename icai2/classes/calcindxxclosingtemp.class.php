@@ -9,8 +9,10 @@ class Calcindxxclosingtemp extends Application
 		
 	function index()
 	{				
-		$datevalue = date("Y-m-d", strtotime($this->_date) - 86400);
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		
+		$datevalue = date ( "Y-m-d" );
+				
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
@@ -25,11 +27,10 @@ class Calcindxxclosingtemp extends Application
 			}
 			else
 			{
-				$this->log_info(log_file, "No date provided in DEBUG mode");
-				exit();
+				$this->log_error(log_file, "No date provided in DEBUG mode");
+				$this->mail_exit(log_file, __FILE__, __LINE__);		
 			}
 		}
-		
 		$this->log_info(log_file, "Closing file generation process started for upcoming indexes.");
 
 		$this->_title=$this->siteconfig->site_title;
@@ -44,8 +45,7 @@ class Calcindxxclosingtemp extends Application
 		{
 			log_error("Unable to read upcoming indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
-			mail(email_errors, "Unable to read upcoming indexes.", "MYSQL error code " . $err_code . ".");
-			exit();
+			$this->mail_exit(log_file, __FILE__, __LINE__);		
 		}
 
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
@@ -112,10 +112,15 @@ class Calcindxxclosingtemp extends Application
 		}
 		mysql_free_result($indxxs);
 
+		$backup_folder = "../files/output/backup/";
+		
 		if(!empty($final_array))
 		{
 			foreach($final_array as $indxxKey=> $closeIndxx)
 			{
+				file_put_contents($backup_folder .'preclosetempdata'. "_" .$indxxKey. "_" .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
+				$this->log_info(log_file, "Pre-CloseData file generated for upcoming index = " .$indxxKey);
+				
 				$entry1	=	'Date'.",";
 				$entry1	.=	date("Y-m-d", strtotime($datevalue)).",\n";
 				$entry1	.=	'INDEX VALUE'.",";
@@ -177,11 +182,7 @@ class Calcindxxclosingtemp extends Application
 	
  				$entry2 = $newindexvalue.",\n";
  				
- 				/*
- 				 * Check if index value has fluctuated by >=5% from previous day, send an email if so.
- 				 * TODO: This check should be between opening price and current price?
- 				 * Current code is for closing to closing variation
- 				 */
+ 				/* Check if index value has fluctuated by >=5% from previous day, send an email if so. */
  				$liveindexvalue = $this->db->getResult("SELECT indxx_value from tbl_indxx_value_temp
 								where indxx_id='" . $indxxKey . "'order by date desc limit 0,1", true );
  				
@@ -196,7 +197,7 @@ class Calcindxxclosingtemp extends Application
  						if(($diff >= 5) || ($diff <= - 5))
  						{
  							$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
- 							/* TODO: Send email for this */
+							$this->mail_skip(log_file, __FILE__, __LINE__);		
  						}
  					}
  				}
@@ -206,7 +207,13 @@ class Calcindxxclosingtemp extends Application
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				
  				$this->db->query($insertQuery);	
 
-				$file = "../files/output/Closing-". strtolower($closeIndxx['code']) . "p-".$datevalue.".txt";
+ 				$file="../files2/ca-output_upcomming/Closing-".strtolower($closeIndxx['code'])."p-".$datevalue.".txt";
+
+ 				$output_folder = "../files/output/ca-output_upcoming/";
+ 				if (!file_exists($output_folder))
+ 					mkdir($output_folder, 0777, true);
+ 					
+				$file = $output_folder . "Closing-". strtolower($closeIndxx['code']) . "p-".$datevalue.".txt";
 				$open = fopen($file, "w+");
 						
 				if($open)
@@ -223,8 +230,12 @@ class Calcindxxclosingtemp extends Application
 					else
 					{
 						$this->log_error(log_file, "Closing file [upcoming index] generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
+				file_put_contents($backup_folder .'postclosetempdata'. "_" . $indxxKey . "_"    .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
+				$this->log_info(log_file, "Post-CloseData file generated for upcoming index = " .$indxxKey);
+								
 				unset($final_array[$indxxKey]);					
 			}
 			unset($final_array);
@@ -241,7 +252,7 @@ class Calcindxxclosingtemp extends Application
 		{
 			//$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 			log_error("Unable to locate composite close module.");
-			exit();
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}		
 } 

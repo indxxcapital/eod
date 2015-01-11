@@ -956,7 +956,7 @@ class Functions extends Models {
 	function mail_skip($log_file, $file, $line)
 	{
 		$this->log_warning($log_file, "Sending email for anomoly at file=" .$file. " and line=" .$line);
-		mail(email_errors, "Closing file generation process encountered anomoly.",
+		mail(email_errors, "Closing file generation process encountered anomaly.",
 		"Please check log[" .$log_file. "] file for more info.");
 	}
 	
