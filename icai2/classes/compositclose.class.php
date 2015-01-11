@@ -87,11 +87,11 @@ class Compositclose extends Application
 		
 		if (DEBUG)
 		{
-			$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
+			$this->Redirect("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
 		}
 		else
 		{
-			//$this->Redirect2("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
+			//$this->Redirect("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
 			$this->log_error("Unable to locate cash index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}

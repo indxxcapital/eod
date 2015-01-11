@@ -122,11 +122,11 @@ class Calccash extends Application
 		//$this->saveProcess ( 2 );
 		if (DEBUG)
 		{
-			$this->Redirect2("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+			$this->Redirect("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 		}
 		else
 		{
-			//$this->Redirect2("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+			//$this->Redirect("index.php?module=calccashtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 			$this->log_error("Unable to locate upcoming cash index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
