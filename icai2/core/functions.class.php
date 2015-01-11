@@ -961,12 +961,13 @@ class Functions extends Models {
 	}
 	
 	function writeLog() {
+		$iplog_folder = '../files/iplog/';
 		/* Check if iplog folder exists, if not create it. */
-		if (! file_exists ( '../iplog' ))
-			mkdir ( '../iplog', 0777, false );
+		if (! file_exists ($iplog_folder))
+			mkdir ($iplog_folder, 0777, false );
 			
 			// $this->pr($_SERVER,true);
-		$iplogfile = '../iplog/iplog-' . date ( "Y-m-d" ) . '.txt';
+		$iplogfile = $iplog_folder .'iplog-' . date ( "Y-m-d" ) . '.txt';
 		$ipaddress = $_SERVER ['REMOTE_ADDR'];
 		$webpage = $_SERVER ['SCRIPT_NAME'];
 		$timestamp = date ( 'm/d/Y h:i:s' );
