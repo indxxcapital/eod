@@ -140,10 +140,9 @@ class Calcsl extends Application
 		else
 		{
 			$this->log_error("Unable to find publishing URL for CSI xls file.");
-			exit();
 			//$url ="http://174.36.193.130/icai2/publishcsixls.php";	
 		}
-		
+		//exit();
 		$link="<script type='text/javascript'>
 		window.open('".$url."');  
 		</script>";

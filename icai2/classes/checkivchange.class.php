@@ -1,10 +1,14 @@
 <?php
-class Checkivchange extends Application {
-	function __construct() {
+class Checkivchange extends Application 
+{
+	function __construct() 
+	{
 		parent::__construct ();
 	}
-	function index() {
-		$liveindexes = $this->db->getResult ( "SELECT id,name,code  FROM tbl_indxx WHERE status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1'", true );
+	
+	function index() 
+	{
+		$liveindexes = $this->db->getResult("SELECT id, name, code FROM tbl_indxx WHERE status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1'", true );
 		// $this->pr($liveindexes,true);
 		
 		$indxxvaluesarray = array ();

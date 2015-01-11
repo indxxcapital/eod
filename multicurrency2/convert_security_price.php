@@ -199,6 +199,31 @@ function convert_security_to_indxx_curr()
 				{
 					foreach($ival as $tempKey=>$ivalue)
 					{
+						/*
+						 * Check if the security price has fluctuated more than 5%, if so send email.
+						 */						
+						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. "' order by date desc limit 0,2");
+						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
+						
+						if ($res && count($res))
+						{
+							$row=mysql_fetch_assoc($res);
+							$row=mysql_fetch_assoc($res);
+							//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
+							if (($existing_value = $row['price']))
+							{
+								//echo " existing value=" . $existing_value . "<br>";
+								$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
+								if(($diff >= 5) || ($diff <= - 5))
+								{
+									//echo "isin=" . $ivalue['isin'] . "<br>";
+									log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
+													 ", security_isin=" . $ivalue['isin'] . ".");
+									/* TODO: Send email for this */
+								}
+							}
+						}
+						
 						$fpquery="INSERT into tbl_final_price 
 								(indxx_id, isin, date, price, localprice, currencyfactor) values 
 								('" . $indxx_id . "','" . $ivalue['isin'] . "','" . date . "', 
@@ -377,6 +402,31 @@ function convert_security_to_indxx_curr_upcomingindex()
 				{
 					foreach($ival as $tempKey=>$ivalue)
 					{
+						/*
+						 * Check if the security price has fluctuated more than 5%, if so send email.
+						 */
+						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. "' order by date desc limit 0,2");
+						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
+						
+						if ($res && count($res))
+						{
+							$row=mysql_fetch_assoc($res);
+							$row=mysql_fetch_assoc($res);
+							//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
+							if (($existing_value = $row['price']))
+							{
+								//echo " existing value=" . $existing_value . "<br>";
+								$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
+								if(($diff >= 5) || ($diff <= - 5))
+								{
+									//echo "isin=" . $ivalue['isin'] . "<br>";
+									log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
+									", security_isin=" . $ivalue['isin'] . ".");
+									/* TODO: Send email for this */
+								}
+							}
+						}
+						
 						$fpquery="INSERT into tbl_final_price_temp
 									(indxx_id, isin, date, price, localprice, currencyfactor) values
 									('" . $indxx_id . "','" . $ivalue['isin'] . "','" . date . "',

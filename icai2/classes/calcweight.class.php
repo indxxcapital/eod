@@ -22,9 +22,9 @@ class Calcweight extends Application {
 		
 		$limit = 5;
 		
-		$indxxs = $this->db->getResult ( "select tbl_indxx.* from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' limit $page,5", true );
+		$indxxs = $this->db->getResult ( "select * from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' limit $page,5", true );
 		
-		$totalindxxs = $this->db->getResult ( "select tbl_indxx.id from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1'", true );
+		$totalindxxs = $this->db->getResult ( "select id from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1'", true );
 		
 		$totalindexes = count ( $totalindxxs );
 		
@@ -40,7 +40,7 @@ class Calcweight extends Application {
 				if ($this->checkHoliday ( $row ['zone'], $datevalue )) {
 					$final_array [$row ['id']] = $row;
 					
-					$indxx_value = $this->db->getResult ( "select tbl_indxx_value_open.* from tbl_indxx_value_open where indxx_id='" . $row ['id'] . "' order by date desc ", false, 1 );
+					$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value_open where indxx_id='" . $row ['id'] . "' order by date desc ", false, 1 );
 					// $this->pr($indxx_value,true);
 					if (! empty ( $indxx_value )) {
 						$final_array [$row ['id']] ['index_value'] = $indxx_value;
@@ -57,7 +57,10 @@ class Calcweight extends Application {
 						}
 					}
 					
-					$query = "SELECT  it.isin,(select price from tbl_final_price fp where fp.isin=it.isin  and fp.date='" . $datevalue . "' and fp.indxx_id='" . $row ['id'] . "') as calcprice,(select share from tbl_share sh where sh.isin=it.isin  and sh.indxx_id='" . $row ['id'] . "') as calcshare FROM `tbl_indxx_ticker` it where it.indxx_id='" . $row ['id'] . "'";
+					$query = "SELECT  it.isin,
+							(select price from tbl_final_price fp where fp.isin=it.isin  and fp.date='" . $datevalue . "' and fp.indxx_id='" . $row ['id'] . "') as calcprice,
+							(select share from tbl_share sh where sh.isin=it.isin  and sh.indxx_id='" . $row ['id'] . "') as calcshare 
+									FROM `tbl_indxx_ticker` it where it.indxx_id='" . $row ['id'] . "'";
 					
 					$indxxprices = $this->db->getResult ( $query, true );
 					
@@ -87,9 +90,7 @@ class Calcweight extends Application {
 						$shareValue = $closeprices ['calcshare'];
 						$securityPrice = $closeprices ['calcprice'];
 						$marketValue += $shareValue * $securityPrice;
-					}
-					
-					foreach ( $closeIndxx ['values'] as $closeprices ) {
+
 						$weight = (($closeprices ['calcshare'] * $closeprices ['calcprice']) / $marketValue) * 100;
 						
 						$insertQuery = 'INSERT into tbl_weights (indxx_id,code,date,share,price,weight,isin) values ("' . $closeIndxx ['id'] . '","' . $closeIndxx ['code'] . '","' . $datevalue . '","' . $closeprices ['calcshare'] . '","' . $closeprices ['calcprice'] . '","' . $weight . '","' . $closeprices ['isin'] . '")';
@@ -108,7 +109,7 @@ class Calcweight extends Application {
 			$this->saveProcess ( 2 );
 			$this->Redirect2 ( "index.php?module=calcweight&event=index&id=" . ($page + 5), "", "" );
 		}
-	}s
+	}
 }
 
 ?>

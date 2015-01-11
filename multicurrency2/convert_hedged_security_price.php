@@ -78,6 +78,7 @@ function convert_headged_security_to_indxx_curr()
 			{
 				foreach($security as $security_key => $prices)
 				{
+					//TODO: Do we need to check for 5% fluctuation here?
 					$fpquery = "INSERT into tbl_final_price (indxx_id, isin, date, price, localprice, currencyfactor) 
 								values ('".$index_key."', '".$security_key."', '".date."', '".$prices['price']."', '".$prices['localprice']."', '0')";
 					mysql_query($fpquery);
@@ -184,6 +185,8 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 			{
 				foreach($security as $security_key => $prices)
 				{
+					//TODO: Do we need to check for 5% fluctuation here?
+								
 					$fpquery="INSERT into tbl_final_price_temp (indxx_id, isin, date, price, localprice, currencyfactor) 
 							values ('".$index_key."', '".$security_key."', '".date."', '".$prices['price']."', '".$prices['localprice']."', '0')";
 					mysql_query($fpquery);

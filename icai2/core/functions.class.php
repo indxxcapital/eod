@@ -935,7 +935,7 @@ class Functions extends Models {
 		if (! file_exists ( $this->logs_folder ))
 			mkdir ( $this->logs_folder, 0777, false );
 		
-		file_put_contents ( $this->$logs_folder . $log_file, "WARNING: " . $text . "\n", FILE_APPEND );
+		file_put_contents ( $this->logs_folder . $log_file, "WARNING: " . $text . "\n", FILE_APPEND );
 	}
 	function log_info($log_file, $text) {
 		/* Check if log folder exists, if not create it. */

@@ -176,7 +176,31 @@ class Calcindxxclosingtemp extends Application
 				$newindexvalue = number_format(($marketValue/$newDivisor),2,'.','');
 	
  				$entry2 = $newindexvalue.",\n";
-	
+ 				
+ 				/*
+ 				 * Check if index value has fluctuated by >=5% from previous day, send an email if so.
+ 				 * TODO: This check should be between opening price and current price?
+ 				 * Current code is for closing to closing variation
+ 				 */
+ 				$liveindexvalue = $this->db->getResult("SELECT indxx_value from tbl_indxx_value_temp
+								where indxx_id='" . $indxxKey . "'order by date desc limit 0,1", true );
+ 				
+ 				//echo "id=" . $indxxKey. " old_val=" .$oldindexvalue. " new_value=" . $newindexvalue ;
+ 				if ($liveindexvalue && count($liveindexvalue))
+ 				{
+ 					//echo " count=" . count($liveindexvalue);
+ 					if (($existing_value = $liveindexvalue[0]['indxx_value']))
+ 					{
+ 						//echo " existing value=" . $existing_value . "<br>";
+ 						$diff = 100 * (($newindexvalue - $existing_value) / $existing_value);
+ 						if(($diff >= 5) || ($diff <= - 5))
+ 						{
+ 							$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
+ 							/* TODO: Send email for this */
+ 						}
+ 					}
+ 				}
+ 				
  				$insertQuery = 'INSERT into tbl_indxx_value_temp (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
 		 				("'.$closeIndxx['id'].'", "'.$closeIndxx['code'].'", "'.$marketValue.'", "'.$newindexvalue.'",
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				

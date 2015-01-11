@@ -127,4 +127,14 @@ if ($err = mysql_errno())
 else
 	echo "SL index value table cleaned!" . PHP_EOL;
 
+if (false)
+{
+	/* Clean weights table */
+	$query = "DELETE FROM `tbl_weights` WHERE `date`  = '" .date. "'";
+	mysql_query($query);
+	if ($err = mysql_errno())
+		echo "Security weights table value clean query failed [error=" .$err. "]." . PHP_EOL;
+	else
+		echo "Security weights table value table cleaned!" . PHP_EOL;
+}
 ?>

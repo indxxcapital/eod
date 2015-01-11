@@ -196,15 +196,53 @@ class Calcindxxclosing extends Application
 			     		$entry4	.=	$closeprices['curr'].",";
 						$entry4	.=	number_format($closeprices['currencyfactor'],6,'.','').",";
 					}
+				
+					/* Weight calculation, this is not getting used anywhere at the moment */
+					if(false)
+					{	
+						/* Calculate the weight of the security for this index */
+						$weight = (($closeprices ['calcshare'] * $closeprices ['calcprice']) / $marketValue) * 100;
+						
+						$insertQuery = 'INSERT into tbl_weights (indxx_id, code, date, share, price, weight, isin) values 
+								("' . $closeIndxx ['id'] . '","' . $closeIndxx ['code'] . '","' . $datevalue . '","' . $closeprices ['calcshare'] . '","' . $closeprices ['calcprice'] . '","' . $weight . '","' . $closeprices ['isin'] . '")';
+						$this->db->query ( $insertQuery );
+						//TODO: Error handling
+					}
 				}
 				
 				if($closeIndxx['divpvalue'])
 					$marketValue	+=	$closeIndxx['divpvalue'];
-
+				
 				$newindexvalue=number_format(($marketValue/$newDivisor),2,'.','');
-	 
+				
 				$entry2	=	$newindexvalue.",\n";
-					
+
+				/*
+				 * Check if index value has fluctuated by >=5% from previous day, send an email if so. 
+				 * TODO: This check should be between opening price and current price?
+				 * Current code is for closing to closing variation 
+				 */
+				$liveindexvalue = $this->db->getResult("SELECT indxx_value from tbl_indxx_value 
+								where indxx_id='" . $indxxKey . "'order by date desc limit 0,1", true );
+
+				//echo "id=" . $indxxKey. " old_val=" .$oldindexvalue. " new_value=" . $newindexvalue ;
+				if ($liveindexvalue && count($liveindexvalue))
+				{
+					//echo " count=" . count($liveindexvalue);
+					if (($existing_value = $liveindexvalue[0]['indxx_value']))
+					{					
+						//echo " existing value=" . $existing_value . "<br>";
+						$diff = 100 * (($newindexvalue - $existing_value) / $existing_value);
+						if(($diff >= 5) || ($diff <= - 5)) 
+						{
+							$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);								
+							/* TODO: Send email for this */
+						}
+					}
+				}
+				
+				
+				
 				$insertQuery = 'INSERT into tbl_indxx_value (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
 								("'.$closeIndxx['id'].'", "'.$closeIndxx['code'].'", "'.$marketValue.'", "'.$newindexvalue.'", 
 									"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';
