@@ -245,7 +245,7 @@ class Calcindxxclosing extends Application
 						if(($diff >= 5) || ($diff <= - 5)) 
 						{
 							$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);								
-							/* TODO: Send email for this */
+							$this->mail_skip(log_file, __FILE__, __LINE__);		
 						}
 					}
 				}
@@ -286,6 +286,7 @@ class Calcindxxclosing extends Application
 					else
 					{
 						$this->log_error(log_file, "Closing file generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+						$this->mail_skip(log_file, __FILE__, __LINE__);
 					}
 				}
 				file_put_contents($backup_folder .'postclosedata'. "_" . $indxxKey . "_"    .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
@@ -307,7 +308,7 @@ class Calcindxxclosing extends Application
 		{
 			//$this->Redirect2("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 			log_error("Unable to locate closing upcoming index module.");
-			exit();
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}   
 } 
