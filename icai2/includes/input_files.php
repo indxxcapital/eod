@@ -1,4 +1,4 @@
-<pre><?php
+<?php
 define ( "DEBUG", 1 );
 
 function error_handler($errno, $errstr, $errfile, $errline) 
