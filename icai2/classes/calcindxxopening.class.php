@@ -44,7 +44,7 @@ class Calcindxxopening extends Application
 		if ($err_code = mysql_errno())
 		{
 			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
-					". Exiting closing file process.");
+					". Exiting opening file process.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 		

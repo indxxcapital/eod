@@ -43,7 +43,7 @@ class Calcindxxopeningtemp extends Application
 		if ($err_code = mysql_errno())
 		{
 			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
-			". Exiting closing file process.");
+			". Exiting opening file process.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 		
@@ -456,7 +456,6 @@ class Calcindxxopeningtemp extends Application
 		$this->log_info(log_file, "Opening file generation process finished for upcoming indexes.");
 				
 		// $this->saveProcess(1);
-		exit();
 		
 		if (DEBUG)
 		{
