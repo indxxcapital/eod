@@ -117,6 +117,13 @@ if ($err = mysql_errno())
 else
 	printf("\t+SL index table cleaned!\n");
 
+/* Clean opening value table */
+mysql_query("DELETE FROM `tbl_indxx_value_open` WHERE `date`  >= '" .date. "'");
+if ($err = mysql_errno())
+	printf("\t-Opening value table clean query failed [error = %d]\n", $err);
+else
+	printf("\t+Opening value table cleaned!\n");
+
 if (false)
 {
 	/* Clean weights table */

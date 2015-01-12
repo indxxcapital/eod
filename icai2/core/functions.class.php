@@ -13,8 +13,12 @@ class Functions extends Models {
 	var $_breadcrumbshow = 1;
 	var $_date = '';
 	var $logs_folder = "../files/logs/";
+	//var $opening_process_logs = null;
+	
 	function setdate() {
-		$this->_date = date ( "Y-m-d", strtotime ( date ( "Y-m-d" ) ) );
+		/* TODO: This needs to be fixed for DEBUG */
+		//$this->_date = date ( "Y-m-d", strtotime ( date ( "Y-m-d" ) ) );
+		$this->_date = '2014-08-27';
 	}
 	function setLang($lang = "en") {
 		
@@ -922,6 +926,15 @@ class Functions extends Models {
 		return $ShowHoliday;
 	}
 	
+	function get_opening_logs_file()
+	{
+		/* Check if log folder exists, if not create it. */
+		if (! file_exists ( $this->logs_folder ))
+			mkdir ( $this->logs_folder, 0777, false );
+		
+		$opening_process_logs = "opening_process_logs_" .date('Y-m-d_H-i-s', $_SERVER ['REQUEST_TIME']) . ".txt";
+		return $opening_process_logs;
+	}
 	/* Logging mechanisms */
 	function log_error($log_file, $text) {
 		/* Check if log folder exists, if not create it. */
