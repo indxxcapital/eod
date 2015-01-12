@@ -492,16 +492,15 @@ class Calcindxxopening extends Application
 		
 		$this->log_info(log_file, "Opening file generation process finished for live indexes.");
 		
-		exit();
 		//$this->saveProcess(2);
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+			$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 		}
 		else
 		{
-			//$this->Redirect("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate closing upcoming index module.");
+			//$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+			log_error("Unable to locate opening upcoming index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}   
