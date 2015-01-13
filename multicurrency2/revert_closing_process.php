@@ -131,6 +131,17 @@ if ($err = mysql_errno())
 else
 	printf("\t+Opening[upcoming] value table cleaned!\n");
 
+/* This is not needed since process automatically does it */
+if (false)
+{
+	/* Clean raw CA table */
+	mysql_query("DELETE FROM `tbl_ca_plain_txt` WHERE `date`  >= '" .date. "'");
+	if ($err = mysql_errno())
+		printf("\t-CA plain text table clean query failed [error = %d]\n", $err);
+	else
+		printf("\t+CA plain text table cleaned!\n");
+}
+
 if (false)
 {
 	/* Clean weights table */

@@ -71,16 +71,36 @@ function get_dbbackup_path()
 
 function mail_exit($file, $line)
 {
+	if (process)
+	{
+		$value = process;
+	}
+	else
+	{
+		echo "Please define the process type, needed for logging and emails !!";
+		exit();
+	}
+		
 	log_error("Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
-	mail(email_errors, "Closing file generation process existed with error.", 
+	mail(email_errors, $value. " file generation process existed with error.", 
 			"Please check log[" .log_file. "] file for more info.");
 	exit();	
 }
 
 function mail_skip($file, $line)
 {
-	log_warning("Sending email for anomoly at file=" .$file. " and line=" .$line);
-	mail(email_errors, "Closing file generation process encountered anomoly.",
+	if (process)
+	{
+		$value = process;
+	}
+	else
+	{
+		echo "Please define the process type, needed for logging and emails !!";
+		exit();
+	}
+	
+	log_warning("Sending email for anomaly at file=" .$file. " and line=" .$line);
+	mail(email_errors, $value. " file generation process encountered anomaly.",
 			"Please check log[" .log_file. "] file for more info.");
 }
 
@@ -97,6 +117,7 @@ function get_input_file($file, $date)
 		$libor_rate = "../files/input/libr.csv." . date ( "Ymd", strtotime ( $date ) );
 		$cash_index = "../files/input/cashindex.csv." . date ( "Ymd", strtotime ( $date ) );
 		$price_file = "../files/input/multicurr.csv." . date ( "Ymd", strtotime ( $date ) );
+		$ca_file = "../files/input/ca_test.csv." . date ( "Ymd", strtotime ( $date ) );
 	}
 	else
 	{
@@ -115,6 +136,8 @@ function get_input_file($file, $date)
 			return $cash_index;
 		case "PRICE_FILE" :
 			return $price_file;
+		case "CA" :
+			return $ca_file;
 		default:
 			printf("Input file paths not defined.\n");
 			log_error("Input file paths not defined");

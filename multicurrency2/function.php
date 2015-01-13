@@ -2,6 +2,18 @@
 include("dbconfig.php");
 //include("input_files.php");
 
+function delete_old_ca(){
+	//	echo "in delete";
+	mysql_query('delete  from tbl_ca ');
+	mysql_query('delete  from tbl_ca_values');
+	return true;
+}
+function delete_plain_ca(){
+	mysql_query('TRUNCATE TABLE tbl_ca_plain_txt ');
+	return true;
+
+}
+
 function qry_insert($table, $data)
     {
         $qry = array();

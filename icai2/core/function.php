@@ -93,17 +93,6 @@ $query=substr($query,0,strlen($query)-4);
    mysql_query($query);
 	return mysql_insert_id();}
 
-function delete_old_ca(){
-//	echo "in delete";
-mysql_query('delete  from tbl_ca ');
-mysql_query('delete  from tbl_ca_values');
-return true;
-}
-function delete_plain_ca(){
-mysql_query('TRUNCATE TABLE tbl_ca_plain_txt ');
-return true;
-
-}
 function selectrow($fieldsarray, $table, $datafields=array())
 {
     //The required fields can be passed as an array with the field names or as a comma separated value string
