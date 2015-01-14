@@ -55,7 +55,7 @@ class Calccash extends Application
 					/* Check to make sure cash index prices, fetched from BBG, are valid */
 					foreach ($cashrates as $cashrate)
 					{
-						if(!is_numeric($cashrate) || !$cashrate)
+						if(!is_numeric($cashrate['price']) || !$cashrate['price'])
 						{
 							log_error("Non-numeric or zero cash price for client=" .$row['client']. ", code=" .$row['code']);
 							mail_exit(__FILE__, __LINE__);

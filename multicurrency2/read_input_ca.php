@@ -27,7 +27,7 @@ if (DEBUG)
 	define("email_errors", "amitmahajan86@gmail.com");
 
 	/* Define date for fetching input files and manipulations */
-	define("date", '2014-08-27');
+	define("date", '2014-12-20');
 }
 else
 {
@@ -60,7 +60,6 @@ function read_ca_file()
 		mail_exit(__FILE__, __LINE__);
 	}
 	
-	/* TODO: Write this and other functions cleanly */
 	delete_plain_ca();
 	
 	$query = "LOAD DATA INFILE '" . str_replace("\\", "/", realpath(ca_file)) .
@@ -69,8 +68,7 @@ function read_ca_file()
 
 	if (($err_code = mysql_errno()))
 	{
-		log_error("Unable to read CA file. MYSQL error code " . $err_code .
-			". Exiting CA process.");
+		log_error("MYSQL error, code " . $err_code . ". Exiting CA process.");
 		mail_exit(__FILE__, __LINE__);	
 	}
 	else if (!($rows = mysql_affected_rows()))

@@ -19,7 +19,7 @@ if(DEBUG)
 		mail_exit(__FILE__, __LINE__);		
 	}
 }
-$this->log_info(log_file, "Publish XLS generation process started");
+log_info(log_file, "Publish XLS generation process started");
 
 $array = array();
 
@@ -99,7 +99,7 @@ else
 	log_error("No data to generate excel files for clients");
 	mail_exit(__FILE__, __LINE__);		
 }
-$this->log_info(log_file, "Publish XLS generation process finished.");
+log_info(log_file, "Publish XLS generation process finished.");
 
 //saveProcess (2);
 
