@@ -39,7 +39,6 @@ function read_cashindex()
 	 * a) See how to free memory used by the above query
 	 * b) Send an email incase of:
 	 * 		i) More than 5% fluctuation today.
-	 * 		ii) Non-numeric/Blank value is received from BBG.
 	 */
 			
 	//$finish = get_time();

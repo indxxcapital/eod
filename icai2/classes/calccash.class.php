@@ -51,6 +51,16 @@ class Calccash extends Application
 					$final_array [$row ['id']] ['last_index_value'] = $cashindxx_value ['indxx_value'];
 					
 					$cashrates = $this->db->getResult("select price from tbl_cash_prices where isin like '%" . $row['isin'] . "%' order by date desc ", true, 2);
+					
+					/* Check to make sure cash index prices, fetched from BBG, are valid */
+					foreach ($cashrates as $cashrate)
+					{
+						if(!is_numeric($cashrate) || !$cashrate)
+						{
+							log_error("Non-numeric or zero cash price for client=" .$row['client']. ", code=" .$row['code']);
+							mail_exit(__FILE__, __LINE__);
+						}
+					}
 					$final_array[$row['id']]['last_2_days_cash_rate'] = $cashrates;
 				}
 			}
@@ -99,17 +109,17 @@ class Calccash extends Application
 				{
 					if (fwrite($open, $entry1 . $entry2 . $entry3 . $entry4 ))
 					{
-						$this->log_info(log_file, "Cash index file written for client = " .$closeIndxx['code']);
+						$this->log_info(log_file, "Cash index file written for index code = " .$closeIndxx['code']);
 					}
 					else
 					{
-						$this->log_error(log_file, "Cash index file write failed for client = " .$closeIndxx['code']);
+						$this->log_error(log_file, "Cash index file write failed for index code = " .$closeIndxx['code']);
 						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
 				else
 				{
-					$this->log_error(log_file, "Cash index file open failed for client = " .$closeIndxx['code']);
+					$this->log_error(log_file, "Cash index file open failed for index code = " .$closeIndxx['code']);
 					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}

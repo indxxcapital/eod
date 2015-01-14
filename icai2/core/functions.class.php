@@ -18,7 +18,7 @@ class Functions extends Models {
 	function setdate() {
 		/* TODO: This needs to be fixed for DEBUG */
 		//$this->_date = date ( "Y-m-d", strtotime ( date ( "Y-m-d" ) ) );
-		$this->_date = '2014-08-27';
+		$this->_date = '2014-12-20';
 	}
 	function setLang($lang = "en") {
 		

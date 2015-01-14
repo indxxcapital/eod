@@ -32,7 +32,7 @@ if (DEBUG)
 	define("email_errors", "amitmahajan86@gmail.com");
 
 	/* Define date for fetching input files and manipulations */
-	define("date", '2014-08-27');
+	define("date", '2014-12-20');
 }
 else
 {

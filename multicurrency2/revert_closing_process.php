@@ -2,7 +2,8 @@
 <?php
 include("dbconfig.php");
 
-define("date", '2014-08-27');
+/* TODO: See if we need to make this close, CA, open process specific */
+define("date", '2014-12-20');
 if (!DEBUG)
 {
 	if ($_GET['date'])
@@ -62,6 +63,12 @@ if ($err = mysql_errno())
 	printf("\t-Converted security price[upcoming] table clean query failed [error = %d]\n", $err);
 else
 	printf("\t+Converted security price[upcoming] table cleaned!\n");
+
+/* 
+ * TODO: Indexes are disabled during convert price process - tbl_indxx and tbl_indxx_temp
+ * Either enable them manually based on logs or restore DB. 
+ * There is no way to recognise which entried were disabled during last run
+ */
 
 /* Clean calculated index values */
 mysql_query("DELETE FROM `tbl_indxx_value` WHERE `date`  >= '" .date. "'");
