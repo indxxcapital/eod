@@ -16,6 +16,8 @@ class Calcindxxopening extends Application
 		define("log_file", $this->get_opening_logs_file());
 		echo "Putting logs in " . log_file;
 				
+		define("process", "Opening");
+		
 		if($_GET['DEBUG'])
 		{
 			define("DEBUG", $_GET['DEBUG']);

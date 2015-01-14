@@ -50,6 +50,9 @@ define("liborrate_file", get_input_file("LIBOR_RATE", date));
 define("cashindex_file", get_input_file("CASH_INDEX", date));
 define("price_file", get_input_file("PRICE_FILE", date));
 
+/* TODO: Send this to classes too */
+define("process", "Closing");
+
 /* TODO: Generate compressed db */
 $backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
 if (DEBUG)

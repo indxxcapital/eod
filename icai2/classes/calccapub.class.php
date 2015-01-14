@@ -1,133 +1,172 @@
-<?php 
+<?php
+class Calccapub extends Application 
+{
+	function __construct() 
+	{
+		parent::__construct ();
+	}
 
-class Calccapub extends Application{
+	function index() 
+	{
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
+		/* TODO: This logic can be optimized more */
 		
-		function __construct()
+		$datevalue2 = date ( "Y-m-d" );
+		
+		if($_GET['log_file'])
+			define("log_file", $_GET['log_file']);
+		
+		if($_GET['DEBUG'])
 		{
-		parent::__construct();
-		}
-		function index(){
+			define("DEBUG", $_GET['DEBUG']);
 		
-		
-		//$this->pr($_SESSION);
-		
-		$indxx=	$this->db->getResult("select tbl_indxx.* from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' ",	true);
-	//$this->pr($indxx);
-	
-	$clients=array();
-	
-		$array=array();
-		
-		if(!empty($indxx))
-		{
-		foreach($indxx as $ind)
-		{
-			
-			$client=$this->db->getResult("select tbl_ca_client.ftpusername from tbl_ca_client where id='".$ind['client_id']."'",false,1);	
-		//	
-		//$final_array[$row['id']]['client']=$client['ftpusername'];
-			
-			
-			
-	//	$this->pr($ind);
-		$indxxticker=	$this->db->getResult("select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='".$ind['id']."'",	true);
-		
-$entry='';
-$entry1='';
-$entry.='Index Name'.";";
-$entry.=$ind['name'].";";		
-$entry.="\n";		
-$entry.='Security Ticker'.";";		
-$entry.='Company Ticker'.";";	
-$entry.='ISIN'.";";
-$entry.='Action'.";";
-$entry.='Ex Date'.";";		
-$entry.='Amount'.";";		
-$entry.='Currency;';		
-$entry.='Further Details;';		
-$entry.='Factor;';		
-$entry.="\n";
-$entry1.='Index Name'.";";		
-$entry1.='Security Ticker'.";";		
-$entry1.='Company Ticker'.";";	
-$entry1.='ISIN'.";";
-$entry1.='Action'.";";
-$entry1.='Ex Date'.";";		
-$entry1.='Amount'.";";		
-$entry1.='Currency;';		
-$entry1.='Further Details;';		
-$entry1.='Factor;';		
-$entry1.="\n";		
-	$clients[$client['ftpusername']]['heading']=$entry1;
-		//$clients[$client['ftpusername']].=$entry1;	
-		//$clients[$client['ftpusername']]['value'].=$ind['name'].";";
-		if(!empty($indxxticker))
-		{
-		foreach($indxxticker as $ticker)
-		{
-			$castr=$this->getCaStr3($ticker['indxxticker'],$this->_date);
-			
-			$entry.=$castr;
-			$clients[$client['ftpusername']]['value'].=$this->getCaStr3($ticker['indxxticker'],$this->_date,$ind['name']);
-	
-		
-		
-		}
+			if($_GET['date'])
+			{
+				$datevalue2 = $_GET['date'];
+			}
+			else
+			{
+				$this->log_error(log_file, "No date provided in DEBUG mode");
+				$this->mail_exit(log_file, __FILE__, __LINE__);
+			}
 		}
 		
+		$this->log_info(log_file, "CA file generation process started");
 		
-		if($client['ftpusername'])
-		$file="../files2/ca-output/".$client['ftpusername']."/ca-".$ind['code']."-".$this->_date.".txt";
+		$indxx = $this->db->getResult ( "select * from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' ", true );
+
+		$clients = array ();
+		$array = array ();
+		
+		if (! empty ( $indxx )) 
+		{
+			foreach ( $indxx as $ind ) 
+			{
+				$client = $this->db->getResult ( "select ftpusername from tbl_ca_client where id='" . $ind ['client_id'] . "'", false, 1 );
+
+				$indxxticker = $this->db->getResult ( "select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='" . $ind ['id'] . "'", true );
+				
+				$entry = '';
+				$entry1 = '';
+				$entry .= 'Index Name' . ";";
+				$entry .= $ind ['name'] . ";";
+				$entry .= "\n";
+				$entry .= 'Security Ticker' . ";";
+				$entry .= 'Company Ticker' . ";";
+				$entry .= 'ISIN' . ";";
+				$entry .= 'Action' . ";";
+				$entry .= 'Ex Date' . ";";
+				$entry .= 'Amount' . ";";
+				$entry .= 'Currency;';
+				$entry .= 'Further Details;';
+				$entry .= 'Factor;';
+				$entry .= "\n";
+				$entry1 .= 'Index Name' . ";";
+				$entry1 .= 'Security Ticker' . ";";
+				$entry1 .= 'Company Ticker' . ";";
+				$entry1 .= 'ISIN' . ";";
+				$entry1 .= 'Action' . ";";
+				$entry1 .= 'Ex Date' . ";";
+				$entry1 .= 'Amount' . ";";
+				$entry1 .= 'Currency;';
+				$entry1 .= 'Further Details;';
+				$entry1 .= 'Factor;';
+				$entry1 .= "\n";
+				$clients [$client ['ftpusername']] ['heading'] = $entry1;
+
+				if (! empty ( $indxxticker )) 
+				{
+					foreach ( $indxxticker as $ticker ) 
+					{
+						$castr = $this->getCaStr3 ( $ticker ['indxxticker'], $datevalue2 );
+						
+						$entry .= $castr;
+						$clients [$client ['ftpusername']] ['value'] .= $this->getCaStr3 ( $ticker ['indxxticker'], $datevalue2, $ind ['name'] );
+					}
+				}
+				
+				if ($client ['ftpusername'])
+				{
+					$output_folder = "../files/output/ca-output/" . $client ['ftpusername']. "/";
+					if(!file_exists($filename))
+						mkdir($output_folder, 0777, true);
+
+					$file = $output_folder . "ca-" . $ind ['code'] . "-" . $datevalue2 . ".txt";
+				}
+				else
+				{
+					$output_folder = "../files/output/ca-output/";
+					if(!file_exists($filename))
+						mkdir($output_folder, 0777, true);
+					
+					$file = $output_folder. "ca-" . $ind ['code'] . "-" . $datevalue2 . ".txt";
+				}
+					
+				$open = fopen ( $file, "w+" );
+				if ($open) 
+				{
+					if (fwrite ( $open, $entry )) 
+					{
+						$this->log_info(log_file, "CA output file written for index = " .$ind['code']);						
+					}
+					else 
+					{
+						$this->log_error(log_file, "Unable to write CA output file = " .$file. " for index = " .$ind['code']);
+						mail_exit(__FILE__, __LINE__);
+					}
+				}
+				else
+				{
+					$this->log_error(log_file, "Unable to open CA output file = " .$file.  " for index = " .$ind['code']);
+					mail_exit(__FILE__, __LINE__);
+				}
+			}
+		}
+		
+		if (! empty ( $clients )) 
+		{
+			foreach ( $clients as $clientname => $caclients ) 
+			{
+				$output_folder = "../files/output/ca-output/" . $clientname. "/";
+				if(!file_exists($filename))
+					mkdir($output_folder, 0777, true);
+				
+				$file2 = $output_folder. "composit-ca-" . $datevalue2 . ".txt";
+				
+				$open2 = fopen ( $file2, "w+" );
+				if ($open2) 
+				{
+					if (fwrite ( $open2, $caclients ['heading'] . $caclients ['value'] )) 
+					{
+						$this->log_info(log_file, "CA composite output file written");						
+					}
+					else
+					{
+						$this->log_error(log_file, "Unable to write CA composite output file = " .$file2);
+						mail_exit(__FILE__, __LINE__);
+					}
+				}
+				else
+				{
+					$this->log_error(log_file, "Unable to open CA composite output file = " .$file2);
+					mail_exit(__FILE__, __LINE__);
+				}
+			}
+		}
+		
+		$this->log_info(log_file, "CA file generation process finished");
+				
+		//$this->saveProcess ( 1 );
+		if (DEBUG)
+		{
+			$this->Redirect("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+		}
 		else
-		$file="../files2/ca-output/ca-".$ind['code']."-".$this->_date.".txt";
-		
-		
-		
-		
-		
-	//	$clients[$client['ftpusername']].=$entry1;
-		
-		
-		
-		
-		
-		
-		$open=fopen($file,"w+");
-	if($open){   
-		if(   fwrite($open,$entry))
 		{
-			echo "file Written for ".$ind['code']."<br>";
-		}
+			//$this->Redirect("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			log_error("Unable to locate checkcavalue index module.");
+			mail_exit(__FILE__, __LINE__);
+		}		
 	}
-		
-		
-			//	$this->pr($ca_array);
-		}
-		}
-		
-		
-		
-		//$this->pr($clients,true);
-		if(!empty($clients))
-		{
-		foreach($clients as $clientname=> $caclients)
-		{
-			$file2="../files2/ca-output/".$clientname."/composit-ca-".$this->_date.".txt";
-			
-		$open2=fopen($file2,"w+");
-	if($open2){   
-		if(   fwrite($open2,$caclients['heading'].$caclients['value']))
-		{
-			echo "file Written for Composit Index<br>";
-		}
-	}
-		}
-		}
-		
-		
-		$this->saveProcess();
-		$this->Redirect("index.php?module=checkcavalue","","");	
-		}
-		
-		
 }
+?>

@@ -17,7 +17,7 @@ class Db {
 		$this->password = $arg['password'];
 		$this->Obj=$obj;
 		
-		$this->dbh = mysql_pconnect($this->host, $this->username, $this->password);		
+		$this->dbh = mysql_connect($this->host, $this->username, $this->password);		
 		mysql_select_db($this->database, $this->dbh);
 	}
 	

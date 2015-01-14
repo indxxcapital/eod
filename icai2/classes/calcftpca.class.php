@@ -13,6 +13,8 @@ class Calcftpca extends Application{
 	
 	 $datevalue2=date('Y-m-d',strtotime($this->_date));
 	
+	 /* TODO: Check with deepak how this will work */
+	 return;
 
 // set up basic connection
 /*$conn_id = ftp_connect("ftp.processdo.com");

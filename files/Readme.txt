@@ -1,0 +1,1 @@
+This folder will be used to keep input, output and log files. Also for DB backups.

@@ -72,14 +72,9 @@ function get_dbbackup_path()
 function mail_exit($file, $line)
 {
 	if (process)
-	{
 		$value = process;
-	}
 	else
-	{
-		echo "Please define the process type, needed for logging and emails !!";
-		exit();
-	}
+		log_error("Please define the process type, needed for logging and emails !!");
 		
 	log_error("Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
 	mail(email_errors, $value. " file generation process existed with error.", 
@@ -90,14 +85,9 @@ function mail_exit($file, $line)
 function mail_skip($file, $line)
 {
 	if (process)
-	{
 		$value = process;
-	}
 	else
-	{
-		echo "Please define the process type, needed for logging and emails !!";
-		exit();
-	}
+		log_error("Please define the process type, needed for logging and emails !!");
 	
 	log_warning("Sending email for anomaly at file=" .$file. " and line=" .$line);
 	mail(email_errors, $value. " file generation process encountered anomaly.",

@@ -170,6 +170,5 @@ mysql_close ();
 echo '<script>document.location.href="checkcurrencytemp.php";</script>';
 /* http://97.74.65.118/icai/dbbackup.php */
 
-
 ?>
 

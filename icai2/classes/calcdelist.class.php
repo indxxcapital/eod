@@ -1,176 +1,130 @@
 <?php
-
-class Calcdelist extends Application{
-
-	function __construct()
+class Calcdelist extends Application {
+	function __construct() 
 	{
-		parent::__construct();
-		//$this->checkUserSession();
+		parent::__construct ();
 	}
-	
-	
-	function index()
+
+	function index() 
 	{
-	/*	if($_SESSION['currentPriorityIndex']==0)
+		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
+		/* TODO: This logic can be optimized more */
 		
-	{	*/
-	 $datevalue2=$this->_date;	
-	//exit;
-	
-	
-	$indxxs=	$this->db->getResult("select id,indxx_id from tbl_delist_runnindex_req where startdate='".$datevalue2."' and adminapprove='1' ",true);
-	//$this->pr($indxxs,true);
-		$final_array=array();
-	
-	
-	if(!empty($indxxs))	
-	{
-	foreach ($indxxs as $indxx)
-	{
-	
-		$indxx_value=$this->db->getResult("select tbl_indxx_value.* from tbl_indxx_value where indxx_id='".$indxx['indxx_id']."' order by date desc ",false,1);	
-			//$this->pr($indxx_value,true);
-			if(!empty($indxx_value))
+		$datevalue2 = date ( "Y-m-d" );
+		
+		if($_GET['log_file'])
+			define("log_file", $_GET['log_file']);
+		
+		if($_GET['DEBUG'])
+		{
+			define("DEBUG", $_GET['DEBUG']);
+		
+			if($_GET['date'])
 			{
-			$final_array[$indxx['indxx_id']]['index_value']=$indxx_value;
-			$datevalue=$indxx_value['date'];
+				$datevalue2 = $_GET['date'];
 			}
-			
-				$query="SELECT  it.id,it.name,it.isin,it.ticker,curr,divcurr,(select price from tbl_final_price fp where fp.isin=it.isin  and fp.date='".$datevalue."' and fp.indxx_id='".$indxx['indxx_id']."') as calcprice,(select localprice from tbl_final_price fp where fp.isin=it.isin  and fp.date='".$datevalue."' and fp.indxx_id='".$indxx['indxx_id']."') as localprice,(select currencyfactor from tbl_final_price fp where fp.isin=it.isin  and fp.date='".$datevalue."' and fp.indxx_id='".$indxx['indxx_id']."') as currencyfactor,(select share from tbl_share sh where sh.isin=it.isin  and sh.indxx_id='".$indxx['indxx_id']."') as calcshare FROM `tbl_indxx_ticker` it where it.indxx_id='".$indxx['indxx_id']."'";			
+			else
+			{
+				$this->log_error(log_file, "No date provided in DEBUG mode");
+				$this->mail_exit(log_file, __FILE__, __LINE__);
+			}
+		}
 		
-		$indxxprices=	$this->db->getResult($query,true);
-	//		$this->pr($indxxprices,true);
-			
-	$final_array[$indxx['indxx_id']]['olddata']=$indxxprices;
-
-	//echo 	$datevalue;
-	
-	$oldsecurity=	$this->db->getResult("select security_id from tbl_delist_runnsecurity where req_id='".$indxx['id']."' and  indxx_id='".$indxx['indxx_id']."' ",true);
-	//$this->pr($oldsecurity,true);
-
-	$final_array[$indxx['indxx_id']]['removesecurity']=$oldsecurity;
-	
-	}
-	}
-	
-	
-	//$this->pr($final_array,true);
-	
-	if(!empty($final_array))
-	{
-	foreach($final_array as $id=>$indxx_array)
-	{
+		$this->log_info(log_file, "CA [delist live index] process started");
 		
-		$tempMarketCap=0;
+		$final_array = array ();
 		
+		$indxxs = $this->db->getResult ( "select id, indxx_id from tbl_delist_runnindex_req where 
+				startdate='" . $datevalue2 . "' and adminapprove='1' ", true );
 		
-	if(!empty($indxx_array['removesecurity']))
-	{
-		foreach($indxx_array['removesecurity'] as $removedSecurtity)
+		if (! empty ( $indxxs )) 
 		{
-		//$this->pr($removedSecurtity);
-		
-		if(!empty($removedSecurtity))
-		{
-				foreach($indxx_array['olddata'] as $oldsecuritykey=>$oldsecuriti)
+			foreach ( $indxxs as $indxx ) 
+			{	
+				$element = $final_array [$indxx ['indxx_id']];
+				
+				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value where indxx_id='" . $indxx ['indxx_id'] . "' order by date desc ", false, 1 );
+				if (! empty ( $indxx_value )) 
 				{
-					if($oldsecuriti['id']==$removedSecurtity['security_id'])
-					{
-			//		echo "got it<br>";
-				//echo $oldsecuritykey;
-				
-					$tempMarketCap+=$oldsecuriti['calcshare']*$oldsecuriti['calcprice'];
-				
-				
-				
-				 $deleteSecurityQuery='Delete from tbl_indxx_ticker where id="'.$oldsecuriti['id'].'"'; 
-			$this->db->query($deleteSecurityQuery);	
-				//echo "<br>";
-				 $deletepriceQuery='Delete from tbl_final_price where indxx_id="'.$id.'" and  isin ="'.$oldsecuriti['isin'].'" and date ="'.$indxx_array['index_value']['date'].'" '; 
-			$this->db->query($deletepriceQuery);	
-				//echo "<br>";
-				
-		$deleteshareQuery='Delete from tbl_share where indxx_id="'.$id.'" and  isin ="'.$oldsecuriti['isin'].'" '; 
-			//	echo "<br>";
-				
-				$this->db->query($deleteshareQuery);	
-				
-				
-				
-				
-				unset($final_array[$id]['olddata'][$oldsecuritykey]);
-				
-					}
-				
+					$element['index_value'] = $indxx_value;
+					$datevalue = $indxx_value ['date'];
 				}
+				
+				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, 
+					fp.price as calcprice, fp.localprice, fp.currencyfactor, sh.share as calcshare from
+					tbl_indxx_ticker it left join tbl_final_price fp on fp.isin=it.isin
+					left join tbl_share sh on sh.isin=it.isin where
+					fp.date='" .$datevalue. "' and fp.indxx_id='" .$indxx ['indxx_id'].
+									" and sh.indxx_id='" .$indxx ['indxx_id']. "and it.indxx_id='" . $indxx ['indxx_id'];				
+				$indxxprices = $this->db->getResult ( $query, true );				
+				$element['olddata'] = $indxxprices;
+				
+				$oldsecurity = $this->db->getResult ( "select security_id from tbl_delist_runnsecurity where req_id='" . $indxx ['id'] . "' and  indxx_id='" . $indxx ['indxx_id'] . "' ", true );
+				$element['removesecurity'] = $oldsecurity;
+			}
 		}
 		
-		
-		}
-	}
-	
-	
-	//echo $tempMarketCap;
-	//echo "<br>";
-	
-	
-	//echo $id;
-	
-	
-//$this->pr($final_array,true);
-	
-	if($tempMarketCap)
-	{
-		$newDivisor=0;
-		$newDivisor=$indxx_array['index_value']['newdivisor'];
-		
-		$newDivisor=$newDivisor-($tempMarketCap/$indxx_array['index_value']['indxx_value']);
-		
-	$updateQuery='update tbl_indxx_value set newdivisor="'.$newDivisor.'",olddivisor="'.$newDivisor.'" where  date="'.$indxx_array['index_value']['date'].'" and indxx_id="'.$id.'"';
-		
-$this->db->query($updateQuery);	
-		
-		
-		
-	}
-	
-	/*if($tempMarketCap)
-	{
-		$newDivisor=0;
-		$newDivisor=$indxx_array['index_value']['newdivisor'];
-		
-	$newDivisor=$newDivisor-($tempMarketCap/$indxx_array['index_value']['indxx_value']);
+		if (! empty ( $final_array )) 
+		{
+			foreach ( $final_array as $id => $indxx_array ) 
+			{				
+				$tempMarketCap = 0;
+				
+				if (! empty ( $indxx_array ['removesecurity'] )) 
+				{
+					foreach ( $indxx_array ['removesecurity'] as $removedSecurtity ) 
+					{
+						if (! empty ( $removedSecurtity )) 
+						{
+							foreach ( $indxx_array ['olddata'] as $oldsecuritykey => $oldsecuriti ) 
+							{
+								if ($oldsecuriti ['id'] == $removedSecurtity ['security_id']) 
+								{
+									$tempMarketCap += $oldsecuriti ['calcshare'] * $oldsecuriti ['calcprice'];
+									
+									$deleteSecurityQuery = 'Delete from tbl_indxx_ticker where id="' . $oldsecuriti ['id'] . '"';
+									$this->db->query ( $deleteSecurityQuery );
 
-echo $indxx_array['index_value']['indxx_value'];
-echo "<br>";
-$marketCap=0;
-foreach($final_array as $newindxx)
-{
-	foreach($newindxx['olddata'] as $newSecurity){
-	
-		$marketCap+=$newSecurity['calcshare']*$newSecurity['calcprice'];
+									$deletepriceQuery = 'Delete from tbl_final_price where indxx_id="' . $id . '" and  isin ="' . $oldsecuriti ['isin'] . '" and date ="' . $indxx_array ['index_value'] ['date'] . '" ';
+									$this->db->query ( $deletepriceQuery );
+										
+									$deleteshareQuery = 'Delete from tbl_share where indxx_id="' . $id . '" and  isin ="' . $oldsecuriti ['isin'] . '" ';
+									$this->db->query ( $deleteshareQuery );
+									
+									unset ( $final_array [$id] ['olddata'] [$oldsecuritykey] );
+								}
+							}
+						}
+					}
+				}
+				
+				if ($tempMarketCap) 
+				{
+					$newDivisor = 0;
+					$newDivisor = $indxx_array ['index_value'] ['newdivisor'];
+					
+					$newDivisor = $newDivisor - ($tempMarketCap / $indxx_array ['index_value'] ['indxx_value']);
+					
+					$updateQuery = 'update tbl_indxx_value set newdivisor="' . $newDivisor . '",olddivisor="' . $newDivisor . '" where  date="' . $indxx_array ['index_value'] ['date'] . '" and indxx_id="' . $id . '"';
+					
+					$this->db->query ( $updateQuery );
+				}				
+			}
+		}
+		
+		$this->log_info(log_file, "CA [delist live index] process finished");
+		
+		//$this->saveProcess ( 1 );
+		if (DEBUG)
+		{
+			$this->Redirect("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+		}
+		else
+		{
+			//$this->Redirect("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			log_error("Unable to locate calcreplace index module.");
+			mail_exit(__FILE__, __LINE__);
+		}
 	}
 }
-echo $marketCap/$newDivisor;
-
-
-
-
-	}
-	*/
-	
-	}
-//	echo $tempMarketCap;
-	
-	}
-	
-	$this->saveProcess(1);
-	
-	///$this->pr($final_array,true);
-	
-	//}
-	$this->Redirect("index.php?module=calcreplace","","");	
-	
-	
-	}
-}?>
+?>

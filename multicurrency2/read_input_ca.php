@@ -1,12 +1,23 @@
 <pre><?php
 include("function.php");
-//include ("../icai2/core/function.php");
+include("verify_process_ca.php");
 
-/* TODO: Add TZ, RAM, EXEC etc. */
+/* TODO - Set timezone here */
+
+/* Enable error capturing in log files and display the same in browser */
+error_reporting(E_ALL);
+set_error_handler("error_handler", E_ALL);
+ini_set("display_errors", 1);
+
+//$start = get_time();
+
+/* Execution time for the script. Must be defined based on performance and load. */
+ini_set('max_execution_time', 60 * 60);
+ini_set("memory_limit", "1024M");
+
+/* Prepare logging mechanism */
 prepare_logfile();
 define("log_file", get_logs_folder() . "ca_process_logs_" . date('Y-m-d_H-i-s', $_SERVER ['REQUEST_TIME']) . ".txt");
-
-log_info("Reading CA file");
 
 if (DEBUG)
 {
@@ -25,20 +36,23 @@ else
 	define("email_errors", "kaggarwal@indxx.com");
 	define("date", date("Y-m-d"));
 }
+log_info("All notification/error emails will be send to " . email_errors);
+log_info("Process will execute on data for " .date);
 
+/* Input file paths */
 define("ca_file", get_input_file("CA", date));
 
-/* TODO: Add this for closing and opening */
 define("process", "CA");
 
 read_ca_file();
-process_ca_file();
 
-log_info("CA file read");
+//$finish = get_time();
+//$total_time = round(($finish - $start), 4);
+//echo 'Page generated in '.$total_time.' seconds. ';
 
 function read_ca_file()
 {
-	//$start = get_time();
+	log_info("Reading CA file");
 	
 	if (!file_exists(ca_file))
 	{
@@ -71,15 +85,17 @@ function read_ca_file()
 
 	/* TODO: See how to free memory used by the above query */
 		
-	//$finish = get_time();
-	//$total_time = round(($finish - $start), 4);
-		
 	//saveProcess(2);
 	//mysql_close();
+	log_info("CA file read");
+
+	process_ca_file();
 }
 
 function process_ca_file()
 {
+	log_info("Processing CA file");
+	
 	delete_old_ca ();
 
 	$res = mysql_query("Select * from tbl_ca_plain_txt");
@@ -166,6 +182,7 @@ function process_ca_file()
 				$ca_id = qry_insert ( 'tbl_ca', $data );
 				$num_fields = $security ['20'];
 	
+				/* TODO: check with Deepak the logic for this */
 				for($k = 1; $k < ($num_fields * 2) + 1; $k = $k + 2) 
 				{
 					$field_id = selectrow ( array ('id'), 'tbl_ca_action_fields', array ('field_name' => $security [$k + 20]) );
@@ -183,5 +200,9 @@ function process_ca_file()
 		}
 	}
 	mysql_free_result($res);
+	
+	log_info("Processing CA file done");
+
+	check_dvd_currency();
 }
 ?>
