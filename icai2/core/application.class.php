@@ -31,6 +31,11 @@ class Application extends Functions{
 
 		function __construct()
 		{	
+			/* TODO: We need to enable error handler for classes, log file path need to be enabled in constructor for this */
+			//error_reporting(E_ALL);
+			//set_error_handler("error_handler", E_ALL);
+			//ini_set("display_errors", 1);
+				
 			$this->siteconfig = new INDXXConfig;
 			
 			$dbData['host']=$this->siteconfig->db_host;
