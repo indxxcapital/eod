@@ -244,6 +244,11 @@ class Calcindxxclosing extends Application
 							$this->mail_skip(log_file, __FILE__, __LINE__);		
 						}
 					}
+					elseif ($newindexvalue) 
+					{
+						$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
+						$this->mail_skip(log_file, __FILE__, __LINE__);
+					}
 				}
 				
 				$insertQuery = 'INSERT into tbl_indxx_value (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
