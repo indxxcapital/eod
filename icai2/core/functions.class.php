@@ -17,7 +17,8 @@ class Functions extends Models {
 	
 	function setdate() {
 		if($_GET['DEBUG'])	
-			$this->_date = '2014-12-20';
+			//$this->_date = '2014-12-20';
+			$this->_date = $_GET['date'];
 		else 
 			$this->_date = date ( "Y-m-d");
 	}
