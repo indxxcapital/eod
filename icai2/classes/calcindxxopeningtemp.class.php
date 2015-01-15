@@ -352,7 +352,14 @@ class Calcindxxopeningtemp extends Application
 				file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey.'.json', json_encode ($index));
 				//file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($index));
 				$this->log_info(log_file, "Postopentempdata file created for index= " . $indxxKey);
-
+			}
+		}
+				
+		if (! empty ( $final_array ))
+		{
+			foreach ( $final_array as $key => $closeIndxx )
+			{
+				
 				$entry1 = 'Date' . ",";
 				$entry1 .= $datevalue2 . ",\n";
 				$entry1 .= 'INDEX VALUE' . ",";

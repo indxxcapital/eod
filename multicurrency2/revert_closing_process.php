@@ -149,6 +149,12 @@ if (false)
 		printf("\t+CA plain text table cleaned!\n");
 }
 
+/* 
+ * TODO: CA process:
+ * Indexes are disabled during DVD currency check,
+ * and many other places
+ */
+
 if (false)
 {
 	/* Clean weights table */

@@ -13,15 +13,15 @@ class Calcindxxopening extends Application
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		$datevalue2 = $this->_date;
 		
+		prepare_logfile();
 		define("log_file", $this->get_opening_logs_file());
-		echo "Putting logs in " . log_file;
 				
 		define("process", "Opening");
 		
 		if($_GET['DEBUG'])
 			define("DEBUG", $_GET['DEBUG']);
 
-		$this->log_info(log_file, "Opening file generation process started for live indexes.");
+		$this->log_info(log_file, "Opening file generation process started for live indexes");
 
 		$this->_title 				= $this->siteconfig->site_title;
 		$this->_meta_description 	= $this->siteconfig->default_meta_description;
@@ -43,7 +43,7 @@ class Calcindxxopening extends Application
 			$row_id  = $row['id'];
 			$this->log_info(log_file, "Processing opening data file for index = " . $row_id);	
 				
-			if($this->checkHoliday($row['zone'], $datevalue))
+			if($this->checkHoliday($row['zone'], $datevalue2))
 			{
 				$final_array[$row_id] = $row;			
 			
@@ -69,8 +69,11 @@ class Calcindxxopening extends Application
 				{
 					$final_array[$row_id]['index_value']['market_value'] = $row['investmentammount'];
 					$final_array[$row_id]['index_value']['indxx_value'] = $row ['investmentammount'] / $row ['divisor'];
-					$final_array [$row ['id']] ['index_value'] ['olddivisor'] = $row ['divisor'];
-					$final_array [$row ['id']] ['index_value'] ['newdivisor'] = $row ['divisor'];
+					$final_array[$row_id]['index_value']['olddivisor'] = $row ['divisor'];
+					$final_array[$row_id]['index_value']['newdivisor'] = $row ['divisor'];
+					
+					log_error("datevalue not defined for index=" .$row_id);
+					mail_exit(__FILE__, __LINE__);
 				}
 
 				/*
@@ -82,8 +85,8 @@ class Calcindxxopening extends Application
 				*/	
 				$query="SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.localprice, fp.currencyfactor, 
 						fp.price as calcprice, sh.share as calcshare FROM `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin 
-						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id."'
-						 and sh.indxx_id='".$row_id."' and fp.date='".$datevalue."'";
+						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id.
+						"' and sh.indxx_id='".$row_id."' and fp.date='".$datevalue."'";
 				
 				$indxxprices = $this->db->getResult($query, true);	
 				
@@ -107,8 +110,7 @@ class Calcindxxopening extends Application
 						/* TODO: This can be optimized with table fetch initially */
 						$ca_query = "select identifier, action_id, id, mnemonic, field_id, company_name, ann_date, eff_date,
 							amd_date, currency from tbl_ca cat where  eff_date='" . $datevalue2 . "' 
-							and identifier ='" . $indxxprice['ticker'] . "' and status='1'  
-							and action_id not in 
+							and identifier ='" . $indxxprice['ticker'] . "' and status='1'  and action_id not in  
 							(select ca_action_id from tbl_ignore_index where ca_action_id=cat.action_id)";
 							
 						$cas = $this->db->getResult ( $ca_query, true );
@@ -118,11 +120,11 @@ class Calcindxxopening extends Application
 							foreach ($cas as $cakey => $ca) 
 							{
 								$ca_value_query = "Select field_name, field_value, field_id from tbl_ca_values_user_edited 
-									where ca_id='" . $ca['id'] . "'  and ca_action_id='" . $ca ['action_id'] . "' 
-											and indxx_id='" . $row_id . "' ";
+									where ca_id='" . $ca['id'] . "'  and ca_action_id='" . $ca ['action_id'] . "' and indxx_id='" . $row_id . "' ";
 								$ca_values = $this->db->getResult ( $ca_value_query, true );
 
-								if (empty ( $ca_values )) {
+								if (empty ( $ca_values )) 
+								{
 									$ca_value_query = "Select field_name,field_value,field_id from tbl_ca_values 
 											where ca_id='" . $ca ['id'] . "'  and ca_action_id='" . $ca ['action_id'] . "' ";
 									$ca_values = $this->db->getResult ( $ca_value_query, true );
@@ -148,12 +150,16 @@ class Calcindxxopening extends Application
 						$indxxprices [$key] ['ca'] = $cas;
 					}
 				}			
-
-				$final_array[$row_id]['values'] = $indxxprices;				
+				//echo "<br>";
+				
+				$final_array[$row_id]['values'] = $indxxprices;		
+				//print_r($final_array[$row_id]);
+				//echo "<br>";		
 			}		
 		}
 		mysql_free_result($indxxs);
 
+		//exit();
 		$backup_folder = "../files/output/backup/";
 		if (!file_exists($backup_folder))
 			mkdir($backup_folder, 0777, true);
@@ -162,12 +168,10 @@ class Calcindxxopening extends Application
 		if (!empty($final_array)) 
 		{
 			foreach ( $final_array as $indxxKey => $closeIndxx ) 
-			{
-				$index = $final_array[$indxxKey];
-				
+			{				
 				//TODO=========================
-				file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. '.json', json_encode($index));
-				//file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($index));
+				file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. '.json', json_encode($final_array[$indxxKey]));
+				//file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($final_array[$indxxKey]));
 				
 				$this->log_info(log_file, "Preopendata file created for index= " . $indxxKey);
 				
@@ -175,17 +179,17 @@ class Calcindxxopening extends Application
 				$newindexvalue = 0;
 				$oldmarketValue = 0;
 
-				$index['index_value']['divisor_impact'] = 0;
+				$final_array[$indxxKey]['index_value']['divisor_impact'] = 0;
 		
 				$oldDivisor = $closeIndxx ['index_value'] ['olddivisor'];
 				$divisorAdjustinStock = $closeIndxx ['cash_adjust'];
 		
 				foreach ( $closeIndxx ['values'] as $securityKey => $closeprices ) 
 				{							
-					$security = $index['values'][$securityKey];
-					$this->log_info(log_file, "	Processing CA for security = " . $security['isin']);
+					$this->log_info(log_file, "	Processing CA for security = " . $final_array[$indxxKey]['values'][$securityKey]['isin']);
 						
-					$oldisin = $newisin = '';
+					/* TODO: This needs to be checked */
+					//$oldisin = $newisin = '';
 					
 					$divisorImpact = 0;
 							
@@ -197,18 +201,18 @@ class Calcindxxopening extends Application
 					$userAdjfactor = $this->get_user_ca_adj_factor ( $closeIndxx ['id'], $closeprices ['id'] );
 					if ($userAdjfactor) 
 					{
-						$security['newcalcshare'] = ($closeprices ['calcshare'] * $userAdjfactor);
-						$security['newcalcprice'] = ($closeprices ['calcprice'] / $userAdjfactor);
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $userAdjfactor);
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $userAdjfactor);
 							
 						$priceAdjfactor /= $userAdjfactor; 
 						$shareAdjfactor *= $userAdjfactor;
 					}
-							
+
 					if (!empty($closeprices ['ca'])) 
 					{
 						foreach ( $closeprices ['ca'] as $ca_key => $ca_actions ) 
 						{
-							$security['ca'] [$ca_key] ['ca_values'] = $this->getCa ( $ca_actions ['id'], $ca_actions ['action_id'] );
+							$final_array[$indxxKey]['values'][$securityKey]['ca'] [$ca_key] ['ca_values'] = $this->getCa ( $ca_actions ['id'], $ca_actions ['action_id'] );
 
 							if ($closeprices ['calcprice'])
 							{
@@ -219,8 +223,8 @@ class Calcindxxopening extends Application
 											
 										if ($adjfactor) 
 										{
-											$security['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
 										
 											$priceAdjfactor /= $adjfactor;
 											$shareAdjfactor *= $adjfactor;
@@ -232,8 +236,8 @@ class Calcindxxopening extends Application
 										if ($adjfactor) 
 										{
 											$adjfactor = ($adjfactor / 100) + 1;
-											$security['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
 
 											$priceAdjfactor /= $adjfactor;
 											$shareAdjfactor *= $adjfactor;
@@ -245,8 +249,8 @@ class Calcindxxopening extends Application
 										
 										if ($adjfactorSpin) 
 										{		
-											$security['newcalcshare'] = ($closeprices ['calcshare'] / $adjfactorSpin);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] * $adjfactorSpin);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] / $adjfactorSpin);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] * $adjfactorSpin);
 
 											$priceAdjfactor *= $adjfactorSpin;
 											$shareAdjfactor /= $adjfactorSpin;
@@ -259,41 +263,41 @@ class Calcindxxopening extends Application
 											
 										if ($cp_ratio && $cp_adj) 
 										{
-											$offerpricesArray = $this->getOfferPrices ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $index['curr'], $closeIndxx ['index_value'] ['date'], $indxxKey );
+											$offerpricesArray = $this->getOfferPrices ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $final_array[$indxxKey]['curr'], $closeIndxx ['index_value'] ['date'], $indxxKey );
 
-											$security['newcalcshare'] = ((1 + $cp_ratio) * $closeprices ['calcshare']);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ((1 + $cp_ratio) * $closeprices ['calcshare']);
 											
 											$z = $closeprices ['calcshare'] * ($closeprices ['calcprice'] + ($cp_ratio * $offerpricesArray ['op_price_index_currency']));
-											$security['newcalcprice'] = $z / $security['newcalcshare'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $z / $final_array[$indxxKey]['values'][$securityKey]['newcalcshare'];
 
-											$newDivisor = $oldDivisor + ((($security['newcalcshare'] * $security['newcalcprice']) - ($closeprices ['calcshare'] * $closeprices ['calcprice'])) / $oldindexvalue);
+											$newDivisor = $oldDivisor + ((($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] * $final_array[$indxxKey]['values'][$securityKey]['newcalcprice']) - ($closeprices ['calcshare'] * $closeprices ['calcprice'])) / $oldindexvalue);
 										
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $closeprices ['calcprice']);
-											$shareAdjfactor = $shareAdjfactor * ($security['newcalcshare'] / $closeprices ['calcshare']);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $closeprices ['calcprice']);
+											$shareAdjfactor = $shareAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] / $closeprices ['calcshare']);
 										
 											$divisorImpact += $newDivisor - $oldDivisor;
 										}
 										break;
 									
 									case 'DVD_CASH':		
-										$ca_prices = $this->getCaPrices2 ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $index['curr'], $closeIndxx ['index_value'] ['date'], $closeIndxx ['div_type'], $indxxKey );
+										$ca_prices = $this->getCaPrices2 ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $final_array[$indxxKey]['curr'], $closeIndxx ['index_value'] ['date'], $closeIndxx ['div_type'], $indxxKey );
 											
 										if ($closeIndxx ['ireturn'] == 2 && $ca_prices ['CP_DVD_TYP'] != '1001') 
 										{
-											$index['divpvalue'] += ($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']);
+											$final_array[$indxxKey]['divpvalue'] += ($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']);
 										
-											$security['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
 										
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $base_price);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $base_price);
 										
-											$base_price = $security['newcalcprice'];
+											$base_price = $final_array[$indxxKey]['values'][$securityKey]['newcalcprice'];
 										
 										} 
 										elseif ($divisorAdjustinStock) 
 										{
 											$newfactor = ($closeprices ['calcprice'] - $ca_prices ['ca_price_index_currency']) / $closeprices ['calcprice'];
-											$security['newcalcshare'] = $closeprices ['calcshare'] / $newfactor;
-											$security['newcalcprice'] = $closeprices ['calcprice'] * $newfactor;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'] / $newfactor;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $newfactor;
 											
 											$priceAdjfactor *= $newfactor;
 											$shareAdjfactor /= $newfactor;
@@ -302,21 +306,21 @@ class Calcindxxopening extends Application
 										{
 											$adjfactorforcash = ($closeprices ['calcprice'] - $ca_prices ['ca_price_index_currency']) / $closeprices ['calcprice'];
 										
-											$security['newcalcshare'] = $closeprices ['calcshare'] / $adjfactorforcash;
-											$security['newcalcprice'] = $closeprices ['calcprice'] * $adjfactorforcash;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'] / $adjfactorforcash;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $adjfactorforcash;
 										
 											$priceAdjfactor *= $adjfactorforcash;
 											$shareAdjfactor /= $adjfactorforcash;
 										} 
 										else 
 										{
-											$security['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
 										
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $base_price);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $base_price);
 											$newDivisor = $oldDivisor - (($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']) / $oldindexvalue);
 											$divisorImpact += $newDivisor - $oldDivisor;
 										
-											$base_price = $security['newcalcprice'];
+											$base_price = $final_array[$indxxKey]['values'][$securityKey]['newcalcprice'];
 										}
 										break;											
 								}
@@ -335,26 +339,28 @@ class Calcindxxopening extends Application
 		
 									if ($newname) 
 									{
-										$nametickerUpdateQuery = 'UPDATE  tbl_indxx_ticker  set name ="' . $newname . '" where indxx_id="' . $indxxKey . '"  and isin="' . $security['isin'] . '"';
+										$nametickerUpdateQuery = 'UPDATE  tbl_indxx_ticker  set name ="' . $newname . '" where indxx_id="' . $indxxKey . '"  and isin="' . $final_array[$indxxKey]['values'][$securityKey]['isin'] . '"';
 										$this->db->query ( $nametickerUpdateQuery );
-										$security['name'] = $newname;
+										$final_array[$indxxKey]['values'][$securityKey]['name'] = $newname;
 									}
 									break;
 							}
 						}
 					}
 
-					$security['newcalcprice'] = $closeprices ['calcprice'] * $priceAdjfactor;
-					$security['newlocalprice'] = $closeprices ['localprice'] * $priceAdjfactor;
-
+					$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $priceAdjfactor;
+					$final_array[$indxxKey]['values'][$securityKey]['newlocalprice'] = $closeprices ['localprice'] * $priceAdjfactor;
+					echo "localprice =" .$final_array[$indxxKey]['values'][$securityKey]['newlocalprice']. "<br>";
+					
+					
 					if ($shareAdjfactor == 1) 
-						$security['newcalcshare'] = $closeprices ['calcshare'];
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'];
 					else 
-						$security['newcalcshare'] = number_format ( $closeprices ['calcshare'] * $shareAdjfactor, 13, '.', '' );
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = number_format ( $closeprices ['calcshare'] * $shareAdjfactor, 13, '.', '' );
 
-					if ($security['newcalcshare'] != $closeprices ['calcshare']) 
+					if ($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] != $closeprices ['calcshare']) 
 					{
-						$shareUpdateQuery = 'UPDATE  tbl_share  set share ="' . $security['newcalcshare'] . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
+						$shareUpdateQuery = 'UPDATE  tbl_share  set share ="' . $final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
 						$this->db->query ( $shareUpdateQuery );
 					}
 							
@@ -368,21 +374,28 @@ class Calcindxxopening extends Application
 							$isintickerUpdateQuery = 'UPDATE  tbl_indxx_ticker  set isin ="' . $newisin . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
 							$this->db->query ( $isintickerUpdateQuery );
 									
-							$security['isin'] = $newisin;
+							$final_array[$indxxKey]['values'][$securityKey]['isin'] = $newisin;
 						} 
 						else 
 						{
-							echo "ISIN mismatch. Exiting process" . "<br>";
+							$this->log_error(log_file, "ISIN mismatch. Exiting process");
 							$this->mail_exit(log_file, __FILE__, __LINE__);
 						}
 					}	
-					$index['index_value'] ['divisor_impact'] += $divisorImpact;
+					$final_array[$indxxKey]['index_value'] ['divisor_impact'] += $divisorImpact;
 				}
-				//TODO:================
-				file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey.'.json', json_encode ($index));
-				//file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($index));		
-				$this->log_info(log_file, "Postopendata file created for index= " . $indxxKey);
 				
+				//TODO:================
+				file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey.'.json', json_encode ($final_array[$indxxKey]));
+				//file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($final_array[$indxxKey]));		
+				$this->log_info(log_file, "Postopendata file created for index= " . $indxxKey);
+			}
+		}
+
+		if (! empty ( $final_array )) 
+		{
+			foreach ( $final_array as $key => $closeIndxx ) 
+			{
 				$entry1		 =	'Date'.",";
 				$entry1		.=	date("Y-m-d", strtotime($datevalue2)).",\n";
 				$entry1		.=	'INDEX VALUE'.",";
@@ -402,9 +415,9 @@ class Calcindxxopening extends Application
 					$entry3	.=	'CURRENCY'.",";
 					$entry3	.=	'CURRENCY FACTOR'.",";
 				}
-
+	
 				$entry4	= '';
-
+	
 				
 				$newMarketValue = 0;
 				if (!empty($closeIndxx)) 
@@ -429,10 +442,10 @@ class Calcindxxopening extends Application
 					}
 				}
 				$newDivisorforindxx = $closeIndxx ['index_value'] ['olddivisor'] + $closeIndxx ['index_value'] ['divisor_impact'];
-
+	
 				if ($closeIndxx ['divpvalue']) 
 					$newMarketValue += $closeIndxx ['divpvalue'];
-
+	
 				$newindexvalue = number_format ( ($newMarketValue / $newDivisorforindxx), 2, '.', '' );
 				
 				$insertQuery = 'INSERT into tbl_indxx_value_open (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) 
@@ -452,7 +465,7 @@ class Calcindxxopening extends Application
 				else
 				{
 					if (!file_exists($output_folder . $closeIndxx['client']))
-						mkdir($output_folder . $closeIndxx['client'], 0777);
+						mkdir($output_folder . $closeIndxx['client'], 0777, true);
 						
 					$file=$output_folder .$closeIndxx['client']."/Opening-".$closeIndxx['code']."-".$datevalue2.".txt";
 				}					
@@ -475,7 +488,7 @@ class Calcindxxopening extends Application
 						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}				
-				unset($final_array[$indxxKey]);
+				unset($final_array[$key]);				
 			}
 			unset($final_array);
 		}
@@ -485,6 +498,7 @@ class Calcindxxopening extends Application
 		//$this->saveProcess(2);
 		if (DEBUG)
 		{
+			//exit();
 			$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 		}
 		else
