@@ -11,7 +11,7 @@ class Calccapub extends Application
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		/* TODO: This logic can be optimized more */
 		
-		$datevalue2 = date ( "Y-m-d" );
+		$datevalue2 = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
@@ -42,6 +42,7 @@ class Calccapub extends Application
 		{
 			foreach ( $indxx as $ind ) 
 			{
+				$this->log_info(log_file, "Processing index = " . $ind['id']);
 				$client = $this->db->getResult ( "select ftpusername from tbl_ca_client where id='" . $ind ['client_id'] . "'", false, 1 );
 
 				$indxxticker = $this->db->getResult ( "select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='" . $ind ['id'] . "'", true );
@@ -107,7 +108,7 @@ class Calccapub extends Application
 				{
 					if (fwrite ( $open, $entry )) 
 					{
-						$this->log_info(log_file, "CA output file written for index = " .$ind['code']);						
+						$this->log_info(log_file, "CA output file written for index = " .$ind['code']);
 					}
 					else 
 					{
@@ -159,7 +160,7 @@ class Calccapub extends Application
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect2("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

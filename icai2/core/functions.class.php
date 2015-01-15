@@ -958,6 +958,7 @@ class Functions extends Models {
 		file_put_contents ( $this->logs_folder . $log_file, "INFO: " . $text . "\n", FILE_APPEND );
 	}
 	
+	/* TODO: Add check for type of process here as we did in function.php */
 	function mail_exit($log_file, $file, $line)
 	{
 		$this->log_error($log_file, "Sending email for abrupt process exit at file=" .$file. " and line=" .$line);

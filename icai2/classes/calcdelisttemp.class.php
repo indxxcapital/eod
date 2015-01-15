@@ -12,7 +12,7 @@ class Calcdelisttemp extends Application
 		
 		/* TODO: This logic can be optimized more */
 
-		$datevalue2 = date ( "Y-m-d" );
+		$datevalue2 = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
@@ -51,7 +51,13 @@ class Calcdelisttemp extends Application
 					$element['index_value'] = $indxx_value;
 					$datevalue = $indxx_value ['date'];
 				}
+				else
+				{
+					$this->log_error("datevalue not defined, next MYSQL query will fail");
+					$this->mail_exit(__FILE__, __LINE__);
+				}
 				
+				/* TODO: datevalue is used here - this will not be set if above IF statement fails */
 				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, 
 					fp.price as calcprice, fp.localprice, fp.currencyfactor, sh.share as calcshare from 
 					tbl_indxx_ticker_temp it left join tbl_final_price_temp fp on fp.isin=it.isin 
@@ -123,7 +129,7 @@ class Calcdelisttemp extends Application
 		//$this->saveProcess ( 1 );		
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=calcreplacetemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect2("index.php?module=calcreplacetemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

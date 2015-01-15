@@ -12,7 +12,7 @@ class Calcrebalance extends Application
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		/* TODO: This logic can be optimized more */
 		
-		$datevalue2 = date ( "Y-m-d" );
+		$datevalue2 = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
@@ -102,7 +102,7 @@ class Calcrebalance extends Application
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=calcdp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect2("index.php?module=calcdp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

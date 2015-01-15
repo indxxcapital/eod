@@ -3,6 +3,7 @@ include("function.php");
 include("verify_process_ca.php");
 
 /* TODO - Set timezone here */
+date_default_timezone_set("Asia/Kolkata");
 
 /* Enable error capturing in log files and display the same in browser */
 error_reporting(E_ALL);
@@ -201,6 +202,7 @@ function process_ca_file()
 	
 	log_info("Processing CA file done");
 
+	//return;//-------------------------------------------------==============
 	check_dvd_currency();
 }
 ?>

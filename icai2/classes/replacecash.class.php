@@ -12,7 +12,7 @@ class Replacecash extends Application
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		/* TODO: This logic can be optimized more */
 		
-		$datevalue = date ( "Y-m-d" );
+		$datevalue = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
@@ -65,7 +65,7 @@ class Replacecash extends Application
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=calcftpca&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect2("index.php?module=calcftpca&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

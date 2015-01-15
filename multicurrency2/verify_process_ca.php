@@ -47,8 +47,8 @@ function check_dvd_currency()
 		// Make sure security currency and CA currency are same 
 		if ($ca ['curr'] != $ca ['currency'])
 		{
-			disable_index($ca ['indxx_id'], "tbl_indxx");				
 			log_error("Security:" .$ca ['ticker']. " [Default price currency=" .$ca['curr']. "][BBG CA currency=" . $ca['currency'] . "]");
+			disable_index($ca ['indxx_id'], "tbl_indxx");				
 		}
 
 		// Make sure security divident currency and CA currency are same
@@ -63,8 +63,8 @@ function check_dvd_currency()
 		$ca_value = mysql_fetch_assoc($ca_values);
 		if ($ca ['divcurr'] != $ca_value['field_value']) 
 		{
-			disable_index($ca ['indxx_id'], "tbl_indxx");
 			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca_value['field_value']. "]");				
+			disable_index($ca ['indxx_id'], "tbl_indxx");
 		}
 		mysql_free_result($ca_values);
 	}
@@ -95,8 +95,8 @@ function check_dvd_currency_temp()
 		// Make sure security currency and CA currency are same
 		if ($ca ['curr'] != $ca ['currency'])
 		{
-			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 			log_error("Security:" .$ca ['ticker']. " [Default price currency=" .$ca['curr']. "][BBG CA currency=" . $ca['currency'] . "]");
+			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 		}
 		
 		// Make sure security divident currency and CA currency are same
@@ -111,8 +111,8 @@ function check_dvd_currency_temp()
 		$ca_value = mysql_fetch_assoc($ca_values);
 		if ($ca ['divcurr'] != $ca_value['field_value'])
 		{
-			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca_value['field_value']. "]");
+			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 		}
 		mysql_free_result($ca_values);
 	}

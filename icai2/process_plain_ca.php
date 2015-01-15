@@ -10,8 +10,8 @@ $start = $time;
 include ("core/function.php");
 // delete_old_ca();
 
-$date = date ( "Y-m-d" );
-// $date ='2014-12-18';
+//$date = date ( "Y-m-d" );
+$date ='2014-12-20';
 // exit;
 $handle = @fopen ( "../bloomberg-input2/ca_sl.csv." . date ( "Ymd", strtotime ( $date ) - 86400 ), "r" );
 

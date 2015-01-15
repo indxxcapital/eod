@@ -10,7 +10,7 @@ class Calcdelist extends Application {
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		/* TODO: This logic can be optimized more */
 		
-		$datevalue2 = date ( "Y-m-d" );
+		$datevalue2 = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
@@ -48,6 +48,11 @@ class Calcdelist extends Application {
 				{
 					$element['index_value'] = $indxx_value;
 					$datevalue = $indxx_value ['date'];
+				}
+				else
+				{
+					$this->log_error("datevalue not defined, next MYSQL query will fail");
+					$this->mail_exit(__FILE__, __LINE__);
 				}
 				
 				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, 
@@ -117,7 +122,7 @@ class Calcdelist extends Application {
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect2("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

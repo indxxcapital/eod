@@ -50,7 +50,7 @@ function qry_insert($table, $data)
 		log_error("MYSQL query failed, error code " . $err_code .". Exiting CA process.");
 		mail_exit(__FILE__, __LINE__);
 	}
-	
+	return mysql_insert_id();
 }
 
 function selectrow($fieldsarray, $table, $datafields = array()) {
