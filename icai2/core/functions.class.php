@@ -16,9 +16,10 @@ class Functions extends Models {
 	//var $opening_process_logs = null;
 	
 	function setdate() {
-		/* TODO: This needs to be fixed for DEBUG */
-		//$this->_date = date ( "Y-m-d", strtotime ( date ( "Y-m-d" ) ) );
-		$this->_date = '2014-12-20';
+		if($_GET['DEBUG'])	
+			$this->_date = '2014-12-20';
+		else 
+			$this->_date = date ( "Y-m-d");
 	}
 	function setLang($lang = "en") {
 		

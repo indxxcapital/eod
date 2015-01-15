@@ -2,23 +2,14 @@
 include ("core/function.php");
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
-$date = date ( "Y-m-d" );
+$date = $this->_date;
 
 if($_GET['log_file'])
 	define("log_file", get_logs_folder() . $_GET['log_file']);
 
-if(DEBUG)
-{
-	if($_GET['date'])
-	{
-		$date = $_GET['date'];
-	}
-	else
-	{
-		log_info("No date provided in DEBUG mode");
-		mail_exit(__FILE__, __LINE__);		
-	}
-}
+if($_GET['DEBUG'])
+	define("DEBUG", $_GET['DEBUG']);
+
 log_info(log_file, "Publish XLS generation process started");
 
 $array = array();

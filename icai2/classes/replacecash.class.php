@@ -18,19 +18,8 @@ class Replacecash extends Application
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
-		{
 			define("DEBUG", $_GET['DEBUG']);
 		
-			if($_GET['date'])
-			{
-				$datevalue = $_GET['date'];
-			}
-			else
-			{
-				$this->log_error(log_file, "No date provided in DEBUG mode");
-				$this->mail_exit(log_file, __FILE__, __LINE__);
-			}
-		}
 		$this->log_info(log_file, "CA replacecash process started");
 		
 		$indexdata = $this->db->getResult ( "select * from tbl_cash_index_temp where status='1' and db_approve='1'  and dateStart='" . $datevalue . "' ", true );
@@ -65,7 +54,7 @@ class Replacecash extends Application
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect2("index.php?module=calcftpca&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect("index.php?module=calcftpca&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

@@ -16,19 +16,7 @@ class Calcdelist extends Application {
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
-		{
 			define("DEBUG", $_GET['DEBUG']);
-		
-			if($_GET['date'])
-			{
-				$datevalue2 = $_GET['date'];
-			}
-			else
-			{
-				$this->log_error(log_file, "No date provided in DEBUG mode");
-				$this->mail_exit(log_file, __FILE__, __LINE__);
-			}
-		}
 		
 		$this->log_info(log_file, "CA [delist live index] process started");
 		
@@ -122,7 +110,7 @@ class Calcdelist extends Application {
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect2("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

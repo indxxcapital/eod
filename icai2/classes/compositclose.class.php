@@ -10,26 +10,14 @@ class Compositclose extends Application
 	{		
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		
-		$date = date ( "Y-m-d" );
+		$date = $this->_date;
 		
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
-		{
 			define("DEBUG", $_GET['DEBUG']);
-			//$this->log_info(log_file, "Executing closing file generation process in DEBUG mode");
-		
-			if($_GET['date'])
-			{
-				$date = $_GET['date'];
-			}
-			else
-			{
-				$this->log_info(log_file, "No date provided in DEBUG mode");
-				$this->mail_exit(log_file, __FILE__, __LINE__);		
-			}
-		}
+
 		$this->log_info(log_file, "Composite closing file generation process started.");
 		
 		$clientData = $this->db->getResult("select id, ftpusername from tbl_ca_client where status = '1'" );

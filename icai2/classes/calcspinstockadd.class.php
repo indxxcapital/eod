@@ -18,19 +18,7 @@ class Calcspinstockadd extends Application
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
-		{
 			define("DEBUG", $_GET['DEBUG']);
-		
-			if($_GET['date'])
-			{
-				$date = $_GET['date'];
-			}
-			else
-			{
-				$this->log_error(log_file, "No date provided in DEBUG mode");
-				$this->mail_exit(log_file, __FILE__, __LINE__);
-			}
-		}
 
 		$finalArray = array ();
 		
@@ -123,7 +111,7 @@ class Calcspinstockadd extends Application
 		//$this->saveProcess ( 1 );
 		if (DEBUG)
 		{
-			$this->Redirect2("index.php?module=calcspinstockaddtemp&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
+			$this->Redirect("index.php?module=calcspinstockaddtemp&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
 		}
 		else
 		{

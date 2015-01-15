@@ -11,26 +11,14 @@ class Calcindxxclosingtemp extends Application
 	{				
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		
-		$datevalue = date ( "Y-m-d" );
+		$datevalue = $this->_date;
 				
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
 		if($_GET['DEBUG'])
-		{
 			define("DEBUG", $_GET['DEBUG']);
-			//$this->log_info(log_file, "Executing closing file generation process in DEBUG mode");
-		
-			if($_GET['date'])
-			{
-				$datevalue = $_GET['date'];
-			}
-			else
-			{
-				$this->log_error(log_file, "No date provided in DEBUG mode");
-				$this->mail_exit(log_file, __FILE__, __LINE__);		
-			}
-		}
+
 		$this->log_info(log_file, "Closing file generation process started for upcoming indexes.");
 
 		$this->_title=$this->siteconfig->site_title;
@@ -255,7 +243,7 @@ class Calcindxxclosingtemp extends Application
 		}
 		else
 		{
-			//$this->Redirect("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+			//$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 			log_error("Unable to locate composite close module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
