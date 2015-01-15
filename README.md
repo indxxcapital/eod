@@ -16,3 +16,10 @@ i) Weight calculations
 j) FTP setups and code
 k) Use cases mentioned by Sunny
 l) Make queries date dependent instead of topmost results
+k) Joins
+
+
+How to run:
+----------
+CA process: http://localhost/eod/multicurrency2/read_input_ca.php?date=2014-12-20
+
