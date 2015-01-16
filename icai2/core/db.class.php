@@ -33,7 +33,6 @@ class Db {
 		return $value;
 	}
 	function getResult($sql, $array = false, $items = 0) {
-		// echo $sql;
 		$this->lastQuery = $sql;
 		if ($items > 0) {
 			$query = mysql_query ( $this->dopaging ( $sql, $items ) );
@@ -43,7 +42,8 @@ class Db {
 
 		if($err = mysql_errno())
 		{
-			echo "GETRESULT QUERY FAILED" . "<br>";
+			echo $sql . "<br>";
+			echo "GETRESULT query failed, err=" .$err. "<br>";
 			exit();
 		}
 					

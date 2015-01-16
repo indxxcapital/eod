@@ -26,8 +26,8 @@ class Calcspinstockadd extends Application
 		
 		$data = $this->db->getResult("Select ssa.dbApprove, ssa.action_id, ssa.id, 
 						ca.id as ca_id, ca.identifier, ca.company_name, ca.mnemonic, ca.eff_date 
-						from tbl_spin_stock_add ssa left join tbl_ca ca on ssa.action_id=tbl_ca.action_id 
-						where tbl_ca.eff_date='" . $date . "' and ssa.dbApprove='1'", true);
+						from tbl_spin_stock_add ssa left join tbl_ca ca on ssa.action_id=ca.action_id 
+						where ca.eff_date='" . $date . "' and ssa.dbApprove='1'", true);
 		
 		if (!empty($data)) 
 		{
@@ -37,7 +37,7 @@ class Calcspinstockadd extends Application
 				
 				$data2 = $this->db->getResult ( "Select ssas.*, ind.name as indxx_name, ind.curr as indxx_curr, ind.code as indxx_code 
 						from tbl_spin_stock_add_securities ssas left join tbl_indxx ind on tbl_indxx.id=ssas.indxx_id 
-						where ssas.req_id=" . $newcTicker ['action_id'] . "", true );
+						where ssas.req_id='" . $newcTicker ['action_id'] . "'", true );
 				$finalArray [$key] ['newTickers'] = $data2;
 				
 				if (! empty ( $data2 )) 
@@ -50,8 +50,8 @@ class Calcspinstockadd extends Application
 						{
 							$ticker_details = $this->db->getResult ("SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, it.curr, it.sedol, it.cusip, it.countryname, 
 											fp.price as calcprice, fp.localprice, sh.share as calcshare 
-											from `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin
-											left join tbl_share sh on sh.isin=it.isin
+											from `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin 
+											left join tbl_share sh on sh.isin=it.isin 
 											where fp.date='" . $indxx_value ['date'] . "' and fp.indxx_id='" . $indxx ['indxx_id']. 
 											"' and sh.indxx_id='" . $indxx ['indxx_id'] . "' and it.indxx_id='" . $indxx ['indxx_id']. "' and ticker='" . $newcTicker ['identifier'] . "'", false, 1 );
 							

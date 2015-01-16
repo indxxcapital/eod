@@ -24,8 +24,8 @@ class Calccadp extends Application
 		
 		$data = $this->db->getResult ( "Select ssa.ca_action_id, ssa.id, ssa.indxx_id, 
 						ca.id as ca_id, ca.identifier, ca.company_name, ca.mnemonic, ca.eff_date 
-						from tbl_dividend_ph_req ssa left join tbl_ca ca on ssa.ca_action_id=tbl_ca.action_id 
-						where tbl_ca.eff_date='" . $date . "'", true );
+						from tbl_dividend_ph_req ssa left join tbl_ca ca on ssa.ca_action_id=ca.action_id 
+						where ca.eff_date='" . $date . "'", true );
 		
 		if (! empty ( $data )) 
 		{

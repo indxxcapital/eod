@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 set_error_handler("error_handler", E_ALL);
 ini_set("display_errors", 1);
 
-//$start = get_time();
+$start = get_time();
 
 /* Execution time for the script. Must be defined based on performance and load. */
 ini_set('max_execution_time', 60 * 60);
@@ -205,5 +205,9 @@ function process_ca_file()
 
 	//return;//-------------------------------------------------==============
 	check_dvd_currency();
+
+	$end_time = get_time();
+	$total_time = round(($end_time - $start_time), 4);
+	echo "Time taken = " .$total_time . "<br>";
 }
 ?>

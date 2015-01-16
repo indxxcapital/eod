@@ -24,7 +24,7 @@ class Calcspinstockaddtemp extends Application
 		
 		$data = $this->db->getResult ( "Select ssa.dbApprove, ssa.action_id, ssa.id, 
 							ca.id as ca_id, ca.identifier, ca.company_name, ca.mnemonic, ca.eff_date 
-							from tbl_spin_stock_add ssa left join tbl_ca ca on ssa.action_id=tbl_ca.action_id 
+							from tbl_spin_stock_add ssa left join tbl_ca ca on ssa.action_id=ca.action_id 
 							where ca.eff_date='" . $date . "' and ssa.dbApprove='1'", true );
 		
 		if (! empty ( $data )) 
