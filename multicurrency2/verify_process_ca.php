@@ -3,7 +3,7 @@
 
 function disable_index($index_id, $table)
 {
-	$res = mysql_query("seclect name, code from ".$table. " where dateStart=" .date. " and id='" .$index_id. "'");
+	$res = mysql_query("select name, code from ".$table. " where dateStart='" .date. "' and id='" .$index_id. "'");
 	if (($err_code = mysql_errno()))
 	{
 		log_error("Mysql query failed, error code " . $err_code . ". Exiting CA process.");
