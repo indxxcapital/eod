@@ -28,17 +28,15 @@ class Calcreplace extends Application
 		if (! empty ( $indxxs )) 
 		{
 			foreach ( $indxxs as $indxx ) 
-			{	
-				$element = $final_array [$indxx ['indxx_id']];
-				
+			{				
 				$indxx_data = $this->db->getResult ( "select * from tbl_indxx where id='" . $indxx ['indxx_id'] . "'" );
 				if (! empty ( $indxx_data ))
-					$element['details'] = $indxx_data;
+					$final_array [$indxx ['indxx_id']]['details'] = $indxx_data;
 				
 				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value where indxx_id='" . $indxx ['indxx_id'] . "' order by date desc ", false, 1 );
 				if (! empty ( $indxx_value )) 
 				{
-					$element['index_value'] = $indxx_value;
+					$final_array [$indxx ['indxx_id']]['index_value'] = $indxx_value;
 					$datevalue = $indxx_value ['date'];
 				}
 				else
@@ -54,10 +52,10 @@ class Calcreplace extends Application
 					fp.date='" .$datevalue. "' and fp.indxx_id='" .$indxx ['indxx_id'].
 									" and sh.indxx_id='" .$indxx ['indxx_id']. "and it.indxx_id='" . $indxx ['indxx_id'];
 				$indxxprices = $this->db->getResult ( $query, true );				
-				$element['olddata'] = $indxxprices;
+				$final_array [$indxx ['indxx_id']]['olddata'] = $indxxprices;
 				
 				$oldsecurity = $this->db->getResult ( "select security_id from tbl_replace_runnsecurity where req_id='" . $indxx ['id'] . "' and  indxx_id='" . $indxx ['indxx_id'] . "' ", true );				
-				$element['replacesecurity'] = $oldsecurity;
+				$final_array [$indxx ['indxx_id']]['replacesecurity'] = $oldsecurity;
 
 				$newsecurities = $this->db->getResult ( "select name, 	isin,ticker,curr,divcurr,sedol,cusip,countryname from tbl_runnsecurities_replaced where req_id='" . $indxx ['id'] . "' and  indxx_id='" . $indxx ['indxx_id'] . "' ", true );
 				
@@ -72,7 +70,7 @@ class Calcreplace extends Application
 					}
 				}
 				
-				$element['newsecurity'] = $newsecurities;
+				$final_array [$indxx ['indxx_id']]['newsecurity'] = $newsecurities;
 			}
 		}
 		

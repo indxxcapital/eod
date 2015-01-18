@@ -32,8 +32,6 @@ class Calccapub extends Application
 			{
 				$this->log_info(log_file, "Processing index = " . $ind['id']);
 				$client = $this->db->getResult ( "select ftpusername from tbl_ca_client where id='" . $ind ['client_id'] . "'", false, 1 );
-
-				$indxxticker = $this->db->getResult ( "select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='" . $ind ['id'] . "'", true );
 				
 				$entry = '';
 				$entry1 = '';
@@ -63,6 +61,8 @@ class Calccapub extends Application
 				$entry1 .= "\n";
 				$clients [$client ['ftpusername']] ['heading'] = $entry1;
 
+				$indxxticker = $this->db->getResult ( "select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='" . $ind ['id'] . "'", true );
+				
 				if (! empty ( $indxxticker )) 
 				{
 					foreach ( $indxxticker as $ticker ) 

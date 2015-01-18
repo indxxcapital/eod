@@ -29,12 +29,10 @@ class Calcdelist extends Application {
 		{
 			foreach ( $indxxs as $indxx ) 
 			{	
-				$element = $final_array [$indxx ['indxx_id']];
-				
 				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value where indxx_id='" . $indxx ['indxx_id'] . "' order by date desc ", false, 1 );
 				if (! empty ( $indxx_value )) 
 				{
-					$element['index_value'] = $indxx_value;
+					$final_array [$indxx ['indxx_id']]['index_value'] = $indxx_value;
 					$datevalue = $indxx_value ['date'];
 				}
 				else
@@ -50,10 +48,10 @@ class Calcdelist extends Application {
 					fp.date='" .$datevalue. "' and fp.indxx_id='" .$indxx ['indxx_id'].
 									" and sh.indxx_id='" .$indxx ['indxx_id']. "and it.indxx_id='" . $indxx ['indxx_id'];				
 				$indxxprices = $this->db->getResult ( $query, true );				
-				$element['olddata'] = $indxxprices;
+				$final_array [$indxx ['indxx_id']]['olddata'] = $indxxprices;
 				
 				$oldsecurity = $this->db->getResult ( "select security_id from tbl_delist_runnsecurity where req_id='" . $indxx ['id'] . "' and  indxx_id='" . $indxx ['indxx_id'] . "' ", true );
-				$element['removesecurity'] = $oldsecurity;
+				$final_array [$indxx ['indxx_id']]['removesecurity'] = $oldsecurity;
 			}
 		}
 		
