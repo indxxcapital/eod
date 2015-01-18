@@ -31,12 +31,13 @@ function disable_index($index_id, $table)
 function check_dvd_currency()
 {
 	log_info("Currency check for DVD securities started");
-	
-	$query = "Select it.ticker, it.curr, it.divcurr, it.indxx_id, ca.currency, ca.action_id, ca.id  
-			from tbl_indxx_ticker it join tbl_ca ca 
-			where ca.identifier = it.ticker and ca.mnemonic = 'DVD_CASH'";
+
+	$query = "Select it.ticker, it.curr, it.divcurr, it.indxx_id, ca.currency, ca.action_id, ca.id, cv.field_name, cv.field_value  
+			from tbl_indxx_ticker it join tbl_ca ca on ca.identifier = it.ticker 
+			left join tbl_ca_values cv on cv.ca_action_id=ca.action_id 
+			where ca.mnemonic = 'DVD_CASH' and cv.field_name='CP_DVD_CRNCY'";
 	$res = mysql_query($query);
-	
+
 	if (($err_code = mysql_errno()))
 	{
 		log_error("Mysql query failed, error code " . $err_code . ". Exiting CA process.");
@@ -44,44 +45,35 @@ function check_dvd_currency()
 	}
 	while (false != ($ca = mysql_fetch_assoc($res)))
 	{
-		// Make sure security currency and CA currency are same 
+		// Make sure security currency and CA currency are same
 		if ($ca ['curr'] != $ca ['currency'])
 		{
 			log_error("Security:" .$ca ['ticker']. " [Default price currency=" .$ca['curr']. "][BBG CA currency=" . $ca['currency'] . "]");
-			disable_index($ca ['indxx_id'], "tbl_indxx");				
-		}
-
-		// Make sure security divident currency and CA currency are same
-		$ca_values = mysql_query("select field_value from tbl_ca_values where 
-								ca_action_id=" .$ca ['action_id']. " and field_name='CP_DVD_CRNCY'");
-		if (($err_code = mysql_errno()))
-		{
-			log_error("Mysql query failed, error code " . $err_code . ". Exiting CA process.");
-			mail_exit(__FILE__, __LINE__);
-		}
-
-		$ca_value = mysql_fetch_assoc($ca_values);
-		if ($ca ['divcurr'] != $ca_value['field_value']) 
-		{
-			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca_value['field_value']. "]");				
 			disable_index($ca ['indxx_id'], "tbl_indxx");
 		}
-		mysql_free_result($ca_values);
+
+		if ($ca ['divcurr'] != $ca['field_value'])
+		{
+			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca['field_value']. "]");
+			disable_index($ca ['indxx_id'], "tbl_indxx");
+		}
+
 	}
 	mysql_free_result($res);
-	
-	log_info("Currency check for DVD securities started");
-	
+
+	log_info("Currency check for DVD securities finshed");
+
 	check_dvd_currency_temp();
 }
 
 function check_dvd_currency_temp()
 {
 	log_info("Currency check for upcoming DVD securities started");
-	
-	$query = "Select it.ticker, it.curr, it.divcurr, it.indxx_id, ca.currency, ca.action_id, ca.id
-			from tbl_indxx_ticker_temp it join tbl_ca ca
-			where ca.identifier = it.ticker and ca.mnemonic = 'DVD_CASH'";
+
+	$query = "Select it.ticker, it.curr, it.divcurr, it.indxx_id, ca.currency, ca.action_id, ca.id, cv.field_name, cv.field_value 
+			from tbl_indxx_ticker_temp it join tbl_ca ca on ca.identifier = it.ticker 
+			left join tbl_ca_values cv on cv.ca_action_id=ca.action_id 
+			where ca.mnemonic = 'DVD_CASH' and cv.field_name='CP_DVD_CRNCY'";	
 	$res = mysql_query($query);
 	
 	if (($err_code = mysql_errno()))
@@ -99,22 +91,11 @@ function check_dvd_currency_temp()
 			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 		}
 		
-		// Make sure security divident currency and CA currency are same
-		$ca_values = mysql_query("select field_value from tbl_ca_values where
-								ca_action_id=" .$ca ['action_id']. " and field_name='CP_DVD_CRNCY'");
-		if (($err_code = mysql_errno()))
+		if ($ca ['divcurr'] != $ca['field_value'])
 		{
-			log_error("Mysql query failed, error code " . $err_code . ". Exiting CA process.");
-			mail_exit(__FILE__, __LINE__);
-		}
-		
-		$ca_value = mysql_fetch_assoc($ca_values);
-		if ($ca ['divcurr'] != $ca_value['field_value'])
-		{
-			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca_value['field_value']. "]");
+			log_error("Security:" .$ca ['ticker']. " [Default divident currency=" .$ca['divcurr']. "][BBG CA currency=" . $ca['field_value']. "]");
 			disable_index($ca ['indxx_id'], "tbl_indxx_temp");
 		}
-		mysql_free_result($ca_values);
 	}
 	mysql_free_result($res);
 
