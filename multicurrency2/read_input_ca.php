@@ -109,7 +109,7 @@ function process_ca_file()
 	
 	while(false != ($row = mysql_fetch_assoc($res)))
 	{
-		$security = explode('|', $row['value']);
+		$security = explode('|', mysql_real_escape_string($row['value']));
 
 		/* Ignore securities with no CAs */
 		if (count($security) > 5) 
@@ -122,28 +122,28 @@ function process_ca_file()
 
 			$data ['status'] 			= "'1'";
 
-			$data ['identifier'] 		= "'" . mysql_real_escape_string ( $security ['0'] ) . "'";
+			$data ['identifier'] 		= "'"  .$security ['0']. "'";
 			$checkArray ['identifier'] 	= $security ['0'];
 				
-			$data ['company_id'] 		= "'" . mysql_real_escape_string ( $security ['1'] ) . "'";
-			$data ['security_id'] 		= "'" . mysql_real_escape_string ( $security ['2'] ) . "'";		
-			$data ['rcode'] 			= "'" . mysql_real_escape_string ( $security ['3'] ) . "'";
+			$data ['company_id'] 		= "'"  .$security ['1']. "'";
+			$data ['security_id'] 		= "'"  .$security ['2']. "'";		
+			$data ['rcode'] 			= "'"  .$security ['3']. "'";
 
-			$data ['action_id'] 		= "'" . mysql_real_escape_string ( $security ['4'] ) . "'";
+			$data ['action_id'] 		= "'"  .$security ['4']. "'";
 			$checkArray ['action_id'] 	= $security ['4'];
 
-			$data ['mnemonic'] 			= "'" . mysql_real_escape_string ( $security ['5'] ) . "'";
+			$data ['mnemonic'] 			= "'"  .$security ['5']. "'";
 			$checkArray ['mnemonic'] 	= $security ['5'];
 			
 			$ca_field_id = selectrow (array('id'), 'tbl_ca_subcategory', array('code' => $security ['5']));
 				
-			$data ['field_id'] 			= "'" . mysql_real_escape_string ( $ca_field_id ['0'] ['id'] ) . "'";
-			$data ['company_name'] 		= "'" . mysql_real_escape_string ( $security ['7'] ) . "'";			
-			$data ['secid_type'] 		= "'" . mysql_real_escape_string ( $security ['8'] ) . "'";
-			$data ['secid'] 			= "'" . mysql_real_escape_string ( $security ['9'] ) . "'";
-			$data ['currency'] 			= "'" . mysql_real_escape_string ( $security ['10'] ) . "'";				
-			$data ['market_sector_desc'] 	= "'" . mysql_real_escape_string ( $security ['11'] ) . "'";
-			$data ['bloomberg_unique_id'] 	= "'" . mysql_real_escape_string ( $security ['12'] ) . "'";
+			$data ['field_id'] 			= "'"  .$ca_field_id ['0'] ['id']. "'";
+			$data ['company_name'] 		= "'"  .$security ['7']. "'";			
+			$data ['secid_type'] 		= "'"  .$security ['8']. "'";
+			$data ['secid'] 			= "'"  .$security ['9']. "'";
+			$data ['currency'] 			= "'"  .$security ['10']. "'";				
+			$data ['market_sector_desc'] 	= "'"  .$security ['11']. "'";
+			$data ['bloomberg_unique_id'] 	= "'"  .$security ['12']. "'";
 				
 			if ($security ['13'] == '')
 				$data ['ann_date'] = '0000-00-00';
@@ -165,11 +165,11 @@ function process_ca_file()
 			else
 				$data ['amd_date'] = "'" . date ( "Y-m-d", strtotime ( $security ['15'] ) ) . "'";
 					
-			$data ['bloomberg_global_id'] 	= "'" . mysql_real_escape_string ( $security ['16'] ) . "'";
-			$data ['bl_global_company_id'] 	= "'" . mysql_real_escape_string ( $security ['17'] ) . "'";
-			$data ['bl_security_id_num'] 	= "'" . mysql_real_escape_string ( $security ['18'] ) . "'";
-			$data ['feed_source'] 			= "'" . mysql_real_escape_string ( $security ['19'] ) . "'";
-			$data ['nfields'] 				= "'" . mysql_real_escape_string ( $security ['20'] ) . "'";
+			$data ['bloomberg_global_id'] 	= "'"  .$security ['16']. "'";
+			$data ['bl_global_company_id'] 	= "'"  .$security ['17']. "'";
+			$data ['bl_security_id_num'] 	= "'"  .$security ['18']. "'";
+			$data ['feed_source'] 			= "'"  .$security ['19']. "'";
+			$data ['nfields'] 				= "'"  .$security ['20']. "'";
 				
 			if($checkArray['mnemonic'] == '' || $checkArray ['ann_date'] == '0000-00-00' 
 					|| $checkArray ['eff_date'] == '0000-00-00') 
@@ -191,13 +191,15 @@ function process_ca_file()
 					$data2 ['ca_action_id'] = $data ['action_id'];
 					$data2 ['field_name'] = "'" . $security [$k + 20] . "'";
 					$data2 ['field_id'] = "'" . $field_id ['0'] ['id'] . "'";
-					$data2 ['field_value'] = "'" . mysql_real_escape_string ( $security [$k + 20 + 1] ) . "'";
+					$data2 ['field_value'] = "'"  .$security [$k + 20 + 1]. "'";
 					
 					/*TODO: convert this to direct mysql */
 					if ($security [$k + 21] != 'N.A.' && trim ( $security [$k + 21] ) != '' && $security [$k + 21] != ' ')
 						qry_insert ( 'tbl_ca_values', $data2 );
 				}	
 			}
+			unset($checkArray);
+			unset($checkTickerArray);
 		}
 	}
 	mysql_free_result($res);
