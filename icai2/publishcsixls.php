@@ -14,6 +14,7 @@ log_info(log_file, "Publish XLS generation process started");
 
 $array = array();
 
+/* Fetch the list of various complex strategy indexes */
 $res1 = mysql_query("Select client_id, id, code from tbl_indxx_cs where status='1' ");
 if (($err_code = mysql_errno()))
 {
@@ -36,6 +37,7 @@ while ($client = mysql_fetch_assoc($res1))
 	$array [$client ['client_id']] [$client ['id']] ['code'] = $client ['code'];
 	mysql_free_result($res3);
 	
+	/* Find the value of the index */
 	$res4 = mysql_query ( "select indxx_value from tbl_indxx_cs_value where indxx_id='" . $client ['id'] . "' and code ='" . $client ['code'] . "' and date='" . $date . "'" );
 	if (($err_code = mysql_errno()))
 	{
@@ -51,8 +53,7 @@ while ($client = mysql_fetch_assoc($res1))
 }
 mysql_free_result($res1);
 
-//print_r($array);
-
+/* Generate the XLS file for various CS indexes */
 if (!empty($array)) 
 {
 	foreach ( $array as $client_id => $client ) 

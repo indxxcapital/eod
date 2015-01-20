@@ -21,6 +21,7 @@ class Calccapub extends Application
 		
 		$this->log_info(log_file, "CA file generation process started");
 		
+		/* Fetch list of all live indexes */
 		$indxx = $this->db->getResult ( "select * from tbl_indxx  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' ", true );
 
 		$clients = array ();
@@ -61,8 +62,10 @@ class Calccapub extends Application
 				$entry1 .= "\n";
 				$clients [$client ['ftpusername']] ['heading'] = $entry1;
 
+				/* Fetch list of securities for this index */
 				$indxxticker = $this->db->getResult ( "select distinct(ticker) as indxxticker from tbl_indxx_ticker where indxx_id ='" . $ind ['id'] . "'", true );
-				
+
+				/* Fetch CAs for each security for today's date */
 				if (! empty ( $indxxticker )) 
 				{
 					foreach ( $indxxticker as $ticker ) 
@@ -91,6 +94,7 @@ class Calccapub extends Application
 					$file = $output_folder. "ca-" . $ind ['code'] . "-" . $datevalue2 . ".txt";
 				}
 					
+				/* Generate CA file */
 				$open = fopen ( $file, "w+" );
 				if ($open) 
 				{
@@ -101,13 +105,13 @@ class Calccapub extends Application
 					else 
 					{
 						$this->log_error(log_file, "Unable to write CA output file = " .$file. " for index = " .$ind['code']);
-						mail_exit(__FILE__, __LINE__);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
 				else
 				{
 					$this->log_error(log_file, "Unable to open CA output file = " .$file.  " for index = " .$ind['code']);
-					mail_exit(__FILE__, __LINE__);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}
 		}
@@ -132,13 +136,13 @@ class Calccapub extends Application
 					else
 					{
 						$this->log_error(log_file, "Unable to write CA composite output file = " .$file2);
-						mail_exit(__FILE__, __LINE__);
+						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
 				else
 				{
 					$this->log_error(log_file, "Unable to open CA composite output file = " .$file2);
-					mail_exit(__FILE__, __LINE__);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}
 		}
@@ -153,8 +157,8 @@ class Calccapub extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate checkcavalue index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate checkcavalue index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}		
 	}
 }

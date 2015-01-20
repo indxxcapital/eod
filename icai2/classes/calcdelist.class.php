@@ -22,6 +22,7 @@ class Calcdelist extends Application {
 		
 		$final_array = array ();
 		
+		/* Fetch the list of indexes with delist security request pending for today */
 		$indxxs = $this->db->getResult ( "select id, indxx_id from tbl_delist_runnindex_req where 
 				startdate='" . $datevalue2 . "' and adminapprove='1' ", true );
 		
@@ -37,8 +38,8 @@ class Calcdelist extends Application {
 				}
 				else
 				{
-					$this->log_error("datevalue not defined, next MYSQL query will fail");
-					$this->mail_exit(__FILE__, __LINE__);
+					$this->log_error(log_file, "datevalue not defined, next MYSQL query will fail");
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 				
 				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, 
@@ -49,7 +50,8 @@ class Calcdelist extends Application {
 									" and sh.indxx_id='" .$indxx ['indxx_id']. "and it.indxx_id='" . $indxx ['indxx_id'];				
 				$indxxprices = $this->db->getResult ( $query, true );				
 				$final_array [$indxx ['indxx_id']]['olddata'] = $indxxprices;
-				
+
+				/* List of securities that needs to be removed */
 				$oldsecurity = $this->db->getResult ( "select security_id from tbl_delist_runnsecurity where req_id='" . $indxx ['id'] . "' and  indxx_id='" . $indxx ['indxx_id'] . "' ", true );
 				$final_array [$indxx ['indxx_id']]['removesecurity'] = $oldsecurity;
 			}
@@ -57,6 +59,7 @@ class Calcdelist extends Application {
 		
 		if (! empty ( $final_array )) 
 		{
+			/* Delete delisted securities and re-calculate divisors for the index */
 			foreach ( $final_array as $id => $indxx_array ) 
 			{				
 				$tempMarketCap = 0;
@@ -96,8 +99,8 @@ class Calcdelist extends Application {
 					
 					$newDivisor = $newDivisor - ($tempMarketCap / $indxx_array ['index_value'] ['indxx_value']);
 					
+					/* Update index parameters */
 					$updateQuery = 'update tbl_indxx_value set newdivisor="' . $newDivisor . '",olddivisor="' . $newDivisor . '" where  date="' . $indxx_array ['index_value'] ['date'] . '" and indxx_id="' . $id . '"';
-					
 					$this->db->query ( $updateQuery );
 				}				
 			}
@@ -113,8 +116,8 @@ class Calcdelist extends Application {
 		else
 		{
 			//$this->Redirect("index.php?module=calcreplace&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcreplace index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calcreplace index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

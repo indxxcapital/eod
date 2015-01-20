@@ -8,13 +8,10 @@ class Calcindxxopeningtemp extends Application
 	
 	function index() 
 	{
-		//unset ( $_SESSION );
-
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		$datevalue2 = $this->_date;
 		
 		define("log_file", $_GET['log_file']);
-		echo "Putting logs in " . log_file;
 		
 		if($_GET['DEBUG'])
 			define("DEBUG", $_GET['DEBUG']);
@@ -27,14 +24,8 @@ class Calcindxxopeningtemp extends Application
 		
 		$final_array = array ();
 		
-		$indxxs = mysql_query("select * from tbl_indxx_temp where status = '1' and usersignoff = '1' and
-													dbusersignoff = '1' and submitted = '1' and runindex = '1'");
-		if ($err_code = mysql_errno())
-		{
-			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
-			". Exiting opening file process.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		$indxxs = exec_mysql_query("select * from tbl_indxx_temp where status = '1' and usersignoff = '1' and
+													dbusersignoff = '1' and submitted = '1' and runindex = '1'", log_file, __FUNCTION__, __LINE__);
 		
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
 		{
@@ -60,6 +51,9 @@ class Calcindxxopeningtemp extends Application
 					$final_array [$row_id] ['index_value'] ['olddivisor'] = $row ['divisor'];
 					$final_array [$row_id] ['index_value'] ['newdivisor'] = $row ['divisor'];
 					$final_array [$row_id] ['index_value'] ['indxx_value'] = $row ['investmentammount'] / $row ['divisor'];
+
+					/*TODO: Check what date should be used here */
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 								
 				$query = "SELECT it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.localprice, 
@@ -341,7 +335,7 @@ class Calcindxxopeningtemp extends Application
 						}
 						else
 						{
-							echo "ISIN mismatch. Exiting process" . "<br>";
+							$this->log_error(log_file, "ISIN mismatch. Exiting process");
 							$this->mail_exit(log_file, __FILE__, __LINE__);
 						}
 					}
@@ -460,7 +454,7 @@ class Calcindxxopeningtemp extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=notifyforca&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate notify CA module.");
+			$this->log_error(log_file, "Unable to locate notify CA module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}		
 	}

@@ -27,15 +27,17 @@ class Calcindxxclosingtemp extends Application
 
 		$final_array=array();
 		
+		/* Fetch list of all upcoming indexes with mentioned properties */	
 		$indxxs = mysql_query("select * from tbl_indxx_temp where status = '1' and usersignoff = '1' and
 															dbusersignoff = '1' and submitted = '1'");
 		if ($err_code = mysql_errno())
 		{
-			log_error("Unable to read upcoming indexes. MYSQL error code " . $err_code .
+			$this->log_error(log_file, "Unable to read upcoming indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);		
 		}
 
+		/* Process each index */
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
 		{
 			$row_id  = $row['id'];
@@ -48,8 +50,10 @@ class Calcindxxclosingtemp extends Application
 				$client = $this->db->getResult("select ftpusername from tbl_ca_client where id = '".$row['client_id']."'", false, 1);
 				$final_array[$row_id]['client'] = $client['ftpusername'];
 			
+				/* Fetch the last day opening index value */
 				$indxx_value = $this->db->getResult("select * from tbl_indxx_value_open_temp where indxx_id = '".$row_id."' order by date desc ", false, 1);
 
+				/* TODO: Check in which scenario we will go in else */
 				if(!empty($indxx_value))
 				{
 					$row['index_value'] = $indxx_value;
@@ -71,6 +75,7 @@ class Calcindxxclosingtemp extends Application
 					}
 				}
 
+				/* Fetch securities for this index */
 				$query = "SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, 
 							fp.localprice, fp.currencyfactor, fp.price as calcprice, sh.share as calcshare 
 							FROM `tbl_indxx_ticker_temp` it left join tbl_final_price_temp fp on fp.isin=it.isin 
@@ -102,6 +107,7 @@ class Calcindxxclosingtemp extends Application
 
 		$backup_folder = "../files/output/backup/";
 		
+		/* Generate closing file for this index */
 		if(!empty($final_array))
 		{
 			foreach($final_array as $indxxKey=> $closeIndxx)
@@ -195,6 +201,7 @@ class Calcindxxclosingtemp extends Application
  					}
  				}
  				
+ 				/* Write new index value in DB */
  				$insertQuery = 'INSERT into tbl_indxx_value_temp (indxx_id, code, market_value, indxx_value, date, olddivisor, newdivisor) values 
 		 				("'.$closeIndxx['id'].'", "'.$closeIndxx['code'].'", "'.$marketValue.'", "'.$newindexvalue.'",
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				
@@ -244,7 +251,7 @@ class Calcindxxclosingtemp extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate composite close module.");
+			$this->log_error(log_file, "Unable to locate composite close module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}		

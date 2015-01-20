@@ -22,7 +22,8 @@ class Calcreplace extends Application
 		$this->log_info(log_file, "CA [delist live index] process started");
 
 		$final_array = array ();
-		
+
+		/* Fetch the list of indexes with delist security request pending for today */
 		$indxxs = $this->db->getResult ( "select id,indxx_id from tbl_replace_runnindex_req where startdate='" . $datevalue2 . "' and adminapprove='1' and dbapprove='1'", true );
 		
 		if (! empty ( $indxxs )) 
@@ -41,8 +42,8 @@ class Calcreplace extends Application
 				}
 				else
 				{
-					$this->log_error("datevalue not defined, next MYSQL query will fail");
-					$this->mail_exit(__FILE__, __LINE__);
+					$this->log_error(log_file, "datevalue not defined, next MYSQL query will fail");
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 				
 				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, it.sedol, it.cusip, it.countryname, 
@@ -86,7 +87,8 @@ class Calcreplace extends Application
 					{
 						$tempmarketcap = 0;
 						$TempWeight = 0;
-						
+												
+						/* Replace securties */
 						foreach ( $indxx_array ['replacesecurity'] as $replaceSecurity ) 
 						{
 							foreach ( $indxx_array ['olddata'] as $oldsecuritykey => $oldsecurity ) 
@@ -109,6 +111,7 @@ class Calcreplace extends Application
 							}
 						}
 
+						/* Calculate new index parameters with replaced securities */
 						if ($tempmarketcap)
 							$TempWeight = $tempmarketcap / $countnewSeurities;
 			
@@ -147,8 +150,8 @@ class Calcreplace extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calccapub&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calccapub index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calccapub index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

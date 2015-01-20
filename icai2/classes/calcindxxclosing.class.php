@@ -31,7 +31,7 @@ class Calcindxxclosing extends Application
 															dbusersignoff = '1' and submitted = '1'");
 		if ($err_code = mysql_errno())
 		{
-			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
+			$this->log_error(log_file, "Unable to read live indexes. MYSQL error code " . $err_code .
 					". Exiting closing file process.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
@@ -48,7 +48,7 @@ class Calcindxxclosing extends Application
 				$res = mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'");
 				if ($err_code = mysql_errno())
 				{
-					log_error("Mysql query failed, error code " .$err_code. ". Exiting closing file process.");
+					$this->log_error(log_file, "Mysql query failed, error code " .$err_code. ". Exiting closing file process.");
 					$this->mail_skip(log_file, __FILE__, __LINE__);
 				}
 				$client = mysql_fetch_assoc($res);				
@@ -295,7 +295,7 @@ class Calcindxxclosing extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate closing upcoming index module.");
+			$this->log_error(log_file, "Unable to locate closing upcoming index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}   

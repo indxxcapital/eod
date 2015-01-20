@@ -8,10 +8,10 @@ class Notifyforca extends Application
 	
 	function index() 
 	{
-		/* TODO: Check if this is getting used or not? */
+		/* TODO: Check if this is getting used or not?, Why this is needed?, Update this accordingly */
 		if (false)
 		{
-			if (date('D') == "Mon") 
+			if (date('D', $_GET['date']) == "Mon") 
 			{
 				$text = '<br>Please Change The Corporate Action Request File date range from  : ' 
 						. date ( "Y-m-d", strtotime ( date ( "Y-m-d" ) ) - (7 * 86400) ) . 
@@ -50,7 +50,7 @@ class Notifyforca extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcftpopen&DEBUG=" .$_GET['DEBUG']. "&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
-			log_error("Unable to locate calcftpopen module.");
+			$this->log_error(log_file, "Unable to locate calcftpopen module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}

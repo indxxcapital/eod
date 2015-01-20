@@ -11,13 +11,18 @@ class Calcindxxopening extends Application
 	function index()
 	{
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
+
+		/* Define the date for which opening process needs to run */
 		$datevalue2 = $this->_date;
 		
+		/* Prepare log file for opening process */
 		prepare_logfile();
 		define("log_file", $this->get_opening_logs_file());
 				
+		/* Define what type of process is this - Opening */
 		define("process", "Opening");
 		
+		/* Debug or production mode run? */
 		if($_GET['DEBUG'])
 			define("DEBUG", $_GET['DEBUG']);
 
@@ -29,34 +34,31 @@ class Calcindxxopening extends Application
 		
 		$final_array = array();
 
-		$indxxs = mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and 
-															dbusersignoff = '1' and submitted = '1'");
-		if ($err_code = mysql_errno())
-		{
-			log_error("Unable to read live indexes. MYSQL error code " . $err_code .
-					". Exiting opening file process.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		/* Extract all approved live indexes with mentioned properties */
+		$indxxs = exec_mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and dbusersignoff = '1' 
+								and submitted = '1'", log_file, __FUNCTION__, __LINE__);
 		
+		/* Process each index */
 		while(false != ($row = mysql_fetch_assoc($indxxs)))
 		{
 			$row_id  = $row['id'];
 			$this->log_info(log_file, "Processing opening data file for index = " . $row_id);	
 				
+			/* Skip index for which we have holiday today */
 			if($this->checkHoliday($row['zone'], $datevalue2))
 			{
 				$final_array[$row_id] = $row;			
 			
-				$res = mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'");
-				if ($err_code = mysql_errno())
-				{
-					log_error("Mysql query failed, error code " .$err_code. ". Exiting closing file process.");
-					$this->mail_skip(log_file, __FILE__, __LINE__);
-				}
-				$client = mysql_fetch_assoc($res);				
-				$final_array[$row_id]['client'] = $client['ftpusername'];
+				$res = exec_mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'",
+									log_file, __FUNCTION__, __LINE__);
+				
+				if ($client = mysql_fetch_assoc($res))
+					$final_array[$row_id]['client'] = $client['ftpusername'];
+
 				mysql_free_result($res);
 				
+				/* Find the previous index values */
+				/* TODO: Do this based on date instead of topmost entries */
 				$indxx_value = $this->db->getResult("select * from tbl_indxx_value where 
 													indxx_id = '" . $row_id . "' order by date desc ", false, 1);
 			
@@ -72,17 +74,11 @@ class Calcindxxopening extends Application
 					$final_array[$row_id]['index_value']['olddivisor'] = $row ['divisor'];
 					$final_array[$row_id]['index_value']['newdivisor'] = $row ['divisor'];
 					
-					log_error("datevalue not defined for index=" .$row_id);
-					mail_exit(__FILE__, __LINE__);
+					/*  TODO: Check what date should be used here */
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 
-				/*
-				$query = "SELECT it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.price as calcprice, 
-						fp.localprice as localprice, fp.currencyfactor as currencyfactor, sh.share as calcshare  
-						FROM tbl_indxx_ticker it, tbl_final_price fp, tbl_share sh where 
-						it.indxx_id='".$row_id."' and sh.isin=it.isin  and sh.indxx_id='".$row_id."' and 
-						fp.isin=it.isin  and fp.date='".$datevalue."' and fp.indxx_id='".$row_id."'";
-				*/	
+				/* Extract securities for the index */
 				$query="SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.sedol, it.cusip, it.countryname, fp.localprice, fp.currencyfactor, 
 						fp.price as calcprice, sh.share as calcshare FROM `tbl_indxx_ticker` it left join tbl_final_price fp on fp.isin=it.isin 
 						left join tbl_share sh on sh.isin=it.isin where it.indxx_id='".$row_id."' and fp.indxx_id='".$row_id.
@@ -90,6 +86,7 @@ class Calcindxxopening extends Application
 				
 				$indxxprices = $this->db->getResult($query, true);	
 				
+				/* Process CAs for each security */
 				if(!empty($indxxprices))
 				{
 					foreach($indxxprices as $key=> $indxxprice)
@@ -129,7 +126,7 @@ class Calcindxxopening extends Application
 											where ca_id='" . $ca ['id'] . "'  and ca_action_id='" . $ca ['action_id'] . "' ";
 									$ca_values = $this->db->getResult ( $ca_value_query, true );
 								}
-								// if($row['ireturn']==1 && $ca['mnemonic'] )
+
 								$value = 0;
 								if (! empty ( $ca_values )) {
 									foreach ( $ca_values as $ca_value ) {
@@ -138,7 +135,7 @@ class Calcindxxopening extends Application
 										}
 									}
 								}
-								// echo $value;
+
 								if ($row ['ireturn'] == 1 && $ca ['mnemonic'] == 'DVD_CASH' && $value != 1001) {
 									$cas [$cakey] = array ();
 								} else {
@@ -150,16 +147,12 @@ class Calcindxxopening extends Application
 						$indxxprices [$key] ['ca'] = $cas;
 					}
 				}			
-				//echo "<br>";
 				
 				$final_array[$row_id]['values'] = $indxxprices;		
-				//print_r($final_array[$row_id]);
-				//echo "<br>";		
 			}		
 		}
 		mysql_free_result($indxxs);
 
-		//exit();
 		$backup_folder = "../files/output/backup/";
 		if (!file_exists($backup_folder))
 			mkdir($backup_folder, 0777, true);
@@ -350,8 +343,6 @@ class Calcindxxopening extends Application
 
 					$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $priceAdjfactor;
 					$final_array[$indxxKey]['values'][$securityKey]['newlocalprice'] = $closeprices ['localprice'] * $priceAdjfactor;
-					echo "localprice =" .$final_array[$indxxKey]['values'][$securityKey]['newlocalprice']. "<br>";
-					
 					
 					if ($shareAdjfactor == 1) 
 						$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'];
@@ -392,6 +383,7 @@ class Calcindxxopening extends Application
 			}
 		}
 
+		/* Prepare opening file for this index */
 		if (! empty ( $final_array )) 
 		{
 			foreach ( $final_array as $key => $closeIndxx ) 
@@ -484,9 +476,14 @@ class Calcindxxopening extends Application
 					}
 					else
 					{
-						$this->log_error(log_file, "Opening file generation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+						$this->log_error(log_file, "Opening file write failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
 						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
+				}
+				else 
+				{
+					$this->log_error(log_file, "Opening file creation failed for client = " .$closeIndxx['client']. ", index = " .$closeIndxx['code']);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}				
 				unset($final_array[$key]);				
 			}
@@ -504,7 +501,7 @@ class Calcindxxopening extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			log_error("Unable to locate opening upcoming index module.");
+			$this->log_error(log_file, "Unable to locate opening upcoming index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}   

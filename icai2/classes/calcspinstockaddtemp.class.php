@@ -113,8 +113,8 @@ class Calcspinstockaddtemp extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calccadp&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calccadp index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calccadp index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

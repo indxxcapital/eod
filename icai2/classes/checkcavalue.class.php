@@ -44,7 +44,7 @@ class Checkcavalue extends Application
 		if (($err_code = mysql_errno()))
 		{
 			$this->log_error(log_file, "Mysql query failed, error code " . $err_code . ". Exiting CA process.");
-			mail_exit(__FILE__, __LINE__);
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 		
 		while (false != ($ca =mysql_fetch_assoc($res)))
@@ -93,6 +93,7 @@ class Checkcavalue extends Application
 			$headers = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			
+			/* TODO: Send this mail to generic ID */
 			mail ( $to, $subject, $message, $headers );
 		}
 
@@ -106,8 +107,8 @@ class Checkcavalue extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcspinstockadd&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcspinstockadd index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calcspinstockadd index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

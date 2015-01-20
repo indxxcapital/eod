@@ -20,8 +20,10 @@ class Compositclose extends Application
 
 		$this->log_info(log_file, "Composite closing file generation process started.");
 		
+		/* Fetch the list of all the clients */
 		$clientData = $this->db->getResult("select id, ftpusername from tbl_ca_client where status = '1'" );
 		
+		/* Generate composite index value file for each client */
 		if (!empty($clientData)) 
 		{
 			foreach ($clientData as $client) 
@@ -80,7 +82,7 @@ class Compositclose extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
-			$this->log_error("Unable to locate cash index module.");
+			$this->log_error(log_error, "Unable to locate cash index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}

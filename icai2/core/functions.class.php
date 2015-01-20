@@ -14,6 +14,37 @@ class Functions extends Models {
 	var $_date = '';
 	var $logs_folder = "../files/logs/";
 	//var $opening_process_logs = null;
+
+	static $email_errors = "";
+	static $process = null;
+	
+	function do_init()
+	{		
+		/* Execution time for the script. Must be defined based on performance and load. */
+		ini_set('max_execution_time', 60 * 60);
+		ini_set("memory_limit", "1024M");
+						
+		if ($_GET['DEBUG'])
+		{
+			$this->email_errors = "amitmahajan86@gmail.com";
+		}
+		else
+		{
+			echo "Please define email id for sending mails.<br>";
+			exit();
+		}
+			
+		if ($this->process == null)
+		{
+			echo "called for module " .$_GET['module']. "<br>";
+			if ($_GET['module'] == calcindxxclosing)
+				$this->process = "Closing";
+			else if ($_GET['module'] == Calcindxxopening)
+				$this->process = "Opening";
+			else 
+				$this->process = "CA";			
+		}
+	}
 	
 	function setdate() {
 		if($_GET['DEBUG'])	
@@ -21,6 +52,8 @@ class Functions extends Models {
 			$this->_date = $_GET['date'];
 		else 
 			$this->_date = date ( "Y-m-d");
+
+		$this->do_init();
 	}
 	function setLang($lang = "en") {
 		
@@ -964,7 +997,7 @@ class Functions extends Models {
 	function mail_exit($log_file, $file, $line)
 	{
 		$this->log_error($log_file, "Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
-		mail(email_errors, "Closing file generation process existed with error.",
+		mail($this->email_errors, $this->process. " file generation process existed with error.",
 		"Please check log[" .$log_file. "] file for more info.");
 		exit();
 	}
@@ -972,8 +1005,20 @@ class Functions extends Models {
 	function mail_skip($log_file, $file, $line)
 	{
 		$this->log_warning($log_file, "Sending email for anomoly at file=" .$file. " and line=" .$line);
-		mail(email_errors, "Closing file generation process encountered anomaly.",
+		mail($this->email_errors, $this->process. " file generation process encountered anomaly.",
 		"Please check log[" .$log_file. "] file for more info.");
+	}
+	
+	function exec_mysql_query($query, $log_file, $func, $line)
+	{
+		$res = mysql_query($query);
+		if ($err_code = mysql_errno())
+		{
+			$this->log_error($log_file, "MYSQL error, code " . $err_code . ". Exiting process.");
+			$this->mail_exit($log_file, $func, $line);
+		}
+		
+		return $res;
 	}
 	
 	function writeLog() {

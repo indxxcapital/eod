@@ -23,6 +23,7 @@ class Calcrebalance extends Application
 		$this->log_info(log_file, "CA rebalance process started");
 		$final_array = array ();
 		
+		/* Fetch the upcoming indexes with today as start date and recalc parameter set */
 		$indxxs = $this->db->getResult ( "select * from tbl_indxx_temp  where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' and recalc='1' and dateStart='" . $datevalue2 . "'", true );
 		
 		if (! empty ( $indxxs )) 
@@ -31,6 +32,8 @@ class Calcrebalance extends Application
 			{	
 				$final_array [$row ['id']] = $row;
 				
+				/* TODO: why we are using live index tables here? */
+				/* Find the index ID assigned to this index */
 				$liveindexid = $this->db->getResult ( "select id from tbl_indxx where code='" . $row ['code'] . "' ", true );
 				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value where indxx_id='" . $liveindexid ['0'] ['id'] . "' order by date desc ", false, 1 );
 
@@ -39,6 +42,7 @@ class Calcrebalance extends Application
 				$final_array [$row ['id']] ['last_close_date'] = $indxx_value ['date'];
 				$final_array [$row ['id']] ['last_close_id'] = $indxx_value ['id'];
 				
+				/* Find the index ID assigned to this index in upcoming index list */
 				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value_temp where indxx_id='" . $row ['id'] . "' order by date desc ", false, 1 );
 				$final_array [$row ['id']] ['last_close_temp_id'] = $indxx_value ['id'];
 				
@@ -69,6 +73,7 @@ class Calcrebalance extends Application
 				$oldIndexValue = $index ['index_value'];
 				$newMarketCap = 0;
 
+				/* Calculate updated market value for the index */
 				if (! empty ( $index ['values'] )) 
 				{
 					foreach ( $index ['values'] as $securities )
@@ -80,6 +85,7 @@ class Calcrebalance extends Application
 					$newDivisor = $newMarketCap / $oldIndexValue;
 					$final_array [$indexKey] ['newDivisor'] = $newDivisor;
 					
+					/* Update values in DB */
 					$updateQuery = 'update tbl_indxx_value_temp set market_value="' . $newMarketCap . '",indxx_value="' . $oldIndexValue . '",newdivisor="' . $newDivisor . '",olddivisor="' . $newDivisor . '" where id="' . $index ['last_close_temp_id'] . '"';
 					$this->db->query ( $updateQuery );
 				}
@@ -96,8 +102,8 @@ class Calcrebalance extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcdp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcdp index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calcdp index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

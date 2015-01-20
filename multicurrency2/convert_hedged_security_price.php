@@ -34,7 +34,7 @@ function convert_headged_security_to_indxx_curr()
 		{
 			$lastConversionDate = $resdate['date'];
 
-			
+			/* TODO: Check with Deepak, why we are using final_price table here, should not we take inputs from ticker table */	
 			$pricequery = mysql_query("SELECT it.isin, it.price, it.localprice, pf.price as localpricetoday   
 						FROM `tbl_final_price` it left join  tbl_prices_local_curr pf on pf.isin = it.isin  
 						where it.indxx_id = '" . $index['id'] . "' and it.date ='" . $lastConversionDate . "' 

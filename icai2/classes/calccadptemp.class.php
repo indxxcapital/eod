@@ -37,10 +37,10 @@ class Calccadptemp extends Application
 				if (! empty ( $indxx_value )) 
 				{
 					$ticker_details = $this->db->getResult ("SELECT  it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, it.curr, it.sedol, it.cusip, it.countryname,
-								fp.price as calcprice, fp.localprice, sh.share as calcshare
-								from `tbl_indxx_ticker_temp` it left join tbl_final_price_temp fp on fp.isin=it.isin
-								left join tbl_share_temp sh on sh.isin=it.isin
-								where fp.date='" . $indxx_value ['date'] . "' and fp.indxx_id='" . $newcTicker ['indxx_id'].
+								fp.price as calcprice, fp.localprice, sh.share as calcshare 
+								from `tbl_indxx_ticker_temp` it left join tbl_final_price_temp fp on fp.isin=it.isin 
+								left join tbl_share_temp sh on sh.isin=it.isin 
+								where fp.date='" . $indxx_value ['date'] . "' and fp.indxx_id='" . $newcTicker ['indxx_id']. 
 							"' and sh.indxx_id='" . $newcTicker ['indxx_id'] . "' and it.indxx_id='" . $newcTicker ['indxx_id']. "' and ticker='" . $newcTicker ['identifier'] . "'", false, 1 );
 						
 					$finalArray [$key] ['old_ticker'] = $ticker_details;					
@@ -76,8 +76,8 @@ class Calccadptemp extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcrebalance&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcrebalance index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calcrebalance index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

@@ -23,6 +23,7 @@ class Calclsc extends Application
 		
 		$final_array=array();
 		
+		/* Fetch the list of various LSC indexes */
 		$indxxs=$this->db->getResult("select * from tbl_indxx_lsc  where status='1' ",true);	
 						  		
 		if(!empty($indxxs))
@@ -36,6 +37,7 @@ class Calclsc extends Application
 					$client=$this->db->getResult("select ftpusername from tbl_ca_client where id='".$row['client_id']."'",false,1);	
 					$final_array[$row['id']]['client']=$client['ftpusername'];
 
+					/* Fetch user defined adjustment factor for this LSC index */
 					$calcfactor=$this->db->getResult("select * from tbl_lsc_adj_factor where lsc_indxx_id='".$row['id']."' ",false,1);	
 					$final_array[$row['id']]['calcfactor']=$calcfactor;
 			
@@ -55,7 +57,7 @@ class Calclsc extends Application
 							if($cash_indxx_value['date']!=$short_indxx_value['date']  && $cash_indxx_value['date'] !=$long_indxx_value['date'])
 							{		
 								$msg="Long short Cash Index is not calculated ".$row['name']." due to value mismatch";
-								mail("ICAL@indxx.com","Softlayer - Long Short Cash Index Not Calculated ",$msg);
+								$this->mail_exit(log_file, __FILE__, __LINE__);
 								$this->log_error(log_file, $msg);
 								unset($final_array[$row['id']]);
 							}
@@ -64,9 +66,8 @@ class Calclsc extends Application
 						{
 							$msg="LSC index not calculated, ".$row['name']." not available.";					
 							$this->log_error(log_file, $msg);
-							unset($final_array[$row['id']]);
 							$this->mail_exit(log_file, __FILE__, __LINE__);
-								
+							unset($final_array[$row['id']]);
 						}
 					}
 					$final_array[$row['id']]['values']=$calcfactors;
@@ -74,6 +75,7 @@ class Calclsc extends Application
 			}
 		 }
 		 
+		 /* Generate index value files for various LSC indexes */
 		if(!empty($final_array))
 		{  
 			file_put_contents('../files/output/backup/preCLOSELSCdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
@@ -104,6 +106,7 @@ class Calclsc extends Application
 					
 				$entry4='';
 
+				/* Calculate the new index value for this LSC index based on last value, user defined adjustment factor and values component long, short and cash indexes */
 				$index_value=0;
 				if(!empty($closeIndxx))
 				{
@@ -124,6 +127,7 @@ class Calclsc extends Application
 
 				$entry2=number_format($index_value,2,'.','').",\n";
 
+				/* Update values of indexes in DB */
 				$insertQuery='INSERT into tbl_indxx_lsc_value (indxx_id, code, indxx_value, date) values 
 						("'.$closeIndxx['id'].'","'.$closeIndxx['code'].'","'.number_format($index_value,2,'.','').'","'.$datevalue2.'")';
 				$this->db->query($insertQuery);	
@@ -164,7 +168,7 @@ class Calclsc extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calccsi&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			$this->log_error("Unable to locate CSI index module.");
+			$this->log_error(log_file, "Unable to locate CSI index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}

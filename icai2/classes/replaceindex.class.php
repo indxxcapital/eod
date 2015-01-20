@@ -23,7 +23,8 @@ class Replaceindex extends Application
 		
 		$finalArray = array ();
 		
-		$totalindxxs = $this->db->getResult ( "select * from tbl_indxx_temp where 1=1 and status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' and finalsignoff='1'  and dateStart='" . $datevalue . "'  ", true );
+		/* Fetch list of all upcoming indexes with today as the live date */
+		$totalindxxs = $this->db->getResult ( "select * from tbl_indxx_temp where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' and finalsignoff='1'  and dateStart='" . $datevalue . "'  ", true );
 		
 		if (! empty ( $indexdata )) 
 		{
@@ -31,18 +32,23 @@ class Replaceindex extends Application
 			{
 				$finalArray [$k1] = $oldindxx;
 				
+				/* Fetch the list of securities for this index */
 				$oldTickers = $this->db->getResult ( "Select * from  tbl_indxx_ticker_temp where indxx_id ='" . $oldindxx ['id'] . "'", true );
 				$finalArray [$k1] ['tickers'] = $oldTickers;
 
+				/* Fetch shares for this index */
 				$oldShares = $this->db->getResult ( "Select * from  tbl_share_temp where indxx_id ='" . $oldindxx ['id'] . "'", true );
 				$finalArray [$k1] ['shares'] = $oldShares;
 
+				/* Fetch the index value */
 				$oldindxxvalue = $this->db->getResult ( "Select * from  tbl_indxx_value_temp where indxx_id ='" . $oldindxx ['id'] . "' order by date desc ", false, 1 );
 				$finalArray [$k1] ['oldindxxvalue'] = $oldindxxvalue;
 				
+				/* Fetch the currency converted prices of various securities for this index */
 				$oldPrices = $this->db->getResult ( "Select * from  tbl_final_price_temp where indxx_id ='" . $oldindxx ['id'] . "' and date='" . $oldindxxvalue ['date'] . "'", true );
 				$finalArray [$k1] ['prices'] = $oldPrices;
 				
+				/* Check if this index is listed in the delist queue */
 				$delistReq = $this->db->getResult ( "Select * from  tbl_delist_tempindex_req where indxx_id ='" . $oldindxx ['id'] . "'", true );
 				$delistArray = array ();
 
@@ -50,8 +56,9 @@ class Replaceindex extends Application
 				{
 					foreach ( $delistReq as $k2 => $delisting ) 
 					{
-						$delistSec = $this->db->getResult ( "Select * from  tbl_delist_tempsecurity where indxx_id ='" . $delisting ['indxx_id'] . "' and req_id='" . $delisting ['id'] . "'", true );
 						$delistArray [$k2] = $delisting;
+						
+						$delistSec = $this->db->getResult ( "Select * from  tbl_delist_tempsecurity where indxx_id ='" . $delisting ['indxx_id'] . "' and req_id='" . $delisting ['id'] . "'", true );
 						$delistArray [$k2] ['security'] = $delistSec;
 					}
 				}
@@ -66,8 +73,9 @@ class Replaceindex extends Application
 				{
 					foreach ( $replaceReq as $k3 => $replacement ) 
 					{
-						$replaceSec = $this->db->getResult ( "Select * from  tbl_replace_tempsecurity where indxx_id ='" . $replacement ['indxx_id'] . "' and req_id='" . $replacement ['id'] . "'", true );
 						$replaceArray [$k3] = $replacement;
+						
+						$replaceSec = $this->db->getResult ( "Select * from  tbl_replace_tempsecurity where indxx_id ='" . $replacement ['indxx_id'] . "' and req_id='" . $replacement ['id'] . "'", true );
 						$replaceArray [$k3] ['selectedsecurity'] = $replaceSec;
 						
 						$replacedSec = $this->db->getResult ( "Select * from  tbl_tempsecurities_replaced where indxx_id ='" . $replacement ['indxx_id'] . "' and req_id='" . $replacement ['id'] . "'", true );
@@ -101,20 +109,21 @@ class Replaceindex extends Application
 				if (fwrite ( $open, $csv )) 
 				{
 					fclose ( $open );
-					$this->log_info("File written = " .$file);
+					$this->log_info(log_file, "File written = " .$file);
 				}
 				else
 				{
-					$this->log_error("Unable to write file = " .$file);
-					mail_exit(__FILE__, __LINE__);
+					$this->log_error(log_file, "Unable to write file = " .$file);
+					$this->mail_exit(log_file, __FILE__, __LINE__);
 				}
 			}
 			else
 			{
-				$this->log_error("Unable to open file = " .$file);
-				mail_exit(__FILE__, __LINE__);
+				$this->log_error(log_file, "Unable to open file = " .$file);
+				$this->mail_exit(log_file, __FILE__, __LINE__);
 			}
 				
+			/* Push each upcoming index, with today as live date, into the live index table list */
 			foreach ( $finalArray as $skey => $newIndxx ) 
 			{
 				$newIndexArray = array ();
@@ -123,28 +132,24 @@ class Replaceindex extends Application
 				
 				if (! empty ( $checkindex ))
 				{
-					$newIndexArray ['indexdetails'] = $checkindex;
-					
+					/* TODO: Check with Deepak how this scenario can occur? It should not be in live in list */
+					$newIndexArray ['indexdetails'] = $checkindex;					
 					$this->db->query ( "delete from  tbl_indxx where code ='" . $newIndxx ['code'] . "'" );
 					
 					$checktickers = $this->db->getResult ( "Select * from  tbl_indxx_ticker where indxx_id ='" . $checkindex ['id'] . "'", true );
 					$newIndexArray ['indexdetails'] ['tickers'] = $checktickers;
-
 					$this->db->query ( "delete from  tbl_indxx_ticker where indxx_id ='" . $checkindex ['id'] . "'" );
 					
 					$checkindexvalue = $this->db->getResult ( "Select * from  tbl_indxx_value where indxx_id ='" . $checkindex ['id'] . "' order by date desc", false, 1 );
-					$newIndexArray ['indexdetails'] ['indexvalue'] = $checkindexvalue;
-					
+					$newIndexArray ['indexdetails'] ['indexvalue'] = $checkindexvalue;					
 					$this->db->query ( "delete from  tbl_indxx_value where indxx_id ='" . $checkindex ['id'] . "' and date='" . $checkindexvalue ['date'] . "'" );
 					
 					$checkprice = $this->db->getResult ( "Select * from  tbl_final_price where indxx_id ='" . $checkindex ['id'] . "' and date='" . $checkindexvalue ['date'] . "'", true );
 					$newIndexArray ['indexdetails'] ['price'] = $checkprice;
-
 					$this->db->query ( "delete from  tbl_final_price where indxx_id ='" . $checkindex ['id'] . "' and date='" . $checkindexvalue ['date'] . "'" );
 					
 					$checkshares = $this->db->getResult ( "Select * from  tbl_share where indxx_id ='" . $checkindex ['id'] . "'", true );
 					$newIndexArray ['indexdetails'] ['shares'] = $checkshares;
-
 					$this->db->query ( "delete from  tbl_share where indxx_id ='" . $checkindex ['id'] . "'" );
 					
 					$checkdelistReq = $this->db->getResult ( "Select * from  tbl_delist_runnindex_req where indxx_id ='" . $checkindex ['id'] . "'", true );
@@ -209,18 +214,18 @@ class Replaceindex extends Application
 							if (fwrite ( $open, $csv )) 
 							{
 								fclose ( $open );
-								echo "file Writ for" . $checkindex ['code'] . " <br>";
+								$this->info("File written for" . $checkindex ['code']);
 							}
 							else
 							{
-								$this->log_error("Unable to write file = " .$file);
-								mail_exit(__FILE__, __LINE__);
+								$this->log_error(log_file, "Unable to write file = " .$file);
+								$this->mail_exit(log_file,  __FILE__, __LINE__);
 							}
 						}
 						else
 						{
-							$this->log_error("Unable to open file = " .$file);
-							mail_exit(__FILE__, __LINE__);
+							$this->log_error(log_file, "Unable to open file = " .$file);
+							$this->mail_exit(log_file, __FILE__, __LINE__);
 						}		
 					}
 				}
@@ -349,8 +354,8 @@ class Replaceindex extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=replacecash&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate replacecash index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate replacecash index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}
 }

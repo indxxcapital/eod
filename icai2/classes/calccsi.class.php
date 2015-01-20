@@ -23,6 +23,7 @@ class Calccsi extends Application
 		
 		$final_array=array();
 		
+		/* Fetch the list of various CSI indexes */
 		$indxxs = $this->db->getResult("select * from tbl_indxx_cs  where status='1' ",true);
 		
 		if(!empty($indxxs))
@@ -36,6 +37,7 @@ class Calccsi extends Application
 					$client = $this->db->getResult("select ftpusername from tbl_ca_client where id='".$row['client_id']."'",false,1);	
 					$final_array[$row['id']]['client']=$client['ftpusername'];
 
+					/* Fetch user defined adjustment factor for this CSI index */
 					$calcfactors=$this->db->getResult("select * from tbl_csi_adj_factor  where cs_indxx_id='".$row['id']."' ",true);	
 					if(!empty($calcfactors))
 					{
@@ -53,6 +55,7 @@ class Calccsi extends Application
 			}
 		 }
 		 		
+		 /* Generate index value files for various CSI indexes */
 		if(!empty($final_array))
 		{  
 			file_put_contents('../files/output/backup/preCLOSECCSIdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
@@ -84,6 +87,7 @@ class Calccsi extends Application
 							
 				$entry4='';
 			
+				/* Calculate the new index value for this CSI index based on last value and user defined adjustment factor */
 				$index_value=0;
 				if(!empty($closeIndxx))
 				{
@@ -100,6 +104,7 @@ class Calccsi extends Application
 	
 				$entry2=number_format($index_value,2,'.','').",\n";
 	
+				/* Update values of indexes in DB */
 				$insertQuery='INSERT into tbl_indxx_cs_value (indxx_id, code, indxx_value, date) values 
 					("'.$closeIndxx['id'].'","'.$closeIndxx['code'].'","'.number_format($index_value,2,'.','').'","'.$datevalue2.'")';
 				$this->db->query($insertQuery);	
@@ -138,7 +143,7 @@ class Calccsi extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcsl&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			$this->log_error("Unable to locate SL index module.");
+			$this->log_error(log_file, "Unable to locate SL index module.");
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
 	}

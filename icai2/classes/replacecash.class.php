@@ -22,17 +22,21 @@ class Replacecash extends Application
 		
 		$this->log_info(log_file, "CA replacecash process started");
 		
+		/* Fetch all upcoming cash indexes with today as start  date */
 		$indexdata = $this->db->getResult ( "select * from tbl_cash_index_temp where status='1' and db_approve='1'  and dateStart='" . $datevalue . "' ", true );
 		
 		if (! empty ( $indexdata )) 
 		{	
 			foreach ( $indexdata as $index ) 
 			{	
+				/* Fetch the value of the index */
 				$indexvalues = $this->db->getResult ( "select * from tbl_cash_indxx_value_temp where indxx_id='" . $index ['id'] . "' ", false, 1 );
 				
+				/* Check if index has already been made live or not */
 				$oldindexdata = $this->db->getResult ( "select * from tbl_cash_index where code='" . $index ['code'] . "' ", false, 1 );
 				if (! empty ( $oldindexdata )) 
 				{
+					/*TODO: Check with Deepak in what situation we will come here? */
 					$insertShareQuery = "update into tbl_cash_index set ticker='" . $index ['ticker'] . "',isin='" . $index ['isin'] . "' where code='" . $index ['code'] . "' ";					
 					$this->db->query ( $insertShareQuery );
 				} 
@@ -59,8 +63,8 @@ class Replacecash extends Application
 		else
 		{
 			//$this->Redirect("index.php?module=calcftpca&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcftpca index module.");
-			mail_exit(__FILE__, __LINE__);
+			$this->log_error(log_file, "Unable to locate calcftpca index module.");
+			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}		
 	}
 }

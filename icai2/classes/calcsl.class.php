@@ -23,6 +23,7 @@ class Calcsl extends Application
 		
 		$final_array=array();
 
+		/* Fetch the list of various SL indexes */
 		$indxxs=$this->db->getResult("select * from tbl_indxx_sl  where status='1' ",true);	
 		
 		if(!empty($indxxs))
@@ -42,6 +43,7 @@ class Calcsl extends Application
 					$liborrates=$this->db->getResult("select price from tbl_libor_prices  where ticker like '%LIBR360  Index%' and date ='".$datevalue2."' ",false,1);	
 					$final_array[$row['id']]['libor_rate']=$liborrates['price'];
 
+					/* Fetch user defined adjustment factor for this SL index */
 					$calcfactors=$this->db->getResult("select * from tbl_sl_adj_factor  where cs_indxx_id='".$row['id']."' ",true);
 					if(!empty($calcfactors))
 					{
@@ -60,6 +62,7 @@ class Calcsl extends Application
 			}
 		 }
 		 		
+		/* Generate index value files for various SL indexes */
 		if(!empty($final_array))
 		{  
 			file_put_contents('../files/output/backup/preCLOSESLdata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
@@ -91,6 +94,7 @@ class Calcsl extends Application
 								
 				$entry4='';
 		
+				/* Calculate the new index value for this SL index based on last value, Libor rate and user defined adjustment factor */
 				$index_value=0;
 				if(!empty($closeIndxx))
 				{
@@ -109,6 +113,7 @@ class Calcsl extends Application
 
 				$entry2=number_format($newIndex_value,2,'.','').",\n";
 
+				/* Update values of indexes in DB */
 				$insertQuery='INSERT into tbl_indxx_sl_value (indxx_id,code,indxx_value,date) values 
 						("'.$closeIndxx['id'].'","'.$closeIndxx['code'].'","'.number_format($newIndex_value,2,'.','').'","'.$datevalue2.'")';
 				$this->db->query($insertQuery);	
@@ -146,7 +151,7 @@ class Calcsl extends Application
 		}
 		else
 		{
-			$this->log_error("Unable to find publishing URL for CSI xls file.");
+			$this->log_error(log_file, "Unable to find publishing URL for CSI xls file.");
 			//$url ="http://174.36.193.130/icai2/publishcsixls.php";	
 			$this->mail_exit(log_file, __FILE__, __LINE__);
 		}
