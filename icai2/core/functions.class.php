@@ -34,9 +34,10 @@ class Functions extends Models {
 			exit();
 		}
 			
+		/*
 		if ($this->process == null)
 		{
-			echo "called for module " .$_GET['module']. "<br>";
+			//echo "called for module " .$_GET['module']. "<br>";
 			if ($_GET['module'] == calcindxxclosing)
 				$this->process = "Closing";
 			else if ($_GET['module'] == Calcindxxopening)
@@ -44,6 +45,7 @@ class Functions extends Models {
 			else 
 				$this->process = "CA";			
 		}
+		*/
 	}
 	
 	function setdate() {

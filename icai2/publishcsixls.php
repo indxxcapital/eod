@@ -2,7 +2,7 @@
 include ("core/function.php");
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
-$date = $this->_date;
+$date = $_GET['date'];
 
 if($_GET['log_file'])
 	define("log_file", get_logs_folder() . $_GET['log_file']);
@@ -10,7 +10,7 @@ if($_GET['log_file'])
 if($_GET['DEBUG'])
 	define("DEBUG", $_GET['DEBUG']);
 
-log_info(log_file, "Publish XLS generation process started");
+log_info("Publish XLS generation process started");
 
 $array = array();
 
@@ -91,7 +91,7 @@ else
 	log_error("No data to generate excel files for clients");
 	mail_exit(__FILE__, __LINE__);		
 }
-log_info(log_file, "Publish XLS generation process finished.");
+log_info("Publish XLS generation process finished.");
 
 //saveProcess (2);
 

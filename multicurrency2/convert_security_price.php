@@ -201,7 +201,7 @@ function convert_security_to_indxx_curr()
 						if (($err_code = mysql_errno()))
 						{
 							log_error("SQL quer failed for index = " .$index_id. ". MYSQL error code = " . $err_code);
-							mail_skip(__FILE__, __LINE__);
+							mail_exit(__FILE__, __LINE__);
 						}
 						else 
 						{
