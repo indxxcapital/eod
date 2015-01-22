@@ -97,6 +97,7 @@ function process_ca_file()
 {
 	log_info("Processing CA file");
 	
+	$msg = '';
 	delete_old_ca ();
 
 	$res = mysql_query("Select * from tbl_ca_plain_txt");
@@ -174,9 +175,11 @@ function process_ca_file()
 			if($checkArray['mnemonic'] == '' || $checkArray ['ann_date'] == '0000-00-00' 
 					|| $checkArray ['eff_date'] == '0000-00-00') 
 			{
-				log_warning("Mnemonic/Ann_date/Eff_date missing in security = " .$data ['identifier']. 
-				", bloomberg_unique_id = " .$data ['bloomberg_unique_id']. ". Ignoring this CA");
-				mail_skip(__FILE__, __LINE__);
+				$msg .= "Mnemonic/Ann_date/Eff_date missing in security = " .$data ['identifier']. 
+						", bloomberg_unique_id = " .$data ['bloomberg_unique_id']. ". Ignoring this CA.\n";
+				//log_warning("Mnemonic/Ann_date/Eff_date missing in security = " .$data ['identifier']. 
+				//", bloomberg_unique_id = " .$data ['bloomberg_unique_id']. ". Ignoring this CA");
+				//mail_skip(__FILE__, __LINE__);
 			} 
 			else 
 			{
@@ -204,6 +207,11 @@ function process_ca_file()
 	}
 	mysql_free_result($res);
 	
+	if ($msg != '')
+	{
+		log_warning($msg);
+		mail_skip(__FILE__, __LINE__);
+	}
 	log_info("Processing CA file done");
 
 	//return;//-------------------------------------------------==============
