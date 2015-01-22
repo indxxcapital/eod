@@ -82,6 +82,7 @@ function mail_exit($file, $line)
 	exit();	
 }
 
+/* TODO: Sending emails slows down the process, consolidate emails and send at one go */
 function mail_skip($file, $line)
 {
 	if (process)

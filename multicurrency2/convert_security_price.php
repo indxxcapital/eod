@@ -1,5 +1,47 @@
 <pre>
 <?php
+
+function check_security_price_fluctuations()
+{
+	$msg = '';
+	
+	$securities = mysql_query("SELECT distinct (ticker) FROM tbl_indxx_ticker WHERE status='1' 
+						union SELECT distinct(ticker)  FROM tbl_indxx_ticker_temp WHERE status='1'");
+
+	if ($err_code = mysql_errno())
+		mail_exit(__FILE__, __LINE__);	
+
+	while ($security = mysql_fetch_assoc($securities))
+	{
+		$security_values = mysql_query("SELECT price, isin from tbl_prices_local_curr where ticker ='" .$security['ticker']. 
+								"'order by date desc limit 0,2");
+
+		if (($err_code = mysql_errno()))
+			mail_exit(__FILE__, __LINE__);
+
+		$row1 = mysql_fetch_assoc($security_values);
+		$row2 = mysql_fetch_assoc($security_values);
+				
+		if ($row1['price'] && $row2['price'])
+		{
+			$diff = 100 * (($row1['price'] - $row2['price']) / $row2['price']);
+
+			if(($diff >= 5) || ($diff <= - 5))
+			{
+				$msg .= "Security value fluctuated by more than 5% for security_isin=" . $row2['isin'] . ".\n";
+				//log_warning("Security value fluctuated by more than 5% for  security_isin=" . $row2['isin'] . ".");
+				//mail_skip(__FILE__, __LINE__);
+			}
+		}
+	}
+	
+	if ($msg != '')
+	{
+		log_warning($msg);
+		mail_skip(__FILE__, __LINE__);
+	}
+}
+
 function send_index_deactivation_mail($keyindex, $valueindex, $index_type)
 {	
 	$index_table = "tbl_indxx";
@@ -61,6 +103,9 @@ function convert_security_to_indxx_curr()
 {
 	//$start = get_time();
 
+	/* Check if the security price has fluctuated more than 5%, if so send email. */
+	check_security_price_fluctuations();
+	
 	$index_query =	mysql_query("SELECT id, currency_hedged, curr FROM `tbl_indxx` WHERE `status` = '1' 
 									AND `usersignoff` = '1'	AND `dbusersignoff` = '1' AND `submitted` = '1'");
 
@@ -117,7 +162,7 @@ function convert_security_to_indxx_curr()
 				while(false != ($priceRow = mysql_fetch_assoc($res)))
 				{
 					$currencyPrice = 0;
-					log_info("	Processing security isin = " .$priceRow['isin']);
+					//log_info("	Processing security isin = " .$priceRow['isin']);
 						
 					/*
 					 * Check if got the right currency for the security from Bloomberg.
@@ -139,7 +184,7 @@ function convert_security_to_indxx_curr()
 												
 						if($index['curr'] && ($index['curr'] != $priceRow['local_currency']))
 						{
-							log_info("	Conversion Required for ".$index['curr'].$priceRow['local_currency']);
+							//log_info("	Conversion Required for ".$index['curr'].$priceRow['local_currency']);
 							$cfactor_code = $index['curr'].$priceRow['local_currency'];
 
 							$cfactor = getPriceforCurrency($cfactor_code, date);
@@ -192,39 +237,7 @@ function convert_security_to_indxx_curr()
 				if(!empty($ival))
 				{
 					foreach($ival as $tempKey=>$ivalue)
-					{
-						/* Check if the security price has fluctuated more than 5%, if so send email. */						
-						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. 
-											"' order by date desc limit 0, 2");
-						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
-						
-						if (($err_code = mysql_errno()))
-						{
-							log_error("SQL quer failed for index = " .$index_id. ". MYSQL error code = " . $err_code);
-							mail_exit(__FILE__, __LINE__);
-						}
-						else 
-						{
-							if (count($res))
-							{
-								$row=mysql_fetch_assoc($res);
-								$row=mysql_fetch_assoc($res);
-								//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
-								if (($existing_value = $row['price']))
-								{
-									//echo " existing value=" . $existing_value . "<br>";
-									$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
-									if(($diff >= 5) || ($diff <= - 5))
-									{
-										//echo "isin=" . $ivalue['isin'] . "<br>";
-										log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
-														 ", security_isin=" . $ivalue['isin'] . ".");
-										mail_skip(__FILE__, __LINE__);
-									}
-								}
-							}
-						}
-						
+					{				
 						$fpquery="INSERT into tbl_final_price 
 								(indxx_id, isin, date, price, localprice, currencyfactor) values 
 								('" . $indxx_id . "','" . $ivalue['isin'] . "','" . date . "', 
@@ -394,39 +407,6 @@ function convert_security_to_indxx_curr_upcomingindex()
 				{
 					foreach($ival as $tempKey=>$ivalue)
 					{
-						/*
-						 * Check if the security price has fluctuated more than 5%, if so send email.
-						 */
-						$res = mysql_query("Select price from tbl_prices_local_curr where isin='" .$ivalue['isin']. "' order by date desc limit 0,2");
-						//echo "id=" . $indxx_id. " isin=" .$ivalue['isin']. "<br> ";
-
-						if (($err_code = mysql_errno()))
-						{
-							log_error("SQL query failed for index=" .$indxx_id. " err=" .$err_code);
-							mail_exit(__FILE__, __LINE__);
-						}
-						else
-						{								
-							if (count($res))
-							{
-								$row=mysql_fetch_assoc($res);
-								$row=mysql_fetch_assoc($res);
-								//echo " count=" . count($res) . "[" .$row['price']. "][" .$ivalue['localprice']. "]<br>";
-								if (($existing_value = $row['price']))
-								{
-									//echo " existing value=" . $existing_value . "<br>";
-									$diff = 100 * (($ivalue['localprice'] - $existing_value) / $existing_value);
-									if(($diff >= 5) || ($diff <= - 5))
-									{
-										//echo "isin=" . $ivalue['isin'] . "<br>";
-										log_warning("Security value fluctuated by more than 5% for index = " . $indxx_id .
-													", security_isin=" . $ivalue['isin'] . ".");
-										mail_skip(__FILE__, __LINE__);
-									}
-								}
-							}
-						}						
-
 						$fpquery="INSERT into tbl_final_price_temp
 									(indxx_id, isin, date, price, localprice, currencyfactor) values
 									('" . $indxx_id . "','" . $ivalue['isin'] . "','" . date . "',
