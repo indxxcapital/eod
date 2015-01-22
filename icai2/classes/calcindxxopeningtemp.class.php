@@ -24,7 +24,7 @@ class Calcindxxopeningtemp extends Application
 		
 		$final_array = array ();
 		
-		$indxxs = exec_mysql_query("select * from tbl_indxx_temp where status = '1' and usersignoff = '1' and
+		$indxxs = $this->exec_mysql_query("select * from tbl_indxx_temp where status = '1' and usersignoff = '1' and
 													dbusersignoff = '1' and submitted = '1' and runindex = '1'", log_file, __FUNCTION__, __LINE__);
 		
 		while(false != ($row = mysql_fetch_assoc($indxxs)))

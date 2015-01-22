@@ -23,7 +23,7 @@ class Calcftpopen extends Application
 		$this->log_info(log_file, "FTP opening file process started.");
 				
 		/* Find all live indexes with client_id = 4, TODO: Why 4? */
-		$indxxs = exec_mysql_query("select code from tbl_indxx where status='1' and client_id='4' ", log_file, __FUNCTION__, __LINE__);
+		$indxxs = $this->exec_mysql_query("select code from tbl_indxx where status='1' and client_id='4' ", log_file, __FUNCTION__, __LINE__);
 		
 		$output_folder = "../files/output/ca-output/syntax/";
 		if (!file_exists($output_folder))

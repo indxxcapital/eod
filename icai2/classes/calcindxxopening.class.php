@@ -35,7 +35,7 @@ class Calcindxxopening extends Application
 		$final_array = array();
 
 		/* Extract all approved live indexes with mentioned properties */
-		$indxxs = exec_mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and dbusersignoff = '1' 
+		$indxxs = $this->exec_mysql_query("select * from tbl_indxx where status = '1' and usersignoff = '1' and dbusersignoff = '1' 
 								and submitted = '1'", log_file, __FUNCTION__, __LINE__);
 		
 		/* Process each index */
@@ -49,7 +49,7 @@ class Calcindxxopening extends Application
 			{
 				$final_array[$row_id] = $row;			
 			
-				$res = exec_mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'",
+				$res = $this->exec_mysql_query("select ftpusername from tbl_ca_client where id = '" .$row['client_id']. "'",
 									log_file, __FUNCTION__, __LINE__);
 				
 				if ($client = mysql_fetch_assoc($res))
