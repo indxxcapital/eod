@@ -54,18 +54,23 @@ define("price_file", get_input_file("PRICE_FILE", date));
 /* TODO: Send this to classes too */
 define("process", "Closing");
 
-/* TODO: Generate compressed db */
-$backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
+$backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql.gz';
 if (DEBUG)
 {
+	/*	
 	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host. 
 				" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;
+	*/
+	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host.
+	" -u" .$db_user. " -p" .$db_password. " " .$db_name. " | \"C:\Program Files (x86)\GnuWin32\bin\gzip.exe\" > " .$backup_file;	
 }
 else
-{
-	log_error("mysqldump.exe path not defined. Exiting process");
+{	
+	log_error("mysqldump.exe and gzip.exe path not defined. Exiting process");
 	mail_exit(__FILE__, __LINE__);
 }
+
+//echo $command;
 
 $res=0;
 system($command, $res);
