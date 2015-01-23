@@ -98,6 +98,11 @@ function process_ca_file()
 	log_info("Processing CA file");
 	
 	$msg = '';
+	
+	$data2 = array();
+	$ca_row = 0;
+	$query = "INSERT INTO tbl_ca_values (ca_id, ca_action_id, field_name, field_value) VALUES";
+	
 	delete_old_ca ();
 
 	$res = mysql_query("Select * from tbl_ca_plain_txt");
@@ -189,19 +194,29 @@ function process_ca_file()
 				/* TODO: check with Deepak the logic for this */
 				for($k = 1; $k < $num_fields + 1; $k = $k + 2) 
 				{
+					$name = $security [$k + 20];
+					$value = $security [$k + 21];
 					/*TODO: convert this to direct mysql */
-					if ($security [$k + 21] != 'N.A.' && trim ( $security [$k + 21] ) != '' && $security [$k + 21] != ' ')
+					if ($value != 'N.A.' && trim($value) != '' && $value != ' ')
 					{		
-						//$field_id = selectrow ( array ('id'), 'tbl_ca_action_fields', array ('field_name' => $security [$k + 20]) );
-						//$data2 ['field_id'] = "'" . $field_id ['0'] ['id'] . "'";
-								
-						$data2 ['ca_id'] = "'" . $ca_id . "'";
-						$data2 ['ca_action_id'] = $data ['action_id'];
-						$data2 ['field_name'] = "'" . $security [$k + 20] . "'";
-						$data2 ['field_value'] = "'"  .$security [$k + 20 + 1]. "'";
+						/*
+						$field_id = selectrow ( array ('id'), 'tbl_ca_action_fields', array ('field_name' => $security [$k + 20]) );
+						$data2 ['field_id'] = "'" . $field_id ['0'] ['id'] . "'";
+
+						$data2[$ca_row] ['ca_id'] = $ca_id;//"'" . $ca_id . "'";
+						$data2[$ca_row] ['ca_action_id'] = $data ['action_id'];
+						$data2[$ca_row] ['field_name'] = $name;//"'" . $name. "'";
+						$data2[$ca_row] ['field_value'] = $value;//"'"  .$value. "'";
 					
 						qry_insert ( 'tbl_ca_values', $data2 );
-				
+						*/
+						
+						if ($ca_row)
+							$query .= ",";
+							
+						$query .= " ('" .$ca_id. "', " .$data ['action_id']. ", '" .$name. "', '"  .$value. "')";						
+						$ca_row++;
+						
 					}
 				}	
 			}
@@ -210,15 +225,28 @@ function process_ca_file()
 		}
 	}
 	mysql_free_result($res);
+
+	if ($ca_row)
+	{
+		mysql_query($query);
 	
+		if (($err_code = mysql_errno()))
+		{
+			log_error("MYSQL query failed, error code " . $err_code . ". Exiting CA process.");
+			mail_exit(__FILE__, __LINE__);
+		}
+	}
+	unset($query);
+
 	if ($msg != '')
 	{
 		log_warning($msg);
 		mail_skip(__FILE__, __LINE__);
 	}
+	unset($msg);
+	
 	log_info("Processing CA file done");
 
-	//return;//-------------------------------------------------==============
 	check_dvd_currency();
 
 	//$end_time = get_time();
