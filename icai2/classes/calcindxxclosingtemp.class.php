@@ -244,16 +244,7 @@ class Calcindxxclosingtemp extends Application
 		$this->log_info(log_file, "Closing file generation process finished for upcoming indexes.");
 		
 		//$this->saveProcess(2);
-		if (DEBUG)
-		{
-			$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
-			$this->log_error(log_file, "Unable to locate composite close module.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
 	}		
 } 
 ?>

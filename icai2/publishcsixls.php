@@ -7,9 +7,6 @@ $date = $_GET['date'];
 if($_GET['log_file'])
 	define("log_file", get_logs_folder() . $_GET['log_file']);
 
-//if($_GET['DEBUG'])
-//	define("DEBUG", $_GET['DEBUG']);
-
 log_info("Publish XLS generation process started");
 
 $array = array();

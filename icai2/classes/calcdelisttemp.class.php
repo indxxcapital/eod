@@ -113,16 +113,7 @@ class Calcdelisttemp extends Application
 		$this->log_info(log_file, "CA [delist upcoming index] process finished");
 		
 		//$this->saveProcess ( 1 );		
-		if (DEBUG)
-		{
-			$this->Redirect("index.php?module=calcreplacetemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=calcreplacetemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcreplacetemp index module.");
-			mail_exit(__FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=calcreplacetemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 	}
 }
 ?>

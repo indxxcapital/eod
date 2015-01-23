@@ -147,17 +147,8 @@ function misc_notification()
 
 	log_info("Misc notification process started");
 
-	if (DEBUG)
-	{
-		$website = 'http://localhost/eod/icai2/index.php';
-	}
-	else
-	{
-		echo "PLEASE SET LIVE SERVER";
-		exit();
-		$website = 'http://174.36.193.130/icai2/index.php';
-		
-	}
+	$website = 'http://'  .gethostbyname(gethostname()). '/eod/icai2/index.php';
+
 	$dayesagodate = date ('Y-m-d', strtotime(date. '+2 days'));
 	
 	$result1 = mysql_query('Select *  from tbl_ca_user where status = "1"');
@@ -419,15 +410,6 @@ function misc_notification()
 	
 	log_info("Misc notification process finished");
 	
-	if (DEBUG)
-	{
-		webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-	}
-	else
-	{
-		//webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-		log_error("Unable to locate calcdelisttemp index module.");
-		mail_exit(__FILE__, __LINE__);
-	}
+	webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
 }
 ?>

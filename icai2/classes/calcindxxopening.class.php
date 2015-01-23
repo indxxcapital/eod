@@ -22,7 +22,6 @@ class Calcindxxopening extends Application
 		/* Define what type of process is this - Opening */
 		define("process", "Opening");
 		
-		/* Debug or production mode run? */
 		if($_GET['DEBUG'])
 			define("DEBUG", $_GET['DEBUG']);
 
@@ -493,17 +492,7 @@ class Calcindxxopening extends Application
 		$this->log_info(log_file, "Opening file generation process finished for live indexes.");
 		
 		//$this->saveProcess(2);
-		if (DEBUG)
-		{
-			//exit();
-			$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
-			$this->log_error(log_file, "Unable to locate opening upcoming index module.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 	}   
 }
 ?>

@@ -43,16 +43,7 @@ class Notifyforca extends Application
 				
 		//$this->saveProcess ( 1 );
 
-		if (DEBUG)
-		{
-			$this->Redirect("index.php?module=calcftpopen&DEBUG=" .$_GET['DEBUG']. "&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=calcftpopen&DEBUG=" .$_GET['DEBUG']. "&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
-			$this->log_error(log_file, "Unable to locate calcftpopen module.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=calcftpopen&DEBUG=" .$_GET['DEBUG']. "&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
 	}
 }
 ?>

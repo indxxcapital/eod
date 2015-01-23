@@ -141,15 +141,6 @@ class Calcreplacetemp extends Application{
 		$this->log_info(log_file, "CA [replace upcoming index] process finished");
 		
 		//$this->saveProcess ( 1 );
-		if (DEBUG)
-		{
-			$this->Redirect("index.php?module=calcdelist&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=calcdelist&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
-			log_error("Unable to locate calcdelist index module.");
-			mail_exit(__FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=calcdelist&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 	}
 }?>

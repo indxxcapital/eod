@@ -69,15 +69,6 @@ class Calccadptemp extends Application
 		$this->log_info(log_file, "CA adptemp process finished");
 		
 		//$this->saveProcess ( 1 );
-		if (DEBUG)
-		{
-			$this->Redirect("index.php?module=calcrebalance&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
-		}
-		else
-		{
-			//$this->Redirect("index.php?module=calcrebalance&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
-			$this->log_error(log_file, "Unable to locate calcrebalance index module.");
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
+		$this->Redirect("index.php?module=calcrebalance&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
 	}
 }

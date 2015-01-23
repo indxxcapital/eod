@@ -196,17 +196,7 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 	//$finish = get_time();
 	//$total_time = round(($finish - $start), 4);
 	
-	if (DEBUG)
-	{
-		//exit();
-		webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-	}
-	else
-	{
-		//webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-		log_error("Unable to locate closing index module.");
-		mail_exit(__FILE__, __LINE__);
-	}	
+	webopen("http://localhost/eod/icai2/index.php?module=calcindxxclosing&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
 	//saveProcess(2);
 	//mysql_close();
 }
