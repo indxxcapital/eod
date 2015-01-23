@@ -23,7 +23,7 @@ class Functions extends Models {
 		/* Execution time for the script. Must be defined based on performance and load. */
 		ini_set('max_execution_time', 60 * 60);
 		ini_set("memory_limit", "1024M");
-						
+
 		if ($_GET['DEBUG'])
 		{
 			$this->email_errors = "amitmahajan86@gmail.com";
@@ -36,6 +36,7 @@ class Functions extends Models {
 			echo "Please define email id for sending mails.<br>";
 			exit();
 		}
+
 			
 		/*
 		if ($this->process == null)

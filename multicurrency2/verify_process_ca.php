@@ -147,7 +147,7 @@ function misc_notification()
 
 	log_info("Misc notification process started");
 
-	$website = 'http://'  .gethostbyname(gethostname()). '/eod/icai2/index.php';
+	$website = "http://"  .gethostbyname(gethostname()). "/eod/icai2/index.php";
 
 	$dayesagodate = date ('Y-m-d', strtotime(date. '+2 days'));
 	
