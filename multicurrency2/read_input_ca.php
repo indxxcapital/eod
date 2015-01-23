@@ -184,21 +184,25 @@ function process_ca_file()
 			else 
 			{
 				$ca_id = qry_insert ( 'tbl_ca', $data );
-				$num_fields = $security ['20'];
+				$num_fields = 2 * $security ['20'];
 	
 				/* TODO: check with Deepak the logic for this */
-				for($k = 1; $k < ($num_fields * 2) + 1; $k = $k + 2) 
+				for($k = 1; $k < $num_fields + 1; $k = $k + 2) 
 				{
-					$field_id = selectrow ( array ('id'), 'tbl_ca_action_fields', array ('field_name' => $security [$k + 20]) );
-					$data2 ['ca_id'] = "'" . $ca_id . "'";
-					$data2 ['ca_action_id'] = $data ['action_id'];
-					$data2 ['field_name'] = "'" . $security [$k + 20] . "'";
-					$data2 ['field_id'] = "'" . $field_id ['0'] ['id'] . "'";
-					$data2 ['field_value'] = "'"  .$security [$k + 20 + 1]. "'";
-					
 					/*TODO: convert this to direct mysql */
 					if ($security [$k + 21] != 'N.A.' && trim ( $security [$k + 21] ) != '' && $security [$k + 21] != ' ')
+					{		
+						//$field_id = selectrow ( array ('id'), 'tbl_ca_action_fields', array ('field_name' => $security [$k + 20]) );
+						//$data2 ['field_id'] = "'" . $field_id ['0'] ['id'] . "'";
+								
+						$data2 ['ca_id'] = "'" . $ca_id . "'";
+						$data2 ['ca_action_id'] = $data ['action_id'];
+						$data2 ['field_name'] = "'" . $security [$k + 20] . "'";
+						$data2 ['field_value'] = "'"  .$security [$k + 20 + 1]. "'";
+					
 						qry_insert ( 'tbl_ca_values', $data2 );
+				
+					}
 				}	
 			}
 			unset($checkArray);
