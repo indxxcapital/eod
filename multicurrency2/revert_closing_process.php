@@ -2,23 +2,16 @@
 <?php
 include("dbconfig.php");
 
-/* TODO: See if we need to make this close, CA, open process specific */
-define("date", '2014-12-20');
-if (!DEBUG)
+if ($_GET['date'])
 {
-	if ($_GET['date'])
-	{
-		define("date", $_GET['date']);
-	}
-	else	
-	{
-		printf("Please define the revert date.\n");
-		exit();
-	} 
+	define("date", $_GET['date']);
+}
+else	
+{
+	printf("Please define the revert date.\n");
+	exit();
 } 
 printf("Reverting all data till %s (inclusive).\n", date);
-
-//TODO: Revert backedup db?
 
 /* Clean currency factor table */
 mysql_query("DELETE FROM `tbl_curr_prices` WHERE `date` >= '" .date. "'");

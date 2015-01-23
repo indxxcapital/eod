@@ -36,8 +36,7 @@ function read_currencyfactor()
 
 	/* 
 	 * TODO: 
-	 * a) See how to free memory used by the above query
-	 * b) Send an email incase of:
+	 * a) Send an email incase of:
 	 * 		i) More than 5% fluctuation today.
 	 * 		ii) Non-numeric/Blank value is received from BBG.
 	 */

@@ -86,8 +86,6 @@ function read_ca_file()
 		log_info("CA file read. Rows inserted = " . $rows);
 	}
 
-	/* TODO: See how to free memory used by the above query */
-		
 	//saveProcess(2);
 	//mysql_close();
 	log_info("CA file read");
@@ -193,12 +191,11 @@ function process_ca_file()
 				$ca_id = qry_insert ( 'tbl_ca', $data );
 				$num_fields = 2 * $security ['20'];
 	
-				/* TODO: check with Deepak the logic for this */
 				for($k = 1; $k < $num_fields + 1; $k = $k + 2) 
 				{
 					$name = $security [$k + 20];
 					$value = $security [$k + 21];
-					/*TODO: convert this to direct mysql */
+
 					if ($value != 'N.A.' && trim($value) != '' && $value != ' ')
 					{		
 						/*
