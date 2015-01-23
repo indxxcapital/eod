@@ -2,9 +2,6 @@
 include("function.php");
 include("verify_process_ca.php");
 
-/* TODO - Set timezone here */
-date_default_timezone_set("Asia/Kolkata");
-
 /* Enable error capturing in log files and display the same in browser */
 error_reporting(E_ALL);
 set_error_handler("error_handler", E_ALL);
@@ -24,17 +21,22 @@ if (DEBUG)
 {
 	log_info("Executing CA process in debug mode");
 
+	date_default_timezone_set("Asia/Kolkata");
+	log_info("Timezone set to Asia/Kolkata");
+	
 	/* Email id for notification emails */
 	define("email_errors", "amitmahajan86@gmail.com");
 
 	/* Define date for fetching input files and manipulations */
-	//define("date", '2014-12-20');
 	define("date", $_GET['date']);
 }
 else
 {
 	log_info("Executing CA process in non-debug mode");
 
+	date_default_timezone_set("America/New_York");
+	log_info("Timezone set to America/New_York");
+	
 	define("email_errors", "kaggarwal@indxx.com");
 	define("date", date("Y-m-d"));
 }

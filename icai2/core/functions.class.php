@@ -27,9 +27,12 @@ class Functions extends Models {
 		if ($_GET['DEBUG'])
 		{
 			$this->email_errors = "amitmahajan86@gmail.com";
+			date_default_timezone_set("Asia/Kolkata");
 		}
 		else
 		{
+			date_default_timezone_set("America/New_York");
+				
 			echo "Please define email id for sending mails.<br>";
 			exit();
 		}

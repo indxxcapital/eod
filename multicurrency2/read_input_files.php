@@ -8,8 +8,6 @@ include("read_input_pricefile.php");
 include("convert_security_price.php");
 include("convert_hedged_security_price.php");
 
-/* TODO - Set timezone here */
-
 /* Enable error capturing in log files and display the same in browser */
 error_reporting(E_ALL);
 set_error_handler("error_handler", E_ALL);
@@ -27,17 +25,22 @@ define("log_file", prepare_logfile());
 if (DEBUG)
 {
 	log_info("Executing closing index process in debug mode");
+
+	date_default_timezone_set("Asia/Kolkata");
+	log_info("Timezone set to Asia/Kolkata");
 	
 	/* Email id for notification emails */
 	define("email_errors", "amitmahajan86@gmail.com");
 
 	/* Define date for fetching input files and manipulations */
-	//define("date", '2014-12-20');
 	define("date", $_GET['date']);
 }
 else
 {
 	log_info("Executing closing index process in non-debug mode");
+	
+	date_default_timezone_set("America/New_York");
+	log_info("Timezone set to America/New_York");
 	
 	define("email_errors", "kaggarwal@indxx.com");
 	define("date", date("Y-m-d"));
