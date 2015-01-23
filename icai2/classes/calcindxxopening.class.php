@@ -103,6 +103,7 @@ class Calcindxxopening extends Application
 						}
 						
 						/* Handle corporate actions */
+						/* AMIT: Add index id check in subquery */
 						/* TODO: This can be optimized with table fetch initially */
 						$ca_query = "select identifier, action_id, id, mnemonic, field_id, company_name, ann_date, eff_date,
 							amd_date, currency from tbl_ca cat where  eff_date='" . $datevalue2 . "' 
@@ -180,7 +181,7 @@ class Calcindxxopening extends Application
 				{							
 					$this->log_info(log_file, "	Processing CA for security = " . $final_array[$indxxKey]['values'][$securityKey]['isin']);
 						
-					/* TODO: This needs to be checked */
+					/* AMIT: TODO: This needs to be checked */
 					//$oldisin = $newisin = '';
 					
 					$divisorImpact = 0;

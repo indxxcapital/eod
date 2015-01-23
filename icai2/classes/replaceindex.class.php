@@ -133,6 +133,7 @@ class Replaceindex extends Application
 				if (! empty ( $checkindex ))
 				{
 					/* TODO: Check with Deepak how this scenario can occur? It should not be in live in list */
+					/* AMIT: case with rebalancing */
 					$newIndexArray ['indexdetails'] = $checkindex;					
 					$this->db->query ( "delete from  tbl_indxx where code ='" . $newIndxx ['code'] . "'" );
 					

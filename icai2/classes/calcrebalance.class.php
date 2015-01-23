@@ -33,6 +33,7 @@ class Calcrebalance extends Application
 				$final_array [$row ['id']] = $row;
 				
 				/* TODO: why we are using live index tables here? */
+				/* AMIT: Index to be rebalancesd is added 3 days in advance to upcomning list */
 				/* Find the index ID assigned to this index */
 				$liveindexid = $this->db->getResult ( "select id from tbl_indxx where code='" . $row ['code'] . "' ", true );
 				$indxx_value = $this->db->getResult ( "select * from tbl_indxx_value where indxx_id='" . $liveindexid ['0'] ['id'] . "' order by date desc ", false, 1 );
