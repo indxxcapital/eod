@@ -31,10 +31,10 @@ class Functions extends Models {
 		}
 		else
 		{
-			date_default_timezone_set("America/New_York");
+			//date_default_timezone_set("America/New_York");
 				
-			echo "Please define email id for sending mails.<br>";
-			exit();
+			//echo "Please define email id for sending mails.<br>";
+			//exit();
 		}
 
 			
