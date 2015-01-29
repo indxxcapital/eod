@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.14, created on 2014-12-11 12:58:27
+<?php /* Smarty version 2.6.14, created on 2015-01-29 05:53:33
          compiled from sidebar.tpl */ ?>
 <div id="sidebar" class="nav-collapse">
                 <!-- BEGIN Navlist -->
@@ -115,8 +115,7 @@
                         <!-- END Submenu -->
                     </li>
                      
-                     <?php endif; ?>
-<?php if ($this->_tpl_vars['sessData']['User']['type'] == '1' || $this->_tpl_vars['sessData']['User']['type'] == '2'): ?>
+                     <?php endif;  if ($this->_tpl_vars['sessData']['User']['type'] == '1' || $this->_tpl_vars['sessData']['User']['type'] == '2'): ?>
                     <li <?php if ($this->_tpl_vars['currentClass'] == 'cacalendar'): ?> class="active"<?php endif; ?>>
                         <a href="index.php?module=cacalendar" class="dropdown-toggle">
                             <i class="icon-list"></i>
@@ -309,6 +308,19 @@
                        
                      
                     </li>-->
+					<li <?php if ($this->_tpl_vars['currentClass'] == 'useraction'): ?> class="active"<?php endif; ?>>
+                        <a href="index.php?module=useraction">
+                            <i class="icon-th"></i>
+                            <span>User Actions</span>
+                           
+                        </a>
+					<li <?php if ($this->_tpl_vars['currentClass'] == 'restoredb'): ?> class="active"<?php endif; ?>>
+                        <a href="index.php?module=restoredb">
+                            <i class="icon-th"></i>
+                            <span>Restore DB</span>
+                           
+                        </a>
+					
                      <!-- Rebalance -->
                     
                     

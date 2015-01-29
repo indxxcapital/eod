@@ -307,6 +307,19 @@
                        
                      
                     </li>-->
+					<li {if $currentClass=="useraction"} class="active"{/if}>
+                        <a href="index.php?module=useraction">
+                            <i class="icon-th"></i>
+                            <span>User Actions</span>
+                           
+                        </a>
+					<li {if $currentClass=="restoredb"} class="active"{/if}>
+                        <a href="index.php?module=restoredb">
+                            <i class="icon-th"></i>
+                            <span>Restore DB</span>
+                           
+                        </a>
+					
                      <!-- Rebalance -->
                     
                     

@@ -102,11 +102,11 @@ function mail_skip($file, $line)
 function get_input_file($file, $date) 
 {
 	log_info("Input files fetched from " .realpath("../files/input"). " directory");
-	$currency_factor = "../files/input/curr1_sl.csv." . date ( "Ymd", strtotime ( $date ) );
-	$libor_rate = "../files/input/libr_sl.csv." . date ( "Ymd", strtotime ( $date ) );
-	$cash_index = "../files/input/cashindex_sl.csv." . date ( "Ymd", strtotime ( $date ) );
-	$price_file = "../files/input/multicurr_sl.csv." . date ( "Ymd", strtotime ( $date ) );
-	$ca_file = "../files/input/ca_sl.csv." . date ( "Ymd", strtotime ( $date ) );
+	$currency_factor = "../files/input/curr1.csv." . date ( "Ymd", strtotime ( $date ) );
+	$libor_rate = "../files/input/libr.csv." . date ( "Ymd", strtotime ( $date ) );
+	$cash_index = "../files/input/cashindex.csv." . date ( "Ymd", strtotime ( $date ) );
+	$price_file = "../files/input/multicurr.csv." . date ( "Ymd", strtotime ( $date ) );
+	$ca_file = "../files/input/ca_test.csv." . date ( "Ymd", strtotime ( $date ) );
 
 	// echo "Request for input file: " . $file . "[" . $file . "]" . PHP_EOL;
 	switch ($file) {

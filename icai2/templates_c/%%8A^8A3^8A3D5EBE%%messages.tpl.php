@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.14, created on 2014-12-11 12:58:27
+<?php /* Smarty version 2.6.14, created on 2015-01-29 05:36:38
          compiled from blocks/messages.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'count', 'blocks/messages.tpl', 6, false),)), $this); ?>

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.14, created on 2014-12-17 17:23:18
-         compiled from C:/Inetpub/vhosts/icalc/icai2/templates//formfields/text.tpl */ ?>
+<?php /* Smarty version 2.6.14, created on 2015-01-29 05:53:57
+         compiled from C:/xampp/htdocs/eod/icai2/templates//formfields/text.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'C:/Inetpub/vhosts/icalc/icai2/templates//formfields/text.tpl', 35, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'C:/xampp/htdocs/eod/icai2/templates//formfields/text.tpl', 35, false),)), $this); ?>
  <div class="control-group"><label class="control-label"><?php echo $this->_tpl_vars['formParams']['feild_label'];  if ($this->_tpl_vars['formParams']['is_required'] == '1'): ?> <sup style="color:#F00;">*</sup><?php endif; ?>:</label><div class="controls"><input type="text" name="<?php echo $this->_tpl_vars['formParams']['feild_code']; ?>
 " id="<?php echo $this->_tpl_vars['formParams']['feild_code']; ?>
 " value="<?php echo $this->_tpl_vars['formParams']['value']; ?>
