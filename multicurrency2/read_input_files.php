@@ -60,7 +60,7 @@ define("process", "Closing");
 $backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
 if (DEBUG)
 {
-	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host. 
+	$command = "C:/xampp/mysql/bin/mysqldump.exe --opt -h" .$db_host. 
 				" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;
 	/*
 	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host.
@@ -88,7 +88,6 @@ else
 	
 	/* TODO: Here we can delete previous day db backups to avoid memory over-run */
 }
-
 read_currencyfactor();
 
 //$end_time = get_time();
