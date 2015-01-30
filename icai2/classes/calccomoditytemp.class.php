@@ -207,9 +207,12 @@ $headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.c
 			$xls->addArray($excelarray);
 		}
 		
+		$backup_folder1 = "../files/output/ca-output/" .$clientftp['ftpusername'] ."/";
+		if (!file_exists($backup_folder1))
+			mkdir($backup_folder1, 0777, true);
 		
 		$data=$xls->generateXML2('CommodityData');
-			$file = fopen( '../files2/ca-output/'.$clientftp['ftpusername'].'/values'.$datevalue2.'.xls',"w");;
+			$file = fopen($backup_folder1.  'values'.$datevalue2.'.xls',"w");;
 fwrite($file,$data);
 
 fclose($file);			

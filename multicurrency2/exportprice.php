@@ -107,8 +107,12 @@ $dataArray[1]['convertedprice']='convertedprice';
 
 //print_r($dataArray);
 //exit;
+		$backup_folder = "../files/output/";
+		if (!file_exists($backup_folder))
+			mkdir($backup_folder, 0777, true);
+		
 
-	$fp = fopen('..\files2\converted_price-'.$date.'.csv', 'w');
+	$fp = fopen($backup_folder. 'converted_price-'.$date.'.csv', 'w');
 
 foreach ($dataArray as $fields) {
     fputcsv($fp, $fields);

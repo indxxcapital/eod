@@ -19,7 +19,11 @@ $conn_id = ftp_connect("ftp.processdo.com");
 // login with username and password
 $login_result = ftp_login($conn_id, "commodity@processdo.com", 'commodity@2013');
 
-$file4 = '../files2/ca-output/indxx/indxx-commodity-values-'.$datevalue2.'.xls';
+$backup_folder = "../files/output/ca-output/indxx/";
+if (!file_exists($backup_folder))
+	mkdir($backup_folder, 0777, true);
+
+$file4 = $backup_folder. 'indxx-commodity-values-'.$datevalue2.'.xls';
 $remote_file4 = 'values-'.$datevalue2.'.xls';
 
 // upload a file

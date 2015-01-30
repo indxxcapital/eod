@@ -92,10 +92,20 @@ $objPHPExcel->getActiveSheet()->setTitle('values');
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
 if($client['name'])
-$objWriter->save("../files2/ca-output/".$client['name']."/".$client['name']."-commodity-values-".$date.".xls");
+{
+	$backup_folder = "../files/output/output_upcomming/" .$client['name']."/";
+	if (!file_exists($backup_folder))
+		mkdir($backup_folder, 0777, true);
+	
+	$objWriter->save($backup_folder. .$client['name']."-commodity-values-".$date.".xls");
+}
 else
 {
-$objWriter->save("../files2/ca-output/commodity-values-".$date."-".time().".xls");
+	$backup_folder = "../files/output/output_upcomming/";
+	if (!file_exists($backup_folder))
+		mkdir($backup_folder, 0777, true);
+	
+$objWriter->save($backup_folder. "commodity-values-".$date."-".time().".xls");
 
 }
 

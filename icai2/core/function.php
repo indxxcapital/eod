@@ -333,7 +333,13 @@ function backup_tables1($tables = '*')
 
 
 $zip = new ZipArchive();
-$res = $zip->open('../files2/backup/db-backup-1-'.date("Y-m-d").'.sql.zip', ZipArchive::CREATE);
+
+$backup_folder = "../files/output/backup/";
+if (!file_exists($backup_folder))
+	mkdir($backup_folder, 0777, true);
+
+
+$res = $zip->open($backup_folder. 'db-backup-1-'.date("Y-m-d").'.sql.zip', ZipArchive::CREATE);
 if ($res === TRUE) {
     $zip->addFromString('db-backup-1-'.date("Y-m-d").'.sql', $return);
     $zip->close();
@@ -390,7 +396,13 @@ function backup_tables2($tables = '*')
 
 
 $zip = new ZipArchive;
-$res = $zip->open('../files2/backup/db-backup-2-'.date("Y-m-d").'.sql.zip', ZipArchive::CREATE);
+
+
+$backup_folder = "../files/output/backup/";
+if (!file_exists($backup_folder))
+	mkdir($backup_folder, 0777, true);
+
+$res = $zip->open($backup_folder. 'db-backup-2-'.date("Y-m-d").'.sql.zip', ZipArchive::CREATE);
 if ($res === TRUE) {
     $zip->addFromString('db-backup-2-'.date("Y-m-d").'.sql', $return);
     $zip->close();

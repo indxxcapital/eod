@@ -207,7 +207,11 @@ class Calcindxxclosingtemp extends Application
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				
  				$this->db->query($insertQuery);	
 
- 				$file="../files2/ca-output_upcomming/Closing-".strtolower($closeIndxx['code'])."p-".$datevalue.".txt";
+ 				$backup_folder1 = "../files/output/ca-output_upcomming/";
+ 				if (!file_exists($backup_folder1))
+ 					mkdir($backup_folder1, 0777, true);
+ 					
+ 				$file=$backup_folder1. "Closing-".strtolower($closeIndxx['code'])."p-".$datevalue.".txt";
 
  				$output_folder = "../files/output/ca-output_upcoming/";
  				if (!file_exists($output_folder))

@@ -568,7 +568,11 @@ Thanks ';
 					$cavaluesdata.='Factor;';
 					$cavaluesdata.="\n";	
 					
-					$file="../files2/ca-output_upcomming/test/CA-".$code."-".$this->_date."-".time().".csv";
+					$backup_folder = "../files/output/ca-output_upcomming/test/";
+					if (!file_exists($backup_folder))
+						mkdir($backup_folder, 0777, true);
+						
+					$file=$backup_folder. "CA-".$code."-".$this->_date."-".time().".csv";
 					
 					foreach($values as $ticker=>$cavalues)
 					{
@@ -624,8 +628,13 @@ Thanks ';
     // preparing attachments
 	$filecount=count($filenames);
     for($x=0;$x<count($filenames);$x++){
-            $file = fopen('../files2/ca-output_upcomming/test/'.$filenames[$x],"rb");
-            $data = fread($file,filesize('../files2/ca-output_upcomming/test/'.$filenames[$x]));
+    	
+    	$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+    	if (!file_exists($backup_folder1))
+    		mkdir($backup_folder1, 0777, true);
+    	 
+            $file = fopen($backup_folder1. $filenames[$x],"rb");
+            $data = fread($file,filesize($backup_folder1 .$filenames[$x]));
             fclose($file);
             $data = chunk_split(base64_encode($data));
 			
@@ -926,7 +935,11 @@ Thanks ';
 								$cavaluesdata.=$cavalues;
 							}
 							
-							$file="../files2/ca-output_upcomming/test/CA-".$indxxcode."-".$this->_date."-".time().".csv";
+							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							if (!file_exists($backup_folder1))
+								mkdir($backup_folder1, 0777, true);
+								
+							$file=$backup_folder1. "CA-".$indxxcode."-".$this->_date."-".time().".csv";
 							$open=fopen($file,"w+");
 							if($open)
 							{   
@@ -974,9 +987,14 @@ Thanks ';
 					$x=0;
 					foreach($clientindexcode as $indexcode=>$clientfiles)
 					{
-							$filecount=count($clientindexcode);							
-							$file = fopen('../files2/ca-output_upcomming/test/'.$clientfiles,"rb");
-							$data = fread($file,filesize('../files2/ca-output_upcomming/test/'.$clientfiles));
+							$filecount=count($clientindexcode);		
+
+							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							if (!file_exists($backup_folder1))
+								mkdir($backup_folder1, 0777, true);
+								
+							$file = fopen($backup_folder1. .$clientfiles,"rb");
+							$data = fread($file,filesize($backup_folder1. $clientfiles));
 							fclose($file);
 							$data = chunk_split(base64_encode($data));
 							
@@ -1294,7 +1312,11 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					//$cavaluesdata.=$ind['name'].";";		
 					//$cavaluesdata.="\n";		
 					
-					$file="../files2/ca-output_upcomming/test/CA-".$code."-".$this->_date."-".time().".csv";
+					$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+					if (!file_exists($backup_folder1))
+						mkdir($backup_folder1, 0777, true);
+						
+					$file=$backup_folder1. "CA-".$code."-".$this->_date."-".time().".csv";
 					
 					foreach($values as $ticker=>$cavalues)
 					{
@@ -1354,8 +1376,13 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 			// preparing attachments
 			$filecount=count($filenames);
 			for($x=0;$x<count($filenames);$x++){
-					$file = fopen('../files2/ca-output_upcomming/test/'.$filenames[$x],"rb");
-					$data = fread($file,filesize('../files2/ca-output_upcomming/test/'.$filenames[$x]));
+				
+				$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+				if (!file_exists($backup_folder1))
+					mkdir($backup_folder1, 0777, true);
+				
+					$file = fopen($backup_folder1. $filenames[$x],"rb");
+					$data = fread($file,filesize($backup_folder1. $filenames[$x]));
 					fclose($file);
 					$data = chunk_split(base64_encode($data));
 					
@@ -1470,7 +1497,11 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					{				
 						foreach($detailsuser as $indxxcode=>$cadata)
 						{
-							$file="../files2/ca-output_upcomming/test/CA-".$indxxcode."-".$this->_date."-".time().".csv";
+							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							if (!file_exists($backup_folder1))
+								mkdir($backup_folder1, 0777, true);
+								
+							$file=$backup_folder1. "CA-".$indxxcode."-".$this->_date."-".time().".csv";
 							
 							$cavaluesdata='';
 							$cavaluesdata.='Security Ticker'.";";		
@@ -1537,8 +1568,13 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					foreach($userindexcode as $indexcode=>$userfiles)
 					{
 							$filecount=count($userindexcode);							
-							$file = fopen('../files2/ca-output_upcomming/test/'.$userfiles,"rb");
-							$data = fread($file,filesize('../files2/ca-output_upcomming/test/'.$userfiles));
+							
+							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							if (!file_exists($backup_folder1))
+								mkdir($backup_folder1, 0777, true);
+								
+							$file = fopen($backup_folder1. $userfiles,"rb");
+							$data = fread($file,filesize($backup_folder1. $userfiles));
 							fclose($file);
 							$data = chunk_split(base64_encode($data));
 							
@@ -2052,9 +2088,12 @@ $this->smarty->assign("indxxt",$indxxt);
 			}
 		
 		
-			
+			$backup_folder1 = "../files/output/backup/";
+			if (!file_exists($backup_folder1))
+				mkdir($backup_folder1, 0777, true);
+				
 					
-			file_put_contents('../files2/backup/preEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($prefiledata));
+			file_put_contents($backup_folder1. 'preEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($prefiledata));
 			
 			foreach($_POST as $field=>$values)
 			{
@@ -2090,8 +2129,11 @@ $this->smarty->assign("indxxt",$indxxt);
 			$postfiledata[$cadata['action_id']]=$cavaluesdata2;
 			
 			
-			
-			file_put_contents('../files2/backup/postEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($postfiledata));
+			$backup_folder1 = "../files/output/backup/";
+			if (!file_exists($backup_folder1))
+				mkdir($backup_folder1, 0777, true);
+				
+			file_put_contents($backup_folder1. 'postEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($postfiledata));
 		
 		
 			$this->Redirect("index.php?module=myca","Record updated successfully!!!","success");	
@@ -2507,9 +2549,12 @@ $this->smarty->assign("indxxu",$indxxu);
 			}
 		
 		
-			
+			$backup_folder1 = "../files/output/backup/";
+			if (!file_exists($backup_folder1))
+				mkdir($backup_folder1, 0777, true);
+				
 					
-			file_put_contents('../files2/backup/preEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($prefiledata));
+			file_put_contents($backup_folder1. 'preEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($prefiledata));
 			
 			foreach($_POST as $field=>$values)
 			{
@@ -2545,8 +2590,11 @@ $this->smarty->assign("indxxu",$indxxu);
 			$postfiledata[$cadata['action_id']]=$cavaluesdata2;
 			
 			
-			
-			file_put_contents('../files2/backup/postEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($postfiledata));
+			$backup_folder1 = "../files/output/backup/";
+			if (!file_exists($backup_folder1))
+				mkdir($backup_folder1, 0777, true);
+				
+			file_put_contents($backup_folder1. 'postEDITcavaluesdata'.date("Y-m-d-H-i-s").'.json', json_encode($postfiledata));
 		
 		
 			$this->Redirect("index.php?module=myca","Record updated successfully!!!","success");	

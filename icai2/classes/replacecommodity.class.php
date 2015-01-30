@@ -32,7 +32,11 @@ $finalArray[$index['id']]=$index;
 	$newData=array();
 	if(!empty($finalArray))
 	{
-		  file_put_contents('../files2/backup/preReplaceCommoditydata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
+		$backup_folder = "../files/output/backup/";
+		if (!file_exists($backup_folder))
+			mkdir($backup_folder, 0777, true);
+		
+		  file_put_contents($backup_folder. 'preReplaceCommoditydata'.date("Y-m-d-H-i-s").'.json', json_encode($final_array));
 	
 		foreach($finalArray as $key=>$index)
 		{
@@ -97,7 +101,11 @@ $finalArray[$index['id']]=$index;
 		//if
 		
 		}
-	  file_put_contents('../files2/backup/postReplaceCommoditydata'.date("Y-m-d-H-i-s").'.json', json_encode($newData));		
+		$backup_folder = "../files/output/backup/";
+		if (!file_exists($backup_folder))
+			mkdir($backup_folder, 0777, true);
+		
+	  file_put_contents($backup_folder. 'postReplaceCommoditydata'.date("Y-m-d-H-i-s").'.json', json_encode($newData));		
 	}
 	$this->saveProcess(3);
 	$this->Redirect("index.php?module=calccomodity","","");	
