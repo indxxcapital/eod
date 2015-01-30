@@ -410,8 +410,8 @@ function misc_notification()
 	
 	log_info("Misc notification process finished");
 	
-	//webopen("http://191.238.229.176/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-	webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
+	webopen("http://191.238.229.176/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
+	//webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
 	
 }
 ?>

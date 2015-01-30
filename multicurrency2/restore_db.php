@@ -15,11 +15,11 @@ ini_set("memory_limit", "1024M");
 if (!$_GET['DBNAME'])
 	$_GET['DBNAME'] = "admin_icai22014-12-20-1422033425.sql";
 
-//$restore_file = "C:/xampp/htdocs/eod/files/db-backup/"  .$_GET['DBNAME'];
-$restore_file = "C:/wamp/www/eod/files/db-backup/"  .$_GET['DBNAME'];
+$restore_file = "C:/xampp/htdocs/eod/files/db-backup/"  .$_GET['DBNAME'];
+//$restore_file = "C:/wamp/www/eod/files/db-backup/"  .$_GET['DBNAME'];
 
-//$command = "C:/xampp/mysql/bin/mysql.exe -u" .$db_user. " -p" .$db_password.  " " .$db_name. "  <  " .$restore_file;
-$command = "C:/wamp/bin/mysql/mysql5.6.17/bin/mysql.exe -u" .$db_user. " -p" .$db_password.  " " .$db_name. "  <  " .$restore_file;
+$command = "C:/xampp/mysql/bin/mysql.exe -u" .$db_user. " -p" .$db_password.  " " .$db_name. "  <  " .$restore_file;
+//$command = "C:/wamp/bin/mysql/mysql5.6.17/bin/mysql.exe -u" .$db_user. " -p" .$db_password.  " " .$db_name. "  <  " .$restore_file;
 
 //echo $command . "<br>";
 
