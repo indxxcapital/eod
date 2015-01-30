@@ -1,5 +1,8 @@
 <?php
 class Functions extends Models {
+
+	//For production mode make this 0, set this to 0 in input_file.php too
+	var $DEBUG = 1;
 	var $debugging = true;
 	var $moduleClass = "";
 	var $moduleClassFile = "";
@@ -24,7 +27,7 @@ class Functions extends Models {
 		ini_set('max_execution_time', 60 * 60);
 		ini_set("memory_limit", "1024M");
 
-		if ($_GET['DEBUG'])
+		if ($this->DEBUG)
 		{
 			$this->email_errors = "amitmahajan86@gmail.com";
 			date_default_timezone_set("Asia/Kolkata");
@@ -51,7 +54,7 @@ class Functions extends Models {
 	}
 	
 	function setdate() {
-		if($_GET['DEBUG'])	
+		if($this->DEBUG)	
 			//$this->_date = '2014-12-20';
 			$this->_date = $_GET['date'];
 		else 

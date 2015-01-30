@@ -43,7 +43,7 @@ class Notifyforca extends Application
 				
 		//$this->saveProcess ( 1 );
 
-		$this->Redirect("index.php?module=calcftpopen&DEBUG=" .$_GET['DEBUG']. "&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
+		$this->Redirect("index.php?module=calcftpopen&date=" .$_GET['date']. "&log_file=" . $_GET['log_file'], "", "");
 	}
 }
 ?>

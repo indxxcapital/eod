@@ -16,9 +16,6 @@ class Calccapub extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-		
 		$this->log_info(log_file, "CA file generation process started");
 		
 		/* Fetch list of all live indexes */
@@ -150,7 +147,7 @@ class Calccapub extends Application
 		$this->log_info(log_file, "CA file generation process finished");
 				
 		//$this->saveProcess ( 1 );
-		$this->Redirect("index.php?module=checkcavalue&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+		$this->Redirect("index.php?module=checkcavalue&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 	}
 }
 ?>

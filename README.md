@@ -14,10 +14,7 @@ f) Optimize DB communications.
 
 Things to do at time of going live:
 -----------------------------------
-a) Set email id
 b) Set FTP
 c) Set SMTP
-d) Set timezone
-e) Saveprocess(), if needed
+d) Set timezone for server
 f) Non-Debug build
-g) Remove unused files

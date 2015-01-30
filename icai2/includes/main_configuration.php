@@ -1,13 +1,12 @@
 <?php 
 include('input_files.php');
 
-if(DEBUG == 1)
+if(DEBUG)
 {
 	class INDXXConfig {
-		//var $base_path='C:/xampp/htdocs/eod/icai2/';
-		//var $base_url='http://191.238.229.176/eod/icai2/';
 		var $base_path='C:/wamp/www/eod/icai2/';
 		var $base_url='http://localhost/eod/icai2/';
+		var $base_url_mc = 'http://localhost/eod/multicurrency2/';
 		var $db_host='localhost';
 		var $db_user='admin_icai2';
 		var $db_password='Reset1105@@';
@@ -25,10 +24,9 @@ if(DEBUG == 1)
 else
 {
 	class INDXXConfig {
-	//var $base_path='/home/pdo/public_html/time/';
-	var $base_path="C:/Inetpub/vhosts/icalc/icai2/";
-	//var $base_url='http://www.processdo.com/time/';
-	var $base_url='http://localhost/icai2/';
+	var $base_path='C:/xampp/htdocs/eod/icai2/';
+	var $base_url='http://191.238.229.176/eod/icai2/';
+	var $base_url_mc = 'http://191.238.229.176/eod/multicurrency2/';
 	var $db_host='localhost:3306';
 	var $db_user='admin_icai2';
 	var $db_password='Reset1105@@';

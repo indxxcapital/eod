@@ -5,7 +5,6 @@ include("verify_process_ca.php");
 /* Enable error capturing in log files and display the same in browser */
 error_reporting(E_ALL);
 set_error_handler("error_handler", E_ALL);
-ini_set("display_errors", 1);
 
 //$start_time = get_time();
 
@@ -19,6 +18,8 @@ define("log_file", get_logs_folder() . "ca_process_logs_" . date('Y-m-d_H-i-s', 
 
 if (DEBUG)
 {
+	ini_set("display_errors", 1);
+	
 	log_info("Executing CA process in debug mode");
 
 	date_default_timezone_set("Asia/Kolkata");
@@ -32,6 +33,8 @@ if (DEBUG)
 }
 else
 {
+	ini_set("display_errors", 0);
+	
 	log_info("Executing CA process in non-debug mode");
 
 	date_default_timezone_set("America/New_York");

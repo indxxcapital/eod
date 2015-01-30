@@ -16,9 +16,6 @@ class Calccadp extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-		
 		$this->log_info(log_file, "CA adp process started");
 		$finalArray = array ();
 		
@@ -70,6 +67,6 @@ class Calccadp extends Application
 		$this->log_info(log_file, "CA adp process finished");
 				
 		//$this->saveProcess ( 1 );
-		$this->Redirect("index.php?module=calccadptemp&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
+		$this->Redirect("index.php?module=calccadptemp&date=" .$date. "&log_file=" . basename(log_file), "", "" );
 	}
 }

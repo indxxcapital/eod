@@ -16,9 +16,6 @@ class Calclsc extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "LSC index file generation process started.");
 		
 		$final_array=array();
@@ -161,7 +158,7 @@ class Calclsc extends Application
 		$this->log_info(log_file, "LSC index file generation process finished.");
 		
 		//$this->saveProcess(2);
-		$this->Redirect("index.php?module=calccsi&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=calccsi&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 	}
 }
 ?>

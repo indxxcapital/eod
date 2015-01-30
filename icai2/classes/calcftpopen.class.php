@@ -17,9 +17,6 @@ class Calcftpopen extends Application
 		
 		define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "FTP opening file process started.");
 				
 		/* Find all live indexes with client_id = 4, TODO: Why 4? */

@@ -373,11 +373,10 @@ function misc_notification()
 			}
 		}
 	
-		//TODO: Check what is this?
 		if (!DEBUG)
 		{
 			$str = file_get_contents ( "https://voiceapi.mvaayoo.com/voiceapi/SendVoice?user=dbajpai@indxx.com:Reset930&da=918860427207,919654735363,919868915460,919999646314,919990350993&campaign_name=try&voice_file=53c757f695722.wav" );
-			echo $str;
+			//echo $str;
 		}
 	}
 	
@@ -410,8 +409,9 @@ function misc_notification()
 	
 	log_info("Misc notification process finished");
 	
-	//webopen("http://191.238.229.176/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-	webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&DEBUG=" .DEBUG. "&date=" .date. "&log_file=" . basename(log_file));
-	
+	if (!DEBUG)
+		webopen("http://191.238.229.176/eod/icai2/index.php?module=calcdelisttemp&date=" .date. "&log_file=" . basename(log_file));
+	else
+		webopen("http://localhost/eod/icai2/index.php?module=calcdelisttemp&date=" .date. "&log_file=" . basename(log_file));	
 }
 ?>

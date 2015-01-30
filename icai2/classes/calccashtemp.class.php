@@ -16,9 +16,6 @@ class Calccashtemp extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "Cash index[upcoming] file generation process started.");	
 		
 		$final_array = array ();
@@ -116,7 +113,7 @@ class Calccashtemp extends Application
 		
 		//$this->saveProcess(2);
 
-		$this->Redirect("index.php?module=calclsc&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=calclsc&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 	}
 }
 ?>

@@ -11,7 +11,6 @@ include("convert_hedged_security_price.php");
 /* Enable error capturing in log files and display the same in browser */
 error_reporting(E_ALL);
 set_error_handler("error_handler", E_ALL);
-ini_set("display_errors", 1);
 
 //$start_time = get_time();
 
@@ -24,6 +23,8 @@ define("log_file", prepare_logfile());
 
 if (DEBUG)
 {
+	ini_set("display_errors", 1);
+	
 	log_info("Executing closing index process in debug mode");
 
 	date_default_timezone_set("Asia/Kolkata");
@@ -37,6 +38,8 @@ if (DEBUG)
 }
 else
 {
+	ini_set("display_errors", 0);
+	
 	log_info("Executing closing index process in non-debug mode");
 	
 	date_default_timezone_set("America/New_York");
@@ -59,20 +62,14 @@ define("process", "Closing");
 
 $backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
 if (DEBUG)
-{
-	/*
-	$command = "C:/xampp/mysql/bin/mysqldump.exe --opt -h" .$db_host. 
-				" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;
-	*/
-	
-	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host.
-	" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;	
-	
+{	
+	$command = "C:/wamp/bin/mysql/mysql5.6.17/bin/mysqldump.exe --opt -h" .$db_host.
+	" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;		
 }
 else
 {	
-	log_error("mysqldump.exe and gzip.exe path not defined. Exiting process");
-	mail_exit(__FILE__, __LINE__);
+	 $command = "C:/xampp/mysql/bin/mysqldump.exe --opt -h" .$db_host.
+	 " -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;
 }
 
 //echo $command;

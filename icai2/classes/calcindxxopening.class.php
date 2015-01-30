@@ -22,9 +22,6 @@ class Calcindxxopening extends Application
 		/* Define what type of process is this - Opening */
 		define("process", "Opening");
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "Opening file generation process started for live indexes");
 
 		$this->_title 				= $this->siteconfig->site_title;
@@ -493,7 +490,7 @@ class Calcindxxopening extends Application
 		$this->log_info(log_file, "Opening file generation process finished for live indexes.");
 		
 		//$this->saveProcess(2);
-		$this->Redirect("index.php?module=calcindxxopeningtemp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=calcindxxopeningtemp&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 	}   
 }
 ?>

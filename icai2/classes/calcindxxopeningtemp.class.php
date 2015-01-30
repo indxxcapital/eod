@@ -13,9 +13,6 @@ class Calcindxxopeningtemp extends Application
 		
 		define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "Opening file generation process started for upcoming indexes.");
 				
 		$this->_title = $this->siteconfig->site_title;
@@ -461,7 +458,7 @@ class Calcindxxopeningtemp extends Application
 				
 		// $this->saveProcess(1);
 		
-		$this->Redirect("index.php?module=notifyforca&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=notifyforca&date=" .$datevalue2. "&log_file=" . log_file, "", "");
 	}
 }
 ?>

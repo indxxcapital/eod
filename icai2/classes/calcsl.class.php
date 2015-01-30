@@ -16,9 +16,6 @@ class Calcsl extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "SL index file generation process started.");
 		
 		$final_array=array();
@@ -143,23 +140,8 @@ class Calcsl extends Application
 
 		$this->log_info(log_file, "SL index file generation process finished.");
 		
-
+		$this->Redirect("publishcsixls.php?date=" .$datevalue2. "&log_file=" . log_file, "", "");		
 		//$this->saveProcess(2);
-		if (DEBUG)
-		{
-			$url ="http://localhost/eod/icai2/publishcsixls.php?DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . log_file;	
-		}
-		else
-		{
-			$this->log_error(log_file, "Unable to find publishing URL for CSI xls file.");
-			//$url ="http://174.36.193.130/icai2/publishcsixls.php";	
-			$this->mail_exit(log_file, __FILE__, __LINE__);
-		}
-		//exit();
-		$link="<script type='text/javascript'>
-		window.open('".$url."');  
-		</script>";
-		echo $link;
 	}
 }
 ?>

@@ -16,9 +16,6 @@ class Calcindxxclosing extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-						
 		$this->log_info(log_file, "Closing file generation process started for live indexes.");
 		
 		$this->_title 				= $this->siteconfig->site_title;
@@ -288,7 +285,7 @@ class Calcindxxclosing extends Application
 		$this->log_info(log_file, "Closing file generation process finished for live indexes.");
 		
 		//$this->saveProcess(2);
-		$this->Redirect("index.php?module=calcindxxclosingtemp&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=calcindxxclosingtemp&date=" .$datevalue. "&log_file=" . log_file, "", "");
 	}   
 } 
 ?>

@@ -17,9 +17,6 @@ class Calcrebalance extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "CA rebalance process started");
 		$final_array = array ();
 		
@@ -96,7 +93,7 @@ class Calcrebalance extends Application
 		$this->log_info(log_file, "CA rebalance process finished");
 		
 		//$this->saveProcess ( 1 );
-		$this->Redirect("index.php?module=calcdp&DEBUG=" .DEBUG. "&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
+		$this->Redirect("index.php?module=calcdp&date=" .$datevalue2. "&log_file=" . basename(log_file), "", "" );
 	}
 }
 ?>

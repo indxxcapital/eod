@@ -16,9 +16,6 @@ class Calcindxxclosingtemp extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "Closing file generation process started for upcoming indexes.");
 
 		$this->_title=$this->siteconfig->site_title;
@@ -248,7 +245,7 @@ class Calcindxxclosingtemp extends Application
 		$this->log_info(log_file, "Closing file generation process finished for upcoming indexes.");
 		
 		//$this->saveProcess(2);
-		$this->Redirect("index.php?module=compositclose&DEBUG=" .DEBUG. "&date=" .$datevalue. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=compositclose&date=" .$datevalue. "&log_file=" . log_file, "", "");
 	}		
 } 
 ?>

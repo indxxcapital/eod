@@ -17,9 +17,6 @@ class Calcspinstockadd extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$finalArray = array ();
 		
 		$this->log_info(log_file, "CA spinstockadd process started");
@@ -109,7 +106,7 @@ class Calcspinstockadd extends Application
 		$this->log_info(log_file, "CA spinstockadd process finished");
 		
 		//$this->saveProcess ( 1 );
-		$this->Redirect("index.php?module=calcspinstockaddtemp&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . basename(log_file), "", "" );
+		$this->Redirect("index.php?module=calcspinstockaddtemp&date=" .$date. "&log_file=" . basename(log_file), "", "" );
 	}
 }
 ?>

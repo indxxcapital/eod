@@ -15,9 +15,6 @@ class Compositclose extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		if($_GET['DEBUG'])
-			define("DEBUG", $_GET['DEBUG']);
-
 		$this->log_info(log_file, "Composite closing file generation process started.");
 		
 		/* Fetch the list of all the clients */
@@ -75,7 +72,7 @@ class Compositclose extends Application
 
 		//$this->saveProcess(2);		
 		
-		$this->Redirect("index.php?module=calccash&DEBUG=" .DEBUG. "&date=" .$date. "&log_file=" . log_file, "", "");
+		$this->Redirect("index.php?module=calccash&date=" .$date. "&log_file=" . log_file, "", "");
 	}
 }
 ?>
