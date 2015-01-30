@@ -32,7 +32,7 @@ class Functions extends Models {
 		else
 		{
 			$this->email_errors = "icalc@indxx.com";
-			//date_default_timezone_set("America/New_York");				
+			date_default_timezone_set("America/New_York");				
 		}
 
 			
