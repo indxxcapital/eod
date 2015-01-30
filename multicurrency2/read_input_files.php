@@ -60,12 +60,14 @@ define("process", "Closing");
 $backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
 if (DEBUG)
 {
+	/*
 	$command = "C:/xampp/mysql/bin/mysqldump.exe --opt -h" .$db_host. 
 				" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;
-	/*
-	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host.
-	" -u" .$db_user. " -p" .$db_password. " " .$db_name. " | \"C:\Program Files (x86)\GnuWin32\bin\gzip.exe\" > " .$backup_file;	
 	*/
+	
+	$command = "C:\wamp\bin\mysql\mysql5.6.17\bin\mysqldump.exe --opt -h" .$db_host.
+	" -u" .$db_user. " -p" .$db_password. " " .$db_name. " > " .$backup_file;	
+	
 }
 else
 {	

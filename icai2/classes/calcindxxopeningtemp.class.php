@@ -143,14 +143,14 @@ class Calcindxxopeningtemp extends Application
 				$newindexvalue = 0;
 				$oldmarketValue = 0;
 				
-				$index['index_value']['divisor_impact'] = 0;
+				$final_array[$indxxKey]['index_value']['divisor_impact'] = 0;
 				
 				$oldDivisor = $closeIndxx ['index_value'] ['olddivisor'];
 				$divisorAdjustinStock = $closeIndxx ['cash_adjust'];
 								
 				foreach ( $closeIndxx ['values'] as $securityKey => $closeprices ) 
 				{
-					$security = $index['values'][$securityKey];
+					$security = $final_array[$indxxKey]['values'][$securityKey];
 					$this->log_info(log_file, "	Processing CA for security = " . $security['isin']);
 					
 					$oldisin = $newisin = '';
@@ -165,8 +165,8 @@ class Calcindxxopeningtemp extends Application
 					$userAdjfactor = $this->get_user_ca_adj_factor ( $closeIndxx ['id'], $closeprices ['id'] );
 					if ($userAdjfactor)
 					{
-						$security['newcalcshare'] = ($closeprices ['calcshare'] * $userAdjfactor);
-						$security['newcalcprice'] = ($closeprices ['calcprice'] / $userAdjfactor);
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $userAdjfactor);
+						$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $userAdjfactor);
 							
 						$priceAdjfactor /= $userAdjfactor;
 						$shareAdjfactor *= $userAdjfactor;
@@ -176,7 +176,7 @@ class Calcindxxopeningtemp extends Application
 					{
 						foreach ($closeprices ['ca'] as $ca_key => $ca_actions) 
 						{
-							$security['ca'] [$ca_key] ['ca_values'] = $this->getCa ( $ca_actions ['id'], $ca_actions ['action_id'] );
+							$final_array[$indxxKey]['values'][$securityKey]['ca'] [$ca_key] ['ca_values'] = $this->getCa ( $ca_actions ['id'], $ca_actions ['action_id'] );
 							
 							if ($closeprices ['calcprice'])
 							{
@@ -187,8 +187,8 @@ class Calcindxxopeningtemp extends Application
 											
 										if ($adjfactor)
 										{
-											$security['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
 									
 											$priceAdjfactor /= $adjfactor;
 											$shareAdjfactor *= $adjfactor;
@@ -200,8 +200,8 @@ class Calcindxxopeningtemp extends Application
 										if ($adjfactor)
 										{
 											$adjfactor = ($adjfactor / 100) + 1;
-											$security['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] * $adjfactor);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] / $adjfactor);
 									
 											$priceAdjfactor /= $adjfactor;
 											$shareAdjfactor *= $adjfactor;
@@ -213,8 +213,8 @@ class Calcindxxopeningtemp extends Application
 									
 										if ($adjfactorSpin)
 										{
-											$security['newcalcshare'] = ($closeprices ['calcshare'] / $adjfactorSpin);
-											$security['newcalcprice'] = ($closeprices ['calcprice'] * $adjfactorSpin);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ($closeprices ['calcshare'] / $adjfactorSpin);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = ($closeprices ['calcprice'] * $adjfactorSpin);
 									
 											$priceAdjfactor *= $adjfactorSpin;
 											$shareAdjfactor /= $adjfactorSpin;
@@ -227,64 +227,75 @@ class Calcindxxopeningtemp extends Application
 											
 										if ($cp_ratio && $cp_adj)
 										{
-											$offerpricesArray = $this->getOfferPrices ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $index['curr'], $closeIndxx ['index_value'] ['date'], $indxxKey, 1 );
+											$offerpricesArray = $this->getOfferPrices ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $final_array[$indxxKey]['curr'], $closeIndxx ['index_value'] ['date'], $indxxKey, 1 );
 									
-											$security['newcalcshare'] = ((1 + $cp_ratio) * $closeprices ['calcshare']);
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = ((1 + $cp_ratio) * $closeprices ['calcshare']);
 												
 											$z = $closeprices ['calcshare'] * ($closeprices ['calcprice'] + ($cp_ratio * $offerpricesArray ['op_price_index_currency']));
-											$security['newcalcprice'] = $z / $security['newcalcshare'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $z / $final_array[$indxxKey]['values'][$securityKey]['newcalcshare'];
 									
-											$newDivisor = $oldDivisor + ((($security['newcalcshare'] * $security['newcalcprice']) - ($closeprices ['calcshare'] * $closeprices ['calcprice'])) / $oldindexvalue);
+											$newDivisor = $oldDivisor + ((($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] * $final_array[$indxxKey]['values'][$securityKey]['newcalcprice']) - ($closeprices ['calcshare'] * $closeprices ['calcprice'])) / $oldindexvalue);
 									
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $closeprices ['calcprice']);
-											$shareAdjfactor = $shareAdjfactor * ($security['newcalcshare'] / $closeprices ['calcshare']);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $closeprices ['calcprice']);
+											$shareAdjfactor = $shareAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] / $closeprices ['calcshare']);
 									
 											$divisorImpact += $newDivisor - $oldDivisor;
 										}
 										break;
 										
 									case 'DVD_CASH':
-										$ca_prices = $this->getCaPrices2 ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $index['curr'], $closeIndxx ['index_value'] ['date'], $closeIndxx ['div_type'], $indxxKey, 1 );
+										$ca_prices = $this->getCaPrices2 ( $ca_actions ['id'], $ca_actions ['action_id'], $ca_actions ['currency'], $final_array[$indxxKey]['curr'], $closeIndxx ['index_value'] ['date'], $closeIndxx ['div_type'], $indxxKey, 1 );
 											
 										if ($closeIndxx ['ireturn'] == 2 && $ca_prices ['CP_DVD_TYP'] != '1001')
 										{
-											$index['divpvalue'] += ($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']);
+											$final_array[$indxxKey]['divpvalue'] += ($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']);
 									
-											$security['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
 									
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $base_price);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $base_price);
 									
-											$base_price = $security['newcalcprice'];
+											$base_price = $final_array[$indxxKey]['values'][$securityKey]['newcalcprice'];
 									
 										}
 										elseif ($divisorAdjustinStock)
 										{
+											$this->log_info(log_file, "case divisorAdjustinStock: isin=" .  $closeprices['isin']);
+												
 											$newfactor = ($closeprices ['calcprice'] - $ca_prices ['ca_price_index_currency']) / $closeprices ['calcprice'];
-											$security['newcalcshare'] = $closeprices ['calcshare'] / $newfactor;
-											$security['newcalcprice'] = $closeprices ['calcprice'] * $newfactor;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'] / $newfactor;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $newfactor;
 												
 											$priceAdjfactor *= $newfactor;
 											$shareAdjfactor /= $newfactor;
+											
+											/*
+											$this->log_info(log_file, "calcprice=" .  $closeprices['calcprice']);
+											$this->log_info(log_file, "divident=" .  $closeprices['ca_price_index_currency']);
+											$this->log_info(log_file, "newfactor=" .  $newfactor);
+											$this->log_info(log_file, "priceAdjfactor=" .  $priceAdjfactor);
+											$this->log_info(log_file, "shareAdjfactor=" .  $shareAdjfactor);
+												*/
+												
 										}
 										elseif ($ca_prices ['CP_DVD_TYP'] == '1001')
 										{
 											$adjfactorforcash = $ca_prices ['CP_ADJ'];
 																				
-											$security['newcalcshare'] = $closeprices ['calcshare'] / $adjfactorforcash;
-											$security['newcalcprice'] = $closeprices ['calcprice'] * $adjfactorforcash;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] = $closeprices ['calcshare'] / $adjfactorforcash;
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $adjfactorforcash;
 									
 											$priceAdjfactor *= $adjfactorforcash;
 											$shareAdjfactor /= $adjfactorforcash;
 										}
 										else
 										{
-											$security['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
+											$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $base_price - $ca_prices ['ca_price_index_currency'];
 									
-											$priceAdjfactor = $priceAdjfactor * ($security['newcalcprice'] / $base_price);
+											$priceAdjfactor = $priceAdjfactor * ($final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] / $base_price);
 											$newDivisor = $oldDivisor - (($closeprices ['calcshare'] * $ca_prices ['ca_price_index_currency']) / $oldindexvalue);
 											$divisorImpact += $newDivisor - $oldDivisor;
 									
-											$base_price = $security['newcalcprice'];
+											$base_price = $final_array[$indxxKey]['values'][$securityKey]['newcalcprice'];
 										}
 										break;
 								}
@@ -302,7 +313,7 @@ class Calcindxxopeningtemp extends Application
 									$oldname = $this->getoldName ( $ca_actions ['id'], $ca_actions ['action_id'], $indxxKey );
 									$newname = $this->getnewName ( $ca_actions ['id'], $ca_actions ['action_id'], $indxxKey );
 
-									//$nametickerUpdateQuery = 'UPDATE  tbl_indxx_ticker_temp  set name ="' . $newname . '" where indxx_id="' . $indxxKey . '"  and isin="' . $security ['isin'] . '"';
+									//$nametickerUpdateQuery = 'UPDATE  tbl_indxx_ticker_temp  set name ="' . $newname . '" where indxx_id="' . $indxxKey . '"  and isin="' . $final_array[$indxxKey]['values'][$securityKey] ['isin'] . '"';
 									// $this->db->query($nametickerUpdateQuery);
 									$final_array [$indxxKey] ['values'] [$securityKey] ['name'] = $newname;
 										
@@ -311,13 +322,16 @@ class Calcindxxopeningtemp extends Application
 						}
 					}
 
-					$security['newcalcprice'] = $closeprices ['calcprice'] * $priceAdjfactor;
-					$security['newlocalprice'] = $closeprices ['localprice'] * $priceAdjfactor;
-					$security ['newcalcshare'] = $closeprices ['calcshare'] * $shareAdjfactor;
+					$final_array[$indxxKey]['values'][$securityKey]['newcalcprice'] = $closeprices ['calcprice'] * $priceAdjfactor;
+					$final_array[$indxxKey]['values'][$securityKey]['newlocalprice'] = $closeprices ['localprice'] * $priceAdjfactor;
+					$final_array[$indxxKey]['values'][$securityKey] ['newcalcshare'] = $closeprices ['calcshare'] * $shareAdjfactor;
+
+					//$this->log_info(log_file, "new price=" .  $final_array[$indxxKey]['values'][$securityKey]['newcalcprice']);
+					//$this->log_info(log_file, "new share=" .  $final_array[$indxxKey]['values'][$securityKey]['newcalcshare']);
 						
-					if ($security['newcalcshare'] != $closeprices ['calcshare'])
+					if ($final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] != $closeprices ['calcshare'])
 					{
-						$shareUpdateQuery = 'UPDATE  tbl_share_temp  set share ="' . $security['newcalcshare'] . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
+						$shareUpdateQuery = 'UPDATE  tbl_share_temp  set share ="' . $final_array[$indxxKey]['values'][$securityKey]['newcalcshare'] . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
 						$this->db->query ( $shareUpdateQuery );
 					}
 						
@@ -331,7 +345,7 @@ class Calcindxxopeningtemp extends Application
 							$isintickerUpdateQuery = 'UPDATE  tbl_indxx_ticker_temp  set isin ="' . $newisin . '" where indxx_id="' . $indxxKey . '"  and isin="' . $closeprices ['isin'] . '"';
 							$this->db->query ( $isintickerUpdateQuery );
 								
-							$security['isin'] = $newisin;
+							$final_array[$indxxKey]['values'][$securityKey]['isin'] = $newisin;
 						}
 						else
 						{
@@ -339,11 +353,11 @@ class Calcindxxopeningtemp extends Application
 							$this->mail_exit(log_file, __FILE__, __LINE__);
 						}
 					}
-					$index['index_value'] ['divisor_impact'] += $divisorImpact;						
+					$final_array[$indxxKey]['index_value'] ['divisor_impact'] += $divisorImpact;						
 				}
 
 				//TODO:================
-				file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey.'.json', json_encode ($index));
+				file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey.'.json', json_encode ($final_array[$indxxKey]));
 				//file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($index));
 				$this->log_info(log_file, "Postopentempdata file created for index= " . $indxxKey);
 			}

@@ -41,18 +41,22 @@ $this->addJs('js/flaty.js');
 	//$this->pr($_POST,true);
 	if($_POST['ca'] && $_POST['date'])
 	{
-	$url='http://191.238.229.176/eod/multicurrency2/read_input_ca.php?DEBUG=1&date='.$_POST['date'];
-
+	//$url='http://191.238.229.176/eod/multicurrency2/read_input_ca.php?DEBUG=1&date='.$_POST['date'];
+		$url='http://localhost/eod/multicurrency2/read_input_ca.php?DEBUG=1&date='.$_POST['date'];
+		
 	}
 	if($_POST['open'] && $_POST['date'])
 	{
 	
-	$url='http://191.238.229.176/eod/icai2/index.php?module=calcindxxopening&DEBUG=1&date='.$_POST['date'];
-}
+	//$url='http://191.238.229.176/eod/icai2/index.php?module=calcindxxopening&DEBUG=1&date='.$_POST['date'];
+		$url='http://localhost/eod/icai2/index.php?module=calcindxxopening&DEBUG=1&date='.$_POST['date'];
+		
+	}
 	if($_POST['close'] && $_POST['date'])
 	{
-	$url='http://191.238.229.176/eod/multicurrency2/read_input_files.php?DEBUG=1&date='.$_POST['date'];
-
+	//$url='http://191.238.229.176/eod/multicurrency2/read_input_files.php?DEBUG=1&date='.$_POST['date'];
+		$url='http://localhost/eod/multicurrency2/read_input_files.php?DEBUG=1&date='.$_POST['date'];
+		
 	}
 	
 	

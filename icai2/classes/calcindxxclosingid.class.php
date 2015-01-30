@@ -112,9 +112,14 @@ if($type=='close')
 	{
 		foreach($final_array as $indxxKey=> $closeIndxx)
 		{
+			$output_folder = "../files/output/ca-output_upcoming/";
 			
-			$file="../files2/ca-output_upcomming/pre-closing-".$closeIndxx['code']."-".$closeIndxx['dateStart']."-".$datevalue.".txt";
-
+			if (!file_exists($output_folder))
+				mkdir($output_folder, 0777, true);
+			
+			//$file="../files2/ca-output_upcomming/pre-closing-".$closeIndxx['code']."-".$closeIndxx['dateStart']."-".$datevalue.".txt";
+			$file= $output_folder . "pre-closing-".$closeIndxx['code']."-".$closeIndxx['dateStart']."-".$datevalue.".txt";
+				
 			$open=fopen($file,"w+");
 
 			$entry1='Date'.",";
