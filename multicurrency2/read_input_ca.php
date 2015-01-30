@@ -37,7 +37,7 @@ else
 	date_default_timezone_set("America/New_York");
 	log_info("Timezone set to America/New_York");
 	
-	define("email_errors", "kaggarwal@indxx.com");
+	define("email_errors", "icalc@indxx.com");
 	define("date", date("Y-m-d"));
 }
 log_info("All notification/error emails will be send to " . email_errors);

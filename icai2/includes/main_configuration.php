@@ -37,7 +37,7 @@ else
 	var $admin_title='icai';
 	var $default_meta_description='icai Admin Panel';
 	var $default_meta_keyword='icai Description';
-	var $admin_email='deepakb48@gmail.com';
+	var $admin_email='icalc@indxx.com';
 	var $mail_from='info@indxx.com';
 	var $from_name='info';
 	var $paging='8';

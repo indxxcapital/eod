@@ -31,10 +31,8 @@ class Functions extends Models {
 		}
 		else
 		{
-			//date_default_timezone_set("America/New_York");
-				
-			//echo "Please define email id for sending mails.<br>";
-			//exit();
+			$this->email_errors = "icalc@indxx.com";
+			//date_default_timezone_set("America/New_York");				
 		}
 
 			
