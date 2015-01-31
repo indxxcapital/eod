@@ -14,7 +14,5 @@ f) Optimize DB communications.
 
 Things to do at time of going live:
 -----------------------------------
-b) Set FTP
-c) Set SMTP
-d) Set timezone for server
-f) Non-Debug build
+a) Set FTP
+b) Set SMTP
