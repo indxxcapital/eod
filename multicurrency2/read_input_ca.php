@@ -22,28 +22,16 @@ if ($_GET['date'])
 else
 	define("date", date("Y-m-d"));
 
+init_process();
 if (DEBUG)
 {
-	ini_set("display_errors", 1);
-	
 	log_info("Executing CA process in debug mode");
-
-	date_default_timezone_set("Asia/Kolkata");
 	log_info("Timezone set to Asia/Kolkata");
-	
-	/* Email id for notification emails */
-	define("email_errors", "amitmahajan86@gmail.com");
 }
 else
 {
-	ini_set("display_errors", 0);
-	
 	log_info("Executing CA process in non-debug mode");
-
-	date_default_timezone_set("America/New_York");
 	log_info("Timezone set to America/New_York");
-	
-	define("email_errors", "icalc@indxx.com");
 }
 log_info("All notification/error emails will be send to " . email_errors);
 log_info("Process will execute on data for " .date);
@@ -51,10 +39,7 @@ log_info("Process will execute on data for " .date);
 /* Input file paths */
 define("ca_file", get_input_file("CA", date));
 
-define("process", "CA");
-
 read_ca_file();
-//check_dvd_currency();
 
 //$finish = get_time();
 //$total_time = round(($finish - $start), 4);

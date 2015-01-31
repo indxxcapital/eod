@@ -1,7 +1,25 @@
 <?php
 
 //For production mode make this 0, also set this to 0 in functions.class.php
-define ( "DEBUG", 0);
+define ( "DEBUG", 1);
+
+function init_process()
+{
+	if (DEBUG)
+	{
+		ini_set("display_errors", 1);
+		
+		date_default_timezone_set("Asia/Kolkata");
+		define("email_errors", "amitmahajan86@gmail.com");
+	}
+	else
+	{
+		ini_set("display_errors", 0);
+		
+		define("email_errors", "icalc@indxx.com");		
+		date_default_timezone_set("America/New_York");
+	}
+}
 
 function error_handler($errno, $errstr, $errfile, $errline) 
 {
@@ -73,28 +91,26 @@ function get_dbbackup_path()
 
 function mail_exit($file, $line)
 {
-	if (process)
-		$value = process;
-	else
-		log_error("Please define the process type, needed for logging and emails !!");
-		
+	include_once "../icai2/mailer/index.php";
+	
 	log_error("Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
-	mail(email_errors, $value. " file generation process existed with error.", 
-			"Please check log[" .log_file. "] file for more info.");
+
+	if (!DEBUG)
+		sendmail(email_errors, "EoD process existed with error.", 
+				"Please check log[" .log_file. "] file for more info.");
 	exit();	
 }
 
 /* TODO: Sending emails slows down the process, consolidate emails and send at one go */
 function mail_skip($file, $line)
 {
-	if (process)
-		$value = process;
-	else
-		log_error("Please define the process type, needed for logging and emails !!");
-	
+	include_once "../icai2/mailer/index.php";
+		
 	log_warning("Sending email for anomaly at file=" .$file. " and line=" .$line);
-	mail(email_errors, $value. " file generation process encountered anomaly.",
-			"Please check log[" .log_file. "] file for more info.");
+	
+	if (!DEBUG)
+		sendmail(email_errors, "EoD process encountered anomaly.",
+				"Please check log[" .log_file. "] file for more info.");
 }
 
 /*

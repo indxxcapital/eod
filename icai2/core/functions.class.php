@@ -1,8 +1,9 @@
 <?php
+
 class Functions extends Models {
 
 	//For production mode make this 0, set this to 0 in input_file.php too
-	var $DEBUG = 0;
+	var $DEBUG = 1;
 	var $debugging = true;
 	var $moduleClass = "";
 	var $moduleClassFile = "";
@@ -15,12 +16,10 @@ class Functions extends Models {
 	var $_breadcrumbsHome = 1;
 	var $_breadcrumbshow = 1;
 	var $_date = '';
-	var $logs_folder = "../files/logs/";
-	//var $opening_process_logs = null;
 
-	static $email_errors = "";
-	static $process = null;
-	
+	var $logs_folder = "../files/logs/";
+	var $email_errors = null;
+
 	function do_init()
 	{		
 		/* Execution time for the script. Must be defined based on performance and load. */
@@ -29,28 +28,14 @@ class Functions extends Models {
 
 		if ($this->DEBUG)
 		{
-			$this->email_errors = "amitmahajan86@gmail.com";
 			date_default_timezone_set("Asia/Kolkata");
+			$this->email_errors	= "amitmahajan86@gmail.com";
 		}
 		else
 		{
+			date_default_timezone_set("America/New_York");	
 			$this->email_errors = "icalc@indxx.com";
-			date_default_timezone_set("America/New_York");				
-		}
-
-			
-		/*
-		if ($this->process == null)
-		{
-			//echo "called for module " .$_GET['module']. "<br>";
-			if ($_GET['module'] == calcindxxclosing)
-				$this->process = "Closing";
-			else if ($_GET['module'] == Calcindxxopening)
-				$this->process = "Opening";
-			else 
-				$this->process = "CA";			
-		}
-		*/
+		}			
 	}
 	
 	function setdate() {
@@ -1003,17 +988,25 @@ class Functions extends Models {
 	/* TODO: Add check for type of process here as we did in function.php */
 	function mail_exit($log_file, $file, $line)
 	{
+		include_once '../mailer/index.php';
+		
 		$this->log_error($log_file, "Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
-		mail($this->email_errors, $this->process. " file generation process existed with error.",
-		"Please check log[" .$log_file. "] file for more info.");
+
+		if (!$this->DEBUG)
+			sendmail($this->email_errors, "EoD process existed with error.",
+			"Please check log[" .$log_file. "] file for more info.");
 		exit();
 	}
 	
 	function mail_skip($log_file, $file, $line)
 	{
+		include_once '../mailer/index.php';
+		
 		$this->log_warning($log_file, "Sending email for anomoly at file=" .$file. " and line=" .$line);
-		mail($this->email_errors, $this->process. " file generation process encountered anomaly.",
-		"Please check log[" .$log_file. "] file for more info.");
+
+		if (!$this->DEBUG)
+			sendmail($this->email_errors, "EoD process encountered anomaly.",
+				"Please check log[" .$log_file. "] file for more info.");
 	}
 	
 	function exec_mysql_query($query, $log_file, $func, $line)

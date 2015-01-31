@@ -8,7 +8,6 @@ class Calcftpopen extends Application
 
 	function index() 
 	{
-		//echo "process = " .$this->process. ", email=" .$this->email_errors. ", process-old =" . process. "<br>";
 		/* TODO: Uncomment this in live setup */
 		if (false)
 		{

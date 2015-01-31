@@ -27,28 +27,16 @@ if ($_GET['date'])
 else
 	define("date", date("Y-m-d"));
 
+init_process();
 if (DEBUG)
 {
-	ini_set("display_errors", 1);
-	
 	log_info("Executing closing index process in debug mode");
-
-	date_default_timezone_set("Asia/Kolkata");
 	log_info("Timezone set to Asia/Kolkata");
-	
-	/* Email id for notification emails */
-	define("email_errors", "amitmahajan86@gmail.com");
 }
 else
 {
-	ini_set("display_errors", 0);
-	
-	log_info("Executing closing index process in non-debug mode");
-	
-	date_default_timezone_set("America/New_York");
+	log_info("Executing closing index process in non-debug mode");	
 	log_info("Timezone set to America/New_York");
-	
-	define("email_errors", "icalc@indxx.com");
 }
 log_info("All notification/error emails will be send to " . email_errors);
 log_info("Process will execute on data for " .date);
@@ -58,9 +46,6 @@ define("currencyfactor_file", get_input_file("CURRENCY_FACTOR", date));
 define("liborrate_file", get_input_file("LIBOR_RATE", date));
 define("cashindex_file", get_input_file("CASH_INDEX", date));
 define("price_file", get_input_file("PRICE_FILE", date));
-
-/* TODO: Send this to classes too */
-define("process", "Closing");
 
 $backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
 if (DEBUG)
