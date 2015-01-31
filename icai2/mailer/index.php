@@ -42,14 +42,10 @@ function sendmail($to, $subject, $body)
 	$message->addPart ( $text, 'text/plain' );
 	
 	// send message
-	if ($recipients = $swift->send ( $message, $failures )) 
+	if (!($recipients = $swift->send ( $message, $failures ))) 
 	{
-		echo 'Message sent out to ' . $recipients . ' users';
-	}
-	else 
-	{
-		echo "Something went wrong - ";
-		print_r ( $failures );
+		echo "CRITICAL: Unable to send email!";
+		//print_r ( $failures );
 	}
 }
 ?>

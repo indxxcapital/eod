@@ -34,6 +34,7 @@ class Functions extends Models {
 		else
 		{
 			date_default_timezone_set("America/New_York");	
+			//$this->email_errors	= "amitmahajan86@gmail.com";
 			$this->email_errors = "icalc@indxx.com";
 		}			
 	}

@@ -16,6 +16,7 @@ function init_process()
 	{
 		ini_set("display_errors", 0);
 		
+		//define("email_errors", "amitmahajan86@gmail.com");
 		define("email_errors", "icalc@indxx.com");		
 		date_default_timezone_set("America/New_York");
 	}

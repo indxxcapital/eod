@@ -121,9 +121,6 @@ function notify_ticker_change()
 		{
 			log_warning("Ticker for CA with identifier = " .$ca['identifier']. ", company = " .$ca['company_name']. 
 				" and action_id = " .$ca['action_id']. " will be changed on " .date('Y-m-d', strtotime($ca['eff_date'])));
-
-			echo "Ticker for CA with identifier = " .$ca['identifier']. ", company = " .$ca['company_name'].
-			" and action_id = " .$ca['action_id']. " will be changed on " .date('Y-m-d', strtotime($ca['eff_date']));
 				
 			mail_skip(__FILE__, __LINE__);
 		}
