@@ -3,7 +3,7 @@
 class Functions extends Models {
 
 	//For production mode make this 0, set this to 0 in input_file.php too
-	var $DEBUG = 1;
+	var $DEBUG = 0;
 	var $debugging = true;
 	var $moduleClass = "";
 	var $moduleClassFile = "";
