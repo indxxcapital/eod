@@ -114,6 +114,16 @@ function mail_skip($file, $line)
 				"Please check log[" .log_file. "] file for more info.");
 }
 
+function mail_info($info)
+{
+	include_once "../icai2/mailer/index.php";
+
+	log_info("Sending email for info - " .$info);
+
+	if (!DEBUG)
+		sendmail(email_errors, "EoD information.", $info);
+}
+
 /*
  * Path from where BBG input files are fetched:
  * Corporate actions, Cash Index, LIBOR rate, Currency factor, Price file, Adjusted benchmark index

@@ -14,5 +14,4 @@ f) Optimize DB communications.
 
 Things to do at time of going live:
 -----------------------------------
-a) Set FTP
-b) Set SMTP
+a) Set FTP - Discuss with Deepak

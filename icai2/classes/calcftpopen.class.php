@@ -8,16 +8,17 @@ class Calcftpopen extends Application
 
 	function index() 
 	{
-		/* TODO: Uncomment this in live setup */
-		if (false)
-		{
 		/* TODO: Convert all getresult calls into mysql calls, paging isn;t needed */
 		$datevalue2 = $this->_date;
 		
 		define("log_file", $_GET['log_file']);
 		
-		$this->log_info(log_file, "FTP opening file process started.");
-				
+		$this->log_info(log_file, "FTP opening file process started(TO BE IMPLEMENTED)");
+
+		/* TODO: Uncomment this in live setup */
+		if (false)
+		{
+		
 		/* Find all live indexes with client_id = 4, TODO: Why 4? */
 		$indxxs = $this->exec_mysql_query("select code from tbl_indxx where status='1' and client_id='4' ", log_file, __FUNCTION__, __LINE__);
 		
@@ -63,8 +64,8 @@ class Calcftpopen extends Application
 	
 		// ftp_close($conn_id);
 		//$this->saveProcess ( 2 );
-		$this->log_info(log_file, "FTP opening file process finished.");
 		}
+		$this->log_info(log_file, "FTP opening file process finished");
 	}	
 }
 ?>

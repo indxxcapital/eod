@@ -999,6 +999,16 @@ class Functions extends Models {
 		exit();
 	}
 	
+	function mail_info($log_file, $info)
+	{
+		include_once '../mailer/index.php';
+			
+		$this->log_info($log_file, "Sending email for info - " .$info);
+	
+		if (!$this->DEBUG)
+			sendmail($this->email_errors, "EoD information.", $info);
+	}
+	
 	function mail_skip($log_file, $file, $line)
 	{
 		include_once '../mailer/index.php';
