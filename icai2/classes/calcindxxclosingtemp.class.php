@@ -204,7 +204,7 @@ class Calcindxxclosingtemp extends Application
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				
  				$this->db->query($insertQuery);	
 
- 				$backup_folder1 = "../files/output/ca-output_upcomming/";
+ 				$backup_folder1 = "../files/output/ca-output_upcoming/";
  				if (!file_exists($backup_folder1))
  					mkdir($backup_folder1, 0777, true);
  					

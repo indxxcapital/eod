@@ -568,7 +568,7 @@ Thanks ';
 					$cavaluesdata.='Factor;';
 					$cavaluesdata.="\n";	
 					
-					$backup_folder = "../files/output/ca-output_upcomming/test/";
+					$backup_folder = "../files/output/ca-output-upcoming/test/";
 					if (!file_exists($backup_folder))
 						mkdir($backup_folder, 0777, true);
 						
@@ -629,7 +629,7 @@ Thanks ';
 	$filecount=count($filenames);
     for($x=0;$x<count($filenames);$x++){
     	
-    	$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+    	$backup_folder1 = "../files/output/ca-output-upcoming/test/";
     	if (!file_exists($backup_folder1))
     		mkdir($backup_folder1, 0777, true);
     	 
@@ -935,7 +935,7 @@ Thanks ';
 								$cavaluesdata.=$cavalues;
 							}
 							
-							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 							if (!file_exists($backup_folder1))
 								mkdir($backup_folder1, 0777, true);
 								
@@ -989,7 +989,7 @@ Thanks ';
 					{
 							$filecount=count($clientindexcode);		
 
-							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 							if (!file_exists($backup_folder1))
 								mkdir($backup_folder1, 0777, true);
 								
@@ -1312,7 +1312,7 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					//$cavaluesdata.=$ind['name'].";";		
 					//$cavaluesdata.="\n";		
 					
-					$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+					$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 					if (!file_exists($backup_folder1))
 						mkdir($backup_folder1, 0777, true);
 						
@@ -1347,7 +1347,7 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 			$from = "Indexing <indexing@indxx.com>"; 
 			$subject ="New Corporate Actions"; 
 			$message = 'Hi <br>';
-			$message.='New Corporate Actions has been approved by admin. Following files are published on ftp at files2/ca-output_upcomming/test/ folder : <br><br>' ;
+			$message.='New Corporate Actions has been approved by admin. Following files are published on ftp at files2/ca-output-upcoming/test/ folder : <br><br>' ;
 			$message.='<table>';
 			foreach($filenames as $keyfiles=>$valuefiles)
 			{
@@ -1377,7 +1377,7 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 			$filecount=count($filenames);
 			for($x=0;$x<count($filenames);$x++){
 				
-				$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+				$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 				if (!file_exists($backup_folder1))
 					mkdir($backup_folder1, 0777, true);
 				
@@ -1497,7 +1497,7 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					{				
 						foreach($detailsuser as $indxxcode=>$cadata)
 						{
-							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 							if (!file_exists($backup_folder1))
 								mkdir($backup_folder1, 0777, true);
 								
@@ -1569,7 +1569,7 @@ $body.='Corporate Action '.$indxx['company_name'].'('.$indxx['mnemonic'].') has 
 					{
 							$filecount=count($userindexcode);							
 							
-							$backup_folder1 = "../files/output/ca-output_upcomming/test/";
+							$backup_folder1 = "../files/output/ca-output-upcoming/test/";
 							if (!file_exists($backup_folder1))
 								mkdir($backup_folder1, 0777, true);
 								

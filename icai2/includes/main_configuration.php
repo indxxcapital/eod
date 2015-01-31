@@ -27,7 +27,7 @@ else
 	var $base_path='C:/xampp/htdocs/eod/icai2/';
 	var $base_url='http://191.238.229.176/eod/icai2/';
 	var $base_url_mc = 'http://191.238.229.176/eod/multicurrency2/';
-	var $db_host='localhost:3306';
+	var $db_host='localhost';
 	var $db_user='admin_icai2';
 	var $db_password='Reset1105@@';
 	var $db_name='admin_icai2';

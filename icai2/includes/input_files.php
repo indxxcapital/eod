@@ -1,7 +1,7 @@
 <?php
 
 //For production mode make this 0, also set this to 0 in functions.class.php
-define ( "DEBUG", 1 );
+define ( "DEBUG", 0);
 
 function error_handler($errno, $errstr, $errfile, $errline) 
 {

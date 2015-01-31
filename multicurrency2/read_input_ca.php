@@ -16,6 +16,12 @@ ini_set("memory_limit", "1024M");
 prepare_logfile();
 define("log_file", get_logs_folder() . "ca_process_logs_" . date('Y-m-d_H-i-s', $_SERVER ['REQUEST_TIME']) . ".txt");
 
+/* Define date for fetching input files and manipulations */
+if ($_GET['date'])
+	define("date", $_GET['date']);
+else
+	define("date", date("Y-m-d"));
+
 if (DEBUG)
 {
 	ini_set("display_errors", 1);
@@ -27,9 +33,6 @@ if (DEBUG)
 	
 	/* Email id for notification emails */
 	define("email_errors", "amitmahajan86@gmail.com");
-
-	/* Define date for fetching input files and manipulations */
-	define("date", $_GET['date']);
 }
 else
 {
@@ -41,7 +44,6 @@ else
 	log_info("Timezone set to America/New_York");
 	
 	define("email_errors", "icalc@indxx.com");
-	define("date", date("Y-m-d"));
 }
 log_info("All notification/error emails will be send to " . email_errors);
 log_info("Process will execute on data for " .date);

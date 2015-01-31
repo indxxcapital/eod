@@ -2,6 +2,8 @@
 include ("core/function.php");
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
+ini_set("display_errors", 0);
+
 $date = $_GET['date'];
 
 if($_GET['log_file'])
@@ -85,8 +87,7 @@ if (!empty($array))
 }
 else 
 {
-	log_error("No data to generate excel files for clients");
-	mail_exit(__FILE__, __LINE__);		
+	log_info("No data to generate excel files for clients");
 }
 log_info("Publish XLS generation process finished.");
 

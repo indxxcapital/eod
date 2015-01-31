@@ -2,7 +2,7 @@
 class Functions extends Models {
 
 	//For production mode make this 0, set this to 0 in input_file.php too
-	var $DEBUG = 1;
+	var $DEBUG = 0;
 	var $debugging = true;
 	var $moduleClass = "";
 	var $moduleClassFile = "";
@@ -54,12 +54,12 @@ class Functions extends Models {
 	}
 	
 	function setdate() {
-		if($this->DEBUG)	
-			//$this->_date = '2014-12-20';
+		/* Define date for fetching input files and manipulations */
+		if ($_GET['date'])
 			$this->_date = $_GET['date'];
-		else 
-			$this->_date = date ( "Y-m-d");
-
+		else
+			$this->_date = date("Y-m-d");
+		
 		$this->do_init();
 	}
 	function setLang($lang = "en") {

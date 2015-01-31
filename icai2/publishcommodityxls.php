@@ -93,7 +93,7 @@ $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
 if($client['name'])
 {
-	$backup_folder = "../files/output/output_upcomming/" .$client['name']."/";
+	$backup_folder = "../files/output/output_upcoming/" .$client['name']."/";
 	if (!file_exists($backup_folder))
 		mkdir($backup_folder, 0777, true);
 	
@@ -101,7 +101,7 @@ if($client['name'])
 }
 else
 {
-	$backup_folder = "../files/output/output_upcomming/";
+	$backup_folder = "../files/output/output_upcoming/";
 	if (!file_exists($backup_folder))
 		mkdir($backup_folder, 0777, true);
 	

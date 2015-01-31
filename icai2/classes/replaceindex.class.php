@@ -98,7 +98,7 @@ class Replaceindex extends Application
 			if (!file_exists($output_folder))
 				mkdir($output_folder, 0777, true);
 			
-			$file = $output_folder. "backup-upcomming-" . $datevalue . ".txt";
+			$file = $output_folder. "backup-upcoming-" . $datevalue . ".txt";
 			$open = fopen ( $file, "w+" );
 			
 			if ($open) 
