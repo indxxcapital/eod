@@ -95,7 +95,7 @@ log_info("Publish XLS generation process finished.");
 
 /*TODO: Bypass FTP for test - This also needs to be discussed with Deepak since there is difference in new setup */
 /* Bypass IVCHANGE, already done in closing file calcultion */
-$url = "index.php?module=calcftpclose&date=" .$date. "&log_file=" . log_file;
+$url = "index.php?module=calcftpclose&date=" .$date. "&log_file=" . $_GET['log_file'];
 //$url = "index.php?module=checkivchange";
 //$url = "index.php?module=checkpvchange";
 //$url = "index.php?module=calcweight";
