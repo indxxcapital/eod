@@ -130,9 +130,7 @@ class Calcindxxopeningtemp extends Application
 			{	
 				$index = $final_array[$indxxKey];
 				
-				//TODO=========================
-				file_put_contents($backup_folder .'preopentempdata' . "_" .$indxxKey. '.json', json_encode($index));
-				//file_put_contents($backup_folder .'preopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($index));
+				file_put_contents($backup_folder .'preopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($index));
 				
 				$this->log_info(log_file, "Preopentempdata file created for index= " . $indxxKey);
 					
@@ -353,9 +351,7 @@ class Calcindxxopeningtemp extends Application
 					$final_array[$indxxKey]['index_value'] ['divisor_impact'] += $divisorImpact;						
 				}
 
-				//TODO:================
-				file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey.'.json', json_encode ($final_array[$indxxKey]));
-				//file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($index));
+				file_put_contents($backup_folder . 'postopentempdata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($index));
 				$this->log_info(log_file, "Postopentempdata file created for index= " . $indxxKey);
 			}
 		}

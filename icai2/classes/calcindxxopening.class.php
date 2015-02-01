@@ -159,9 +159,7 @@ class Calcindxxopening extends Application
 		{
 			foreach ( $final_array as $indxxKey => $closeIndxx ) 
 			{				
-				//TODO=========================
-				file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. '.json', json_encode($final_array[$indxxKey]));
-				//file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($final_array[$indxxKey]));
+				file_put_contents($backup_folder .'preopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode($final_array[$indxxKey]));
 				
 				$this->log_info(log_file, "Preopendata file created for index= " . $indxxKey);
 				
@@ -373,9 +371,7 @@ class Calcindxxopening extends Application
 					$final_array[$indxxKey]['index_value'] ['divisor_impact'] += $divisorImpact;
 				}
 				
-				//TODO:================
-				file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey.'.json', json_encode ($final_array[$indxxKey]));
-				//file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($final_array[$indxxKey]));		
+				file_put_contents($backup_folder . 'postopendata' . "_" .$indxxKey. "_" . date ( "Y-m-d-H-i-s" ) . time () . '.json', json_encode ($final_array[$indxxKey]));		
 				$this->log_info(log_file, "Postopendata file created for index= " . $indxxKey);
 			}
 		}
