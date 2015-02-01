@@ -30,14 +30,14 @@ class Calcftpca extends Application{
 		
 		// upload a file
 		if (!ftp_put($conn_id, $remote_file2, $file2, FTP_ASCII)) 
-			$this->mail_skip(log_file, __FILE__, __LINE__);
+			$this->mail_info(log_file, "FTP upload failed for " .$file2);
 
 		$file3 = '../files/ouput/ca-output/pga/ca-IPJAR-'. $datevalue2.'.txt';
 		$remote_file3 = 'ca-IPJAR-'. $datevalue2.'.txt';
 		
 		// upload a file
 		if (!ftp_put($conn_id, $remote_file3, $file3, FTP_ASCII)) 
-			$this->mail_skip(log_file, __FILE__, __LINE__);
+			$this->mail_info(log_file, "FTP upload failed for " .$file3);
 				
 		//$this->saveProcess();
 		ftp_close($conn_id);

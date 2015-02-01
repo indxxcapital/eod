@@ -187,14 +187,12 @@ class Calcindxxclosingtemp extends Application
  						$diff = 100 * (($newindexvalue - $existing_value) / $existing_value);
  						if(($diff >= 5) || ($diff <= - 5))
  						{
- 							$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
-							$this->mail_skip(log_file, __FILE__, __LINE__);		
+							$this->mail_info(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);		
  						}
  					}
  					elseif ($newindexvalue)
  					{
- 						$this->log_warning(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
- 						$this->mail_skip(log_file, __FILE__, __LINE__);
+ 						$this->mail_info(log_file, "Index value fluctuated by more than 5% for index = " . $indxxKey);
  					}
  				}
  				

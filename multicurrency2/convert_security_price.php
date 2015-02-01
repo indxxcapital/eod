@@ -27,19 +27,12 @@ function check_security_price_fluctuations()
 			$diff = 100 * (($row1['price'] - $row2['price']) / $row2['price']);
 
 			if(($diff >= 5) || ($diff <= - 5))
-			{
 				$msg .= "Security value fluctuated by more than 5% for security_isin=" . $row2['isin'] . ".\n";
-				//log_warning("Security value fluctuated by more than 5% for  security_isin=" . $row2['isin'] . ".");
-				//mail_skip(__FILE__, __LINE__);
-			}
 		}
 	}
 	
 	if ($msg != '')
-	{
-		log_warning($msg);
-		mail_skip(__FILE__, __LINE__);
-	}
+		mail_info($msg);
 }
 
 function send_index_deactivation_mail($keyindex, $valueindex, $index_type)
@@ -170,9 +163,8 @@ function convert_security_to_indxx_curr()
 					 */					
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
-						log_error("	Currency mismatch for index=" .$index_id. "[localcurrency=" 
-									.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");						
-						mail_skip(__FILE__, __LINE__);
+						mail_info("Currency mismatch for index=" .$index_id. "[localcurrency=" 
+									.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
 						
 						$indexarray[$index_id] = $priceRow['ticker'];
 						break;
@@ -224,8 +216,8 @@ function convert_security_to_indxx_curr()
 			{
 				log_error("Unable to de-activate index = " . $keyindex .
 							". MYSQL error code = " . $err_code . 
-							". Needs to be done manually. Not calculating for today.");
-				mail_skip(__FILE__, __LINE__);
+							". Exiting process");
+				mail_exit(__FILE__, __LINE__);
 			}
 		}
 
@@ -341,9 +333,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 					 */
 					if($priceRow['local_currency'] != $priceRow['ticker_currency'])
 					{
-						log_error("	Currency mismatch for index=" .$index_id. "[localcurrency="
-								.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");				
-						mail_skip(__FILE__, __LINE__);
+						mail_info("	Currency mismatch for index=" .$index_id. "[localcurrency="
+								.$priceRow['local_currency']. "][ticker_curr=" .$priceRow['ticker_currency']. "]");
 
 						$indexarray[$index_id] = $priceRow['ticker'];
 						break;
@@ -393,8 +384,8 @@ function convert_security_to_indxx_curr_upcomingindex()
 			{
 				log_error("Unable to de-activate index = " . $keyindex .
 							". MYSQL error code = " . $err_code .
-							". Needs to be done manually. Not calculating for today.");
-				mail_skip(__FILE__, __LINE__);
+							". Exiting process");
+				mail_exit(__FILE__, __LINE__);
 			}
 		}
 

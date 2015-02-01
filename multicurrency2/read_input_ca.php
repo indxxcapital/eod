@@ -172,9 +172,6 @@ function process_ca_file()
 			{
 				$msg .= "Mnemonic/Ann_date/Eff_date missing in security = " .$data ['identifier']. 
 						", bloomberg_unique_id = " .$data ['bloomberg_unique_id']. ". Ignoring this CA.\n";
-				//log_warning("Mnemonic/Ann_date/Eff_date missing in security = " .$data ['identifier']. 
-				//", bloomberg_unique_id = " .$data ['bloomberg_unique_id']. ". Ignoring this CA");
-				//mail_skip(__FILE__, __LINE__);
 			} 
 			else 
 			{
@@ -229,8 +226,7 @@ function process_ca_file()
 
 	if ($msg != '')
 	{
-		log_warning($msg);
-		mail_skip(__FILE__, __LINE__);
+		mail_info($msg);
 	}
 	unset($msg);
 	

@@ -18,12 +18,12 @@ function disable_index($index_id, $table)
 		if (($err_code = mysql_errno()))
 		{
 			log_error("Mysql query failed, error code " . $err_code . ". Exiting CA process.");
-			mail_skip(__FILE__, __LINE__);
+			mail_exit(__FILE__, __LINE__);
 		}
 			
-		log_error("Disabling index (name=" .$chkindexstartdate['name']. ")(id=" .$index_id. 
-				")(code=" .$chkindexstartdate['code']. ") due to currency mismatch in CA.");
-		mail_skip(__FILE__, __LINE__);
+		$info = "Disabling index (name=" .$chkindexstartdate['name']. ")(id=" .$index_id. 
+					")(code=" .$chkindexstartdate['code']. ") due to currency mismatch in CA.";
+		mail_info($info);
 	}
 	mysql_free_result($res);
 }
@@ -119,10 +119,10 @@ function notify_ticker_change()
 	{
 		if (strtotime($ca['eff_date']) >= strtotime (date)) 
 		{
-			log_warning("Ticker for CA with identifier = " .$ca['identifier']. ", company = " .$ca['company_name']. 
-				" and action_id = " .$ca['action_id']. " will be changed on " .date('Y-m-d', strtotime($ca['eff_date'])));
+			$info = "Ticker for CA with identifier = " .$ca['identifier']. ", company = " .$ca['company_name']. 
+				" and action_id = " .$ca['action_id']. " will be changed on " .date('Y-m-d', strtotime($ca['eff_date']));
 				
-			mail_skip(__FILE__, __LINE__);
+			mail_info($info);
 		}
 	}
 	mysql_free_result($res);

@@ -118,7 +118,7 @@ function mail_info($info)
 {
 	include_once "../icai2/mailer/index.php";
 
-	log_info("Sending email for info - " .$info);
+	log_warning("Sending email for info - " .$info);
 
 	if (!DEBUG)
 		sendmail(email_errors, "EoD information.", $info);
