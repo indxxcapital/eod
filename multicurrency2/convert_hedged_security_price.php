@@ -6,12 +6,10 @@ function convert_headged_security_to_indxx_curr()
 	//$start = get_time();
 
 	$final_price_array	=	array();
-
-	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? */
-	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx', array("currency_hedged" => 1));
-	/* AMIT: Add check for status, submit etc. */
-	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_hedged = '1'");
-
+	
+	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx where currency_hedged = '1' and status = '1' and 
+							usersignoff = '1' and dbusersignoff = '1' and submitted = '1'");
+	
 	if ($err_code = mysql_errno())
 	{
 		log_error("Unable to read live hedged indexes. MYSQL error code " . $err_code .
@@ -108,9 +106,8 @@ function convert_headged_security_to_indxx_curr_upcomingindex()
 	
 	$final_price_array	=	array();
 	
-	/* TODO: Don't we need to check for active and signed indexes here and look for currency mismatches? */
-	//$indxx = selectrow(array('id', 'name', 'code', 'curr'), 'tbl_indxx_temp', array("currency_hedged" => 1));
-	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx_temp where currency_hedged = '1'");
+	$indxx = mysql_query("Select id, name, code, curr from tbl_indxx_temp where currency_hedged = '1' and 
+							status = '1' AND submitted = '1'");
 	
 	if ($err_code = mysql_errno())
 	{
