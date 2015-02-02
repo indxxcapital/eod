@@ -20,7 +20,7 @@ function sendmail($to, $subject, $body)
 	$to = array ($to);
 
 	// Email subject
-	$subject = $subject;
+	$subject = "Azure server: " .$subject;
 	
 	// Login credentials
 	$username = 'azure_dd71e19f09f4753c305d62f15bdc6b27@azure.com';

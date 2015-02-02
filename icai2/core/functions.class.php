@@ -585,7 +585,16 @@ class Functions extends Models {
 		
 		return $mail->Send ();
 	}
-	protected function SendMail($to, $subject, $body, $attachment, $fromname = "", $fromemail = "") {
+
+	protected function SendMail($to,$subject,$body,$attachment,$fromname="",$fromemail="")
+	{
+		if (!$this->DEBUG)
+		{
+			require_once($this->siteconfig->base_path.'mailer/index.php');
+			sendmail($to,$subject,$body);
+		}
+	}
+	protected function SendMail_old($to, $subject, $body, $attachment, $fromname = "", $fromemail = "") {
 		
 		// get the template html folder
 		$templateFormat = file_get_contents ( $this->siteconfig->base_path . 'assets/mail/mailer.html' );
