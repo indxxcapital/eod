@@ -42,8 +42,10 @@ $this->addJs('js/flaty.js');
 	if($_POST['db'] && $_POST['dbbackupfilename'])
 	{
 	//$url='http://191.238.229.176/eod/multicurrency2/restore_db.php?DBNAME='.$_POST['dbbackupfilename'];
-	//$res = $this->Redirect2('http://191.238.229.176/eod/multicurrency2/restore_db.php?DBNAME='.$_POST['dbbackupfilename']);
-		$res = $this->Redirect2('http://localhost/eod/multicurrency2/restore_db.php?DBNAME='.$_POST['dbbackupfilename']);
+		if (!$this->DEBUG)
+			$res = $this->Redirect2($this->siteconfig->base_url_mc. 'restore_db.php?DBNAME='.$_POST['dbbackupfilename']);
+		else
+			$res = $this->Redirect2('http://localhost/eod/multicurrency2/restore_db.php?DBNAME='.$_POST['dbbackupfilename']);
 		
 	//TODO: if res = false, display error popoup to user, else display success popup
 	}
