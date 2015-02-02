@@ -74,7 +74,7 @@ $this->addJs('js/flaty.js');
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";\
+$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";
 
 
 $users=$this->db->getResult("select tbl_it_users.email from tbl_it_users where 1=1 ",true);
@@ -239,7 +239,7 @@ $headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.c
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";\
+$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";
 
 
 $users=$this->db->getResult("select tbl_it_users.email from tbl_it_users where 1=1 ",true);
@@ -346,7 +346,7 @@ $userdata1=$this->db->getResult("select tbl_issue_request.* from tbl_issue_reque
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";\
+$headers .= 'From: Indexing <indexing@indxx.com>' . "\r\n"."CC: indexing@indxx.com". "\r\n";
 
 
 if($_SESSION['User']['type']==4)

@@ -993,7 +993,7 @@ Thanks ';
 							if (!file_exists($backup_folder1))
 								mkdir($backup_folder1, 0777, true);
 								
-							$file = fopen($backup_folder1. .$clientfiles,"rb");
+							$file = fopen($backup_folder1 .$clientfiles,"rb");
 							$data = fread($file,filesize($backup_folder1. $clientfiles));
 							fclose($file);
 							$data = chunk_split(base64_encode($data));
