@@ -281,7 +281,7 @@ class Application extends Functions{
 			 $this->setMessage($msg,$type);
 		 
 			header("location:".$this->makeUrl($url));	
-			exit;
+			//exit;
 		
 		}	
 		public function Redirect2($url,$msg="",$type="")
