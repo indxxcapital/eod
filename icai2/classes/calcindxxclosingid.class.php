@@ -12,7 +12,7 @@ class Calcindxxclosingid extends Application{
 	{
 		
 		
-		//$this->pr($_SESSION);
+		//$this->pr($_GET,true);
 		
 		//$this->_baseTemplate="main-template";
 		//$this->_bodyTemplate="404";
@@ -26,18 +26,18 @@ class Calcindxxclosingid extends Application{
 		
 		$type="close";
 		
-		 $datevalue=$this->_date;
+		// $datevalue=$this->_date;
 //echo date("D",strtotime($datevalue));
 //exit;
- if(date("D",strtotime($datevalue))=="Mon")
+ /* if(date("D",strtotime($datevalue))=="Mon")
  $datevalue=date("Y-m-d",strtotime($datevalue)-86400*3);
 else
  $datevalue=date("Y-m-d",strtotime($datevalue)-86400);
-
+ */
 //$datevalue="2014-12-16";
 //echo $datevalue;
 //exit;
-
+ $datevalue=$_GET['date'];
 //exit;
 	//
 		$final_array=array();

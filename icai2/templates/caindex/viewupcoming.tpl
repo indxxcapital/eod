@@ -217,7 +217,9 @@ $.ajax({
   {if $viewindexdata.0.submitted==1 && $viewindexdata.0.usersignoff==0 && $viewindexdata.0.dbusersignoff==1}
                                    <a href="index.php?module=caindex&event=signofftemp&id={$viewindexdata.0.id}">  <button class="btn btn-info">Sign Off </button></a>{/if}
                                    {if $viewindexdata.0.submitted==1 && $viewindexdata.0.usersignoff==1 && $viewindexdata.0.dbusersignoff==1 && $viewindexdata.0.runindex==0 && $viewindexdata.0.rebalance==0}
-                                   <a href="index.php?module=calcindxxclosingid&id={$viewindexdata.0.id}">  <button class="btn btn-info">Run Index</button></a>{/if}
+                                   
+								   <!--index.php?module=calcindxxclosingid&id={$viewindexdata.0.id}-->
+								   <a href="index.php?module=runindex&id={$viewindexdata.0.id}">  <button class="btn btn-info">Run Index</button></a>{/if}
                                    
                                    
                                
