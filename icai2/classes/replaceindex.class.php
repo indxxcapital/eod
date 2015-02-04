@@ -21,7 +21,7 @@ class Replaceindex extends Application
 		$finalArray = array ();
 		
 		/* Fetch list of all upcoming indexes with today as the live date */
-		$totalindxxs = $this->db->getResult ( "select * from tbl_indxx_temp where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' and finalsignoff='1'  and dateStart='" . $datevalue . "'  ", true );
+		$indexdata = $this->db->getResult ( "select * from tbl_indxx_temp where status='1' and usersignoff='1' and dbusersignoff='1' and submitted='1' and finalsignoff='1'  and dateStart='" . $datevalue . "'  ", true );
 		
 		if (! empty ( $indexdata )) 
 		{
