@@ -202,12 +202,6 @@ class Calcindxxclosingtemp extends Application
  							"'.$datevalue.'", "'.$oldDivisor.'", "'.$newDivisor.'")';	 				
  				$this->db->query($insertQuery);	
 
- 				$backup_folder1 = "../files/output/ca-output_upcoming/";
- 				if (!file_exists($backup_folder1))
- 					mkdir($backup_folder1, 0777, true);
- 					
- 				$file=$backup_folder1. "Closing-".strtolower($closeIndxx['code'])."p-".$datevalue.".txt";
-
  				$output_folder = "../files/output/ca-output_upcoming/";
  				if (!file_exists($output_folder))
  					mkdir($output_folder, 0777, true);
@@ -232,6 +226,7 @@ class Calcindxxclosingtemp extends Application
 						$this->mail_exit(log_file, __FILE__, __LINE__);
 					}
 				}
+
 				file_put_contents($backup_folder .'postclosetempdata'. "_" . $indxxKey . "_"    .date("Y-m-d-H-i-s").time().'.json', json_encode($final_array[$indxxKey]));
 				$this->log_info(log_file, "Post-CloseData file generated for upcoming index = " .$indxxKey);
 								
