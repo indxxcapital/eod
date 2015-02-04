@@ -998,8 +998,8 @@ class Functions extends Models {
 	/* TODO: Add check for type of process here as we did in function.php */
 	function mail_exit($log_file, $file, $line)
 	{
-		include_once '../mailer/index.php';
-		
+		include_once 'mailer/index.php';
+				
 		$this->log_error($log_file, "Sending email for abrupt process exit at file=" .$file. " and line=" .$line);
 
 		if (!$this->DEBUG)
@@ -1010,7 +1010,7 @@ class Functions extends Models {
 	
 	function mail_info($log_file, $info)
 	{
-		include_once '../mailer/index.php';
+		include_once 'mailer/index.php';
 			
 		$this->log_info($log_file, "Sending email for info - " .$info);
 	
@@ -1020,8 +1020,8 @@ class Functions extends Models {
 	
 	function mail_skip($log_file, $file, $line)
 	{
-		include_once '../mailer/index.php';
-		
+		include_once 'mailer/index.php';
+				
 		$this->log_warning($log_file, "Sending email for anomoly at file=" .$file. " and line=" .$line);
 
 		if (!$this->DEBUG)
