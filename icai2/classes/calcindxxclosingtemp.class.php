@@ -53,22 +53,22 @@ class Calcindxxclosingtemp extends Application
 				/* TODO: Check in which scenario we will go in else */
 				if(!empty($indxx_value))
 				{
-					$row['index_value'] = $indxx_value;
+					$final_array[$row_id]['index_value'] = $indxx_value;
 				}
 				else
 				{
-					$row['index_value']['market_value'] = $row['investmentammount'];
-					$row['index_value']['indxx_value'] = $row['indexvalue'];
+					$final_array[$row_id]['index_value']['market_value'] = $final_array[$row_id]['investmentammount'];
+					$final_array[$row_id]['index_value']['indxx_value'] = $final_array[$row_id]['indexvalue'];
 					
-					if($row['divisor'])
+					if($final_array[$row_id]['divisor'])
 					{
-						$row['index_value']['olddivisor'] =
-								$row['index_value']['newdivisor'] = $row['divisor'];						
+						$final_array[$row_id]['index_value']['olddivisor'] =
+								$final_array[$row_id]['index_value']['newdivisor'] = $final_array[$row_id]['divisor'];						
 					}
 					else
 					{
-						$row['index_value']['olddivisor'] = 
-									$row['index_value']['newdivisor'] = $row['investmentammount']/$row['indexvalue'];
+						$final_array[$row_id]['index_value']['olddivisor'] = 
+									$final_array[$row_id]['index_value']['newdivisor'] = $final_array[$row_id]['investmentammount']/$final_array[$row_id]['indexvalue'];
 					}
 				}
 
@@ -92,7 +92,7 @@ class Calcindxxclosingtemp extends Application
 						{
 							foreach($indxx_dp_value as $dpvalue)
 							{
-								$row['divpvalue'] += $dpvalue['share'] * $dpvalue['dividend'];
+								$final_array[$row_id]['divpvalue'] += $dpvalue['share'] * $dpvalue['dividend'];
 							}
 						}
 					}
