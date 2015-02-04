@@ -126,16 +126,16 @@ class Calcindxxclosingtemp extends Application
 				$entry3	.=	'INDEX SHARES'.",";
 				$entry3	.=	'PRICE'.",";
 					
-				if($row['display_currency'])
+				if($closeIndxx['display_currency'])
 				{
 					$entry3.='CURRENCY'.",";
 					$entry3.='CURRENCY FACTOR'.",";
 				}
 				$entry4='';
 							
-				$oldindexvalue = $row['index_value']['indxx_value'];
+				$oldindexvalue = $closeIndxx['index_value']['indxx_value'];
 				$newindexvalue = 0;
-				$oldDivisor = $newDivisor = $row['index_value']['newdivisor'];
+				$oldDivisor = $newDivisor = $closeIndxx['index_value']['newdivisor'];
 				$marketValue = 0;
 				$sumofDividendes = 0;
 					
@@ -159,7 +159,7 @@ class Calcindxxclosingtemp extends Application
 		            $entry4	.=	$closeprices['calcshare'].",";
 		       		$entry4	.=	number_format($localprice,2,'.','').",";
 	
-					if($row['display_currency'])
+					if($closeIndxx['display_currency'])
 				   	{
 				   		$entry4.=$closeprices['curr'].",";
 						$entry4.=number_format($closeprices['currencyfactor'],6,'.','').",";
@@ -167,7 +167,7 @@ class Calcindxxclosingtemp extends Application
 				}
 					
 				if($closeIndxx['divpvalue'])
-					$marketValue += $row['divpvalue'];
+					$marketValue += $closeIndxx['divpvalue'];
 
 				$newindexvalue = number_format(($marketValue/$newDivisor),2,'.','');
 	
