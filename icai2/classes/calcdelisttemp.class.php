@@ -46,7 +46,7 @@ class Calcdelisttemp extends Application
 					tbl_indxx_ticker_temp it left join tbl_final_price_temp fp on fp.isin=it.isin 
 					left join tbl_share_temp sh on sh.isin=it.isin where 
 					fp.date='" .$datevalue. "' and fp.indxx_id='" .$indxx ['indxx_id']. 
-					" and sh.indxx_id='" .$indxx ['indxx_id']. "and it.indxx_id='" . $indxx ['indxx_id'];
+					"' and sh.indxx_id='" .$indxx ['indxx_id']. "' and it.indxx_id='" . $indxx ['indxx_id']. "'";
 				$indxxprices = $this->db->getResult ( $query, true );
 				
 				$final_array [$indxx ['indxx_id']]['olddata'] = $indxxprices;
