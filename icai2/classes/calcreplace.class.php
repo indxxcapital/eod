@@ -44,9 +44,9 @@ class Calcreplace extends Application
 				}
 				
 				$query = "Select it.id, it.name, it.isin, it.ticker, it.curr, it.divcurr, it.sedol, it.cusip, it.countryname, 
-					fp.price as calcprice, fp.localprice, fp.currencyfactor, sh.share as calcshare from
-					tbl_indxx_ticker it left join tbl_final_price fp on fp.isin=it.isin
-					left join tbl_share sh on sh.isin=it.isin where
+					fp.price as calcprice, fp.localprice, fp.currencyfactor, sh.share as calcshare from 
+					tbl_indxx_ticker it left join tbl_final_price fp on fp.isin=it.isin 
+					left join tbl_share sh on sh.isin=it.isin where 
 					fp.date='" .$datevalue. "' and fp.indxx_id='" .$indxx ['indxx_id'].
 									"' and sh.indxx_id='" .$indxx ['indxx_id']. "'  and it.indxx_id='" . $indxx ['indxx_id']. "'";
 				$indxxprices = $this->db->getResult ( $query, true );				
