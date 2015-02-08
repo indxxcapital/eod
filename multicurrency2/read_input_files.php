@@ -47,7 +47,7 @@ define("liborrate_file", get_input_file("LIBOR_RATE", date));
 define("cashindex_file", get_input_file("CASH_INDEX", date));
 define("price_file", get_input_file("PRICE_FILE", date));
 
-$backup_file = realpath(get_dbbackup_path()) . "/" .$db_name .date. "-" .time(). '.sql';
+$backup_file = realpath(get_dbbackup_path()) . "/" .$db_name ."_" .date. "_" .time(). '.sql';
 if (DEBUG)
 {	
 	$command = "C:/wamp/bin/mysql/mysql5.6.17/bin/mysqldump.exe --opt -h" .$db_host.
