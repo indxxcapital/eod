@@ -71,6 +71,7 @@ class Calcdelist extends Application {
 							{
 								if ($oldsecuriti ['id'] == $removedSecurtity ['security_id']) 
 								{
+									$this->log_info(log_file, "Delist live isin = " .$oldsecuriti ['isin']);
 									$tempMarketCap += $oldsecuriti ['calcshare'] * $oldsecuriti ['calcprice'];
 									
 									$deleteSecurityQuery = 'Delete from tbl_indxx_ticker where id="' . $oldsecuriti ['id'] . '"';

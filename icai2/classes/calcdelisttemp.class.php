@@ -74,6 +74,7 @@ class Calcdelisttemp extends Application
 							{
 								if ($oldsecuriti ['id'] == $removedSecurtity ['security_id']) 
 								{
+									$this->log_info(log_file, "Delist upcoming isin = " .$oldsecuriti ['isin']);
 									
 									$tempMarketCap += $oldsecuriti ['calcshare'] * $oldsecuriti ['calcprice'];
 									
