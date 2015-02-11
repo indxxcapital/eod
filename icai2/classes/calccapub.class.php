@@ -69,6 +69,7 @@ class Calccapub extends Application
 					{
 						$castr = $this->getCaStr3 ( $ticker ['indxxticker'], $datevalue2 );
 						
+						$this->log_info(log_file, $castr);
 						$entry .= $castr;
 						$clients [$client ['ftpusername']] ['value'] .= $this->getCaStr3 ( $ticker ['indxxticker'], $datevalue2, $ind ['name'] );
 					}

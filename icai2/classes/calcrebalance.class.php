@@ -77,10 +77,7 @@ class Calcrebalance extends Application
 				{
 					foreach ( $index ['values'] as $securities )
 						$newMarketCap += $securities ['calcshare'] * $securities ['calcprice'];
-				}
-				
-				if ($newMarketCap != 0) 
-				{
+
 					$newDivisor = $newMarketCap / $oldIndexValue;
 					$final_array [$indexKey] ['newDivisor'] = $newDivisor;
 					
