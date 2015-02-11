@@ -106,7 +106,7 @@ class Replaceindex extends Application
 				if (fwrite ( $open, $csv )) 
 				{
 					fclose ( $open );
-					$this->log_info(log_file, "File written = " .$file);
+					$this->log_info(log_file, "Index backup taken in file = " .$file);
 				}
 				else
 				{
@@ -122,13 +122,16 @@ class Replaceindex extends Application
 				
 			/* Push each upcoming index, with today as live date, into the live index table list */
 			foreach ( $finalArray as $skey => $newIndxx ) 
-			{
+			{				
+				$this->log_info(log_file, "Replace live index (if present), code = " .$newIndxx ['code']);
 				$newIndexArray = array ();
 				
 				$checkindex = $this->db->getResult ( "Select * from  tbl_indxx where code ='" . $newIndxx ['code'] . "'" );
 				
 				if (! empty ( $checkindex ))
 				{
+					$this->log_info(log_file, "Deleting live index, code = " .$newIndxx ['code']);
+						
 					/* Index to be rebalanced is added 3 days in advance to upcomning list */
 					$newIndexArray ['indexdetails'] = $checkindex;					
 					$this->db->query ( "delete from  tbl_indxx where code ='" . $newIndxx ['code'] . "'" );
@@ -226,12 +229,44 @@ class Replaceindex extends Application
 						}		
 					}
 				}
+				else
+				{
+					$this->log_info(log_file, "No live index, code = " .$newIndxx ['code']);
+				}
 				
-				$insertIndexQuery = "Insert into tbl_indxx set name='" . mysql_real_escape_string ( $newIndxx ['name'] ) . "',code='" . mysql_real_escape_string ( $newIndxx ['code'] ) . "',investmentammount='" . mysql_real_escape_string ( $newIndxx ['investmentammount'] ) . "',indexvalue='" . mysql_real_escape_string ( $newIndxx ['indexvalue'] ) . "',divisor='" . ($newIndxx ['divisor']) . "',type='" . mysql_real_escape_string ( $newIndxx ['type'] ) . "',cash_adjust='" . mysql_real_escape_string ( $newIndxx ['cash_adjust'] ) . "',curr='" . mysql_real_escape_string ( $newIndxx ['curr'] ) . "',status='" . mysql_real_escape_string ( $newIndxx ['status'] ) . "',dateAdded='" . mysql_real_escape_string ( $newIndxx ['dateAdded'] ) . "',lastupdated='" . mysql_real_escape_string ( $newIndxx ['lastupdated'] ) . "',dateStart='" . mysql_real_escape_string ( $newIndxx ['dateStart'] ) . "',usersignoff='" . mysql_real_escape_string ( $newIndxx ['usersignoff'] ) . "',dbusersignoff='" . mysql_real_escape_string ( $newIndxx ['dbusersignoff'] ) . "',submitted='" . mysql_real_escape_string ( $newIndxx ['submitted'] ) . "',finalsignoff='" . mysql_real_escape_string ( $newIndxx ['finalsignoff'] ) . "',runindex='" . mysql_real_escape_string ( $newIndxx ['runindex'] ) . "',addtype='" . mysql_real_escape_string ( $newIndxx ['addtype'] ) . "',zone='" . mysql_real_escape_string ( $newIndxx ['zone'] ) . "',client_id='" . mysql_real_escape_string ( $newIndxx ['client_id'] ) . "',display_currency='" . mysql_real_escape_string ( $newIndxx ['display_currency'] ) . "' ,ireturn='" . mysql_real_escape_string ( $newIndxx ['ireturn'] ) . "',div_type='" . mysql_real_escape_string ( $newIndxx ['div_type'] ) . "',currency_hedged='" . mysql_real_escape_string ( $newIndxx ['currency_hedged'] ) . "',priority='" . mysql_real_escape_string ( $newIndxx ['priority'] ) . "',divpvalue='" . mysql_real_escape_string ( $newIndxx ['divpvalue'] ) . "'";				
+				$this->log_info(log_file, "Inserting new live index, code = " .$newIndxx ['code']);
+				
+				$insertIndexQuery = "Insert into tbl_indxx set name='" . mysql_real_escape_string ( $newIndxx ['name'] ) . 
+								"',code='" . mysql_real_escape_string ( $newIndxx ['code'] ) . 
+								"',investmentammount='" . mysql_real_escape_string ( $newIndxx ['investmentammount'] ) . 
+								"',indexvalue='" . mysql_real_escape_string ( $newIndxx ['indexvalue'] ) . 
+								"',divisor='" . ($newIndxx ['divisor']) . 
+								"',type='" . mysql_real_escape_string ( $newIndxx ['type'] ) . 
+								"',cash_adjust='" . mysql_real_escape_string ( $newIndxx ['cash_adjust'] ) . 
+								"',curr='" . mysql_real_escape_string ( $newIndxx ['curr'] ) . 
+								"',status='" . mysql_real_escape_string ( $newIndxx ['status'] ) . 
+								"',dateAdded='" . mysql_real_escape_string ( $newIndxx ['dateAdded'] ) . 
+								"',lastupdated='" . mysql_real_escape_string ( $newIndxx ['lastupdated'] ) . 
+								"',dateStart='" . mysql_real_escape_string ( $newIndxx ['dateStart'] ) . 
+								"',usersignoff='" . mysql_real_escape_string ( $newIndxx ['usersignoff'] ) . 
+								"',dbusersignoff='" . mysql_real_escape_string ( $newIndxx ['dbusersignoff'] ) . 
+								"',submitted='" . mysql_real_escape_string ( $newIndxx ['submitted'] ) . 
+								"',finalsignoff='" . mysql_real_escape_string ( $newIndxx ['finalsignoff'] ) . 
+								"',runindex='" . mysql_real_escape_string ( $newIndxx ['runindex'] ) . 
+								"',addtype='" . mysql_real_escape_string ( $newIndxx ['addtype'] ) . 
+								"',zone='" . mysql_real_escape_string ( $newIndxx ['zone'] ) . 
+								"',client_id='" . mysql_real_escape_string ( $newIndxx ['client_id'] ) . 
+								"',display_currency='" . mysql_real_escape_string ( $newIndxx ['display_currency'] ) . 
+								"' ,ireturn='" . mysql_real_escape_string ( $newIndxx ['ireturn'] ) . 
+								"',div_type='" . mysql_real_escape_string ( $newIndxx ['div_type'] ) . 
+								"',currency_hedged='" . mysql_real_escape_string ( $newIndxx ['currency_hedged'] ) . 
+								"',priority='" . mysql_real_escape_string ( $newIndxx ['priority'] ) . 
+								"',divpvalue='" . mysql_real_escape_string ( $newIndxx ['divpvalue'] ) . "'";				
 				$this->db->query ( $insertIndexQuery );
 				
 				$NewIndxxId = mysql_insert_id ();
 
+				$this->log_info(log_file, "Delete temp index, code = " .$newIndxx ['code']);
 				$this->db->query ( "delete from tbl_indxx_temp where id='" . $newIndxx ['id'] . "'" );
 				
 				$tickerTempArray = array ();
@@ -339,6 +374,10 @@ class Replaceindex extends Application
 					}
 				}
 			}
+		}
+		else
+		{
+			$this->log_info(log_file, "No index to replace");
 		}
 		
 		$this->log_info(log_file, "CA replaceindex process finished");
