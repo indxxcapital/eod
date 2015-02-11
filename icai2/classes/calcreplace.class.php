@@ -16,7 +16,7 @@ class Calcreplace extends Application
 		if($_GET['log_file'])
 			define("log_file", $_GET['log_file']);
 		
-		$this->log_info(log_file, "CA [delist live index] process started");
+		$this->log_info(log_file, "CA [replace live index] process started");
 
 		$final_array = array ();
 
