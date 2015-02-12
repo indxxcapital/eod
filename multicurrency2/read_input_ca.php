@@ -18,10 +18,17 @@ define("log_file", get_logs_folder() . "ca_process_logs_" . date('Y-m-d_H-i-s', 
 
 /* Define date for fetching input files and manipulations */
 if ($_GET['date'])
-	define("date", $_GET['date']);
+	define("file_date", $_GET['date']);
 else
-	define("date", date("Y-m-d"));
+	define("file_date", date("Y-m-d"));
 
+/* Fetch data for file_date but execute the process for next working day */
+//TODO: Do we need to check if its a holiday next day?
+if ("Fri" == date("D", strtotime(file_date)))
+	define("date", date("Y-m-d", strtotime("+3 day", strtotime(file_date))));
+else
+	define("date", date("Y-m-d", strtotime("+1 day", strtotime(file_date))));
+	
 init_process();
 if (DEBUG)
 {
@@ -34,10 +41,10 @@ else
 	log_info("Timezone set to America/New_York");
 }
 log_info("All notification/error emails will be send to " . email_errors);
-log_info("Process will execute on data for " .date);
+log_info("Process will execute for " .date. " on data file of " .file_date);
 
 /* Input file paths */
-define("ca_file", get_input_file("CA", date));
+define("ca_file", get_input_file("CA", file_date));
 
 read_ca_file();
 
