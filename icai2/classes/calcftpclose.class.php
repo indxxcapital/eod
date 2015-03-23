@@ -62,6 +62,7 @@ class Calcftpclose extends Application
 		}
 		
 		$this->log_info(log_file, "Calcftpclose done");
+		$this->log_info(log_file, "Closing process finished");
 	}
 }
 ?>

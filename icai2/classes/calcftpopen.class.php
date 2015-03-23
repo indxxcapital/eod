@@ -66,6 +66,7 @@ class Calcftpopen extends Application
 		//$this->saveProcess ( 2 );
 		}
 		$this->log_info(log_file, "FTP opening file process finished");
+		$this->log_info(log_file, "Opening process finished");
 	}	
 }
 ?>

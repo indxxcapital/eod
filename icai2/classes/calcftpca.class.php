@@ -44,6 +44,7 @@ class Calcftpca extends Application{
 	 	}
 		
 		$this->log_info(log_file, "Calcftpca done");
+		$this->log_info(log_file, "CA process finished");
 	}
 }
 ?>
