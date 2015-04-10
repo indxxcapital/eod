@@ -214,7 +214,7 @@ class Replaceindex extends Application
 							if (fwrite ( $open, $csv )) 
 							{
 								fclose ( $open );
-								$this->info("File written for" . $checkindex ['code']);
+								$this->log_info(log_file, "File written for" . $checkindex ['code']);
 							}
 							else
 							{
