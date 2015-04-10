@@ -47,16 +47,17 @@ class Calcrebalance extends Application
 				
 				$datevalue = $indxx_value ['date'];
 
-				$query = $this->db->getResult ("SELECT it.name, it.isin, it.ticker, 
+				$query = "SELECT it.name, it.isin, it.ticker, 
 								fp.price as calcprice, fp.localprice, fp.currencyfactor, sh.share as calcshare 
 								from `tbl_indxx_ticker_temp` it left join tbl_final_price_temp fp on fp.isin=it.isin 
 								left join tbl_share_temp sh on sh.isin=it.isin 
 								where fp.date='" . $datevalue . "' and fp.indxx_id='" . $row ['id'].
-								"' and sh.indxx_id='" . $row ['id'] . "' and it.indxx_id='" . $row ['id']. "'", false, 1 );				
+								"' and sh.indxx_id='" . $row ['id'] . "' and it.indxx_id='" . $row ['id']. "'";				
 				$indxxprices = $this->db->getResult ( $query, true );		
 				$final_array [$row ['id']] ['values'] = $indxxprices;
 			}
 		}
+
 
 		if (! empty ( $final_array )) 
 		{
@@ -71,19 +72,20 @@ class Calcrebalance extends Application
 				$newDivisor = 0;
 				$oldIndexValue = $index ['index_value'];
 				$newMarketCap = 0;
-
+				
 				/* Calculate updated market value for the index */
 				if (! empty ( $index ['values'] )) 
 				{
+						
 					foreach ( $index ['values'] as $securities )
 						$newMarketCap += $securities ['calcshare'] * $securities ['calcprice'];
 
 					$newDivisor = $newMarketCap / $oldIndexValue;
 					$final_array [$indexKey] ['newDivisor'] = $newDivisor;
-					
+
 					/* Update values in DB */
 					$updateQuery = 'update tbl_indxx_value_temp set market_value="' . $newMarketCap . '",indxx_value="' . $oldIndexValue . '",newdivisor="' . $newDivisor . '",olddivisor="' . $newDivisor . '" where id="' . $index ['last_close_temp_id'] . '"';
-					$this->db->query ( $updateQuery );
+					$this->db->query ( $updateQuery );						
 				}
 			}
 			file_put_contents ($output_folder. 'postrebalancedata' . date ( "Y-m-d-H-i-s" ) . '.json', json_encode ( $final_array ) );
