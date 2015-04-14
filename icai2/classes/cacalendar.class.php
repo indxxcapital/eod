@@ -36,6 +36,7 @@ $ca_array[]='{title: "'.$value['company_name'].'('.$value['identifier'].')-'.$va
 }
 }
  $str=implode(",",$ca_array);
+ //$this->pr($str,true);
 	$this->smarty->assign('cadata',$str);
 
 /*{
